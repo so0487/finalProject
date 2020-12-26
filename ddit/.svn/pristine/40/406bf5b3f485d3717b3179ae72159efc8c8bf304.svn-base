@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Message-Mapper">
+
+<!-- 검색 -->
+<sql id="search">
+	<if test="searchType == 't'.toString()">
+		and message_title like '%'||#{keyword}||'%'			
+	</if>
+	
+	<if test="searchType == 'sender'.toString()">
+		and message_sender like '%'||#{keyword}||'%'		
+	</if>
+	
+	<if test="searchType == 'receiver'.toString()">
+		and message_receiver like '%'||#{keyword}||'%'		
+	</if>
+	<if test="searchType == 'c'.toString()">
+		and message_content like '%'||#{keyword}||'%'		
+	</if>
+	<if test="searchType == 'tc'.toString()">
+		and (message_title like '%'||#{keyword}||'%')
+		or(message_content like '%'||#{keyword}||'%')	
+	</if>
+	
+	<if test="searchType =='all'.toString()">
+		and (message_title like '%'||#{keyword}||'%')
+		or(message_sender like '%'||#{keyword}||'%')	
+		or(message_receiver like '%'||#{keyword}||'%')	
+		or(message_content like '%'||#{keyword}||'%')	
+	</if>
+
+</sql>
+
+
+<!-- 전체 메시지 LIST -->
+<select id="allMessageList" resultType="message">
+	select 
+	*
+	from message
+	<include refid="search"/>
+	order by message_no desc
+</select>
+
+<!-- 메시지 세부 -->
+<select id="messageByMessageNo" resultType="message">
+	select
+	* 
+	from message
+	where message_no = #{message_no}
+</select>
+
+<!-- 보낸메시지함 조회-->
+<select id="sendMailBox" resultType="message">
+	select * 
+	from message
+	where message_sender=#{message_sender}
+	and message_sender_delete = 0
+	<include refid="search"/>
+	order by message_no desc
+</select>
+
+<!-- 받은 메시지함 조회-->
+<select id="receiveMailBox" resultType="message" parameterType="str">
+	select * 
+	from message
+	where message_receiver=#{message_receiver}
+	and message_receiver_delete = 0
+	<include refid="search"/>
+	order by message_no desc
+</select>
+
+<!-- 메시지 작성 -->
+<update id="writeMessage" parameterType="message">
+	insert 
+	into
+	message(message_no, message_sender, message_receiver, message_title, message_content)
+	values(#{message_no}, #{message_sender}, #{message_receiver}, #{message_title}, #{message_content})
+</update>
+
+<!-- 수신확인-->
+<update id="readMessage" parameterType="str">
+	update message
+	set
+	message_receiver_status = 1
+	where message_no = #{message_no}
+</update>
+
+<!-- 송신 메시지함 삭제 -->
+<update id="deleteSendMailBox" parameterType="str">
+	update message
+	set
+	message_sender_delete = 1
+	where message_no = #{message_no}
+</update>
+
+<!-- 수신 메시지함 삭제 -->
+<update id="deleteReceiveMailBox" parameterType="str">
+	update message
+	set
+	message_receiver_delete = 1
+	where message_no = #{message_no}
+</update>
+
+<!-- 메시지 시퀀스 -->
+<select id="getMessageSequenceNextValue" parameterType="int" resultType="str">
+	select 'MESSAGE'||LPAD(seq_message.nextval,4,'0')
+	from dual
+</select>
+
+
+<!-- 메시지 list카운트 -->
+<select id="messageListCount" resultType="int">
+select
+count(*)
+from message
+where message_no is not null
+<include refid="search"/>
+</select>
+
+<!-- 발신메시지listCount -->
+<select id="sendMailBoxCount" resultType="int">
+select
+count(*)
+from message
+where message_sender=#{message_sender}
+and message_sender_delete = 0
+<include refid="search"/>
+</select>
+
+<!-- 수신 메시지 리스트 -->
+<select id="receiveMailBoxCount" resultType="int">
+select
+count(*)
+from message
+where message_receiver=#{message_receiver}
+and message_receiver_delete = 0
+<include refid="search"/>
+</select>
+
+
+
+<!-- 회원LIST -->
+<!-- <select id="getMemberList" resultType="member">
+	select
+	*
+	from member
+</select> -->
+
+<!-- 회원 리스트 count -->
+<!-- <select id="memberListCount" resultType="int">
+select
+count(*)
+from member
+where member_id is not null
+</select> -->
+
+
+
+</mapper>
+

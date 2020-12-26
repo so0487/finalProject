@@ -1,0 +1,56 @@
+package kr.or.ddit.member.service;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface MemberService {
+	
+	//회원리스트조회
+	List<MemberVO> getMemberList(SearchCriteria cri)throws SQLException;
+	
+	List<MemberVO> getMemberByRole(String member_role) throws SQLException;
+	
+	Map<String, Object> getSearchMemberList(SearchCriteria cri)throws SQLException;
+	
+	
+	//회원정보조회
+	MemberVO getMember(String member_id) throws SQLException;
+	
+	MemberVO getMemberByEmail(String member_email) throws SQLException;
+	
+	//회원등록
+	void regist(MemberVO member) throws Exception;
+
+	void adminRegist(MemberVO member) throws Exception;
+	
+	//회원수정
+	void modify(MemberVO member) throws SQLException;
+
+	void adminModify(MemberVO member) throws SQLException;
+	
+	//회원삭제
+	void remove(String member_id) throws SQLException;
+		
+	//회원정지
+	void disabled(String member_id) throws SQLException;
+	
+	//회원활성
+	void enabled(String member_id) throws SQLException;	
+	
+	void userAuth(String userEmail) throws Exception;
+	
+	MemberVO getMemberFindId(MemberVO member) throws Exception;
+
+	MemberVO getMemberFindPwd(MemberVO member) throws Exception;
+	
+	void modifyMemberResetPwd(MemberVO member) throws Exception;
+	
+	List<HashMap<String, Object>> getMemberAdmin(String member_id) throws Exception;
+	
+	List<MemberVO> getProAdminByTime(Map<String, String> param) throws SQLException;
+}	

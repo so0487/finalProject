@@ -1,0 +1,49 @@
+package kr.or.ddit.evaToLec.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.EvaVO;
+import kr.or.ddit.evaToLec.dao.EvaDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class EvaServiceImpl implements EvaService {
+	private EvaDAO evaDAO;
+
+	public void setEvaDAO(EvaDAO evaDAO) {
+		this.evaDAO = evaDAO;
+	}
+
+	@Override
+	public List<EvaVO> getEvaList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EvaVO getEvaByNo(String evalution_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registEva(EvaVO evalution) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyEva(EvaVO evalution) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeEva(EvaVO evalution) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+}

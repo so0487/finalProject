@@ -1,0 +1,147 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<body>
+   <div class="content-body">
+      <div class="col-12 mb-30">
+         <div class="box-head">
+            <h3 class="title">면접일정등록</h3>
+            <div class="col-lg-12 mb-20">
+               <h6 class="row mb-15">새로운 면접일정</h6>
+               <div class="add-edit-product-wrap col-12 ">
+                  <form action="regist.do" method="post" class="col-lg-12">
+                     <div class="mb-30"><br/>
+                     교육과정회차
+                        <select class="form-control" id="interview_name1" onChange="getSelectValue(this.form);">
+                           <option>교육과정회차 선택</option>
+<%--                            <c:forEach var="classes" items="${classList }" varStatus="status"> --%>
+                              <option value="${classes.class_no}">${classes.curriculum_name}
+                                 ${classes.class_number } 회차</option>
+<%--                            </c:forEach> --%>
+                        </select> <input type="hidden" name="interview_name" id="interview_name">
+
+                     </div>
+                     <div class="row  mb-15">
+                        <div class="col-lg-3 mb-15">
+                           시작<input type="datetime-local" class="form-control"
+                              name="interview_start_date">
+                        </div>
+                        <div class="col-lg-3 mb-15">
+                           진행시간<select class="form-control" id="interview_time1"
+                              onChange="getSelectValue1(this.form);">
+                              <option>진행시간</option>
+                              <option>30</option>
+                              <option>45</option>
+                              <option>60</option>
+
+                           </select> <input type="hidden" id="interview_time" name="interview_time">
+                        </div>
+                        <div class="col-lg-3 col-12 mb-30">
+                           면접인원<input type="text" class="form-control"
+                              placeholder="${classes.class_max *1.5}" name="interview_max_personnel" value="${classes.class_max }" readonly="readonly">
+                        </div>
+                        <div class="col-lg-3 col-12 mb-30">
+                           면접인원<input type="text" class="form-control"
+                              placeholder="신청가능인원" name="interview_personnel">
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-6 mb-50">
+                           <div class="box">
+                              <div class="box-head">
+                                 <h4 class="title">면접관선택</h4>
+                              </div>
+                              <div class="box-body">
+                                 <table class="table table-sm">
+                                    <thead>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>이름</th>
+                                          <th>아이디</th>
+                                          <th>메일</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <c:forEach var="pro" items="${proList}" varStatus="status">
+                                          <tr>
+                                             <th><input type="checkbox" name="proList" onchange="addProList();" value="${pro.professor_id }"></th>
+                                             <th>${pro.professor_name }</th>
+                                             <th>${pro.professor_id }</th>
+                                             <th>${pro.professor_mail }</th>
+                                          </tr>
+                                       </c:forEach>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+
+
+
+                     </div>
+                     <div>
+                        <div class="row">
+                           <div class="col-lg-5 mb-20"></div>
+                           <div class="col-lg-2 mb-20">
+                              <input type="submit" class="button button-primary" value="등록" />
+
+
+                           </div>
+                           <div class="col-lg-5 mb-20"></div>
+                        </div>
+                     </div>
+                     <input type="hidden" name="class_no">
+                  </form>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   
+   
+</body>
+
+
+<!-- 체크한 면접관 -->
+<script>
+	function addProList(){
+		var checkArr = new Array();
+	
+	    $("input[name=proList]:checked").each(function() {
+	    	alert( $(this).val());
+	    	checkArr.push( $(this).val());
+	    });
+	    
+	    $.ajax({
+	        url: '<%=request.getContextPath()%>/interview/regist/proList.do',
+	        type: 'post',
+	        dataType: 'text',
+	        data: {
+	        	valueArrTest: checkArr
+	        }
+	    });
+	}
+
+</script>
+
+<script>
+   function getSelectValue(frm) {
+      var value = $("#interview_name1 option:selected").val();
+      var value1 = $('#interview_name1').val();
+      
+      document.getElementById("interview_name").value = value;
+      $('input[name=class_no]').attr('value',value1);
+//       alert($('input[name=class_no]').val());
+   }
+
+   function getSelectValue1(frm) {
+      var value = $("#interview_time1 option:selected").val();
+
+      document.getElementById("interview_time").value = value;
+
+      alert(value);
+   }
+</script>

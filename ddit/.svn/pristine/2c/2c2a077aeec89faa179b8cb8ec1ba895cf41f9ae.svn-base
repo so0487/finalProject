@@ -1,0 +1,42 @@
+package kr.or.ddit.board.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.PostVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface PostDAO {
+	List<PostVO> selectPostList(SearchCriteria cri, String board_no) throws SQLException;
+	
+	int selectPostCriteriaTotalCount(SearchCriteria cri) throws SQLException;
+	
+	PostVO selectPostByNo(String post_no) throws SQLException;;
+	
+	void insertPost(PostVO post) throws SQLException;
+	
+	void updatePost(PostVO post) throws SQLException;
+	
+	void deletePost(PostVO post) throws SQLException;
+	
+	//viewcnt증가
+	void increaseViewCnt(String post_no) throws SQLException;
+	
+	//최대 게시글 번호
+	String getMaxPost_no() throws SQLException;
+	
+	//시퀀스 값 가져오기
+	String selectPostSequenceNextValue() throws SQLException;
+	
+	// 게시글 별 시퀀스값 추가
+	String selectNoticeSeqNextValue() throws SQLException;
+	
+	String selectQnASeqNextValue() throws SQLException;
+	
+	String selectFreeSeqNextValue() throws SQLException;
+
+	String selectImpSeqNextValue() throws SQLException;
+	
+	
+
+}

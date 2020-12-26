@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Menu-Mapper">
+<!-- 		<select id="selectMainMenu" resultType="menu"> -->
+<!-- 		select * from menu where substr(menu_no, 4, 7) = '0000' -->
+<!-- 		order by menu_no -->
+<!-- 	</select>	 -->
+	
+	<select id="selectMainMenu" resultType="menu">
+		select * from menu 
+		order by menu_no
+	</select>	
+	
+	<select id="selectSubMenu" resultType="menu">
+		select *
+		from menu
+		where menu_parent_no = #{menu_no}
+		
+	</select>
+	
+	<select id="selectMenuByMcode" resultType="menu">
+		select *
+		from menu
+		where menu_no = #{menu_no} 
+	</select>
+	
+<!-- 	select from menu -->
+<!-- 	where menu_role = 'commons' -->
+<!-- 	or menu_role like %#{로그인유저권한}% -->
+
+</mapper>

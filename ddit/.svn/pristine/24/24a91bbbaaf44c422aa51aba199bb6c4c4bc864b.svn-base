@@ -1,0 +1,716 @@
+package kr.or.ddit.exam.controller;
+
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.classes.service.ClassStudentListService;
+import kr.or.ddit.classes.service.CurriculumService;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.dto.ExamVO;
+import kr.or.ddit.dto.ExampleVO;
+import kr.or.ddit.dto.LectureVO;
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.dto.ScoringVO;
+import kr.or.ddit.dto.TestHistoryVO;
+import kr.or.ddit.dto.TestVO;
+import kr.or.ddit.exam.service.ExamService;
+import kr.or.ddit.exam.service.ExampleService;
+import kr.or.ddit.lecture.service.LectureService;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.schedule.service.ScheduleService;
+import kr.or.ddit.test.service.ScoringService;
+import kr.or.ddit.test.service.TestHistoryService;
+import kr.or.ddit.test.service.TestService;
+
+@Controller
+@RequestMapping("/exam")
+public class ExamController {
+	
+	@Autowired
+	private ExamService examService;
+	
+	@Autowired
+	private TestService testService;
+	
+	@Autowired
+	private ExampleService exampleService;
+
+	@Autowired
+	private ClassService classService;
+	
+	@Autowired
+	private LectureService lectureService;
+	
+	@Autowired
+	private CurriculumService curriculumService;
+	
+	@Autowired
+	private ClassStudentListService classStudentListService;
+	
+	@Autowired
+	private TestHistoryService testHistoryService;
+	
+	@Autowired
+	private ScoringService scoringService;
+	
+	@Autowired
+	private ScheduleService scheduleService;
+	
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "exam/main.open";
+	}
+	
+
+	
+	@RequestMapping("/registForm")
+	public ModelAndView registForm(ModelAndView mnv, HttpServletResponse response, SearchCriteria cri) throws Exception {
+		
+		List<TestVO> testList = testService.getTestList(cri);		
+		mnv.addObject("testList", testList);
+		
+		
+		mnv.setViewName("exam/registForm.page");
+//		mnv.setViewName("exam/test.open");
+		return mnv;
+		
+	}
+	
+	@RequestMapping("/regist")
+	public void regist(ExamVO exam, HttpServletResponse response, int[] exam_no, String[] exam_category_no, String[] exam_title, int[] exam_point, String[] answer,
+			String[] example_no, int[] exam_no2, String[] example_content, String[] exam_answer, String[] exam_no3, String[] test_no) throws Exception {
+		System.out.println("exam no : "+exam_no);
+		System.out.println("test no	: "+test_no);
+		System.out.println("exam cate : "+exam_category_no);
+		System.out.println("exam title : "+exam_title);
+		System.out.println("exam point : "+exam_point);
+		System.out.println("exam exam_answer" +exam_answer);
+		System.out.println("exam exam_no3" +exam_no3);
+		
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		String message="";
+		try {
+			//문제추가
+//			ExamVO exam2 = new ExamVO();
+			for (int i = 0; i < exam_no.length; i++) {
+				exam.setExam_number(exam_no[i]);
+				exam.setTest_no(test_no[i]);
+				exam.setExam_category_no(exam_category_no[i]);
+				exam.setExam_title(exam_title[i]);
+				exam.setExam_point(exam_point[i]);
+				exam.setExam_answer(exam_answer[i]);
+				examService.registExam(exam);
+			}
+			//객관식 문제항목추가
+			ExampleVO example = new ExampleVO();
+			Map<String, Object> ExampleExam_no = new HashMap<>();
+			ExampleExam_no.put("test_no", test_no[0]); //시험지 번호
+			if(exam_no2!=null) {
+				for (int i = 0; i < exam_no2.length; i++) {
+					example.setExample_content(example_content[i]);
+					example.setExample_number(i+1);				
+					ExampleExam_no.put("exam_number", exam_no2[i]);
+					System.out.println(ExampleExam_no);
+					String examVoNo = examService.getExamByNumber(ExampleExam_no); //시험지내의 문제번호를 가지고 문제번호pk를 가져와서 문항을 문제에 등록				
+					example.setExam_no(examVoNo);
+					exampleService.registExample(example);
+				}
+			}
+			
+			//주관식 문제항목추가
+//			if(exam_no3!=null) {
+//				for (int i = 0; i < exam_no3.length; i++) {
+//					example.setExample_content(example_content2[i]);
+//					example.setExample_number(i+99);				
+//					ExampleExam_no.put("exam_number", exam_no3[i]);				
+//					String examVoNo = examService.getExamByNumber(ExampleExam_no); //시험지내의 문제번호를 가지고 문제번호pk를 가져와서 문항을 문제에 등록				
+//					example.setExam_no(examVoNo);
+//					exampleService.registExample(example);
+//				}
+//			}
+				
+			
+			message="시험지 등록이 완료되었습니다..";
+			out.println("<script>");
+			out.println("alert('"+message+"');");			
+			out.println("window.location.href='registForm';");
+			out.println("</script>");
+		} catch(SQLException e){
+			e.printStackTrace();
+			message="시험지등록에 실패했습니다.";
+			out.println("<script>");
+			out.println("alert('"+message+"');");
+			out.println("</script>");
+		}		
+			out.close();
+	}
+	
+	@RequestMapping("/list")
+	public ModelAndView list(ModelAndView mnv, String test_no, HttpServletRequest request) throws Exception{
+
+//		List<ExamVO> examList = examService.getExamByTestNo(test_no);
+		List<ExamVO> examList = examService.getExamList();
+		List<ExampleVO> exampleList = exampleService.getExampleList();		
+//		List<TestVO> testList = testService.getTestList(cri);
+		TestVO test = testService.getTestByNo(test_no);
+		
+//		mnv.addObject("examList", examList);
+		Map<String,Object> list = new HashMap<>();
+		list.put("examList2", examList);
+		list.put("exampleList", exampleList);
+//		list.put("testList", testList);
+		list.put("test_no2", test_no);
+		list.put("test", test);
+		
+		mnv.addAllObjects(list);
+		mnv.setViewName("exam/list.page");
+		
+		return mnv;
+	}
+	
+
+	
+//	@RequestMapping("/listStu")
+	@RequestMapping("/{listStu}")
+	public ModelAndView listStu(TestHistoryVO testHistory, SearchCriteria cri, ModelAndView mnv, String test_no, 
+				String lecture_no, HttpServletRequest request, @PathVariable String listStu, HttpServletResponse response) throws Exception{		
+		
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		String ck = test_no+lecture_no+member.getMember_id();
+		
+		Cookie[] cookies = request.getCookies() ;
+		
+		boolean pass = false;
+	    if(cookies != null){	         
+	        for(int i=0; i < cookies.length; i++){
+	            Cookie c = cookies[i] ;	             
+	            
+	            String cValue = c.getValue();
+	            
+	            if(ck.equals(cValue)) {        		
+	            	pass = true;
+	            }	             
+	        }
+	    }		
+	    
+	    if(!pass) {
+			Map<String, Object> dataMap = new HashMap<>();
+			dataMap.put("testList", testService.getTestListByLectureNo(lecture_no));
+			dataMap.put("lecture_no",lecture_no);
+			
+			mnv.addAllObjects(dataMap);
+	    	
+	    	mnv.setViewName("exam/studentTestList.page");
+	    	return mnv;
+	    }
+		
+//		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		testHistory.setStudent_id(member.getMember_id());
+		testHistoryService.registTestHistory(testHistory);
+		
+		//		List<ExamVO> examList = examService.getExamByTestNo(test_no);
+		List<ExamVO> examList = examService.getExamList();
+		List<ExampleVO> exampleList = exampleService.getExampleList();		
+		List<TestVO> testList = testService.getTestList(cri);
+		TestVO test = testService.getTestByNo(test_no);
+		
+//		mnv.addObject("examList", examList);
+		Map<String,Object> list = new HashMap<>();
+		list.put("examList2", examList);
+		list.put("exampleList", exampleList);
+		list.put("testList", testList);
+		list.put("test_no2", test_no);
+		//날짜를 스트링으로 변환
+//		System.out.println(test.getTest_end_date());
+		Date stringDate = test.getTest_end_date();
+
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String to = transFormat.format(stringDate);
+		
+//		System.out.println(to);
+		
+		list.put("end_date", to);
+		
+		mnv.addAllObjects(list);
+		mnv.setViewName("exam/listStu.page");
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail(String exam_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+	
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String exam_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+	
+	@RequestMapping("/modify")
+	public void modify(ExamVO exam, HttpServletResponse response, int[] exam_no, String[] exam_category_no, String[] exam_title, int[] exam_point, String[] answer,
+			String[] example_no, int[] exam_no2, String[] example_content, String[] exam_answer, String[] exam_no3, String[] test_no, String[] exam_id, String[] exam_id2) throws Exception {
+//		System.out.println("exam no : "+exam_no);
+//		System.out.println("test no	: "+test_no);
+//		System.out.println("exam cate : "+exam_category_no);
+//		System.out.println("exam title : "+exam_title);
+//		System.out.println("exam point : "+exam_point);
+//		System.out.println("exam exam_answer" +exam_answer);
+//		System.out.println("exam exam_no3" +exam_no3);
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		String message="";
+		
+		examService.removeExam(test_no[0]);
+		
+		try {
+			for (int i = 0; i < exam_no.length; i++) {
+//				exam.setExam_no(exam_id[i]);
+				exam.setExam_number(exam_no[i]);
+				exam.setTest_no(test_no[i]);
+				exam.setExam_category_no(exam_category_no[i]);
+				exam.setExam_title(exam_title[i]);
+				exam.setExam_point(exam_point[i]);
+				exam.setExam_answer(exam_answer[i]);
+				examService.registExam(exam);
+			}
+			//객관식 문제항목추가
+			ExampleVO example = new ExampleVO();
+			Map<String, Object> ExampleExam_no = new HashMap<>();
+			ExampleExam_no.put("test_no", test_no[0]); //시험지 번호z`
+//			System.out.println(exam_no2.length);
+			int y = 1;
+			String temp = null;
+			if(exam_no2!=null) {
+				for (int i = 0; i < exam_no2.length; i++) {
+//					System.out.println(exam_no2[i]);
+//					example.setExam_no(exam_id2[i]);	
+					example.setExample_content(example_content[i]);
+					ExampleExam_no.put("exam_number", exam_no2[i]);					
+					String examVoNo = examService.getExamByNumber(ExampleExam_no); //시험지내의 문제번호를 가지고 문제번호pk를 가져와서 문항을 문제에 등록	
+					example.setExam_no(examVoNo);
+					if(i!=0) {
+						String temp2 = examVoNo;
+						if(temp.equals(temp2)) {
+							y+=1;
+						}else {
+							y=1;
+						}					
+					}
+					example.setExample_number(y);			
+					exampleService.registExample(example);
+					temp = examVoNo;
+				}
+			}		
+		
+
+			
+			message="시험지 수정이 완료되었습니다..";
+			out.println("<script>");
+			out.println("alert('"+message+"');");
+			out.println("window.location.href='list.do?test_no="+test_no[0]+"';");
+			out.println("</script>");
+		} catch(SQLException e){
+			e.printStackTrace();
+			message="시험지 수정에 실패했습니다.";
+			out.println("<script>");
+			out.println("alert('"+message+"');");
+			out.println("</script>");
+		}		
+			out.close();
+		}
+	
+	@RequestMapping("/remove")
+	public void remove(String exam_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+		
+	}
+		
+	//답안제출 
+	@RequestMapping(value = "/testSubmit", method = RequestMethod.POST)
+	public ResponseEntity<String> testSubmit(String test_no, HttpServletRequest request, @RequestParam(value="scoring_input[]")String[] scoring_input,
+				@RequestParam(value="exam_no[]")String[] exam_no, String lecture_no, HttpServletResponse response) throws Exception {
+		
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		String ck = test_no+lecture_no+member.getMember_id();
+		Cookie[] cookies = request.getCookies() ;
+		boolean pass = false;
+	    if(cookies != null){	         
+	        for(int i=0; i < cookies.length; i++){
+	            Cookie c = cookies[i] ;	             
+	            
+	            String cValue = c.getValue();
+	            
+	            if(ck.equals(cValue)) {        		
+	            	pass = true;
+	            }	             
+	        }
+	    }
+		
+	    
+	    if(!pass) {
+	    	return new ResponseEntity<>("fail", HttpStatus.BAD_REQUEST); 
+	    }
+		
+		
+		String result = "success";
+
+		//시험내역번호
+//		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");		
+		TestHistoryVO testhistory = new TestHistoryVO();
+		String memId = member.getMember_id();
+		testhistory.setStudent_id(memId);
+		testhistory.setTest_no(test_no);	
+		testhistory = testHistoryService.getMemberTestHistory(testhistory);
+		String history_no = testhistory.getTest_history_no();		
+		
+		ScoringVO scoring = new ScoringVO();
+		scoringService.removeScoringByThisNo(history_no);
+		for (int i = 0; i < exam_no.length; i++) {
+			scoring.setTest_history_no(history_no);
+			scoring.setExam_no(exam_no[i]);			
+//			int inputNum = Integer.parseInt(scoring_input[i]);
+//			String inputNumString = String.valueOf(inputNum+1);			
+//			scoring.setScoring_input(inputNumString);
+			System.out.println(scoring_input[i]+" : "+i);
+			if(scoring_input[i]=="") {
+				scoring.setScoring_input("!null!");
+			}else {
+				scoring.setScoring_input(scoring_input[i]);				
+			}
+			if(scoringService.selectInputResult(scoring)==null) {
+				scoring.setScoring_result("1");
+			}else {
+				scoring.setScoring_result("0");
+			}		
+			scoringService.registScoring(scoring);
+
+		}
+		
+		testHistoryService.modifyTestSubmit(test_no);
+//			String ck = test_no+lecture_no+member.getMember_id();
+	    if(cookies != null){	         
+	        for(int y =0; y < cookies.length; y++){
+	            Cookie c = cookies[y] ;	             
+	            
+	            String cName = c.getName();
+	            System.out.println(cName);
+	            if(cName.equals("testJustOne")) {  
+	            	Cookie cookie = new Cookie("testJustOne", "");
+	            	cookie.setMaxAge(0);
+	            	cookie.setPath("/ddit/exam");
+	            	response.addCookie(cookie);
+	            }	             
+	        }
+	    }
+		return new ResponseEntity<String>(result, HttpStatus.OK);
+	}
+	
+	@RequestMapping("/numberCheck")
+	public void numberCheck() {
+		
+	}
+	
+	
+	@RequestMapping("/classList")
+	public ModelAndView classList(SearchCriteria cri, ModelAndView mnv)throws SQLException {
+		String url = "exam/classList.page";
+		
+		cri.setPerPageNum(200);
+		Map<String, Object> classList = new HashMap<>();
+		classList.put("classList", classService.getSearchClassList(cri).get("classList"));
+		classList.put("curriculumList", curriculumService.getCurriculumList(cri).get("curriculumList"));	
+		
+		mnv.addAllObjects(classList);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/lectureList")
+	@ResponseBody
+	public ResponseEntity<List<LectureVO>> lectureList(String class_no, HttpServletRequest request)throws SQLException {
+		List<LectureVO> lecture_List = lectureService.getLectureListByClass_no(class_no);
+		
+		ResponseEntity<List<LectureVO>> entity = new ResponseEntity<List<LectureVO>>(lecture_List, HttpStatus.OK);		
+		
+		return entity;
+	}	
+	
+	@RequestMapping("/testSubmitList")
+	@ResponseBody
+	public ResponseEntity<Map<String,Object>> testSubmitList(String lecture_no, HttpServletRequest request)throws SQLException {
+		
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		Map<String, String> data = new HashMap<>();
+		data.put("lecture_no", lecture_no);
+		data.put("student_id", member.getMember_id());
+		
+		Map<String, Object> dataMap = new HashMap<>();
+//		dataMap.put("testList", testService.getTestListByLectureNo(lecture_no));
+		dataMap.put("testList", testService.getTestSubmitList(data));
+		dataMap.put("lecture_no",lecture_no);	
+		
+//		List<TestVO> testList = testService.getTestListByLectureNo(lecture_no);
+		
+//		ResponseEntity<List<TestVO>> entity = new ResponseEntity<List<TestVO>>(testList, HttpStatus.OK);		
+		ResponseEntity<Map<String,Object>> entity = new ResponseEntity<Map<String,Object>>(dataMap, HttpStatus.OK);		
+		
+		return entity;
+
+	}
+
+	@RequestMapping("/testList")
+	@ResponseBody
+	public ResponseEntity<List<TestVO>> testList(String lecture_no, HttpServletRequest request)throws SQLException {
+		
+
+//		Map<String, Object> dataMap = new HashMap<>();
+//		dataMap.put("testList", testService.getTestListByLectureNo(lecture_no));
+
+		
+		List<TestVO> testList = testService.getTestListByLectureNo(lecture_no);
+		
+		ResponseEntity<List<TestVO>> entity = new ResponseEntity<List<TestVO>>(testList, HttpStatus.OK);		
+//		ResponseEntity<Map<String,Object>> entity = new ResponseEntity<Map<String,Object>>(dataMap, HttpStatus.OK);		
+		
+		return entity;
+		
+	}
+	
+	@RequestMapping("/classList2")
+	@ResponseBody
+	public ResponseEntity<List<ClassVO>> classList2(String curriculum_no, HttpServletRequest request)throws SQLException {
+		
+		
+		List<ClassVO> classList = (List<ClassVO>) classService.getClassList(curriculum_no).get("classList");
+		
+		ResponseEntity<List<ClassVO>> entity = new ResponseEntity<List<ClassVO>>(classList, HttpStatus.OK);		
+		
+		return entity;
+	}
+
+	
+	@RequestMapping(value= "/insertTest", method=RequestMethod.POST)
+	public ResponseEntity<List<TestVO>> insertTest(TestVO testVo, HttpServletRequest request, @RequestParam("localDateTime") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime localDateTime, @RequestParam("localDateTime2") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime localDateTime2 )throws SQLException {
+
+		
+		
+		testVo.setTest_start_date(Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+		testVo.setTest_end_date(Date.from(localDateTime2.atZone(ZoneId.systemDefault()).toInstant()));
+		
+//		System.out.println(testVo);
+		
+		testService.registTest(testVo);
+		
+
+		
+		List<TestVO> testList = testService.getTestListByLectureNo(testVo.getLecture_no());
+		
+		List<CslVO> cslList = classStudentListService.getClsListBylecture_no(testVo.getLecture_no());
+		
+		
+		ResponseEntity<List<TestVO>> entity = new ResponseEntity<List<TestVO>>(testList, HttpStatus.OK);	
+		System.out.println(testVo.getTest_start_date());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(sdf.format(testVo.getTest_start_date())+"허허");
+		for (int i = 0; i < cslList.size(); i++) {
+			
+			ScheduleVO schedule = new ScheduleVO();
+			String schedule_no = scheduleService.getScheduleNo();
+			schedule.setSchedule_no(schedule_no);
+			schedule.setMember_id(cslList.get(i).getStudent_id());
+			schedule.setSchedule_category_no("SCHEDULE_CATEGORY0003");
+			schedule.setSchedule_color("#63e6be");
+			schedule.setSchedule_title(testVo.getTest_name());
+			schedule.setSchedule_subject_no(testVo.getTest_no());
+			schedule.setSchedule_content(testVo.getTest_name());
+			schedule.setSchedule_start_date(sdf.format(testVo.getTest_start_date()));
+			schedule.setSchedule_end_date(sdf.format(testVo.getTest_end_date()));
+			scheduleService.registSchedule(schedule);
+		}
+		
+		
+		
+		return entity;
+	}
+	
+	@RequestMapping(value= "/modifyTest", method=RequestMethod.POST)
+	public ResponseEntity<List<TestVO>> modifyTest(TestVO test, HttpServletRequest request) throws SQLException{		
+		
+//		System.out.println("sssssss"+test.getTest_start_date());
+//		System.out.println("eeeeeeeee"+test.getTest_end_date());		
+//		System.out.println("tttttttttt"+test.getTest_status());
+		
+		System.out.println("이것은 렉처엔오" + test.getLecture_no());
+		
+		
+		testService.modifyTest(test);	
+		
+		List<TestVO> testList = testService.getTestListByLectureNo(test.getLecture_no());
+
+//		System.out.println("DB start date"+testList.get(1).getTest_start_date());
+//		SimpleDateFormat dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//		System.out.println("DB start date2222222"+dateTime.format(testList.get(1).getTest_start_date()));
+//		System.out.println("DB end date"+testList.get(1).getTest_end_date());
+		
+		ResponseEntity<List<TestVO>> entity2 = new ResponseEntity<List<TestVO>>(testList, HttpStatus.OK);		
+		return entity2;
+	}
+	
+	@RequestMapping(value= "/deleteTest", method=RequestMethod.POST)
+	public ResponseEntity<List<TestVO>> deleteTest(TestVO test, HttpServletRequest request) throws SQLException{
+
+		testService.removeTest(test.getTest_no());
+		
+		List<TestVO> testList = testService.getTestListByLectureNo(test.getLecture_no());
+		ResponseEntity<List<TestVO>> entity2 = new ResponseEntity<List<TestVO>>(testList, HttpStatus.OK);
+		return entity2;
+	}
+	
+	@RequestMapping("/lectureTestList")
+	public ModelAndView lectureTestList(String lecture_no, HttpServletRequest request, ModelAndView mnv) throws SQLException{
+		
+		String url = "exam/lectureTestList.page";
+		
+		LectureVO lecture= lectureService.getLectureByNo(lecture_no);
+		ClassVO classVO = classService.getClassByNo(lecture.getClass_no());
+		Map<String, Object> dataMap = new HashMap<>();
+		dataMap.put("testList", testService.getTestListByLectureNo(lecture_no));
+		dataMap.put("class_start_date", classVO.getClass_start_date());
+		dataMap.put("class_end_date", classVO.getClass_end_date());
+		dataMap.put("lecture", lecture);
+		dataMap.put("lecture_no",lecture_no);
+		
+		
+//		mnv.addObject("testList",testService.getTestListByLectureNo(lecture_no));
+//		mnv.addObject("lecture_no",lecture_no);
+		
+		mnv.addAllObjects(dataMap);		
+		mnv.addObject("lecture", lecture);
+		
+		mnv.setViewName(url);		
+				
+		return mnv;
+	}
+	
+	@RequestMapping("/studentTestList")
+	public ModelAndView studentTestList(String lecture_no, HttpServletRequest request, SearchCriteria cri, ModelAndView mnv) throws SQLException{
+		
+		String url = "exam/studentTestList.page";		
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		
+		
+		Map<String, String> data = new HashMap<>();
+		data.put("lecture_no", lecture_no);
+		data.put("student_id", member.getMember_id());
+		
+		Map<String, Object> dataMap = new HashMap<>();
+//		dataMap.put("testList", testService.getTestListByLectureNo(lecture_no));
+		dataMap.put("testList", testService.getTestSubmitList(data));
+		dataMap.put("lecture_no",lecture_no);	
+		
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);		
+
+		return mnv;
+	}
+	
+	@RequestMapping("/insertTestHistory")
+	public ModelAndView insertTestHistory(TestHistoryVO testHistory, String test_no, String student_id, String test_history_score, HttpServletRequest request, String lecture_no, ModelAndView mnv) throws SQLException{		
+
+		return mnv;
+	}
+	
+	@RequestMapping("/modifyTestHistory")
+	public void modifyTestHistory(TestHistoryVO testHistory, String test_no, String student_id, String test_history_score, HttpServletRequest request, ModelAndView mnv) throws SQLException{		
+		System.out.println(testHistory);
+		testHistoryService.modifyTestHistory(testHistory);		
+	}	
+	
+	@RequestMapping("/markTestList")
+	public ModelAndView markTestList(String test_no, HttpServletRequest request, ModelAndView mnv) throws SQLException{		
+		List<Map<String, String>> testHisList = testHistoryService.getTestHistoryByTestNo(test_no);
+		TestVO test = testService.getTestByNo(test_no); 
+//		Map<String, String> memberName =testHisList.get(0);
+//		System.out.println(memberName.get("MEMBER_NAME"));
+//		System.out.println(memberName.get("TEST_HISTORY_NO"));
+		mnv.addObject("testHisList", testHisList);
+		mnv.addObject("testvo", test);
+		mnv.setViewName("exam/markTestList.page");		
+		return mnv;
+	}
+	
+	@RequestMapping("/markStudentTest")
+	public ModelAndView markStudentTest(String test_history_no, HttpServletRequest request, ModelAndView mnv, SearchCriteria cri) throws SQLException{		
+		List<ScoringVO> scoring = scoringService.getScoringByHistoryNo(test_history_no);
+		List<ExamVO> examList = examService.getExamList();
+		List<ExampleVO> exampleList = exampleService.getExampleList();		
+		List<TestVO> testList = testService.getTestList(cri);
+		String test_no = testHistoryService.getTestHistoryByNo(test_history_no).getTest_no();
+		
+//		mnv.addObject("examList", examList);
+		Map<String,Object> list = new HashMap<>();
+		list.put("examList2", examList);
+		list.put("exampleList", exampleList);
+		list.put("testList", testList);
+		list.put("test_no2", test_no);
+		list.put("scoringList", scoring);
+		
+		mnv.addAllObjects(list);
+		mnv.setViewName("exam/markStudentTest.page");		
+		return mnv;
+	}
+	
+	@RequestMapping(value = "/markTestResult", method = RequestMethod.POST)
+	public ResponseEntity<String> markTestResult(@RequestParam(value="scoring_result[]")String[] scoring_result, @RequestParam(value="exam_no[]")String[] exam_no, 
+														String test_history_no, HttpServletRequest request) throws SQLException{
+//		System.out.println(test_history_no);
+//		System.out.println(scoring_result[0]);
+//		System.out.println(exam_no[0]);
+		ScoringVO scoring = new ScoringVO();
+		for (int i = 0; i < exam_no.length; i++) {
+			scoring.setExam_no(exam_no[i]);
+			scoring.setScoring_result(scoring_result[i]);
+			scoring.setTest_history_no(test_history_no);
+			scoringService.modifyScoringMarkResult(scoring);
+		}
+		testHistoryService.modifyTestScore(test_history_no);
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+	}
+	
+		
+
+}

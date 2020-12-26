@@ -1,0 +1,1136 @@
+[2020-09-17 12:04:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 12:04:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 12:04:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 12:04:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 12:04:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 1924423831.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1924423831 from pool.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1924423831 from pool.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1924423831 from pool.
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1924423831 from pool.
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:29] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1924423831 from pool.
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1924423831 from pool.
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@72b46097]
+[2020-09-17 12:04:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1924423831 to pool.
+[2020-09-17 18:39:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 18:39:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:39:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:39:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:39:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 2034189917.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2034189917 to pool.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2034189917 from pool.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2034189917 to pool.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2034189917 from pool.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2034189917 to pool.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2034189917 from pool.
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@793f465d]
+[2020-09-17 18:39:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2034189917 to pool.
+[2020-09-17 18:41:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 18:41:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:41:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:41:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:41:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 1850991046.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1850991046 from pool.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1850991046 from pool.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1850991046 from pool.
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1850991046 from pool.
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:26] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1850991046 from pool.
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1850991046 from pool.
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6e53e1c6]
+[2020-09-17 18:41:32] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1850991046 to pool.
+[2020-09-17 18:43:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 18:43:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:43:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:43:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:43:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:43:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 78719640.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 78719640 from pool.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 78719640 from pool.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 78719640 from pool.
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 78719640 from pool.
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:42] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 78719640 from pool.
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 78719640 from pool.
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@4b12a98]
+[2020-09-17 18:43:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 78719640 to pool.
+[2020-09-17 18:46:01] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 18:46:01] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:01] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:01] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:01] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:13] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:13] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 18:46:13] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:13] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:13] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:46:13] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:57:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 18:57:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:57:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:57:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 18:57:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:01:59] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:01:59] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:01:59] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:01:59] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:01:59] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:06:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:06:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:06:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:06:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:06:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:08:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:08:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:08:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:08:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:08:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:18:37] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:18:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:18:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:18:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:18:38] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:19:09] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:19:09] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:19:09] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:19:09] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:19:09] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:20:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:20:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:20:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:20:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:20:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:21:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:21:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:21:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:21:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:21:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:22:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:22:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:22:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:22:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:22:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:22:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 931854183.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:25] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:22:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020100(String)
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 1818819724.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:27:31] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020100(String)
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:39:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020100(String)
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:36] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 931854183 from pool.
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@378af767]
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 931854183 to pool.
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1818819724 from pool.
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@6c68fc8c]
+[2020-09-17 19:40:47] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1818819724 to pool.
+[2020-09-17 19:45:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:45:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:27] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:45:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:39] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:45:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:45:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:02] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:46:02] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:02] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:02] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:02] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:46:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:24] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:46:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:46:45] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:47:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:30] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:47:30] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:30] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:30] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:47:30] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:48:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 398708087.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 398708087 from pool.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 398708087 from pool.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 398708087 from pool.
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:55] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 398708087 from pool.
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:56] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 398708087 from pool.
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 398708087 from pool.
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@17c3cd77]
+[2020-09-17 19:48:58] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 398708087 to pool.
+[2020-09-17 19:50:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:50:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:50:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:50:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:50:07] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 40551367.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:50:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020100(String)
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 908580886.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3627d816]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3627d816]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3627d816]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 908580886 to pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 40551367 from pool.
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@26ac3c7]
+[2020-09-17 19:51:06] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 40551367 to pool.
+[2020-09-17 19:51:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:51:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:51:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:51:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:51:10] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 2052196685.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:14] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:15] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 2052196685 to pool.
+[2020-09-17 19:51:43] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:51:43] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 2052196685 from pool.
+[2020-09-17 19:51:43] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@7a52094d]
+[2020-09-17 19:51:43] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select notice_seq.nextVal from dual 
+[2020-09-17 19:51:43] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:52:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+[2020-09-17 19:52:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:52:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:52:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:52:44] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Created connection 1058092999.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from member where id=? 
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: mimi(String)
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 5
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M000000(String)
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:50] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: M020000(String)
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:52] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:52:54] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select notice_seq.nextVal from dual 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: insert into notice(nno, title, writer, content) values(?,?,?,?) 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 43(Integer), 도라에몽(String), mimi(String), <p><img src="/My_JSP_Project/getImg.do?fileName=87769a6edff6420e89a9c3371a0108e4.jpg" style="width: 320px;"></p><p>도라이몽</p>(String)
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno=? 
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 43(Integer)
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: update notice set viewcnt = viewcnt+1 where nno = ? 
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 43(Integer)
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select notice_seq.nextVal from dual 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: insert into notice(nno, title, writer, content) values(?,?,?,?) 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer), 둘리(String), mimi(String), <p><img src="/My_JSP_Project/getImg.do?fileName=5446a6dd38324ae289f6df94d144f441.jpg" style="width: 506px;">둘리 둘리<br></p>(String)
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:48] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno=? 
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: update notice set viewcnt = viewcnt+1 where nno = ? 
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:49] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno=? 
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: update notice set viewcnt = viewcnt+1 where nno = ? 
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:53:53] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: update notice set title=?,content=? where nno=? 
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 둘리!!!(String), <p><img src="/My_JSP_Project/getImg.do?fileName=5446a6dd38324ae289f6df94d144f441.jpg" style="width: 506px;">둘리 둘리 !!!<br></p>(String), 44(Integer)
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno=? 
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: update notice set viewcnt = viewcnt+1 where nno = ? 
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:00] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:16] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno=? 
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: update notice set viewcnt = viewcnt+1 where nno = ? 
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:17] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: delete from notice where nno=? 
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 44(Integer)
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==    Updates: 1
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:19] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null order by regDate desc 
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null order by regDate desc 
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: 
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:20] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select * from notice where nno is not null and( title like '%'||?||'%' or content like '%'||?||'%' or writer like '%'||?||'%' ) order by regDate desc 
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: (String), (String), (String)
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 21
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Opening JDBC Connection
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Checked out connection 1058092999 from pool.
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==>  Preparing: select count(*) from notice where nno is not null and( title like '%'||?||'%' or content like '%'||?||'%' or writer like '%'||?||'%' ) order by regDate desc 
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - ==> Parameters: (String), (String), (String)
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - <==      Total: 1
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@3f1137c7]
+[2020-09-17 19:54:23] DEBUG (commons.JakartaCommonsLoggingImpl - debug:54) - Returned connection 1058092999 to pool.

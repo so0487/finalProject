@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Exam-Mapper">
+
+   <select id="selectExamList" resultType="exam">
+   		select *
+   		from exam   
+   </select>
+   
+   <select id="selectExamByTestNo" parameterType="str" resultType="test">
+	   	select *
+	   	from exam
+	   	where test_no=#{test_no}   
+   </select>
+   
+   <update id="insertExam" parameterType="exam"> 
+   		insert into 
+   		exam (exam_no,exam_number,test_no,exam_category_no,exam_title,exam_point,exam_answer)
+   		values(#{exam_no},#{exam_number},#{test_no},#{exam_category_no},#{exam_title},#{exam_point},#{exam_answer})
+   </update>
+   
+   <update id="updateExam" parameterType="exam"> 
+   		update exam
+   		set exam_number=#{exam_number},exam_title=#{exam_title},exam_point=#{exam_point},exam_answer=#{exam_answer},exam_status=#{exam_status} 
+   		where exam_no = #{exam_no}   		 
+   </update>
+   
+   <update id="disableExam" parameterType="str"> 
+   		update exam
+   		set exam_status=#{exam_status} 
+   		where exam_no = #{exam_no}   		 
+   </update>
+   
+   <update id="deleteExam" parameterType="str"> 
+   		delete from exam   		 
+   		where exam_no = #{exam_no}   		 
+   </update>
+   
+   <select id="selectExamNo" parameterType="int" resultType="str">
+		select 'exam'||LPAD(seq_exam.nextval,4,'0')
+		from dual
+	</select>    
+    
+   	<select id="selectExamByNumber" resultType="str" parameterType="map">
+		select exam_no
+		from exam
+		where exam_number=#{exam_number}
+		and	test_no=#{test_no}
+	</select>
+
+</mapper>

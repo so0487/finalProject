@@ -1,0 +1,60 @@
+package kr.or.ddit.evaToLec.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.EvaToLecVO;
+import kr.or.ddit.dto.EvaVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class EvaToLecDAOImpl implements EvaToLecDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<EvaToLecVO> selectEvaToLecList() throws SQLException {
+		List<EvaToLecVO> evaToLecList = sqlSession.selectList("EvaToLec-Mapper.selectSearchEva_to_lecList");
+		return evaToLecList;
+	}
+
+	@Override
+	public EvaToLecVO selectEvaToLecByNo(String eva_to_lec_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertEvaToLec(EvaToLecVO evatolec) throws SQLException {
+		sqlSession.update("EvaToLec-Mapper.insertEva_to_lec", evatolec);
+		
+	}
+
+	@Override
+	public void updateEvaToLec(EvaToLecVO evatolec) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteEvaToLec(EvaToLecVO evatolec) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String selectEva_to_lecNo() throws SQLException {
+		String eva_to_lec_no = sqlSession.selectOne("EvaToLec-Mapper.selectEva_to_lecNo");
+		return eva_to_lec_no;
+	}
+
+	@Override
+	public List<EvaToLecVO> selectEva_to_lecByLectureNo(String lecture_no) throws SQLException {
+		List<EvaToLecVO> evaToLecList = sqlSession.selectList("EvaToLec-Mapper.selectEva_to_lecByLectureNo", lecture_no);
+		return evaToLecList;
+	}
+
+}

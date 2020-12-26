@@ -1,0 +1,75 @@
+package kr.or.ddit.dto;
+
+public class CounselVO {
+	private String counsel_end;  //상담종료시간
+	private String counsel_start;  //상담시작시간
+	private String counsel_no;  //상담번호
+	private String counsel_title;  //상담제목
+	private String counsel_content;  //상담내용
+	private String counsel_student;  //상담자id
+	private String counsel_status;  //승인여부
+	private String counsel_professor;  //강사아이디
+	
+	
+	public String getCounsel_end() {
+		return counsel_end;
+	}
+	public void setCounsel_end(String counsel_end) {
+		this.counsel_end = counsel_end;
+	}
+	public String getCounsel_start() {
+		return counsel_start;
+	}
+	public void setCounsel_start(String counsel_start) {
+		this.counsel_start = counsel_start;
+	}
+	public String getCounsel_no() {
+		return counsel_no;
+	}
+	public void setCounsel_no(String counsel_no) {
+		this.counsel_no = counsel_no;
+	}
+	public String getCounsel_title() {
+		return counsel_title;
+	}
+	public void setCounsel_title(String counsel_title) {
+		this.counsel_title = counsel_title;
+	}
+	public String getCounsel_content() {
+		return counsel_content;
+	}
+	public void setCounsel_content(String counsel_content) {
+		this.counsel_content = counsel_content;
+	}
+	public String getCounsel_student() {
+		return counsel_student;
+	}
+	public void setCounsel_student(String counsel_student) {
+		this.counsel_student = counsel_student;
+	}
+	public String getCounsel_status() {
+		return counsel_status;
+	}
+	public void setCounsel_status(String counsel_status) {
+		this.counsel_status = counsel_status;
+	}
+	public String getCounsel_professor() {
+		return counsel_professor;
+	}
+	public void setCounsel_professor(String counsel_professor) {
+		this.counsel_professor = counsel_professor;
+	}
+	@Override
+	public String toString() {
+		return "CounselVO [counsel_end=" + counsel_end + ", counsel_start=" + counsel_start + ", counsel_no="
+				+ counsel_no + ", counsel_title=" + counsel_title + ", counsel_content=" + counsel_content
+				+ ", counsel_student=" + counsel_student + ", counsel_status=" + counsel_status + ", counsel_professor="
+				+ counsel_professor + "]";
+	}
+	
+	
+	
+	
+	
+	
+}

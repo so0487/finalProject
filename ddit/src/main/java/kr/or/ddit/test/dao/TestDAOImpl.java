@@ -1,0 +1,74 @@
+package kr.or.ddit.test.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.TestVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class TestDAOImpl implements TestDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<TestVO> selectTestList(SearchCriteria cri) throws SQLException {
+		
+		return sqlSession.selectList("Test-Mapper.selectTestList", cri);
+	}
+
+	@Override
+	public TestVO selectTestByNo(String test_no) throws SQLException {
+		
+		return sqlSession.selectOne("Test-Mapper.selectTestByNo", test_no);
+	}
+
+	@Override
+	public void insertTest(TestVO test) throws SQLException {
+		sqlSession.update("Test-Mapper.insertTestVO", test);		
+	}
+
+	@Override
+	public void updateTest(TestVO test) throws SQLException {
+		System.out.println(test);
+		sqlSession.update("Test-Mapper.updateTestVO",test);
+		
+	}
+
+	@Override
+	public void deleteTest(String test_no) throws SQLException {
+		sqlSession.update("Test-Mapper.deleteTestVO",test_no);
+		
+	}
+	
+	@Override
+    public String selectTestNo() throws SQLException {
+	    String test_no=sqlSession.selectOne("Test-Mapper.selectTestNo");
+	    return test_no;
+    }
+
+	@Override
+	public List<TestVO> selectTestListByLectureNo(String lecture_no) throws SQLException {
+		List<TestVO> testList = sqlSession.selectList("Test-Mapper.selectTestListByLectureNo", lecture_no);
+		return testList;
+	}
+
+	@Override
+	public List<TestVO> selectTestStuListByLectureNo(String lecture_no) throws SQLException {
+		List<TestVO> testList = sqlSession.selectList("Test-Mapper.selectStuTestListByLectureNo", lecture_no);
+		return testList;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectTestSubmitList(Map<String, String> dataMap) throws SQLException {
+		return sqlSession.selectList("Test-Mapper.selectTestSubmitList", dataMap);
+		
+	}
+
+
+
+}

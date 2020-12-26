@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Schedule-Mapper">
+
+
+<select id="selectScheduleNo" parameterType="int" resultType="str">
+	select 'SCHEDULE'||LPAD(seq_schedule.nextval,4,'0')
+	from dual
+</select>
+
+<select id="selectScheduleList" parameterType="str" resultType="schedule">
+		select
+		*
+		from schedule
+		where member_id = #{member_id}
+</select>
+<select id="selectScheduleMyList" parameterType="str" resultType="schedule">
+		select
+		*
+		from schedule
+		where member_id = #{member_id}
+		and substr(schedule_end_date,1,10) = to_char(sysdate,'YYYY-MM-DD')
+         <![CDATA[and ROWNUM < 6 ]]>
+        and schedule_status ='0'
+        order by schedule_start_date
+</select>
+
+<select id="selectExistSchedule" parameterType="map" resultType="schedule">
+SELECT *
+FROM schedule 
+WHERE to_date(substr(schedule_start_date,1,10),'yyyy-mm-dd') BETWEEN TO_DATE(substr(#{start},1,10), 'yyyy-mm-dd') AND TO_DATE(substr(#{end},1,10), 'yyyy-mm-dd') 
+and to_date(substr(schedule_start_date,12,length(schedule_start_date)), 'HH24:MI:SS') BETWEEN to_date(substr(#{start},12,length(#{start})), 'HH24:MI:SS') AND to_date(substr(#{end},12,length(#{end})), 'HH24:MI:SS')
+or to_date(substr(schedule_end_date,1,10),'yyyy-mm-dd') BETWEEN TO_DATE(substr(#{start},1,10), 'yyyy-mm-dd') AND TO_DATE(substr(#{end},1,10), 'yyyy-mm-dd') 
+and to_date(substr(schedule_end_date,12,length(schedule_end_date)), 'HH24:MI:SS') BETWEEN to_date(substr(#{start},12,length(#{start})), 'HH24:MI:SS') AND to_date(substr(#{end},12,length(#{end})), 'HH24:MI:SS')
+and schedule_status = '0'
+and member_id = #{member_id}
+
+</select>
+
+<select id="selectDateList" parameterType="map" resultType="date">
+select ls_day from(
+
+select to_date(#{class_start_date},'YYYY-MM-DD HH24:MI:SS') + rn ls_day
+
+from (select rownum rn from all_objects ) a ,( select curriculum_time/8 as day from curriculum where curriculum_no =#{curriculum_no}) b
+where to_char(to_date(#{class_start_date},'YYYY-MM-DD HH24:MI:SS')+rn,'d') in ('2','3','4','5','6')
+ <![CDATA[and rownum <=  b.day]]>
+order by ls_day asc )
+</select>
+
+<update id="insertSchedule" parameterType="schedule" >
+		insert into
+		schedule(schedule_no,schedule_category_no,member_id,schedule_subject_no,
+			  	schedule_title,schedule_content,schedule_color,schedule_start_date,schedule_end_date)
+		values(#{schedule_no},#{schedule_category_no},#{member_id},#{schedule_subject_no},#{schedule_title},#{schedule_content},#{schedule_color},#{schedule_start_date},
+				#{schedule_end_date}
+		)
+</update>
+
+<update id="insertScheduleList" parameterType="java.util.List" >
+		<foreach collection="list" item="item" open="INSERT ALL" close="SELECT * FROM DUAL" index="index" separator=" ">
+		into
+		schedule(schedule_no,schedule_category_no,member_id,schedule_subject_no,
+			  	schedule_title,schedule_content,schedule_color,schedule_start_date,schedule_end_date)
+		values
+		(
+		#{item.schedule_no},#{item.schedule_category_no},#{item.member_id},#{item.schedule_subject_no},#{item.schedule_title},#{item.schedule_content},#{item.schedule_color},#{item.schedule_start_date},
+				#{item.schedule_end_date}
+		)
+		</foreach>
+</update>
+
+<update id="deleteSchedule" parameterType="str" >
+		update schedule
+		set 
+		schedule_status = '1'
+		where schedule_no=#{schedule_no}
+</update>
+
+<update id="updateSchedule" parameterType="schedule" >
+	update schedule
+	set
+	schedule_title=#{schedule_title},schedule_content=#{schedule_content},
+	schedule_color=#{schedule_color},
+	schedule_start_date=#{schedule_start_date},
+	schedule_end_date=#{schedule_end_date}
+	where schedule_no=#{schedule_no}
+</update>
+
+
+	
+
+</mapper>
+

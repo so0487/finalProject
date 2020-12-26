@@ -1,0 +1,51 @@
+package kr.or.ddit.dto;
+
+public class AssignmentVO {
+	
+	private String assignment_content;  //과제내용
+	private String assignment_name;  //과제명
+	private String lecture_no;  //강의id
+	private String assignment_no;  //과제번호
+	private int assingment_score;  //총점
+	
+	
+	public String getAssignment_no() {
+		return assignment_no;
+	}
+	public void setAssignment_no(String assignment_no) {
+		this.assignment_no = assignment_no;
+	}
+	public String getLecture_no() {
+		return lecture_no;
+	}
+	public void setLecture_no(String lecture_no) {
+		this.lecture_no = lecture_no;
+	}
+	public int getAssingment_score() {
+		return assingment_score;
+	}
+	public void setAssingment_score(int assingment_score) {
+		this.assingment_score = assingment_score;
+	}
+	public String getAssignment_name() {
+		return assignment_name;
+	}
+	public void setAssignment_name(String assignment_name) {
+		this.assignment_name = assignment_name;
+	}
+	public String getAssignment_content() {
+		return assignment_content;
+	}
+	public void setAssignment_content(String assignment_content) {
+		this.assignment_content = assignment_content;
+	}
+	
+	@Override
+	public String toString() {
+		return "AssignmentVO [assignment_no=" + assignment_no + ", lecture_no=" + lecture_no + ", assingment_score="
+				+ assingment_score + ", assignment_name=" + assignment_name + ", assignment_content="
+				+ assignment_content + "]";
+	}
+	
+	
+}

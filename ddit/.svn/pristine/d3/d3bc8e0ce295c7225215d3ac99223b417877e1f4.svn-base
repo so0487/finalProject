@@ -1,0 +1,314 @@
+package kr.or.ddit.classes.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.classes.service.CurriculumService;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CurriculumVO;
+import kr.or.ddit.dto.LectureVO;
+import kr.or.ddit.dto.ProfessorVO;
+import kr.or.ddit.dto.SubjectVO;
+import kr.or.ddit.lecture.service.SubjectService;
+import kr.or.ddit.member.service.ProfessorService;
+import kr.or.ddit.request.SearchCriteria;
+
+@Controller
+@RequestMapping("/class")
+public class ClassController {
+	
+	@Autowired
+	private ClassService classService;
+	
+	public void setClassService(ClassService classService) {
+		this.classService = classService;
+	}
+	
+	@Autowired
+	private ProfessorService professorService;
+	
+	@Autowired
+	private SubjectService subjectService;
+
+	@Autowired
+	private CurriculumService curriculumService;
+	
+	public void setCurriculumService(CurriculumService curriculumService) {
+		this.curriculumService = curriculumService;
+	}
+
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "class/main.open";
+	}
+	
+	@RequestMapping("/class/registForm")
+	public ModelAndView registFormClass(String curriculum_no, ModelAndView mnv,String error, HttpServletResponse response) throws SQLException {
+		 String url="class/class/registForm.page";
+		    String class_no = classService.getClassNo();
+		    SearchCriteria cri = new SearchCriteria();
+		    Map<String, Object> dataMap = curriculumService.getCurriculumList(cri) ;
+		    List<ProfessorVO> proList = professorService.getProfessorList(cri);
+		    Map<String, Object> subjectList = subjectService.getSearchSubjectList(cri);
+		    mnv.addObject("varArray",varArray);
+		    mnv.addObject("class_no",class_no);
+		    mnv.addObject("proList",proList);
+		    mnv.addAllObjects(dataMap);
+		    mnv.addAllObjects(subjectList);
+		    mnv.setViewName(url);
+		    return mnv;
+	}
+	
+	
+	
+	@RequestMapping(value="/class/regist" ,method=RequestMethod.POST)
+	public void regist(@RequestParam("class_no")String class_no, ClassVO classVO, HttpServletResponse response) throws SQLException {
+		
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			CurriculumVO curriculum = curriculumService.getCurriculumByNo(classVO.getCurriculum_no());
+			classVO.setCurriculum_name(curriculum.getCurriculum_name());
+			int class_number = classService.getMaxClass_number(classVO.getCurriculum_no());
+			classVO.setClass_number(class_number);
+			Map<String, Object> dataMap = new HashMap<>();
+			Date class_start_date = classVO.getClass_start_date();
+			String curriculum_no = classVO.getCurriculum_no();
+			dataMap.put("class_start_date", class_start_date);
+			dataMap.put("curriculum_no", curriculum_no);
+			
+			Date class_end_date = classService.getClass_end_date(dataMap);
+			
+			classVO.setClass_end_date(class_end_date);
+
+			
+			classService.registClass(classVO);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('등록되었습니다.')");
+		     out.println("location.href='../../interview/registForm.do?class_no="+classVO.getClass_no()+"';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("안댐..");
+		}
+	}
+	
+	
+	List<LectureVO> varArray = new ArrayList<>();
+	
+	@RequestMapping(value = "/regist/lecture", method = RequestMethod.POST)
+	public ResponseEntity<String> lecList(LectureVO lecture, HttpServletResponse response) throws IOException {
+		ResponseEntity<String> entity = null;
+		System.out.println(lecture+"이게 렉처다");
+		
+		try {
+			varArray.add(lecture);
+			System.out.println(varArray);
+			for (int i = 0; i < varArray.size(); i++) {
+				System.out.println(varArray.get(i).getLecture_name()+"이게떠야");
+			}
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+				
+	}
+	
+	@RequestMapping("/class/allList")
+	public ModelAndView listAllClass(SearchCriteria cri, ModelAndView mnv)throws SQLException {
+		String url = "class/class/allList.page";
+		
+		Map<String, Object> dataMap = classService.getSearchClassList(cri);
+		
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/class/list")
+	public ModelAndView listClass(String curriculum_no , SearchCriteria cri, ModelAndView mnv) throws SQLException {
+		String url = "class/class/list.page";
+		
+		System.out.println(curriculum_no);
+		
+		Map<String, Object> dataMap = classService.getClassList(curriculum_no) ;
+		CurriculumVO curriculum = curriculumService.getCurriculumByNo(curriculum_no);
+		mnv.addAllObjects(dataMap);
+		mnv.addObject("curriculum",curriculum);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/class/detail")
+	public ModelAndView detailClass(String class_no, @ModelAttribute("cri") SearchCriteria cri,  ModelAndView mnv) throws SQLException {
+		String url = "class/class/detail.page";
+		System.out.println(class_no);
+		
+		ClassVO classVO = classService.getClassByNo(class_no);
+		
+		mnv.addObject("classVO",classVO);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/class/modifyForm")
+	public ModelAndView modifyForm(String class_no,ModelAndView mnv) throws SQLException {
+		String url="class/class/modifyForm.page";
+	      
+	    ClassVO classVO= classService.getClassByNo(class_no);
+	      
+	    mnv.addObject("classVO",classVO);      
+	    mnv.setViewName(url);
+	      
+	    return mnv;
+	}
+	
+	@RequestMapping(value = "/class/modify", method = RequestMethod.POST)
+	public void modifyClass(ClassVO classVO, HttpServletResponse response)throws Exception {
+		classService.modifyClass(classVO);
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('수정되었습니다.')");
+		out.println("location.href='detail?class_no=" + classVO.getClass_no() + "';");
+		out.println("</script>");
+	}
+	
+	@RequestMapping("/class/remove")
+	public void removeClass(String class_no,HttpServletResponse response) throws SQLException {
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			classService.removeClass(class_no);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('삭제되었습니다.')");
+		     out.println("location.href='allList.do';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/curriculum/remove")
+	public void removeCurriculum(CurriculumVO curriculum,HttpServletResponse response)throws SQLException {
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			curriculumService.removeCurriculum(curriculum);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('삭제되었습니다.')");
+		     out.println("location.href='list.do';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@RequestMapping("/curriculum/list")
+	public ModelAndView listCurriculum(SearchCriteria cri, ModelAndView mnv)throws SQLException {
+		String url = "class/curriculum/list.page";
+		
+		Map<String, Object> dataMap = curriculumService.getCurriculumList(cri) ;
+		
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/curriculum/registForm")
+	 public ModelAndView registFormCurriculum(ModelAndView mnv)throws SQLException{
+	    String url="class/curriculum/registForm.page";
+	    String curriculum_no = curriculumService.getCurriculumNo();
+	    mnv.addObject("curriculum_no",curriculum_no);
+	    mnv.setViewName(url);
+	    return mnv;
+	 }
+	
+	@RequestMapping("/curriculum/regist")
+	public void registCurriculum(CurriculumVO curriculum, HttpServletResponse response)throws SQLException {
+	     
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			curriculumService.registCurriculum(curriculum);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('등록되었습니다.')");
+		     out.println("location.href='list.do';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/curriculum/detail")
+	public ModelAndView detailCurriculum(String curriculum_no, @ModelAttribute("cri") SearchCriteria cri,  ModelAndView mnv) throws SQLException {
+		String url = "class/curriculum/detail.page";
+		System.out.println(curriculum_no);
+		
+		CurriculumVO curriculum = curriculumService.getCurriculumByNo(curriculum_no);
+		
+		mnv.addObject("curriculum",curriculum);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/curriculum/modifyForm")
+	public ModelAndView modifyFormCurriculum(String curriculum_no,ModelAndView mnv) throws SQLException {
+		
+		String url="class/curriculum/modifyForm.page";
+	      
+	    CurriculumVO curriculum = curriculumService.getCurriculumByNo(curriculum_no);
+	      
+	    mnv.addObject("curriculum",curriculum);      
+	    mnv.setViewName(url);
+	      
+	    return mnv;
+		
+	}
+
+	@RequestMapping(value = "/curriculum/modify", method = RequestMethod.POST)
+	public void modifyCurriculum(CurriculumVO curriculum, HttpServletResponse response) throws Exception {
+
+		curriculumService.modifyCurriculum(curriculum);
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('수정되었습니다.')");
+		out.println("location.href='detail?curriculum_no=" + curriculum.getCurriculum_no() + "';");
+		out.println("</script>");
+	}
+
+	
+	
+	
+
+}

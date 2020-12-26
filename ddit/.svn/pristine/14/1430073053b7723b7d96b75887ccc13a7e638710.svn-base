@@ -1,0 +1,67 @@
+package kr.or.ddit.classes.service;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.classes.dao.ReviewDAO;
+import kr.or.ddit.dto.ReviewVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ReviewServiceImpl implements ReviewService {
+	private ReviewDAO reviewDAO;
+
+	public void setReviewDAO(ReviewDAO reviewDAO) {
+		this.reviewDAO = reviewDAO;
+	}
+
+	@Override
+	public List<ReviewVO> getReviewList(SearchCriteria cri) throws SQLException {
+		List<ReviewVO> reviewList = reviewDAO.selectReviewList(cri);
+		return reviewList;
+	}
+
+	@Override
+	public ReviewVO getReviewByNo(String review_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registReview(ReviewVO review) throws SQLException {
+		reviewDAO.insertReview(review);
+		
+	}
+
+	@Override
+	public void modifyReview(ReviewVO review) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeReview(ReviewVO review) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getReviewNo() throws SQLException {
+		String review_no =reviewDAO.selectReviewNo();
+		return review_no;
+	}
+
+	@Override
+	public List<ReviewVO> getReviewListByCurriculum_no(String curriculum_no) throws SQLException {
+		List<ReviewVO> reviewList = reviewDAO.selectReviewListByCurriculum_no(curriculum_no);
+		return reviewList;
+	}
+
+	@Override
+	public int getReviewExist(Map<String, String> dataMap) throws SQLException {
+		int cnt = 0;
+		cnt = reviewDAO.selectReviewExist(dataMap);
+		return cnt;
+	}
+	
+}

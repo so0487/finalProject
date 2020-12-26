@@ -1,0 +1,54 @@
+package kr.or.ddit.dto;
+
+public class TestVO {
+	private String test_start_date;  //시험시작시간
+	private String test_name;  //시험이름
+	private int test_score;  //총점
+	private String lecture_no;  //강의id
+	private String test_end_date;  //시험종료시간
+	private String test_no;  //시험번호
+	
+	
+	public String getTest_start_date() {
+		return test_start_date;
+	}
+	public void setTest_start_date(String test_start_date) {
+		this.test_start_date = test_start_date;
+	}
+	public String getTest_name() {
+		return test_name;
+	}
+	public void setTest_name(String test_name) {
+		this.test_name = test_name;
+	}
+	public int getTest_score() {
+		return test_score;
+	}
+	public void setTest_score(int test_score) {
+		this.test_score = test_score;
+	}
+	public String getLecture_no() {
+		return lecture_no;
+	}
+	public void setLecture_no(String lecture_no) {
+		this.lecture_no = lecture_no;
+	}
+	public String getTest_end_date() {
+		return test_end_date;
+	}
+	public void setTest_end_date(String test_end_date) {
+		this.test_end_date = test_end_date;
+	}
+	public String getTest_no() {
+		return test_no;
+	}
+	public void setTest_no(String test_no) {
+		this.test_no = test_no;
+	}
+	@Override
+	public String toString() {
+		return "TestVO [test_start_date=" + test_start_date + ", test_name=" + test_name + ", test_score=" + test_score
+				+ ", lecture_no=" + lecture_no + ", test_end_date=" + test_end_date + ", test_no=" + test_no + "]";
+	}
+	
+}

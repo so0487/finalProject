@@ -1,0 +1,47 @@
+package kr.or.ddit.assign.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.AssignmentHistoryVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AssignmentHistoryDAOImpl implements AssignmentHistoryDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<AssignmentHistoryVO> selectAssignmentHistoryList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AssignmentHistoryVO selectAssignmentHistoryByNo(String assignment_history_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

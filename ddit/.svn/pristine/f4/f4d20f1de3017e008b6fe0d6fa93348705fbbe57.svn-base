@@ -1,0 +1,19 @@
+package kr.or.ddit.schedule.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface ScheduleService {
+	List<ScheduleVO> getScheduleList(String member_id) throws SQLException;
+	
+	ScheduleVO getScheduleByNo(String schedule_no) throws SQLException;;
+	
+	void registSchedule(ScheduleVO schedule) throws SQLException;
+	
+	void modifySchedule(ScheduleVO schedule) throws SQLException;
+	
+	void removeSchedule(ScheduleVO schedule) throws SQLException;
+}

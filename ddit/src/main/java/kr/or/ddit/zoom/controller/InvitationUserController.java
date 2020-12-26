@@ -1,0 +1,50 @@
+package kr.or.ddit.zoom.controller;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.zoom.dao.MeetingDAO;
+import kr.or.ddit.zoom.service.MeetingService;
+
+
+
+@Controller
+public class InvitationUserController {
+
+	private String userid;
+	
+
+	private MeetingService meetingService;
+	
+	@RequestMapping(value = "/user/Invitation", method = { RequestMethod.GET, RequestMethod.POST })
+    public String Invitation(Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response, Authentication auth) throws SQLException {
+    	System.out.println("-----------zoom 회의 초대-----------");
+	    	
+	    	MemberVO vo = (MemberVO) auth.getPrincipal();
+	    	userid = vo.getMember_id();
+	    	System.out.println("----------userid----------" + userid);
+	    	List<HashMap<String, Object>> result = meetingService.getUserInvit(userid);
+	    	System.out.println(result);
+	    	
+	    	
+	    	
+	    	model.addAttribute("result",result);
+	    	
+	    
+    	return "/zoom/user_Invitation.page";
+    }
+	
+}

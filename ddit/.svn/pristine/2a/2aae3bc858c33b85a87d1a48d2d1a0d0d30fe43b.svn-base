@@ -1,0 +1,49 @@
+package kr.or.ddit.classes.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.classes.dao.ClassStudentListDAO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ClassStudentListServiceImpl implements ClassStudentListService {
+	private ClassStudentListDAO classStudentListDAO;
+
+	public void setClassStudentListDAO(ClassStudentListDAO classStudentListDAO) {
+		this.classStudentListDAO = classStudentListDAO;
+	}
+
+	@Override
+	public List<CslVO> getClassStudentListList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CslVO getClassStudentListByNo(String class_student_list) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registClassStudentList(CslVO csl) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyClassStudentList(CslVO csl) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeClassStudentList(CslVO csl) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+}

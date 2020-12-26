@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+
+<body>
+	
+
+	<div class="content-body">
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">교육과정 등록</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+
+		</div>
+		<!-- Page Headings End -->
+
+		<form role="form" method="post" action="regist.do" name="registForm">
+			<div class="row">
+				<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+					<h5>교육과정아이디</h5>
+				</div>	
+				<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+					<input type="text" class="form-control" value="${curriculum.curriculum_no }" name="curriculum_no" id="curriculum_no" readonly />
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>교육과정명</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="curriculum_name" id="curriculum_name" value="${curriculum.curriculum_name}" readonly />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>훈련시간</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="curriculum_time" id="curriculum_time" value="${curriculum.curriculum_time}" readonly />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>관련자격증</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="curriculum_certificate" id="curriculum_certificate" value="${curriculum.curriculum_certificate}" readonly />
+				<input type="text" class="form-control" name="curriculum_status" id="curriculum_status" style="display: none;" value="${curriculum.curriculum_status}" >
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="row">
+				<div class="col-12 mb-30">
+					<div class="box">
+						<div class="box-head">
+							<h3 class="title">교육과정 소개</h3>
+						</div>
+						<div class="box-body">
+							<div >${curriculum.curriculum_introduce}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+
+
+		
+		
+
+
+
+		<!-- include summernote css/js -->
+			
+			
+		<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+		(title css 겹치는 듯....)
+		
+		 -->
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+			
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>		
+		
+		<script src="<%=request.getContextPath()%>/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/js/plugins/summernote/summernote-bs4.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/js/plugins/summernote/summernote.active.js"></script>
+			
+		
+		<!-- summerNote -->
+
+
+
+
+
+		
+		<!-- button -->
+		<div class="row">
+			<div class="col-lg-6 mb-20"></div>
+	
+			<div class="col-lg-6 mb-20">
+				<button class="button button-success" id="modBtn">
+					<span>수정</span>
+				</button>
+				<button class="button button-success" id="remBtn">
+					<span>삭제</span>
+				</button>
+				<button class="button button-danger" id="cancelBtn">
+					<span>취소</span>
+				</button>
+				<button class="button button-danger" id="goBtn">
+					<span>신청하러가기</span>
+				</button>
+			</div>
+		</div>
+
+	</div>
+	
+	
+<form role="form">
+<input type="hidden" name="curriculum_no" id="curriculum_no" value="${curriculum.curriculum_no }" />
+</form>
+	
+<script>
+var formObj = $("form[role='form']");
+
+
+$('#goBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'../class/list.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+
+$('#modBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'modifyForm.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+$('#remBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'remove.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+$('#cancelBtn').on('click',function(e){
+	//alert("regist btn click");
+	location.href="list.do";
+// 	history.go(-1);
+});
+
+</script>
+
+</body>
+</html>

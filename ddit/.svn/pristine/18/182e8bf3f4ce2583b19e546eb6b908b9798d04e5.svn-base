@@ -1,0 +1,64 @@
+package kr.or.ddit.interview.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.InterviewHistoryProVO;
+import kr.or.ddit.dto.InterviewVO;
+import kr.or.ddit.interview.dao.InterviewDAO;
+import kr.or.ddit.interviewHistoryPro.dao.InterviewHistoryProDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class InterviewServiceImpl implements InterviewService {
+	private InterviewDAO interviewDAO;
+
+	public void setInterviewDAO(InterviewDAO interviewDAO) {
+		this.interviewDAO = interviewDAO;
+	}
+	
+	private InterviewHistoryProDAO interviewHistoryProDAO;
+	
+	public void setInterviewHistoryProDAO(InterviewHistoryProDAO interviewHistoryProDAO) {
+		this.interviewHistoryProDAO = interviewHistoryProDAO;
+	}
+
+	@Override
+	public List<InterviewVO> getInterviewList(String class_no) throws SQLException {
+		return interviewDAO.selectInterviewList(class_no);
+	}
+
+	@Override
+	public InterviewVO getInterviewByNo(String interview_no) throws SQLException {
+		return interviewDAO.selectInterviewByNo(interview_no);
+	}
+
+	@Override
+	public void registInterview(InterviewVO interview,List<String> valueArr) throws SQLException {
+		String inverview_no=interviewDAO.selectInterviewNo();
+		interview.setInterview_no(inverview_no);
+		
+		
+		interviewDAO.insertInterview(interview);
+		
+		for(int i=0; i<valueArr.size(); i++) {
+			InterviewHistoryProVO ivhp = new InterviewHistoryProVO();
+			ivhp.setInterview_history_pro_no(interviewHistoryProDAO.selectInterviewHistoryProNo());
+			ivhp.setInterview_no(inverview_no);
+			ivhp.setProfessor_id(valueArr.get(i));
+			interviewHistoryProDAO.insertInterviewHistoryPro(ivhp);
+		}
+	}
+
+	@Override
+	public void modifyInterview(InterviewVO interview) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeInterview(InterviewVO interview) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,180 @@
+package kr.or.ddit.message.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.tribes.MembershipListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.MessageVO;
+import kr.or.ddit.member.service.MemberService;
+import kr.or.ddit.message.service.MessageService;
+import kr.or.ddit.request.SearchCriteria;
+
+@Controller
+@RequestMapping("/message")
+public class MessageController {
+
+	@Autowired
+	private MessageService service;
+
+	public void setService(MessageService service) {
+		this.service = service;
+	}
+
+	@Autowired
+	private MemberService memberService;
+
+	@RequestMapping("/list")
+	public ModelAndView list(SearchCriteria cri, ModelAndView mnv, String member_id, HttpServletRequest request)
+			throws SQLException {
+
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		String message_receiver = member.getMember_id();
+
+		String url = "message/receiveMessageList.page";
+		
+		List<MemberVO> memberList = memberService.getMemberList(cri);
+		
+		Map<String, Object> dataMap = service.receiveMailBox(cri, message_receiver);
+		dataMap.put("memberList", memberList);
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+
+	@RequestMapping("/detail")
+	public ModelAndView detail(String message_no, @ModelAttribute("cri") SearchCriteria cri, ModelAndView mnv)
+			throws SQLException {
+
+		String url = "message/messageDetail.page";
+
+		MessageVO message = service.messageByMessageNo(message_no);
+		mnv.addObject("message", message);
+
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("/sendMessageBox")
+	public ModelAndView sendMessageBox(String member_id, SearchCriteria cri, ModelAndView mnv,
+			HttpServletRequest request) throws SQLException {
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+
+		String message_sender = member.getMember_id();
+
+		String url = "message/sendMessageList.page";
+
+		Map<String, Object> dataMap = service.sendMailBox(cri, message_sender);
+
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("/regist")
+	public void regist(MessageVO message, HttpServletRequest request, HttpServletResponse response)
+			throws SQLException {
+		
+		
+		response.setContentType("text/html;charset=utf-8");
+		service.writeMessage(message);
+
+		try {
+			PrintWriter out;
+			out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('전송되었습니다.');");
+			out.println("location.href='" + request.getContextPath() + "/message/sendMessageBox';");
+			out.println("</script>");
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("메시지 전송에 실패하였습니다.");
+		}
+	
+		
+	}
+
+	@RequestMapping("/notReadMessage")
+	public ModelAndView notReadMessage(SearchCriteria cri, ModelAndView mnv, String member_id,
+			HttpServletRequest request) throws SQLException {
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+
+		String message_receiver = member.getMember_id();
+
+		String url = "message/notReadMessage.page";
+
+		Map<String, Object> dataMap = service.receiveMailBox(cri, message_receiver);
+
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("/deleteMessageBox")
+	public ModelAndView deleteMessageBox(SearchCriteria cri, ModelAndView mnv, String member_id,
+			HttpServletRequest request) throws SQLException {
+		MemberVO member = (MemberVO) request.getSession().getAttribute("loginUser");
+		String url = "message/deleteMessageBox.page";
+
+		Map<String, Object> dataMap = service.allMessageList(cri);
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("/removeReceiveMessage")
+	public void removeReceiveMessage(MessageVO message, HttpServletResponse response, HttpServletRequest request)
+			throws SQLException {
+		response.setContentType("text/html;charset=utf-8");
+		service.deleteReceiveMailBox(message);
+
+		try {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('삭제되었습니다.')");
+			out.println("location.href='" + request.getContextPath() + "/message/list'");
+			out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@RequestMapping("removeSendMessage")
+	public void removeSendMessage(MessageVO message, HttpServletResponse response, HttpServletRequest request)
+			throws SQLException {
+		response.setContentType("text/html;charset=utf-8");
+		service.deleteSendMailBox(message);
+		try {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('삭제되었습니다.')");
+			out.println("location.href='" + request.getContextPath() + "/message/sendMessageBox'");
+			out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

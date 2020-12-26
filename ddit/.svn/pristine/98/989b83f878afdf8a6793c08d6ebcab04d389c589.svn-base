@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Professor-Mapper">
+
+	<select id="selectProfessorList" resultType="professor">
+		select *
+		from professor
+	</select>
+	
+	
+	<update id="insertProfessor" parameterType="member">
+      insert into 
+      professor(professor_id, professor_mail, professor_phone, professor_picture,professor_name, professor_address)
+      values(#{member_id},#{member_email},#{member_phone},#{member_picture},#{member_name},#{member_address})
+   	</update>
+
+</mapper>
+

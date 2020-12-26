@@ -1,0 +1,21 @@
+package kr.or.ddit.test.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.TestVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface TestDAO {
+	List<TestVO> selectTestList(SearchCriteria cri) throws SQLException;
+	
+	TestVO selectTestByNo(String test_no) throws SQLException;;
+	
+	void insertTest(TestVO test) throws SQLException;
+	
+	void updateTest(TestVO test) throws SQLException;
+	
+	void deleteTest(TestVO test) throws SQLException;
+	
+	String selectTestNo() throws SQLException;
+}

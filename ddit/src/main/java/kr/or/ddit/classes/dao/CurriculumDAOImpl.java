@@ -1,0 +1,68 @@
+package kr.or.ddit.classes.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.CurriculumVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class CurriculumDAOImpl implements CurriculumDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<CurriculumVO> selectSearchCurriculumList(SearchCriteria cri) throws SQLException {
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+
+		List<CurriculumVO> curriculumList = sqlSession.selectList("Curriculum-Mapper.selectSearchCurriculumList", cri ,rowBounds);
+
+		return curriculumList;
+	}
+	
+	@Override
+	public int selectSearchCurriculumListCount(SearchCriteria cri) throws SQLException {
+		int count = sqlSession.selectOne("Curriculum-Mapper.selectSearchCurriculumListCount", cri);
+		return count;
+		
+	}
+
+	@Override
+	public CurriculumVO selectCurriculumByNo(String curriculum_no) throws SQLException {
+		CurriculumVO curriculum = sqlSession.selectOne("Curriculum-Mapper.selectCurriculumByNo", curriculum_no);
+		return curriculum;
+	}
+
+	@Override
+	public void insertCurriculum(CurriculumVO curriculum) throws SQLException {
+		sqlSession.update("Curriculum-Mapper.insertCurriculum", curriculum);
+		
+	}
+
+	@Override
+	public void updateCurriculum(CurriculumVO curriculum) throws SQLException {
+		sqlSession.update("Curriculum-Mapper.updateCurriculum", curriculum);
+		
+	}
+
+	@Override
+	public void deleteCurriculum(CurriculumVO curriculum) throws SQLException {
+		sqlSession.update("Curriculum-Mapper.deleteCurriculum", curriculum);
+		
+	}
+
+	@Override
+	public String selectCurriculumNo() {
+		String class_no =sqlSession.selectOne("Curriculum-Mapper.selectCurriculumNo");
+	    return class_no;
+	}
+
+	
+
+}

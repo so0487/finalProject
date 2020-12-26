@@ -1,0 +1,19 @@
+package kr.or.ddit.zoom.dao;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.MeetingVO;
+
+
+public interface MeetingDAO {
+
+	public void insertMeeting(Map<String, String> paramMap);
+	public List<HashMap<String, Object>> selectMeeting(String userid);
+	public int deleteMeeting(String meetingid);
+	public int insertInvitation(Map<String, String> paramMap);
+	public List<HashMap<String, Object>> selectUserInvit(String userid);
+	public Map<String, String> selectMeetingByMemId(Map<String, String> paramMap);
+	
+}

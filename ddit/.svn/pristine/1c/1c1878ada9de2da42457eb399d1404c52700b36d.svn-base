@@ -1,0 +1,430 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<body>
+	
+
+	<div class="content-body">
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">회차 등록</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+
+		</div>
+		<!-- Page Headings End -->
+
+		<form role="form" method="post" action="regist.do" name="registForm">
+		 <div class="add-edit-product-wrap col-12 ">
+			<div class="row">
+<!-- 				<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;"> -->
+<!-- 					<h5>회차아이디</h5> -->
+<!-- 				</div>	 -->
+<!-- 				<div class="col-lg-4 mb-20" style="width: 100%; margin-left: 0px;"> -->
+					<input type="hidden" class="form-control" value="${class_no }" name="class_no" id="class_no" readonly />
+<!-- 				</div> -->
+				<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>교육과정</h5>
+			</div>	
+			<div class="col-lg-4 mb-20" style="width: 100%; margin-left: 0px;">
+				<select class="form-control" name="curriculum_no" id="curriculum_no">
+					<option value="">교육과정선택</option>
+					<c:forEach items="${curriculumList }" var="curriculum">
+						<c:if test="${curriculum.curriculum_status eq '0' }">
+							<option value="${curriculum.curriculum_no }">${curriculum.curriculum_name }</option>
+						</c:if>
+					</c:forEach>
+				</select>
+			</div>
+			
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h6>정원수</h6>
+			</div>	
+				<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+					<input type="number" class="form-control" name="class_max" id="class_max" min="20" max="30" value="20" required >
+					<input type="text" class="form-control" name="class_real" id="class_real" style="display: none;" value="0" >
+					<input type="text" class="form-control" name="class_status" id="class_status" style="display: none;" value="모집 중" >
+					<input type="text" class="form-control" name="class_delete" id="class_delete" style="display: none;" value="0" >
+				</div>
+			</div>
+			
+		
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h6>훈련시작날짜</h6>
+			</div>	
+			<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_start_date" id="class_start_date" >
+			</div>
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h6>모집시작날짜</h6>
+			</div>	
+			<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_recruitment_start" id="class_recruitment_start" >
+			</div>
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h6>모집종료날짜</h6>
+			</div>	
+			<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_recruitment_end" id="class_recruitment_end" >
+			</div>
+			
+		</div>
+		</div>
+		
+		
+
+
+			<div class="col-lg-12 col-12 mb-30">
+				<div class="box">
+					<div class="box-head">
+						<h4 class="title">추가 강의 목록</h4>
+							<div class="tab-pane fade show active">
+	                         	<table class="table">
+	                               <thead>
+	                                   <tr>
+	                                       <th data-name="">구분</th>
+	                                       <th data-name="">과목</th>
+	                                       <th data-breakpoints="xs" data-name="">강사명</th>
+	                                       <th data-breakpoints="xs" data-name="">강의명</th>
+		                                   <c:forEach items="${evaList }" var="eva">
+	                                       <th>${eva.evalution_name }</th>
+		                                   </c:forEach>
+	                                       
+	                                   </tr>
+	                               </thead>
+	                               <tbody id="tbody" >
+		                                   <tr>
+		                                       <td>오전수업</td>
+		                                       <td>
+		                                       <select  id ="subject_no1" name="subject_no1" class="form-control" disabled="disabled">
+		                                      	 <option value="">과목 선택</option>
+		                                       <c:forEach items="${subjectList }" var="subject">
+		                                       		<option value="${subject.subject_no }">${ subject.subject_name}</option>
+		                                       </c:forEach>
+		                                       </select>
+		                                       </td>
+		                                       <td>
+		                                       <select id="professor_id1" name="professor_id1" class="form-control" disabled="disabled">
+		                                       <option value="">강사 선택</option> 
+		                                       </select>
+		                                       </td>
+		                                       <td><input type="text" class="form-control" id="lecture_name1" name="lecture_name1" disabled="disabled"></td>
+		                                       <td><input type="number" class="form-control" id="evalution1" name="evalution1" disabled="disabled"></td>
+		                                       <td><input type="number" class="form-control" id="evalution2" name="evalution2" disabled="disabled"></td>
+		                                       <td><input type="number" class="form-control" id="evalution3" name="evalution3" disabled="disabled"></td>
+		                                   </tr>
+		                                   <tr>
+		                                       <td>오후수업</td>
+		                                       <td>
+		                                       <select  id ="subject_no2" name="subject_no2" class="form-control" disabled="disabled">
+		                                      	 <option value="">과목 선택</option>
+		                                       <c:forEach items="${subjectList }" var="subject">
+		                                       		<option value="${subject.subject_no }">${ subject.subject_name}</option>
+		                                       </c:forEach>
+		                                       </select>
+		                                       </td>
+		                                       <td>
+		                                       <select id="professor_id2" name="professor_id2" class="form-control" disabled="disabled">
+		                                       <option value="">강사 선택</option> 
+		                                       </select>
+		                                       </td>
+		                                       <td><input type="text" class="form-control" id="lecture_name2" name="lecture_name2" disabled="disabled"></td>
+		                                       <td><input type="number" class="form-control" id="evalution4" name="evalution4" min="0" max="100" disabled="disabled"></td>
+		                                       <td><input type="number" class="form-control" id="evalution5" name="evalution5" min="0" max="100" disabled="disabled"></td>
+		                                       <td><input type="number" class="form-control" id="evalution6" name="evalution6" min="0" max="100" disabled="disabled"></td>
+		                                   </tr>
+	                               </tbody>
+	                           </table>
+	                     </div>
+						
+					</div>
+					<div class="box-body">
+							<!-- button -->
+		<div class="row">
+		<div class="col-lg-3 mb-20">
+			</div>
+			
+	
+			<div class="col-lg-3 mb-20">
+				<button class="button button-success" id="registBtn">
+					<span>다음</span>
+				</button>
+				<button class="button button-danger" id="cancelBtn">
+					<span>취소</span>
+				</button>
+			</div>
+		</div>
+		
+						
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="<%=request.getContextPath() %>/resources/js/moment.js"></script>
+	<script>
+	var date = new Date();
+	var str = moment(date).format("YYYY-MM-DD");
+	  
+	
+// 	var str = moment(date).format("YYYY-MM-DD")+"T00:00:00";
+// 	   var str2 = $('input[name=class_recruitment_end]').val()+"T00:00:00";
+	   
+	   document.getElementById("class_start_date").min = str;
+	   document.getElementById("class_recruitment_start").min = str;
+	   document.getElementById("class_recruitment_end").min = str;
+		
+$('#class_start_date').on('change',function(){
+	var str3 = $('input[name="class_start_date"]').val();//+"T00:00:00"
+	document.getElementById("class_recruitment_start").max = str3;
+	document.getElementById("class_recruitment_end").max = str3;
+	
+	if($('input[name="class_start_date"]').val()<$('input[name="class_recruitment_start"]').val() && $('input[name="class_recruitment_start"]').val() != ""){
+		alert("모집시작 날짜를 올바르게 입력해주세요.");
+		document.getElementById("class_recruitment_start").value="";
+		document.getElementById("class_recruitment_end").value="";
+		$('#subject_no1').attr('disabled','disabled');
+		$('#subject_no2').attr('disabled','disabled');
+		$('#professor_id1').attr('disabled','disabled');
+		$('#professor_id2').attr('disabled','disabled');
+		$('#lecture_name1').attr('disabled','disabled');
+		$('#lecture_name2').attr('disabled','disabled');
+		$('#evalution1').attr('disabled','disabled');
+		$('#evalution2').attr('disabled','disabled');
+		$('#evalution3').attr('disabled','disabled');
+		$('#evalution4').attr('disabled','disabled');
+		$('#evalution5').attr('disabled','disabled');
+		$('#evalution6').attr('disabled','disabled');
+		return;
+	}
+	
+}); 	
+$('#class_recruitment_start').on('change',function(){
+	if($('input[name="class_start_date"]').val()==""){
+		alert("훈련시작 날짜를 먼저 선택해 주세요.");
+		document.getElementById("class_recruitment_start").value="";
+		return;
+	}
+	if($('input[name="class_recruitment_start"]').val()>$('input[name="class_recruitment_end"]').val() && $('input[name="class_recruitment_end"]').val() != ""){
+		alert("모집종료 날짜를 올바르게 입력해주세요.");
+		document.getElementById("class_recruitment_end").value="";
+		
+		$('#subject_no1').attr('disabled','disabled');
+		$('#subject_no2').attr('disabled','disabled');
+		$('#professor_id1').attr('disabled','disabled');
+		$('#professor_id2').attr('disabled','disabled');
+		$('#lecture_name1').attr('disabled','disabled');
+		$('#lecture_name2').attr('disabled','disabled');
+		$('#evalution1').attr('disabled','disabled');
+		$('#evalution2').attr('disabled','disabled');
+		$('#evalution3').attr('disabled','disabled');
+		$('#evalution4').attr('disabled','disabled');
+		$('#evalution5').attr('disabled','disabled');
+		$('#evalution6').attr('disabled','disabled');
+		return;
+	}
+	
+	
+	var str4 = $('input[name="class_recruitment_start"]').val();//+"T00:00:00"
+	document.getElementById("class_recruitment_end").min = str4;
+}); 	
+
+$('#class_recruitment_end').on('change',function(){
+	if($('input[name="class_recruitment_start"]').val()==""){
+		alert("모집시작 날짜를 먼저 선택해 주세요.");
+		document.getElementById("class_recruitment_end").value="";
+		return;
+	}
+	
+	if($('input[name="class_recruitment_start"]').val()!=""){
+		$('#subject_no1').removeAttr('disabled');
+		$('#subject_no2').removeAttr('disabled');
+		$('#professor_id1').removeAttr('disabled');
+		$('#professor_id2').removeAttr('disabled');
+		$('#lecture_name1').removeAttr('disabled');
+		$('#lecture_name2').removeAttr('disabled');
+		$('#evalution1').removeAttr('disabled');
+		$('#evalution2').removeAttr('disabled');
+		$('#evalution3').removeAttr('disabled');
+		$('#evalution4').removeAttr('disabled');
+		$('#evalution5').removeAttr('disabled');
+		$('#evalution6').removeAttr('disabled');
+	}
+	
+}); 	
+	
+		var subject_no =[];
+		$('input[name="subject_no"]').each(function(i){
+			subject_no.push($(this).val());
+			
+		});
+		var subject_name =[];
+		$('input[name="subject_name"]').each(function(i){
+			subject_name.push($(this).val());
+			
+		});
+	
+
+
+$('#subject_no1').on('change',function(e){
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/class/find/professor.do",
+		data : {
+			subject_no : $('#subject_no1').val(),
+			schedule_start_date : $('#class_start_date').val(),
+			curriculum_no : $('#curriculum_no').val(),
+			kind : '오전'
+		},
+	success:function(result){
+		$('#professor_id1').empty();
+		var str ="";
+		str += "<option value=''>강사 선택</option>";
+		$.each(result,function(i){
+			str += "<option value='"+result[i].professor_id+"'>"+result[i].professor_name+"</option>";
+		});		
+		$('#professor_id1').append(str);
+	},
+	error:function(error){
+				
+	},
+	complete:function(){
+// 			$('#exampleModal5').modal('hide');
+	}
+});
+});
+$('#subject_no2').on('change',function(e){
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/class/find/professor.do",
+		data : {
+			subject_no : $('#subject_no1').val(),
+			schedule_start_date : $('#class_start_date').val(),
+			curriculum_no : $('#curriculum_no').val(),
+			kind : '오후'
+		},
+	success:function(result){
+		$('#professor_id2').empty();
+		var str ="";
+		str += "<option value=''>강사 선택</option>";
+		$.each(result,function(i){
+			str += "<option value='"+result[i].professor_id+"'>"+result[i].professor_name+"</option>";
+		});		
+		$('#professor_id2').append(str);
+	},
+	error:function(error){
+				
+	},
+	complete:function(){
+// 			$('#exampleModal5').modal('hide');
+	}
+});
+});
+
+$('#registBtn').on('click',function(e){
+	
+	var form=document.registForm;
+	
+	
+	alert($('#curriculum_no').val());
+	var class_start_date = $('#class_start_date').val();
+	var class_recruitment_start =$('#class_recruitment_start').val();
+	
+	
+	if(form.class_start_date.value==""||form.class_recruitment_start.value==""||form.class_max.value=="" || form.subject_no1.value==""|| form.subject_no2.value==""
+		|| form.professor_id1.value=="" || form.professor_id2.value=="" || form.evalution1.value=="" || form.evalution2.value=="" || form.evalution3.value=="" || form.evalution4.value=="" || form.evalution5.value=="" 
+		|| form.evalution6.value=="" || form.lecture_name1.value=="" || form.lecture_name2.value=="" 	){
+		alert("입력하지 않은 항목이 있습니다.");
+		return;
+	}
+	form.submit();
+});
+$('#cancelBtn').on('click',function(e){
+	history.go(-1);
+});
+// $('#registLectureBtn').on('click',function(e){
+// 	var evalution_no =[];
+// 	$('input[name="evalution_no"]').each(function(i){
+// 		evalution_no.push($(this).val());
+		
+// 	});
+// 	var evalution_name =[];
+// 	$('input[name="evalution_name"]').each(function(i){
+// 		evalution_name.push($(this).val());
+		
+// 	});
+// 	var eva_to_lec_ratio =[];
+// 	$('input[name="eva_to_lec_ratio"]').each(function(i){
+// 		eva_to_lec_ratio.push($(this).val());
+		
+// 	});
+	
+// 	$.ajax({
+// 		type:"POST",
+<%-- 		url :"<%= request.getContextPath() %>/class/regist/lecture.do", --%>
+// 		data : {
+// 				professor_id : $('#professor_id').val(),
+// 				subject_no : $('#subject_no').val(),
+// 				lecture_start_date  :$('#lecture_start_date').val(),
+// 				lecture_end_date  :$('#lecture_end_date').val(),
+// 				lecture_name  :$('input[name="lecture_name"]').val(),
+// 				evalution_no : evalution_no,
+// 				evalution_name : evalution_name,
+// 				eva_to_lec_ratio :eva_to_lec_ratio
+				
+// 		},
+	
+// 	success:function(result){
+// 		alert("등록되었습니다.");		
+// 	},
+// 	error:function(error){
+// 		alert('등록 실패했습니다.');		
+// 	},
+// 	complete:function(){
+// 			$('#exampleModal5').modal('hide');
+// 			location.href="../class/registForm.do";
+// 			location.reload(true);
+// 	}
+// });
+	
+	
+// });
+
+
+// $('button[name="delLecBtn"]').on('click',function(){
+// 	var index = $(this).parent().children('#index').val();
+// 	$.ajax({
+// 		type:"POST",
+<%-- 		url :"<%= request.getContextPath() %>/class/remove/lecture.do", --%>
+// 		data : {
+// 				index : index
+// 		},
+	
+// 	success:function(result){
+// 		alert("삭제되었습니다");		
+// 	},
+// 	error:function(error){
+// 		alert('삭제 실패했습니다.');		
+// 	},
+// 	complete:function(){
+// 			location.href="../class/registForm.do";
+// 			location.reload(true);
+// 	}
+// });
+// });
+
+
+</script>
+
+</body>
+</html>

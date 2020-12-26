@@ -1,0 +1,19 @@
+package kr.or.ddit.zoom.service;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.MeetingVO;
+
+public interface MeetingService {
+	public void registMeeting(Map<String, String> paramMap) throws SQLException;
+	public List<HashMap<String, Object>> getMeeting(String userid)  throws SQLException;
+	public int removeMeeting(String meetingid)  throws SQLException;
+	public int registInvitation(Map<String, String> paramMap)  throws SQLException;
+	public List<HashMap<String, Object>> getUserInvit(String userid)  throws SQLException;
+	public List<Map<String, String>> getMeetingByMemId(Map<String, String> paramMap)  throws SQLException;
+	public List<MeetingVO> gettMeetingBy(Map<String, String> paramMap) throws SQLException;
+
+}

@@ -1,0 +1,298 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<body>
+	
+
+	<div class="content-body">
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">회차 등록</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+
+		</div>
+		<!-- Page Headings End -->
+
+		<form role="form" method="post" action="regist.do" name="registForm">
+			<div class="row">
+				<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+					<h5>회차아이디</h5>
+				</div>	
+				<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+					<input type="text" class="form-control" value="${class_no }" name="class_no" id="class_no" readonly />
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>교육과정</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<select class="form-control" name="curriculum_no" id="curriculum_no">
+					<option value="">교육과정선택</option>
+					<c:forEach items="${curriculumList }" var="curriculum">
+						<c:if test="${curriculum.curriculum_status eq '0' }">
+							<option value="${curriculum.curriculum_no }">${curriculum.curriculum_name }</option>
+						</c:if>
+					</c:forEach>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>훈련시작날짜</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_start_date" id="class_start_date" >
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>모집시작날짜</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_recruitment_start" id="class_recruitment_start" >
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>모집종료날짜</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_recruitment_end" id="class_recruitment_end" >
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>정원수</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="class_max" id="class_max" >
+				<input type="text" class="form-control" name="class_real" id="class_real" style="display: none;" value="0" >
+				<input type="text" class="form-control" name="class_status" id="class_status" style="display: none;" value="모집 중" >
+				<input type="text" class="form-control" name="class_delete" id="class_delete" style="display: none;" value="0" >
+			</div>
+		</div>
+		
+		
+
+		</form>
+
+
+
+		
+		<!-- button -->
+		<div class="row">
+		<div class="col-lg-3 mb-20">
+			<button class="button button-primary" data-toggle="modal"
+							data-target="#exampleModal5" data-whatever="@mdo">강의추가</button>
+			</div>
+			<div class="col-lg-6 mb-20"></div>
+	
+			<div class="col-lg-3 mb-20">
+				<button class="button button-success" id="registBtn">
+					<span>등록</span>
+				</button>
+				<button class="button button-danger" id="cancelBtn">
+					<span>취소</span>
+				</button>
+			</div>
+		</div>
+		
+		
+		
+			<div class="col-lg-6 col-12 mb-30">
+				<div class="box">
+					<div class="box-head">
+						<h4 class="title">추가 강의 목록</h4>
+					<c:forEach items="${lectureList }" var="lecture"  varStatus="status">
+						<div id="lecture_name">
+						<input type="hidden" name="index" id="index" value="${status.count}" > 
+						${status.count}. <input type="text" name="lecture_names" style="background-color: none; border: none;" value="${lecture.lecture_name }"readonly>
+						<button type="button" name="delLecBtn" style="background-color: red;color:white; ">X</button>
+						</div>
+					</c:forEach>	
+						
+					</div>
+					<div class="box-body">
+						
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal5">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">강의 등록</h5>
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+											
+											<div class="form-group">
+												<label for="message-text" class="col-form-label">과목(select)</label>
+												<select  id="subject_no" class="form-control">
+													<option value="">과목 선택</option>
+													<c:forEach items="${subjectList }" var="subject">
+														<c:if test="${subject.subject_status eq '0' }">
+															<option value="${subject.subject_no}">${subject.subject_name }</option>
+														</c:if>			
+													</c:forEach>
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="message-text" class="col-form-label">시작시간</label>
+												<input type="time" class="form-control" id="lecture_start_date" name="lecture_start_date">
+											</div>
+											<div class="form-group">
+												<label for="message-text" class="col-form-label">종료시간</label>
+												<input type="time" class="form-control" id="lecture_end_date" name="lecture_end_date">
+											</div>
+											<div class="form-group">
+												<label for="message-text" class="col-form-label">강의명</label>
+												<input type="text" class="form-control" id="lecture_name" name="lecture_name">
+											</div>
+									<div class="form-group">
+												<label for="recipient-name" class="col-form-label">강사선택</label>
+												<select  id="professor_id" class="form-control">
+													<option value="">강사 선택</option>
+													<c:forEach items="${proList }" var="pro">
+														<c:if test="${pro.professor_status eq '0' }">
+															<option value="${pro.professor_id}">${pro.professor_name }</option>
+														</c:if>			
+													</c:forEach>
+												</select>
+									</div>
+									</div>
+									<form role="forms" class="form-horizontal" action="../regist/lecture.do" method="post">	
+									<div class="modal-footer">
+										<c:forEach items="${evaList }" var="eva">
+											<c:if test="${eva.evalution_status eq '0' }">
+												<label for="message-text" class="col-form-label">${eva.evalution_name }</label> :
+												<input type="hidden" class="form-control"  name="evalution_no" value="${eva.evalution_no }" >
+												<input type="hidden" class="form-control"  name="evalution_name" value="${eva.evalution_name }" >
+												<input type="text" class="form-control"  name="eva_to_lec_ratio" >
+											</c:if>	
+										</c:forEach>
+										<button class="button button-primary" id="registLectureBtn" name="registLectureBtn" type="button" >강의 추가</button>
+										<button class="button button-danger" data-dismiss="modal">닫기</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+
+	</div>
+	<script>
+$('#registBtn').on('click',function(e){
+	
+	var form=document.registForm;
+	
+	
+	alert($('#curriculum_no').val());
+	var class_start_date = $('#class_start_date').val();
+	var class_recruitment_start =$('#class_recruitment_start').val();
+	var class_recruitment_end =$('#class_recruitment_end').val();
+	
+	if(class_recruitment_start>class_recruitment_end||class_recruitment_end>class_start_date){
+		alert("날짜를 올바르게 입력하십시오.");
+		return;
+	}
+	
+	if(form.class_start_date.value==""||form.class_recruitment_start.value==""||form.class_recruitment_end.value==""||form.class_max.value==""){
+		alert("입력하지 않은 항목이 있습니다.");
+		return;
+	}
+	form.submit();
+});
+$('#registLectureBtn').on('click',function(e){
+	var evalution_no =[];
+	$('input[name="evalution_no"]').each(function(i){
+		evalution_no.push($(this).val());
+		
+	});
+	var evalution_name =[];
+	$('input[name="evalution_name"]').each(function(i){
+		evalution_name.push($(this).val());
+		
+	});
+	var eva_to_lec_ratio =[];
+	$('input[name="eva_to_lec_ratio"]').each(function(i){
+		eva_to_lec_ratio.push($(this).val());
+		
+	});
+	
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/class/regist/lecture.do",
+		data : {
+				professor_id : $('#professor_id').val(),
+				subject_no : $('#subject_no').val(),
+				lecture_start_date  :$('#lecture_start_date').val(),
+				lecture_end_date  :$('#lecture_end_date').val(),
+				lecture_name  :$('input[name="lecture_name"]').val(),
+				evalution_no : evalution_no,
+				evalution_name : evalution_name,
+				eva_to_lec_ratio :eva_to_lec_ratio
+				
+		},
+	
+	success:function(result){
+		alert("등록되었습니다.");		
+	},
+	error:function(error){
+		alert('등록 실패했습니다.');		
+	},
+	complete:function(){
+			$('#exampleModal5').modal('hide');
+			location.href="../class/registForm.do";
+			location.reload(true);
+	}
+});
+	
+	
+});
+
+
+$('button[name="delLecBtn"]').on('click',function(){
+	var index = $(this).parent().children('#index').val();
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/class/remove/lecture.do",
+		data : {
+				index : index
+				
+		},
+	
+	success:function(result){
+		alert("삭제되었습니다");		
+	},
+	error:function(error){
+		alert('삭제 실패했습니다.');		
+	},
+	complete:function(){
+			location.href="../class/registForm.do";
+			location.reload(true);
+	}
+});
+});
+
+
+</script>
+
+</body>
+</html>

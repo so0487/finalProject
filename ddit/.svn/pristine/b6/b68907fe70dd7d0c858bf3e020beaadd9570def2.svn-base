@@ -1,0 +1,19 @@
+package kr.or.ddit.assign.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.AssignmentHistoryVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface AssignmentHistoryService {
+	List<AssignmentHistoryVO> getAssignmentHistoryList(SearchCriteria cri) throws SQLException;
+	
+	AssignmentHistoryVO getAssignmentHistoryByNo(String assignment_history_no) throws SQLException;;
+	
+	void registAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException;
+	
+	void modifyAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException;
+	
+	void removeAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException;
+}

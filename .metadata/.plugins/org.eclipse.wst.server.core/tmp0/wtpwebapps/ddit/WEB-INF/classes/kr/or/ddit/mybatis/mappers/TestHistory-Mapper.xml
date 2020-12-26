@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="TestHistory-Mapper">
+
+	
+	<select id="selectTestHistoryNo" parameterType="int" resultType="String">
+    select 'TESTHISTORY'||LPAD(seq_testhistory.nextval,4,'0')
+      from dual
+    </select>
+    
+    <update id="insertTestHistoryVO">
+    	insert into test_history
+    	values(#{test_history_no},#{student_id},#{test_no},0,1)
+    </update>
+    
+    <update id="updateTestHistoryVO">
+    	update test_history
+    	set test_history_score=#{test_history_score}
+    	where student_id=#{student_id}
+    	and test_no=#{test_no}
+    </update>
+    
+    <select id="selectMemberTestHistory" resultType="testhistory">    	
+    	select *
+    	from test_history
+    	where student_id=#{student_id}
+    	and test_no=#{test_no}
+    </select>
+    
+    <select id="selectTestHistoryByTestNo" parameterType="str" resultType="java.util.HashMap">    	
+		select member_name, b.test_history_no, b.test_history_score
+		from member a, test_history b
+		where a.MEMBER_ID=b.STUDENT_ID
+		and b.TEST_NO=#{test_no}
+    </select>
+    
+    <select id="selectTestHistoryByNo" resultType="testhistory">    	
+    	select *
+    	from test_history
+    	where test_history_no=#{test_history_no}
+    </select>
+    
+	<select id="selectTestScore" parameterType="str" resultType="int">
+	  update TEST_HISTORY
+      set TEST_HISTORY_SCORE=NVL((select sum(exam_point)
+						      from exam a, scoring b
+						      where a.exam_no=b.exam_no
+						      and b.SCORING_RESULT=	'0'
+						      and b.TEST_HISTORY_NO=#{test_history_no}),'0')
+	  where TEST_HISTORY_NO=#{test_history_no}	  
+    </select>
+    
+    <select id="selectTestFinalScoreByLectureNo" parameterType="java.util.HashMap" resultType="int">
+        select nvl(sum(a.TEST_HISTORY_SCORE*b.test_ratio/(select sum(c.TEST_RATIO)
+                                                                        from test c
+                                                                        where c.lecture_no=#{lecture_no}
+                                                                        )),0) as finalScore
+        from test_history a, test b
+        where b.LECTURE_NO = #{lecture_no}
+        and a.TEST_NO=b.TEST_NO
+        and student_id=#{student_id}
+    </select>
+    
+    <update id="updateTestSubmit" parameterType="str">
+    	update test_history
+    	set test_history_submit='0'
+    	where test_no=#{test_no}
+    </update>
+</mapper>
+

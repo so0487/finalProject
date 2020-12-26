@@ -1,0 +1,55 @@
+package kr.or.ddit.schedule.controller;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.dto.MessageVO;
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.message.service.MessageService;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.schedule.service.ScheduleService;
+
+@Controller
+@RequestMapping("/schedule")
+public class ScheduleController {
+	@Autowired
+	private ScheduleService scheduleService;
+
+	
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "schedule/main.open";
+	}
+	
+	@RequestMapping("/registForm")
+	public String sendForm(String error, HttpServletResponse response) {
+		return null;
+	}
+	
+	@RequestMapping("/regist")
+	public void send(ScheduleVO message, HttpServletResponse response) {
+		
+	}
+	
+	@RequestMapping("/list")
+	public String list (SearchCriteria cri, ModelAndView mnv, String schedule_no) {
+		return null;
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail (String schedule_no,@ModelAttribute("cri") SearchCriteria cri,  ModelAndView mnv) {
+		return null;
+	}
+	
+	@RequestMapping("/remove")
+	public ModelAndView remove(String schedule_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+		return null;		
+	}
+
+	
+}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Class-Mapper">
+
+<select id="selectClassNo" parameterType="int" resultType="str">
+	select 'CLASS'||LPAD(seq_class.nextval,4,'0')
+	from dual
+</select>
+
+
+<select id="selectClassByNo" parameterType="str" resultType="class">
+		select
+		*
+		from class
+		where class_no=#{class_no}
+		order by class_number
+</select>
+
+
+
+<sql id="search">
+		<if test="searchType == 'n'.toString()">
+			and curriculum_name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 's'.toString()">
+			and class_status = '모집 중'
+		</if>
+		<if test="searchType == 'ns'.toString()">
+			and (
+			curriculum_name like '%'||#{keyword}||'%'
+			and
+			class_status = '모집 중'
+			)
+		</if>
+	</sql>
+	
+<select id="selectSearchClassList" resultType="class">
+		select
+		*
+		from class
+		where class_no is not null
+		<include refid="search" />
+		order by class_no desc
+</select>
+
+<select id="selectClassList" resultType="class">
+		select
+		*
+		from class
+		where curriculum_no = #{curriculum_no}
+		order by class_number
+</select>
+
+
+<select id="selectClassListEndInterview" resultType="class">
+		select * 
+		from class
+		where class_no in ( select distinct cno
+                    from (select a.class_no as cno
+                          from interview a, class b
+                          where a.class_no=b.class_no
+                          <![CDATA[and a.interview_end_date < sysdate]]>
+                          order by interview_end_date)
+                    <![CDATA[where rownum <=10)]]>
+                    order by class_no desc
+</select>
+
+<select id="selectSearchClassListCount" resultType="int">
+		select
+		count(*)
+		from class
+		where class_no is not null
+		<include refid="search" />
+
+</select>
+
+
+
+	
+<update id="insertClass" parameterType="class" >
+		insert into
+		class(class_no,class_real,class_start_date,class_end_date,
+			  class_star_avg,class_forgive_date,class_status,class_delete,
+			  class_recruitment_start,class_recruitment_end,
+			  curriculum_no,class_max,class_number,curriculum_name)
+		values(#{class_no},#{class_real},#{class_start_date},#{class_end_date},0,#{class_start_date}+7,#{class_status},#{class_delete},#{class_recruitment_start},
+				#{class_recruitment_end},#{curriculum_no},#{class_max},#{class_number},#{curriculum_name}
+		)
+</update>
+
+<update id="updateClass" parameterType="class" >
+	update class
+	set
+	class_max=#{class_max},class_start_date=#{class_start_date},
+	class_end_date=#{class_end_date},
+	class_recruitment_start=#{class_recruitment_start},
+	class_recruitment_end=#{class_recruitment_end},
+	class_forgive_date=#{class_forgive_date}
+	where class_no=#{class_no}
+</update>
+
+<update id="recruitmentClass" parameterType="str">
+	update class
+	set
+	class_status='마감'
+	where class_no=#{class_no}
+</update>
+<update id="deleteClass" parameterType="str">
+	update class
+	set
+	class_delete='1'
+	where class_no=#{class_no}
+</update>
+
+<update id="updateClassRealCnt">
+	update class set class_real = (select count(*) from classstudentlist where class_no=#{class_no})
+	where class_no=#{class_no} 
+</update>
+
+
+<update id="updateClassEmpRatio">
+	update class set class_emp_ratio = (select round(count(*)/b.class_real*100,2) as ratio
+                                    from classstudentlist a, class b                                                                         
+                                    where a.class_no=#{class_no}                                   
+                                    and b.class_no=a.class_no
+                                    and a.classstudent_emp_status = 1 
+                                    group by b.class_real)
+                 where class_no=#{class_no}
+</update>
+
+<select id="selectMaxClass_number" resultType="int">
+	select nvl(max(class_number),0) from class
+	where curriculum_no = #{curriculum_no}
+</select>
+
+
+
+
+
+<select id="selectClass_end_date" parameterType="map" resultType="dates">
+select ls_day from(
+
+select #{class_start_date} + rn ls_day
+
+from (select rownum rn from all_objects ) a ,( select curriculum_time/8 as day from curriculum where curriculum_no = #{curriculum_no}) b
+where to_char(#{class_start_date}+rn,'d') in ('2','3','4','5','6')
+<![CDATA[and rownum <=  b.day]]>
+order by ls_day desc )
+where rownum =1
+</select>
+
+
+<select id="selectClassDayCount" resultType ="int">
+	SELECT SUM(DECODE(TO_CHAR(sysdate+LV-1,'DY'),'0',0,'7',0,1))
+	FROM (
+	SELECT LEVEL LV
+	FROM DUAL
+	<![CDATA[CONNECT BY LEVEL<=sysdate-TO_DATE(#{start_date},'YYYY-MM-DD')+1]]>
+	)
+</select>
+
+
+
+
+
+
+
+
+</mapper>

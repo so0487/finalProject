@@ -1,0 +1,661 @@
+package kr.or.ddit.classes.controller;
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.classes.service.ClassStudentListService;
+import kr.or.ddit.classes.service.CurriculumService;
+import kr.or.ddit.classes.service.ReviewService;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.dto.CurriculumVO;
+import kr.or.ddit.dto.EvaToLecVO;
+import kr.or.ddit.dto.EvaVO;
+import kr.or.ddit.dto.InterviewVO;
+import kr.or.ddit.dto.LectureVO;
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.ProfessorVO;
+import kr.or.ddit.dto.ReviewVO;
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.evaToLec.service.EvaService;
+import kr.or.ddit.evaToLec.service.EvaToLecService;
+import kr.or.ddit.interview.service.InterviewService;
+import kr.or.ddit.lecture.service.LectureService;
+import kr.or.ddit.lecture.service.SubjectService;
+import kr.or.ddit.member.service.MemberService;
+import kr.or.ddit.member.service.ProfessorService;
+import kr.or.ddit.request.LectureRequest;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.schedule.service.ScheduleService;
+
+@Controller
+@RequestMapping("/class")
+public class ClassController {
+	
+	@Autowired
+	private ClassService classService;
+	
+	public void setClassService(ClassService classService) {
+		this.classService = classService;
+	}
+	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
+	private ProfessorService professorService;
+	
+	@Autowired
+	private SubjectService subjectService;
+	
+	@Autowired
+	private LectureService lectureService;
+	
+	@Autowired
+	private EvaService evaService;
+	
+	@Autowired
+	private ClassStudentListService classStudentListService;
+	
+	@Autowired
+	private EvaToLecService evaToLecService;
+	
+	@Autowired
+	private CurriculumService curriculumService;
+	
+	@Autowired
+	private ScheduleService scheduleService;
+	
+	@Autowired
+	private ReviewService reviewService;
+	
+	public void setCurriculumService(CurriculumService curriculumService) {
+		this.curriculumService = curriculumService;
+	}
+
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "class/main.open";
+	}
+	
+	@RequestMapping("/class/registForm")
+	public ModelAndView registFormClass(String curriculum_no, ModelAndView mnv,String error, HttpServletResponse response) throws SQLException {
+		 String url="class/class/registForm.page";
+		    String class_no = classService.getClassNo();
+		    SearchCriteria cri = new SearchCriteria();
+		    Map<String, Object> dataMap = curriculumService.getCurriculumList(cri) ;
+		    List<ProfessorVO> proList = professorService.getProfessorList(cri);
+		    List<EvaVO> evaList = evaService.getEvaList();
+		    Map<String, Object> subjectList = subjectService.getSearchSubjectList(cri);
+		    mnv.addObject("lectureList",lectureList);
+		    mnv.addObject("class_no",class_no);
+		    mnv.addObject("proList",proList);
+		    mnv.addObject("evaList",evaList);
+		    mnv.addAllObjects(dataMap);
+		    mnv.addAllObjects(subjectList);
+		    mnv.setViewName(url);
+		    return mnv;
+	}
+	
+	
+	
+	@RequestMapping(value="/class/regist" ,method=RequestMethod.POST)
+	public void regist(@RequestParam("class_no")String class_no, ClassVO classVO,String subject_no[],String lecture_name[],String professor_id[],int evalution[], HttpServletResponse response) throws SQLException {
+		System.out.println(lecture_name[0]+"이것은 렉처네임");
+		try {
+			
+			response.setContentType("text/html;charset=utf-8");
+			CurriculumVO curriculum = curriculumService.getCurriculumByNo(classVO.getCurriculum_no());
+			classVO.setCurriculum_name(curriculum.getCurriculum_name());
+			int class_number = classService.getMaxClass_number(classVO.getCurriculum_no());
+			classVO.setClass_number(class_number);
+			Map<String, Object> dataMap = new HashMap<>();
+			Date class_start_date = classVO.getClass_start_date();
+			String curriculum_no = classVO.getCurriculum_no();
+			dataMap.put("class_start_date", class_start_date);
+			dataMap.put("curriculum_no", curriculum_no);
+			Date class_end_date = classService.getClass_end_date(dataMap);
+			classVO.setClass_end_date(class_end_date);
+			classService.registClass(classVO);
+			List<ScheduleVO> scheduleList = new ArrayList<>();
+			for (int i = 0; i < lecture_name.length; i++) {
+				LectureVO lecture = new LectureVO();
+				String lecture_no = lectureService.getLectureNo();
+				lecture.setLecture_no(lecture_no);
+				lecture.setProfessor_id(professor_id[i]);
+				lecture.setSubject_no(subject_no[i]);
+				lecture.setClass_no(class_no);
+				if(i==0) {
+					lecture.setLecture_start_date("09:00");
+					lecture.setLecture_end_date("12:50");
+				}else if(i==1) {
+					lecture.setLecture_start_date("13:30");
+					lecture.setLecture_end_date("17:20");
+				}
+				lecture.setLecture_name(lecture_name[i]);
+				lectureService.registLecture(lecture);
+				for (int j = i*3; j < i*3+3; j++) {
+					EvaToLecVO evaToLec = new EvaToLecVO();
+					String eva_to_lec_no = evaToLecService.getEva_to_lecNo();
+					evaToLec.setEva_to_lec_no(eva_to_lec_no);
+					evaToLec.setEvalution_no("EVA00"+(j%3+1));
+					String eva_to_lec_name = evaService.getEvaByNo(evaToLec.getEvalution_no()).getEvalution_name();
+					evaToLec.setEva_to_lec_name(eva_to_lec_name);
+					evaToLec.setLecture_no(lecture_no);
+					evaToLec.setEva_to_lec_ratio(evalution[j]);
+					evaToLecService.registEvaToLec(evaToLec);
+					}
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				
+				String class_start = sdf.format(class_start_date) ;
+				Map<String,String> param = new HashMap<>();
+				param.put("class_start_date", class_start);
+				param.put("curriculum_no", classVO.getCurriculum_no());
+				List<java.util.Date> dateList = scheduleService.getDateList(param);
+				
+				for (int k = 0; k < dateList.size(); k++) {
+						ScheduleVO schedule = new ScheduleVO();
+						String schedule_no = scheduleService.getScheduleNo();
+						schedule.setSchedule_no(schedule_no);
+						schedule.setSchedule_category_no("SCHEDULE_CATEGORY0002");
+						schedule.setMember_id(professor_id[i]);
+						schedule.setSchedule_subject_no(lecture_no);
+						schedule.setSchedule_title(lecture_name[i]);
+						schedule.setSchedule_content(lecture_name[i]);
+						schedule.setSchedule_color("#D25565");
+						String schedule_start_date = sdf.format(dateList.get(k));
+						schedule.setSchedule_start_date(schedule_start_date+" "+lecture.getLecture_start_date());
+						schedule.setSchedule_end_date(schedule_start_date+" "+lecture.getLecture_end_date());
+						scheduleList.add(schedule);
+					}
+				}
+			
+			scheduleService.registScheduleList(scheduleList);
+			
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('등록되었습니다.')");
+		     out.println("location.href='../../interview/registForm.do?class_no="+classVO.getClass_no()+"';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	List<Object> varArray= new ArrayList<>();
+	List<LectureVO> lectureList = new ArrayList<>();
+	List<EvaToLecVO> evaToLecList = new ArrayList<>(); 
+	
+	@RequestMapping(value = "/regist/lecture", method = RequestMethod.POST)
+	public ResponseEntity<String> lecList(LectureVO lecture, @RequestParam(value="evalution_no[]")String[] evalution_no,@RequestParam(value="evalution_name[]")String[] evalution_name,@RequestParam(value="eva_to_lec_ratio[]")int[] eva_to_lec_ratio, HttpServletResponse response) throws IOException {
+		ResponseEntity<String> entity = null;
+		try {
+			EvaToLecVO evaToLec = new EvaToLecVO();
+			
+			
+			System.out.println(lecture);
+			evaToLec.setEva_to_lec_name(evalution_name[0]);
+			evaToLec.setEva_to_lec_ratio(eva_to_lec_ratio[0]);
+			evaToLec.setEvalution_no(evalution_no[0]);
+			evaToLecList.add(evaToLec);
+			
+			evaToLec = new EvaToLecVO();
+			evaToLec.setEva_to_lec_name(evalution_name[1]);
+			evaToLec.setEva_to_lec_ratio(eva_to_lec_ratio[1]);
+			evaToLec.setEvalution_no(evalution_no[1]);
+			evaToLecList.add(evaToLec);
+			
+			evaToLec = new EvaToLecVO();
+			evaToLec.setEva_to_lec_name(evalution_name[2]);
+			evaToLec.setEva_to_lec_ratio(eva_to_lec_ratio[2]);
+			evaToLec.setEvalution_no(evalution_no[2]);
+			evaToLecList.add(evaToLec);
+			
+			lectureList.add(lecture);
+			
+			varArray.add(evaToLecList);
+			
+			evaToLecList = new ArrayList<>();
+			
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+				
+	}
+	
+	@RequestMapping(value = "/remove/lecture", method = RequestMethod.POST)
+	public ResponseEntity<String> removeLecture(int index, HttpServletResponse response) throws IOException {
+		ResponseEntity<String> entity = null;
+		try {
+			lectureList.remove(index-1);
+			varArray.remove(index-1);
+			
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+		
+	}
+	@RequestMapping(value = "/find/professor", method = RequestMethod.POST)
+	public ResponseEntity<List<ProfessorVO>> findProfessor(String kind,String curriculum_no,String schedule_start_date,String subject_no, HttpServletResponse response) throws IOException {
+		ResponseEntity<List<ProfessorVO>> entity = null;
+			System.out.println("이건 서브젝트 엔오 "+subject_no);
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			java.util.Date class_start_date =sdf.parse(schedule_start_date);
+			Map<String, Object> dataMap = new HashMap<>();
+			dataMap.put("class_start_date", class_start_date);
+			dataMap.put("curriculum_no", curriculum_no);
+			
+			Date class_end_date = classService.getClass_end_date(dataMap);
+			String schedule_end_date = sdf.format(class_end_date);
+			Map<String, String> param = new HashMap<String, String>();
+			param.put("subject_no", subject_no);
+			param.put("class_start_date", schedule_start_date);
+			param.put("class_end_date", schedule_end_date);
+			List<ProfessorVO> professorList =null;
+			if(kind.equals("오전")) {
+				professorList = professorService.getProAdminByMorning(param);
+			}else {
+				professorList = professorService.getProAdminByAfternoon(param);
+			}
+			entity = new ResponseEntity<List<ProfessorVO>>(professorList, HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+		
+	}
+	
+	@RequestMapping("/csl/list")
+	public ModelAndView listcslClass(SearchCriteria cri, ModelAndView mnv , HttpSession session)throws SQLException {
+		String url = "class/class/listTocls.page";
+		MemberVO member = (MemberVO) session.getAttribute("loginUser");
+		String member_role = member.getMember_role();
+		Map<String,Object> dataMap= classService.getSearchClassList(cri);
+		mnv.addObject("member",member);
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/all/list")
+	public ModelAndView listAllClass(SearchCriteria cri, ModelAndView mnv , HttpSession session)throws SQLException {
+		String url = "class/class/allList.page";
+		MemberVO member = (MemberVO) session.getAttribute("loginUser");
+		String member_role = member.getMember_role();
+		if(member_role.equals("STUDENT")) {
+			cri.setMember_type("STUDENT");
+		}
+		Map<String,Object> dataMap= classService.getSearchClassList(cri);
+		mnv.addObject("member",member);
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/classStudentList/myList")
+	public ModelAndView listClassStudentList(HttpSession session, SearchCriteria cri, ModelAndView mnv)throws SQLException {
+		String url = "class/classStudentList/myList2.page";
+		cri.setPerPageNum(200);
+		MemberVO member = (MemberVO) session.getAttribute("loginUser");
+		String member_id = member.getMember_id();
+		Map<String,Object>  reviewList = reviewService.getReviewList(cri);
+		List<CslVO> cslList = classStudentListService.getCslListByStudent_id(member_id);
+		for (int i = 0; i < cslList.size(); i++) {
+			CslVO csl = cslList.get(i);
+			Map<String,String> dataMap = new HashMap<String, String>();
+			dataMap.put("class_no", csl.getClass_no());
+			dataMap.put("member_id", member_id);
+			csl.setReview_status(reviewService.getReviewExist(dataMap));
+		}
+		
+		Map<String,Object> dataMap = classService.getSearchClassList(cri);
+		List<ClassVO> classList = (List<ClassVO>) dataMap.get("classList");
+		for(int i=0; i<classList.size(); i++) {
+			String class_no=classList.get(i).getClass_no();
+			List<LectureVO> lectureList = lectureService.getLectureListByClass_no(class_no);
+			classList.get(i).setLectureList(lectureList);
+		}
+		mnv.addAllObjects(reviewList);
+		mnv.addAllObjects(dataMap);
+		mnv.addObject("member_id",member_id);
+		mnv.addObject("cslList",cslList);
+		mnv.addObject("classList",classList);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping(value = "/regist/review", method = RequestMethod.POST)
+	public ResponseEntity<String> registReview(ReviewVO review, HttpServletResponse response ,HttpSession session) throws IOException {
+		ResponseEntity<String> entity = null;
+		try {
+			System.out.println("허허허");
+			String review_no = reviewService.getReviewNo();
+			System.out.println(review_no);
+			System.out.println(review.getReview_star());
+			System.out.println(review.getReview_content());
+			MemberVO member = (MemberVO) session.getAttribute("loginUser");
+			review.setStudent_id(member.getMember_id());
+			review.setReview_no(review_no);
+			reviewService.registReview(review);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+				
+	}
+	
+	@RequestMapping(value = "/modify/review", method = RequestMethod.POST)
+	public ResponseEntity<String> modifyReview(@RequestParam(value="review_no")String review_no, @RequestParam(value="review_star")Double review_star, @RequestParam(value="review_content")String review_content, HttpServletResponse response) throws IOException {
+		ResponseEntity<String> entity = null;
+		try {
+			ReviewVO review = reviewService.getReviewByNo(review_no);
+			review.setReview_star(review_star);
+			review.setReview_content(review_content);
+			reviewService.modifyReview(review);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+		
+	}
+	
+	@RequestMapping(value = "/remove/review", method = RequestMethod.POST)
+	public ResponseEntity<String> removeReview(@RequestParam(value="review_no")String review_no, HttpServletResponse response) throws IOException {
+		ResponseEntity<String> entity = null;
+		try {
+			reviewService.removeReview(review_no);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+		
+	}
+	
+	
+	
+	
+	@RequestMapping("/class/list")
+	public ModelAndView listClass(String curriculum_no , SearchCriteria cri, ModelAndView mnv) throws SQLException {
+		String url = "class/class/list.page";
+		Map<String, Object> dataMap = classService.getClassList(curriculum_no) ;
+		CurriculumVO curriculum = curriculumService.getCurriculumByNo(curriculum_no);
+		mnv.addAllObjects(dataMap);
+		mnv.addObject("curriculum",curriculum);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/class/detail")
+	public ModelAndView detailClass(HttpSession session ,String class_no, @ModelAttribute("cri") SearchCriteria cri,  ModelAndView mnv) throws SQLException {
+		String url = "class/class/detail.page";
+		ClassVO classVO = classService.getClassByNo(class_no);
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		List<LectureVO> lectureList = lectureService.getLectureListByClass_no(class_no);
+		List<ProfessorVO> professorList = professorService.getProfessorList(cri);
+		classVO.setLectureList(lectureList);
+		mnv.addObject("professorList",professorList);
+		mnv.addObject("loginUser",loginUser);
+		mnv.addObject("classVO",classVO);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/class/modifyForm")
+	public ModelAndView modifyForm(String class_no,ModelAndView mnv) throws SQLException {
+		String url="class/class/modifyForm.page";
+	      
+	    ClassVO classVO= classService.getClassByNo(class_no);
+	    
+	    mnv.addObject("classVO",classVO);      
+	    mnv.setViewName(url);
+	      
+	    return mnv;
+	}
+	
+	@RequestMapping(value = "/class/modify", method = RequestMethod.POST)
+	public void modifyClass(ClassVO classVO, HttpServletResponse response)throws Exception {
+		classService.modifyClass(classVO);
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('수정되었습니다.')");
+		out.println("location.href='detail?class_no=" + classVO.getClass_no() + "';");
+		out.println("</script>");
+	}
+	
+	@RequestMapping("/class/remove")
+	public void removeClass(String class_no,HttpServletResponse response) throws SQLException {
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			classService.removeClass(class_no);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('삭제되었습니다.')");
+		     out.println("location.href='../all/list.do';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/curriculum/remove")
+	public void removeCurriculum(CurriculumVO curriculum,HttpServletResponse response)throws SQLException {
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			curriculumService.removeCurriculum(curriculum);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+		     out.println("alert('삭제되었습니다.')");
+		     out.println("location.href='list.do';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@RequestMapping("/curriculum/list")
+	public ModelAndView listCurriculum(SearchCriteria cri, ModelAndView mnv)throws SQLException {
+		String url = "class/curriculum/list.page";
+		
+		Map<String, Object> dataMap = curriculumService.getCurriculumList(cri) ;
+		
+		mnv.addAllObjects(dataMap);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/curriculum/registForm")
+	 public ModelAndView registFormCurriculum(ModelAndView mnv)throws SQLException{
+	    String url="class/curriculum/registForm.page";
+	    String curriculum_no = curriculumService.getCurriculumNo();
+	    mnv.addObject("curriculum_no",curriculum_no);
+	    mnv.setViewName(url);
+	    return mnv;
+	 }
+	
+	@RequestMapping("/curriculum/regist")
+	public void registCurriculum(CurriculumVO curriculum, HttpServletResponse response)throws SQLException {
+	     
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			curriculumService.registCurriculum(curriculum);
+			PrintWriter out = response.getWriter();
+			 out.println("<script>");
+//		     out.println("alert('등록되었습니다.')");
+		     out.println("location.href='list.do';");
+		     out.println("</script>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/curriculum/detail/list")
+	public ModelAndView detailCurriculum(String curriculum_no, @ModelAttribute("cri") SearchCriteria cri,  ModelAndView mnv ,HttpSession session) throws SQLException {
+		String url = "class/curriculum/detail.page";
+		Map<String, Object > dataMap2= reviewService.getReviewListByCurriculum_no(cri);
+		
+		CurriculumVO curriculum = curriculumService.getCurriculumByNo(cri.getKeyword());
+		
+		Map <String,Object> dataMap = classService.getClassList(cri.getKeyword());
+		
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		
+		mnv.addObject("loginUser",loginUser);
+		mnv.addObject("curriculum",curriculum);
+		mnv.addObject("curriculum_no",curriculum_no);
+		mnv.addAllObjects(dataMap);
+		mnv.addAllObjects(dataMap2);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/curriculum/modifyForm")
+	public ModelAndView modifyFormCurriculum(String curriculum_no,ModelAndView mnv) throws SQLException {
+		
+		String url="class/curriculum/modifyForm.page";
+	      
+	    CurriculumVO curriculum = curriculumService.getCurriculumByNo(curriculum_no);
+	      
+	    mnv.addObject("curriculum",curriculum);      
+	    mnv.setViewName(url);
+	      
+	    return mnv;
+		
+	}
+
+	@RequestMapping(value = "/curriculum/modify", method = RequestMethod.POST)
+	public void modifyCurriculum(CurriculumVO curriculum, HttpServletResponse response) throws Exception {
+
+		curriculumService.modifyCurriculum(curriculum);
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('수정되었습니다.')");
+		out.println("location.href='detail/list.do?keyword=" + curriculum.getCurriculum_no() + "&searchType=curriculum_no';");
+		out.println("</script>");
+	}
+	
+	@RequestMapping("/cls/list")
+	public ModelAndView classStudentList(String class_no,ModelAndView mnv) throws SQLException {
+		
+		String url="class/classStudentList/list.page";
+	    
+		List<CslVO> cslList = null;
+		ClassVO classes =null;
+		
+		cslList = classStudentListService.getClassStudentListListByClass_no(class_no);
+		for(int i=0; i<cslList.size(); i++) {
+			cslList.get(i).setMember(memberService.getMember(cslList.get(i).getStudent_id()));
+		}
+		classes = classService.getClassByNo(class_no);
+		
+		mnv.addObject("classes",classes);
+	    mnv.addObject("cslList",cslList);      
+	    mnv.setViewName(url);
+	      
+	    return mnv;
+		
+	}
+	
+	@RequestMapping("/cls/empStatus/change")
+	public ResponseEntity<String> empStatusChange(@RequestParam(value="class_no")String class_no,@RequestParam(value="classstudent_no")String classstudent_no){
+		ResponseEntity<String> entity =null;
+		try {
+			classStudentListService.modiClsEmpStatus(classstudent_no);
+			classService.updateClassEmpRatio(class_no);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
+	}
+	
+	@RequestMapping("/class/my/list")
+	public ModelAndView myClassList(ModelAndView mnv, HttpSession session, SearchCriteria cri) throws SQLException {
+		String url="class/class/myList.page";
+		
+		cri.setPerPageNum(200);
+		Map<String,Object>  reviewList = reviewService.getReviewList(cri);
+		MemberVO member = (MemberVO) session.getAttribute("loginUser");
+		String member_id = member.getMember_id();
+		List<CslVO> cslList = classStudentListService.getCslListByStudent_id(member_id);
+		for (int i = 0; i < cslList.size(); i++) {
+			CslVO csl = cslList.get(i);
+			Map<String,String> dataMap = new HashMap<String, String>();
+			dataMap.put("class_no", csl.getClass_no());
+			dataMap.put("member_id", member_id);
+			csl.setReview_status(reviewService.getReviewExist(dataMap));
+		}
+		
+		Map<String,Object> dataMap = classService.getSearchClassList(cri);
+		List<ClassVO> classList = (List<ClassVO>) dataMap.get("classList");
+		for(int i=0; i<classList.size(); i++) {
+			String class_no=classList.get(i).getClass_no();
+			List<LectureVO> lectureList = lectureService.getLectureListByClass_no(class_no);
+			classList.get(i).setLectureList(lectureList);
+		}
+		mnv.addAllObjects(dataMap);
+		mnv.addAllObjects(reviewList);
+		mnv.addObject("member_id",member_id);
+		mnv.addObject("cslList",cslList);
+		mnv.addObject("classList",classList);
+		mnv.setViewName(url);
+		return mnv;
+		
+	}
+	
+
+}

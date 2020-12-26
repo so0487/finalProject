@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Scoring-Mapper">
+
+	
+   <select id="selectScoringNo" parameterType="int" resultType="String">
+      select 'SCORING'||LPAD(SEQ_SCORING.nextval,4,'0')
+      from dual
+   </select>
+   
+   <update id="insertScoringVO" parameterType="scoring">
+    	insert into scoring
+    	values(#{scoring_no},#{exam_no},#{test_history_no},#{scoring_input},#{scoring_result})
+    </update>
+   
+   <select id="selectInputResult" parameterType="scoring" resultType="scoring">
+   		select *
+   		from exam
+   		where exam_no=#{exam_no}
+   		and exam_answer=#{scoring_input}
+   		order by exam_no
+   </select>
+   
+   <select id="select" parameterType="scoring" resultType="scoring">
+   		select *
+   		from scoring
+   		where exam_no=#{exam_no}
+   		and TEST_HISTORY_NO=#{test_history_no}
+   </select>
+   
+   <update id="deleteScoringByThisNo" parameterType="str">
+    	delete from scoring    	
+    	where test_history_no=#{test_history_no}    	
+    </update>
+    
+    <select id="selectScoringByHistoryNo" resultType="scoring">
+    	select *
+    	from scoring
+    	where test_history_no=#{test_history_no}
+    </select>
+    
+       <update id="updateScoringMarkResult" parameterType="scoring">
+    	update scoring
+    	set scoring_result=#{scoring_result}  	
+    	where test_history_no=#{test_history_no}
+    	and exam_no=#{exam_no}
+    </update>
+   
+</mapper>
+

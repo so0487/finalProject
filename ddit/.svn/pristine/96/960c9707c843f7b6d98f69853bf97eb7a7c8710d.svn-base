@@ -1,0 +1,15 @@
+package kr.or.ddit.zoom.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public interface MeetingService {
+	public void registMeeting(Map<String, String> paramMap);
+	public List<HashMap<String, Object>> getMeeting(String userid);
+	public int removeMeeting(String meetingid);
+	public int registInvitation(Map<String, String> paramMap);
+	public List<HashMap<String, Object>> getUserInvit(String userid);
+	
+
+}

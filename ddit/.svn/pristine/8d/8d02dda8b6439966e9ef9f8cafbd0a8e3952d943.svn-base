@@ -1,0 +1,54 @@
+package kr.or.ddit.emprate.controller;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.emprate.service.EmpRateService;
+
+@Controller
+@RequestMapping("/curriculum/emprate")
+public class EmpRateController {
+	@Autowired
+	EmpRateService empRateService;
+	
+	@RequestMapping("/list")
+	public ModelAndView studentEmpRatio(ModelAndView mnv, HttpServletRequest request) {
+		System.out.println(empRateService);
+		
+		String url = "emprate/studentEmpRatio.page";
+		
+		
+		try {
+			
+			//Map<String, Object>dataMap = empRateService.studentEmpRatio();
+			
+			Map<String, Object>curriculumMap = empRateService.curriculumEmpRatio();
+			
+			
+			
+			//mnv.addAllObjects(dataMap);
+			mnv.addAllObjects(curriculumMap);
+			
+			//System.out.println("dataMap" + dataMap);
+			//System.out.println("curriculumMap" + curriculumMap);
+			
+			mnv.setViewName(url);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return mnv;
+	}
+	
+	
+
+}

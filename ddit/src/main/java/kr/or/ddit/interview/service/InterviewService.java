@@ -1,0 +1,23 @@
+package kr.or.ddit.interview.service;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.InterviewVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface InterviewService {
+	List<InterviewVO> getInterviewList(String class_no) throws SQLException;
+	
+	InterviewVO getInterviewByNo(String interview_no) throws SQLException;;
+	
+	void registInterview(InterviewVO interview,List<String> valueArr) throws SQLException;
+	
+	void modifyInterview(InterviewVO interview) throws SQLException;
+	
+	void removeInterview(InterviewVO interview) throws SQLException;
+
+	Map<String, Object> getSearchInterviewList(SearchCriteria cri) throws SQLException;
+	
+}

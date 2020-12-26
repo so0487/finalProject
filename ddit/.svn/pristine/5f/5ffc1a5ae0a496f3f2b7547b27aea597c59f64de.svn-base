@@ -1,0 +1,19 @@
+package kr.or.ddit.assign.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.AssignmentHistoryVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface AssignmentHistoryDAO {
+	List<AssignmentHistoryVO> selectAssignmentHistoryList(SearchCriteria cri) throws SQLException;
+		
+	AssignmentHistoryVO selectAssignmentHistoryByNo(String assignment_history_no) throws SQLException;;
+	
+	void insertAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException;
+	
+	void updateAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException;
+	
+	void deleteAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException;
+}

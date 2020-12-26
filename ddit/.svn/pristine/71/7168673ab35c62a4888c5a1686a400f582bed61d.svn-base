@@ -1,0 +1,106 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<div class="content-body">
+
+	<!-- Page Headings Start -->
+	<div class="row justify-content-between align-items-center mb-10">
+
+		<!-- Page Heading Start -->
+		<div class="col-12 col-lg-auto mb-20">
+			<div class="page-heading">
+				<h3 class="title" style="text-align: left;">강의자료실</h3>
+			</div>
+		</div>
+		<!-- Page Heading End -->
+	</div>
+	<!-- Page Headings End -->
+
+	<!-- button -->
+	<div class="row">
+		<div class="col-lg-10 mb-20"></div>
+
+		<div class="col-lg-2 mb-20">
+			<button class="button button-success" id="modifyBtn">
+				<span>수정</span>
+			</button>
+			<button class="button button-danger" id="removeBtn">
+				<span>삭제</span>
+			</button>
+			<button class="button button-info" id="listBtn">
+				<span>목록</span>
+			</button>
+		</div>
+	</div>
+
+
+
+	<!-- Q&A Detail -->
+	<div class="row">
+		<div class="box">
+			<div class="box-head">
+				<h3 class="title">게시판 제목</h3>
+				<a>작성자 </a> <a>${post.post_writer}</a> &nbsp;&nbsp; <a>|</a> <a>작성일자</a> <a>${post_post.reg_date}</a> &nbsp;&nbsp; <a>|</a> <a>조회수</a> <a>${post.post_viewcnt }</a>
+			</div>
+		</div>
+		<div class="col-12 mb-50">
+			${post.post_content}
+		</div>
+	
+	
+	
+	<!-- 댓글 -->
+		<div class="col-12 mb-50">
+			<div class="timeline-list">
+				<div class="details">
+					<h5 class="title">
+						<a>Create New Task for New Marketing</a>
+					</h5>
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Id dolores, assumenda quaerat inventore atque dolore sapiente
+							doloribus iusto quisquam ullam autem labore, laborum beatae
+							repudiandae! Recusandae ullam cumque, non temporibus?</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		
+		
+			
+		
+		<!-- 댓글 -->
+		<div class="timeline">
+			<div class="replyLi" data-reply_no={{reply_no}}></div>
+		</div>
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div><!-- QnA Detail END-->
+	
+	
+	
+	
+	
+</div><!-- content-body END -->

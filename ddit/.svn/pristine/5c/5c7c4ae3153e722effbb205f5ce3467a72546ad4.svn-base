@@ -1,0 +1,52 @@
+package kr.or.ddit.evaToLec.controller;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.dto.EvaVO;
+import kr.or.ddit.evaToLec.service.EvaToLecService;
+import kr.or.ddit.request.SearchCriteria;
+
+@Controller
+@RequestMapping("/eva")
+public class EvaToLecController {
+	@Autowired
+	private EvaToLecService evaToLecService;
+
+	
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "eva/main.open";
+	}
+	
+	@RequestMapping("/registForm")
+	public String sendForm(String error, HttpServletResponse response) {
+		return null;
+	}
+	
+	@RequestMapping("/regist")
+	public void send(EvaVO eva, HttpServletResponse response) {
+		
+	}
+	
+	@RequestMapping("/list")
+	public String list (SearchCriteria cri, ModelAndView mnv, String eva_to_lec_no) {
+		return null;
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail (String eva_to_lec_no,@ModelAttribute("cri") SearchCriteria cri,  ModelAndView mnv) {
+		return null;
+	}
+	
+	@RequestMapping("/remove")
+	public ModelAndView remove(String eva_to_lec_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+		return null;		
+	}
+
+}

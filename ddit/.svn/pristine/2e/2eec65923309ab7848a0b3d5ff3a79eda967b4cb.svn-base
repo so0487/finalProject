@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Example-Mapper">
+
+  
+   <select id="selectExampleList" resultType="example">
+   		select *
+   		from example
+   </select>
+   
+   <update id="insertExample" parameterType="example"> 
+   		insert into
+   		example values(#{example_no},#{exam_no},#{example_content},#{example_number})
+   </update>
+   
+   <update id="updateExample" parameterType="example"> 
+   		update example
+   		set example_content=#{example_content} 
+   		where example_no = #{example_no}   		 
+   </update>
+      
+   <update id="deleteExample" parameterType="str"> 
+   		delete from example   		 
+   		where example_no = #{example_no}   		 
+   </update>
+   
+   <select id="selectExampleNo" parameterType="int" resultType="str">
+		select 'example'||LPAD(seq_example.nextval,4,'0')
+		from dual
+	</select>
+	
+
+   
+</mapper>

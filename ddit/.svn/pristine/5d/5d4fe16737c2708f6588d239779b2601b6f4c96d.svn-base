@@ -1,0 +1,190 @@
+package kr.or.ddit.interview.controller;
+
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.sun.javafx.collections.MappingChange.Map;
+
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.InterviewVO;
+import kr.or.ddit.dto.ProfessorVO;
+import kr.or.ddit.interview.service.InterviewService;
+import kr.or.ddit.member.service.MemberService;
+import kr.or.ddit.member.service.ProfessorService;
+import kr.or.ddit.request.InterviewRegistRequest;
+import kr.or.ddit.request.SearchCriteria;
+
+@Controller
+@RequestMapping("/interview")
+public class InterviewController {
+	
+	@Autowired
+	private InterviewService interviewService;
+	
+	public void setInterviewService(InterviewService interviewService) {
+		this.interviewService = interviewService;
+	}
+
+	@Autowired
+	private ProfessorService professorService;
+	
+	public void setProfessorService(ProfessorService professorService) {
+		this.professorService = professorService;
+	}
+
+	@Autowired
+	private ClassService classService;
+	
+	public void setClassService(ClassService classService) {
+		this.classService = classService;
+	}
+
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "interview/main.open";
+	}
+	
+	@RequestMapping("/registForm")
+	public ModelAndView registForm(String error, HttpServletResponse response,String class_no) {
+		String url="interview/registForm.page";
+		
+		List<ClassVO> classList = null;
+		List<ProfessorVO> proList = null;
+		ClassVO classes=null;
+		System.out.println(class_no+"sssssssssss");
+		try {
+			classes = classService.getClassByNo(class_no);
+			classList = (List<ClassVO>) classService.getSearchClassList(new SearchCriteria()).get("classList");
+			proList = professorService.getProfessorList(new SearchCriteria());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(classes.getCurriculum_name()+"ssssssss");
+		ModelAndView mnv = new ModelAndView();
+		mnv.addObject("classes",classes);
+		mnv.addObject("classList", classList);
+		mnv.addObject("proList",proList);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	@RequestMapping(value = "/regist", method = RequestMethod.POST)
+	public void regist(InterviewRegistRequest interviewReq, HttpServletResponse response) {
+		
+		int mp=interviewReq.getInterview_max_personnel();//교육과정 회차의 총 모집인원
+		int p=interviewReq.getInterview_personnel();     //한 인터뷰당 총 인원
+		int cnt=mp/p;
+		
+		ClassVO classes = null;
+		try {
+			classes = classService.getClassByNo(interviewReq.getClass_no());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		Date start;
+		OffsetDateTime odt = OffsetDateTime.parse(interviewReq.getInterview_start_date()+":00Z");
+		Instant instant = odt.toInstant();
+		Date startdate = Date.from(instant);
+		// 면접별인원/회차모집 총 인원
+		for(int i=0; i<cnt; i++) {
+			InterviewVO interview = new InterviewVO();
+			
+			
+			interview.setInterview_name(classes.getCurriculum_name()+classes.getClass_number()+"기 "+i+"회차 면접");
+			interview.setClass_no(interviewReq.getClass_no());
+			interview.setInterview_start_date(new Date(startdate.getTime()+ (long)( 1000 * 60 * interviewReq.getInterview_time() * (i+6))));
+			interview.setInterview_end_date(new Date(startdate.getTime()+ (long)( 1000 * 60 * interviewReq.getInterview_time() * (i+7))));
+			interview.setInterview_max_personnel(p);
+			
+			try {
+				interviewService.registInterview(interview);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+//	
+//	List<String> valueArr;
+//	
+//	@RequestMapping(value = "/regist/proList", method = RequestMethod.POST)
+//	public void proList(@RequestParam(value = "valueArrTest[]") List<String> valueArr, HttpServletResponse response) {
+//		this.valueArr=valueArr;
+//		}
+	
+	@RequestMapping("/list")
+	public ModelAndView list(SearchCriteria cri, ModelAndView mnv,String class_no){
+		//로그인유저 권한 : 관리자 -> list2
+		//로그인유저 권한 : 수강생 -> list
+		String url="interview/list2.page";
+		
+		List<InterviewVO> interviewList = null;
+		ClassVO classes = null;
+		try {
+			interviewList = interviewService.getInterviewList(class_no);
+			classes= classService.getClassByNo(interviewList.get(0).getClass_no());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		mnv.setViewName(url);
+		mnv.addObject("class_no",class_no);
+		mnv.addObject("interviewList",interviewList);
+		mnv.addObject("classes", classes);
+		return mnv;
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail(String interview_no, SearchCriteria cri, ModelAndView mnv) {
+		String url="interview/detail.page";
+		InterviewVO interview = null;
+		ClassVO classes = null;
+		try {
+			interview = interviewService.getInterviewByNo(interview_no);
+			classes= classService.getClassByNo(interview.getClass_no());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		mnv.addObject("interview",interview);
+		mnv.addObject("classes", classes);
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String interview_no,SearchCriteria cri, ModelAndView mnv) {
+		String url="interview/modifyForm.page";
+		mnv.setViewName(url);
+		return mnv;
+	}
+	
+	@RequestMapping("/modify")
+	public void modify(String interview_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse  response) {
+		
+	}
+	
+	@RequestMapping("/remove")
+	public void remove(String interview_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+		
+	}
+	
+}

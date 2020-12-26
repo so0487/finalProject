@@ -1,0 +1,135 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>  
+
+<!-- 추가하기 스크롤바   -->
+<style>
+	#followquick { position:absolute; top:220px; right:50%; margin-right:-800px; }
+</style>
+<script>
+	//follow quick menu
+	$(window).scroll(function() {
+		var scrollTop = $(document).scrollTop();
+		if (scrollTop < 180) {
+			scrollTop = 180;
+		}
+		$("#followquick").stop();
+		$("#followquick").animate({
+			"top" : scrollTop
+		});
+	});
+
+	
+	$('#registBtn').on('click',function(){
+		if($('input[name=exam_no]').val()==""){
+			alert("문제번호를 입력해주세요.")
+			$('input[name=exam_no]').focus();
+			$('input[name=exam_no]').attr('style','border:2px solid red');
+			return false;
+		}
+		if($('input[name=exam_title]').val()==""){
+			alert("문제제목을 입력해주세요")
+			$('input[name=exam_title]').focus();
+			$('input[name=exam_title]').attr('style','border:2px solid red');
+			return false;
+		}
+		if($('select[name=exam_category_no]').val()==""){
+			alert("문제유형을 선택해주세요")
+			$('select[name=exam_category_no]').focus();
+
+			return false;
+		}
+		if($('input[name=exam_point]').val()==""){
+			alert("문제배점을 입력해주세요")
+			$('input[name=exam_point]').focus();
+			$('input[name=exam_point]').attr('style','border:2px solid red');
+			return false;
+		}
+		if($('input[name=exam_answer]').val()==""){
+			alert("문제정답을 입력해주세요")
+			$('input[name=exam_answer]').focus();
+			$('input[name=exam_answer]').attr('style','border:2px solid red');
+			return false;
+		}
+		if($('input[name=example_content]').val()==""){
+			alert("객관식 문항의 내용을 입력해주세요")
+			$('input[name=example_content]').focus();
+			$('input[name=example_content]').attr('style','border:2px solid red');
+			return false;
+		}
+		if($('input[name=test_name]').val()==""){
+			alert("시험지를 선택해주세요")
+			$('input[name=test_name]').focus();
+			$('input[name=test_name]').attr('style','border:2px solid red');
+			return false;
+		}
+
+		
+		var form = document.registForm;
+		form.submit();		
+	});
+</script>
+
+<script>
+$('#modifyBtn').on('click',function(){
+	if($('input[name=exam_no]').val()==""){
+		alert("문제번호를 입력해주세요.")
+		$('input[name=exam_no]').focus();
+		$('input[name=exam_no]').attr('style','border:2px solid red');
+		return false;
+	}
+	if($('input[name=exam_title]').val()==""){
+		alert("문제제목을 입력해주세요")
+		$('input[name=exam_title]').focus();
+		$('input[name=exam_title]').attr('style','border:2px solid red');
+		return false;
+	}
+	if($('select[name=exam_category_no]').val()==""){
+		alert("문제유형을 선택해주세요")
+		$('select[name=exam_category_no]').focus();
+
+		return false;
+	}
+	if($('input[name=exam_point]').val()==""){
+		alert("문제배점을 입력해주세요")
+		$('input[name=exam_point]').focus();
+		$('input[name=exam_point]').attr('style','border:2px solid red');
+		return false;
+	}
+	if($('input[name=exam_answer]').val()==""){
+		alert("문제정답을 입력해주세요")
+		$('input[name=exam_answer]').focus();
+		$('input[name=exam_answer]').attr('style','border:2px solid red');
+		return false;
+	}
+	if($('input[name=example_content]').val()==""){
+		alert("객관식 문항의 내용을 입력해주세요")
+		$('input[name=example_content]').focus();
+		$('input[name=example_content]').attr('style','border:2px solid red');
+		return false;
+	}
+	if($('input[name=test_name]').val()==""){
+		alert("시험지를 선택해주세요")
+		$('input[name=test_name]').focus();
+		$('input[name=test_name]').attr('style','border:2px solid red');
+		return false;
+	}
+
+	
+	var form = document.modifyForm;
+	form.submit();		
+});
+
+</script>
+
+<script>
+$(document).ready(function(){
+	$(document).on("change keyup paste input", "input", function() {
+		$(this).attr('style','border:1px solid rgb(118, 118, 118)');
+	});
+});
+
+$("#backBtn").on('click', function(){
+	location.href="list.do"
+});
+</script>

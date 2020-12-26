@@ -1,0 +1,19 @@
+package kr.or.ddit.test.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.TestVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface TestService {
+	List<TestVO> getTestList(SearchCriteria cri) throws SQLException;
+	
+	TestVO getTestByNo(String test_no) throws SQLException;;
+	
+	void registTest(TestVO test) throws SQLException;
+	
+	void modifyTest(TestVO test) throws SQLException;
+	
+	void removeTest(TestVO test) throws SQLException;
+}

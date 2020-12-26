@@ -1,0 +1,45 @@
+package kr.or.ddit.exam.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ExampleVO;
+import kr.or.ddit.exam.dao.ExampleDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ExampleServiceImpl implements ExampleService {
+	private ExampleDAO exampleDAO;
+
+	public void setExampleDAO(ExampleDAO exampleDAO) {
+		this.exampleDAO = exampleDAO;
+	}
+
+	@Override
+	public List<ExampleVO> getExampleList(SearchCriteria cri) throws SQLException {
+		
+		return exampleDAO.selectExampleList(cri);
+	}
+
+	@Override
+	public ExampleVO getExampleByNo(String example_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registExample(ExampleVO example) throws SQLException {
+		exampleDAO.insertExample(example);
+		
+	}
+
+	@Override
+	public void modifyExample(ExampleVO example) throws SQLException {
+		exampleDAO.updateExample(example);	
+	}
+
+	@Override
+	public void removeExample(String example_no) throws SQLException {
+		exampleDAO.deleteExample(example_no);	
+	}
+	
+}

@@ -1,0 +1,85 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+<script>
+(function ($) {
+    "use strict";
+    /*Example Morris Bar*/
+    
+      	var stuEmpLabel = [];
+    	for (var i = 0; i < $('.class_number').length; i++) {
+    		stuEmpLabel.push($('.class_number').eq(i).val());	
+    	}
+   		
+		var empRatio = [];
+		
+    	for (var i = 0; i < $('.class_empRatio').length; i++) {
+    		empRatio.push($('.class_empRatio').eq(i).val());	
+    	}
+    
+    
+    
+    
+    
+    var exampleMorrisLine2 = new Morris.Line({
+        element: 'example-morris-line2',
+		
+        data: [
+        	
+        	
+        <c:forEach items="${studentEmpRatioList}" var="studentEmpRatioList">
+             { y: '${studentEmpRatioList.CLASS_NUMBER}', a:${studentEmpRatioList.STUDENTRATIO}},
+        </c:forEach>
+             
+        ],
+        
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Series A',]
+        
+    });
+
+    $( "#example-morris-line2 svg rect" ).on('click', function(data) {
+    	var result = JSON.stringify(data);
+        //alert(result);//show [object.Object] when alert popup
+      });
+
+    $(function () {
+        // Chart Resize function
+        function chartResize() {
+            setTimeout(function() {
+                
+                exampleMorrisLine.redraw();
+                exampleMorrisBar.redraw();
+                exampleMorrisArea.redraw();
+                exampleMorrisDonuts.redraw();
+                
+            }, 200);
+        }
+        // Resize Window Resize
+        $(window).on('resize', function(){
+            chartResize();
+        });
+        // Resize on Side Header Toggle
+        $('.side-header-toggle').on('click', function(){
+            chartResize();
+        });
+    });
+    
+})(jQuery);
+
+</script>
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+package kr.or.ddit.test.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.TestHistoryVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class TestHistoryDAOImpl implements TestHistoryDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<TestHistoryVO> selectTestHistoryList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TestHistoryVO selectTestHistoryByNo(String test_history_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertTestHistory(TestHistoryVO testhistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTestHistory(TestHistoryVO testhistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteTestHistory(TestHistoryVO testhistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+    public String selectTestHistoryNo() throws SQLException {
+	    String test_history_no=sqlSession.selectOne("Test-Mapper.selectTestHistoryNo");
+	    return test_history_no;
+    }
+
+}

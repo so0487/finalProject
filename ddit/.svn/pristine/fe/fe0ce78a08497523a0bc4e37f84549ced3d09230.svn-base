@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<body>
+
+
+	<div class="content-body">
+		<div class="col-12 mb-30">
+			<div class="box-head">
+			<h1>과연</h1>
+				<h3 class="title">${classVO.curriculum_name }</h3>
+			</div>
+		</div>
+		<div class="row">
+			<c:forEach items="${classList }" var="classVO">
+				<div class="col-md-6 col-12 mb-30">
+					<div class="box">
+						<div class="box-head">
+							<h4 class="title">${classVO.curriculum_name }&nbsp;${classVO.class_number }차</h4>
+						</div>
+						<div class="box-body">
+						 <td><fmt:formatDate value="${classVO.class_recruitment_start }"	pattern="yyyy-MM-dd" /></td>
+							<p id="paragraphClipboard">모집시작  : <fmt:formatDate value="${classVO.class_recruitment_start }"	pattern="yyyy-MM-dd" /></p>
+							<p id="paragraphClipboard">모집종료  : <fmt:formatDate value="${classVO.class_recruitment_end }"	pattern="yyyy-MM-dd" /></p>
+							<p id="paragraphClipboard">모집인원  : ${classVO.class_max}</p>
+							<p id="paragraphClipboard">훈련시작  : <fmt:formatDate value="${classVO.class_start_date }"	pattern="yyyy-MM-dd" /> </p>
+							<p id="paragraphClipboard">훈련종료  :<fmt:formatDate value="${classVO.class_end_date }"	pattern="yyyy-MM-dd" /> </p>
+							<button class="button button-primary button-clipboard mb-0 mt-15"
+							data-clipboard-target="#paragraphClipboard" id="goBtn">신청</button>
+					</div>
+				</div>
+			</div>
+			</c:forEach>
+
+		</div>
+
+
+
+	</div>
+	<!-- content-body end -->
+	
+
+	
+
+</body>
+
+
+
+
+

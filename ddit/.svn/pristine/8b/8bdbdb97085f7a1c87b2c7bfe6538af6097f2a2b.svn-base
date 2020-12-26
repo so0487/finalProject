@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Lecture-Mapper">
+
+<select id="selectLectureNo" parameterType="int" resultType="str">
+	select 'LECTURE'||LPAD(seq_lecture.nextval,4,'0')
+	from dual
+</select>
+
+<select id="selectLectureList" resultType="lecture">
+		select
+		*
+		from lecture
+</select>
+
+<update id="insertLecture" parameterType="lecture" >
+		insert into
+		lecture(lecture_no,professor_id,class_no,subject_no,lecture_start_date,
+				lecture_end_date,lecture_status,lecture_name)
+		values(#{lecture_no},#{professor_id},#{class_no},#{subject_no},#{lecture_start_date},#{lecture_end_date},'0',#{lecture_name}
+		)
+</update>
+
+	
+
+</mapper>
+

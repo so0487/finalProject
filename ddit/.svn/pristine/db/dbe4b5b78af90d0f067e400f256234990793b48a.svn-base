@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="/WEB-INF/views/message/common_message_top.jsp" %>
+<!--Mail Start-->
+<div class="single-mail">
+    <!--Top-->
+    <div class="top">
+        <!--Left-->
+        <div class="left">
+            <ul>
+                <li><strong>제목</strong><h5>${message.message_title}</h5></li>
+                <li><strong>From</strong> <span>${message.message_sender }</span></li>
+            </ul>
+        </div>
+        <hr>
+        <!--Right-->
+        <div class="right">
+            <button><i class="zmdi zmdi-print"></i></button>
+            <button><i class="zmdi zmdi-tag-more"></i></button>
+        </div>
+    </div>
+    <!--Bottom-->
+    <div class="bottom">
+			<!--Body Start-->
+			<div class="body">
+				<div class="content">
+					<p>${message.message_content}</p>
+				</div>
+				<hr>
+				<div class="attachment">
+					<h5 class="title">첨부파일:</h5>
+					<c:forEach items="${message.attachList}" var="attach">
+						<div class="row" style="cursor: pointer;"
+							onclick="location.href='<%=request.getContextPath()%>/message/attach/getFile.do?message_no=${message.message_no}&attach_no=${attach.attach_no}';">
+							<span class="fa fa-download">${attach.file_name}</span>
+							<br>
+						</div>
+					</c:forEach>
+				</div>
+				<!--Body End-->
+
+			</div>
+
+		</div>
+<!--Mail End-->
+
+<%@include file="/WEB-INF/views/message/common_message_bottom.jsp" %>
+		
+
+</html>

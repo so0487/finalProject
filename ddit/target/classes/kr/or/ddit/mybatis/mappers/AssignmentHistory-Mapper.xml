@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AssignmentHistory-Mapper">
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="searchType == 'n'.toString()">
+			and ASSIGNMENT_HISTORY_NAME like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and ASSIGNMENT_HISTORY_CONTENT like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'nc'.toString()">
+			and (
+			ASSIGNMENT_HISTORY_NAME like '%'||#{keyword}||'%'
+			or
+			ASSIGNMENT_HISTORY_CONTENT like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+	
+	<!-- 제출자검색 -->
+	<sql id="submitSearch">
+		<if test="searchType == 'n'.toString()">
+			and member_name like '%'||#{keyword}||'%'
+		</if>		
+	</sql>
+	
+	<!-- 검색결과 list가져오기 -->
+	<select id="selectSearchAssignHistoryList" parameterType="map" resultType="java.util.HashMap">
+		select *
+        from ASSIGNMENT_HISTORY a, assignment b
+		where a.ASSIGNMENT_HISTORY_NO is not null
+        and a.ASSIGNMENT_NO=b.ASSIGNMENT_NO
+		and a.lecture_no = #{lecture_no}
+		and a.student_id = #{student_id}	
+		<include refid="search" />
+		order by a.ASSIGNMENT_HISTORY_NO desc
+	</select>
+	
+	<select id="selectAssignmentHsitoryByNo" parameterType="str" resultType="assignmenthistory">
+		select * 
+		from assignment_history
+		where assignment_history_no=#{assignment_history_no}
+	</select>
+	
+	<select id="selectAssignmentHistoryCheck"  resultType="assignmenthistory">
+		select * 
+		from assignment_history
+		where assignment_no=#{assignment_no}
+		and student_id=#{student_id}
+	</select>
+	
+	<select id="selectAssignSubmitList"  resultType="java.util.HashMap">
+		select *
+        from ASSIGNMENT a, ASSIGNMENT_HISTORY b, member c
+        where a.ASSIGNMENT_NO=b.ASSIGNMENT_NO
+        and b.STUDENT_ID=c.MEMBER_ID
+        and a.assignment_no=#{assignment_no}
+        <include refid="submitSearch" />
+		order by a.ASSIGNMENT_NO desc
+    </select>	
+	
+
+	<!-- 검색결과 list 카운트 -->
+	
+	<select id="selectSearchAssignSubmitListCount" resultType="int">
+		select
+		count(*)
+		from assignment_history
+		where ASSIGNMENT_HISTORY_NO is not null
+		and assignment_no=#{assignment_no}	
+		<include refid="search" />
+		order by ASSIGNMENT_HISTORY_NO desc
+	</select>
+
+	<select id="selectSearchAssignHistoryListCount" resultType="int">
+		select
+		count(*)
+		from assignment_history
+		where ASSIGNMENT_HISTORY_NO is not null
+		and lecture_no = #{lecture_no}		
+		<include refid="search" />
+		order by ASSIGNMENT_HISTORY_NO desc
+	</select>
+	
+	<update id="insetAssignmentHistory" parameterType="assignmenthistory">
+		insert 
+		into assignment_history(assignment_history_no,student_id,assignment_history_content,assignment_history_name,lecture_no,assignment_no)
+		values(#{assignment_history_no},#{student_id},#{assignment_history_content},#{assignment_history_name},#{lecture_no},#{assignment_no})
+	</update>
+	
+	<update id="updateAssignmentHistory" parameterType="assignmenthistory">
+		update assignment_history
+		set assignment_history_name=#{assignment_history_name},assignment_history_content=#{assignment_history_content}
+		where assignment_history_no=#{assignment_history_no}		
+	</update>
+	
+	<update id="updateScoreAssignmentHistory" parameterType="assignmenthistory">
+		update assignment_history
+		set assignment_history_score=#{assignment_history_score}
+		where assignment_history_no=#{assignment_history_no}		
+	</update>
+	
+	<update id="deleteAssignmentHistory" parameterType="assignmenthistory">
+		delete assignment_history
+		where assignment_history_no=#{assignment_history_no}
+	</update>
+
+	<select id="selectAssignmentHistoryNo" resultType="str">
+		select 'ASSIGNMENT_HISTORY'||LPAD(SEQ_ASSIGNHISTORY.nextval,4,'0')
+		from dual
+	</select>
+
+
+</mapper>

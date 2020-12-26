@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+
+   <typeAliases>
+   
+      <typeAlias type="java.sql.Date" alias="dates" />
+      <typeAlias type="java.lang.String" alias="str" />
+      <typeAlias type="java.lang.Integer" alias="int" />
+      <typeAlias type="java.util.Map" alias="map" />      
+      <typeAlias type="kr.or.ddit.dto.AdminVO" alias="admin"/>
+      <typeAlias type="kr.or.ddit.dto.AssignmentHistoryVO" alias="assignmenthistory"/>
+      <typeAlias type="kr.or.ddit.dto.AssignmentVO" alias="assignment"/>
+      <typeAlias type="kr.or.ddit.dto.AttachVO" alias="attach"/>
+      <typeAlias type="kr.or.ddit.dto.AttendanceVO" alias="attendance"/>
+      <typeAlias type="kr.or.ddit.dto.BoardVO" alias="board"/>
+      <typeAlias type="kr.or.ddit.dto.ClassVO" alias="class"/>
+      <typeAlias type="kr.or.ddit.dto.CounselVO" alias="counsel"/>
+      <typeAlias type="kr.or.ddit.dto.CslVO" alias="csl"/>
+      <typeAlias type="kr.or.ddit.dto.CurriculumVO" alias="curriculum"/>
+      <typeAlias type="kr.or.ddit.dto.EvaToLecVO" alias="evatolec"/>
+      <typeAlias type="kr.or.ddit.dto.EvaVO" alias="eva"/>
+      <typeAlias type="kr.or.ddit.dto.ExamCategoryVO" alias="examcategory"/>
+      <typeAlias type="kr.or.ddit.dto.ExampleVO" alias="example"/>
+      <typeAlias type="kr.or.ddit.dto.ExamVO" alias="exam"/>      
+      <typeAlias type="kr.or.ddit.dto.InterviewHistoryProVO" alias="interviewhistorypro"/>
+      <typeAlias type="kr.or.ddit.dto.InterviewHistoryStuVO" alias="interviewhistorystu"/>
+      <typeAlias type="kr.or.ddit.dto.InterviewVO" alias="interview"/>
+      <typeAlias type="kr.or.ddit.dto.LectureVO" alias="lecture"/>
+      <typeAlias type="kr.or.ddit.dto.MemberVO" alias="member"/>
+      <typeAlias type="kr.or.ddit.dto.MenuVO" alias="menu"/>
+      <typeAlias type="kr.or.ddit.dto.MessageVO" alias="message"/>
+      <typeAlias type="kr.or.ddit.dto.PostVO" alias="post"/>
+      <typeAlias type="kr.or.ddit.dto.ProfessorVO" alias="professor"/>
+      <typeAlias type="kr.or.ddit.dto.ReplyVO" alias="reply"/>
+      <typeAlias type="kr.or.ddit.dto.ReviewVO" alias="review"/>
+      <typeAlias type="kr.or.ddit.dto.ScheduleCategoryVO" alias="schedulecategory"/>
+      <typeAlias type="kr.or.ddit.dto.ScheduleVO" alias="schedule"/>
+      <typeAlias type="kr.or.ddit.dto.ScoringVO" alias="scoring"/>
+      <typeAlias type="kr.or.ddit.dto.StudentVO" alias="student"/>
+      <typeAlias type="kr.or.ddit.dto.SubjectVO" alias="subject"/>
+      <typeAlias type="kr.or.ddit.dto.TestHistoryVO" alias="testhistory"/>
+      <typeAlias type="kr.or.ddit.dto.TestVO" alias="test"/>
+      <typeAlias type="kr.or.ddit.dto.VideoVO" alias="video"/>
+      <typeAlias type="kr.or.ddit.dto.MeetingVO" alias="meeting"/>
+      
+
+
+   </typeAliases>    
+
+</configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Student-Mapper">
+
+	<update id="insertStudent" parameterType="member">
+      insert into 
+      student(student_id, student_pwd, student_mail, student_phone, student_picture,student_name, student_address)
+      values(#{member_id},#{member_pwd},#{member_email},#{member_phone},#{member_picture},#{member_name},#{member_address})
+   </update>
+
+</mapper>
+

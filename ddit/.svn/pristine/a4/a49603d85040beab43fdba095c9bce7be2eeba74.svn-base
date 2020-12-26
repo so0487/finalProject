@@ -1,0 +1,63 @@
+package kr.or.ddit.dto;
+
+public class AttachVO {
+	private String post_no;  //게시글번호
+	private int attach_size;  //파일크기
+	private String attach_save_name;  //파일저장이름
+	private String attach_name;  //파일이름
+	private String attach_type;  //파일유형
+	private String attach_no;  //첨부파일번호
+	private String attach_reg_date;  //등록일
+	
+	
+	public String getAttach_no() {
+		return attach_no;
+	}
+	public void setAttach_no(String attach_no) {
+		this.attach_no = attach_no;
+	}
+	public String getPost_no() {
+		return post_no;
+	}
+	public void setPost_no(String post_no) {
+		this.post_no = post_no;
+	}
+	public String getAttach_name() {
+		return attach_name;
+	}
+	public void setAttach_name(String attach_name) {
+		this.attach_name = attach_name;
+	}
+	public String getAttach_save_name() {
+		return attach_save_name;
+	}
+	public void setAttach_save_name(String attach_save_name) {
+		this.attach_save_name = attach_save_name;
+	}
+	public String getAttach_type() {
+		return attach_type;
+	}
+	public void setAttach_type(String attach_type) {
+		this.attach_type = attach_type;
+	}
+	public int getAttach_size() {
+		return attach_size;
+	}
+	public void setAttach_size(int attach_size) {
+		this.attach_size = attach_size;
+	}
+	public String getAttach_reg_date() {
+		return attach_reg_date;
+	}
+	public void setAttach_reg_date(String attach_reg_date) {
+		this.attach_reg_date = attach_reg_date;
+	}
+	
+	@Override
+	public String toString() {
+		return "AttachVO [attach_no=" + attach_no + ", post_no=" + post_no + ", attach_name=" + attach_name
+				+ ", attach_save_name=" + attach_save_name + ", attach_type=" + attach_type + ", attach_size="
+				+ attach_size + ", attach_reg_date=" + attach_reg_date + "]";
+	}
+	
+}

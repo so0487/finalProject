@@ -1,0 +1,19 @@
+package kr.or.ddit.board.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.AttachVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface AttachService {
+	List<AttachVO> getAttachList(SearchCriteria cri) throws SQLException;
+	
+	AttachVO getAttachByNo(String attach_no) throws SQLException;;
+	
+	void registAttach(AttachVO attach) throws SQLException;
+	
+	void modifyAttach(AttachVO attach) throws SQLException;
+	
+	void removeAttach(AttachVO attach) throws SQLException;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ScheduleCategory-Mapper">
+
+<select id="selectScheduleCategoryList" parameterType="str" resultType="schedulecategory">
+		select
+		*
+		from schedule_category
+</select>	
+
+<select id="selectScheduleCategoryByNo" parameterType="str" resultType="schedulecategory">
+		select
+		*
+		from schedule_category
+		where schedule_category_no=#{schedule_category_no}
+</select>	
+
+
+</mapper>
+

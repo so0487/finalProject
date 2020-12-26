@@ -1,0 +1,141 @@
+package kr.or.ddit.exam.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.dto.ExamVO;
+import kr.or.ddit.dto.ExampleVO;
+import kr.or.ddit.dto.TestVO;
+import kr.or.ddit.exam.service.ExamCategoryService;
+import kr.or.ddit.exam.service.ExamService;
+import kr.or.ddit.exam.service.ExampleService;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.test.service.TestService;
+
+@Controller
+@RequestMapping("/exam")
+public class ExamController {
+	
+	@Autowired
+	private ExamService examService;
+	
+	@Autowired
+	private TestService testService;
+	
+	@Autowired
+	private ExampleService exampleService;
+
+	@Autowired
+	private ExamCategoryService examCategoryService;
+	
+	
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "exam/main.open";
+	}
+	
+	@RequestMapping("/registForm")
+	public ModelAndView registForm(ModelAndView mnv, HttpServletResponse response, SearchCriteria cri) throws Exception {
+		
+		List<TestVO> testList = testService.getTestList(cri);		
+		mnv.addObject("testList", testList);
+		
+		
+		mnv.setViewName("exam/registForm.page");
+//		mnv.setViewName("exam/test.open");
+		return mnv;
+	}
+	
+	@RequestMapping("/regist")
+	public void regist(ExamVO exam, HttpServletResponse response, int[] exam_no, String[] exam_category_no, String[] exam_title, int[] exam_point, String[] answer,
+			String[] example_no, int[] exam_no2, String[] example_content, String[] exam_answer, String[] example_content2, String[] exam_no3, String[] test_no) throws Exception {
+		System.out.println("exam no : "+exam_no);
+		System.out.println("test no	: "+test_no);
+		System.out.println("exam cate : "+exam_category_no);
+		System.out.println("exam title : "+exam_title);
+		System.out.println("exam point : "+exam_point);
+		System.out.println("exam exam_answer" +exam_answer);
+		System.out.println("exam exam_content2" +example_content2);
+		System.out.println("exam exam_no3" +exam_no3);
+		
+	
+		
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		String message="";
+		try {
+			//문제추가
+//			ExamVO exam2 = new ExamVO();
+			for (int i = 0; i < exam_no.length; i++) {
+				exam.setExam_number(exam_no[i]);
+				exam.setTest_no(test_no[i]);
+				exam.setExam_category_no(exam_category_no[i]);
+				exam.setExam_title(exam_title[i]);
+				exam.setExam_point(exam_point[i]);
+				exam.setExam_answer(exam_answer[i]);
+				examService.registExam(exam);
+			}
+			//객관식 문제항목추가
+			ExampleVO example = new ExampleVO();
+			for (int i = 0; i < exam_no2.length; i++) {
+				example.setExample_content(example_content[i]);
+				example.setExample_number(i);
+				example.setExample_number(exam_no2[i]);
+				exampleService.registExample(example);
+			}
+	
+			
+			message="시험지 등록이 완료되었습니다..";
+			out.println("<script>");
+			out.println("alert('"+message+"');");
+			out.println("window.location.href='registForm';");
+			out.println("</script>");
+		} catch(SQLException e){
+			e.printStackTrace();
+			message="시험지등록에 실패했습니다.";
+			out.println("<script>");
+			out.println("alert('"+message+"');");
+			out.println("</script>");
+		}		
+			out.close();
+	}
+	
+	@RequestMapping("/list")
+	public List<ExamVO> list(SearchCriteria cri, ModelAndView mnv, String test_id){
+		return null;
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail(String exam_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+	
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String exam_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+	
+	@RequestMapping("/modify")
+	public void modify(ExamVO exam, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse  response) {
+		
+	}
+	
+	@RequestMapping("/remove")
+	public void remove(String exam_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+		
+	}
+
+}

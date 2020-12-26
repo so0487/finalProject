@@ -1,0 +1,47 @@
+package kr.or.ddit.member.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.ProfessorVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ProfessorDAOImpl implements ProfessorDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<ProfessorVO> selectProfessorList(SearchCriteria cri) throws SQLException {
+		List<ProfessorVO> proList = sqlSession.selectList("Professor-Mapper.selectProfessorList");
+		return proList;
+	}
+
+	@Override
+	public ProfessorVO selectProfessorById(String professor_id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertProfessor(ProfessorVO professor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateProfessor(ProfessorVO professor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteProfessor(ProfessorVO professor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

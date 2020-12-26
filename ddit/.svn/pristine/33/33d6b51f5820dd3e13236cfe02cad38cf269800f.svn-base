@@ -1,0 +1,47 @@
+package kr.or.ddit.lecture.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.LectureVO;
+import kr.or.ddit.lecture.dao.LectureDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class LectureServiceImpl implements LectureService {
+	private LectureDAO lectureDAO;
+
+	public void setLectureDAO(LectureDAO lectureDAO) {
+		this.lectureDAO = lectureDAO;
+	}
+
+	@Override
+	public List<LectureVO> getLectureList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LectureVO getLectureByNo(String lecture_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registLecture(LectureVO lecture) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyLecture(LectureVO lecture) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeLecture(LectureVO lecture) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

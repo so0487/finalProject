@@ -1,0 +1,63 @@
+package kr.or.ddit.dto;
+
+public class ExamVO {
+	private int exam_point;  //배점
+	private String exam_answer;  //정답
+	private String exam_title;  //문제제목
+	private String exam_category_no;  //문제카테고리번호
+	private String exam_status;  //삭제여부
+	private String test_no;  //시험번호
+	private String exam_no;  //시험문제번호
+	
+	
+	public String getExam_no() {
+		return exam_no;
+	}
+	public void setExam_no(String exam_no) {
+		this.exam_no = exam_no;
+	}
+	public String getTest_no() {
+		return test_no;
+	}
+	public void setTest_no(String test_no) {
+		this.test_no = test_no;
+	}
+	public String getExam_category_no() {
+		return exam_category_no;
+	}
+	public void setExam_category_no(String exam_category_no) {
+		this.exam_category_no = exam_category_no;
+	}
+	public String getExam_title() {
+		return exam_title;
+	}
+	public void setExam_title(String exam_title) {
+		this.exam_title = exam_title;
+	}
+	public int getExam_point() {
+		return exam_point;
+	}
+	public void setExam_point(int exam_point) {
+		this.exam_point = exam_point;
+	}
+	public String getExam_answer() {
+		return exam_answer;
+	}
+	public void setExam_answer(String exam_answer) {
+		this.exam_answer = exam_answer;
+	}
+	public String getExam_status() {
+		return exam_status;
+	}
+	public void setExam_status(String exam_status) {
+		this.exam_status = exam_status;
+	}
+	@Override
+	public String toString() {
+		return "ExamVO [exam_no=" + exam_no + ", test_no=" + test_no + ", exam_category_no=" + exam_category_no
+				+ ", exam_title=" + exam_title + ", exam_point=" + exam_point + ", exam_answer=" + exam_answer
+				+ ", exam_status=" + exam_status + "]";
+	}
+	
+	
+}

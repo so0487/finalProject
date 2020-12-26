@@ -1,0 +1,185 @@
+package kr.or.ddit.message.dao;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.MessageVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class MessageDAOImpl implements MessageDAO {
+	private SqlSession sqlSession;
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+	@Override
+	public List<MessageVO> allMessageList(SearchCriteria cri) throws SQLException {
+		
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+
+		
+		
+		
+		List<MessageVO>messageList = sqlSession.selectList("Message-Mapper.allMessageList",cri,rowBounds);
+		return messageList;
+	}
+
+	@Override
+	public int messageListCount(SearchCriteria cri) throws SQLException {
+
+		int count = sqlSession.selectOne("Message-Mapper.messageListCount", cri);
+		return count;
+	}
+
+
+	@Override
+	public MessageVO messageByMessageNo(String message_no) throws SQLException {
+
+		MessageVO message = sqlSession.selectOne("Message-Mapper.messageByMessageNo", message_no);
+		return message;
+	}
+
+
+	@Override
+	public List<MessageVO> sendMailBox(SearchCriteria cri, String message_sender) throws SQLException {
+
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+
+		Map<String, Object> dataMap = new HashMap<>();
+
+		dataMap.put("cri", cri);
+		dataMap.put("message_sender", message_sender);
+
+		List<MessageVO> messageList = sqlSession.selectList("Message-Mapper.sendMailBox", dataMap, rowBounds);
+		
+		
+		
+		return messageList;
+	}
+
+	@Override
+	public List<MessageVO> receiveMailBox(SearchCriteria cri, String message_receiver) throws SQLException {
+		
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+
+		Map<String, Object> dataMap = new HashMap<>();
+
+		
+		dataMap.put("page", cri.getPage());
+		dataMap.put("perPageNum", cri.getPerPageNum());
+		dataMap.put("searchType", cri.getSearchType());
+		dataMap.put("keyword", cri.getKeyword());
+		dataMap.put("message_receiver", message_receiver);
+		
+		
+		List<MessageVO> messageList = sqlSession.selectList("Message-Mapper.receiveMailBox", dataMap, rowBounds);
+		System.out.println("list " + messageList);
+		return messageList;
+		
+		
+	}
+
+	@Override
+	public void writeMessage(MessageVO message) throws SQLException {
+		sqlSession.update("Message-Mapper.writeMessage", message);
+	}
+
+	@Override
+	public void readMessage(String message_no) throws SQLException {
+		sqlSession.update("Message-Mapper.readMessage", message_no);
+	}
+
+	@Override
+	public void deleteSendMailBox(MessageVO message) throws SQLException {
+		sqlSession.update("Message-Mapper.deleteSendMailBox", message);
+	}
+
+	@Override
+	public void deleteReceiveMailBox(MessageVO message) throws SQLException {
+		sqlSession.update("Message-Mapper.deleteReceiveMailBox", message);
+	}
+
+	@Override
+	public String getMessageSequenceNextValue() throws SQLException {
+		String seq_num = sqlSession.selectOne("Message-Mapper.getMessageSequenceNextValue");
+		return seq_num;
+	}
+
+	@Override
+	public int sendMailBoxCount(String message_sender, SearchCriteria cri) throws SQLException {
+		Map<String, Object>dataMap = new HashMap<>();
+		dataMap.put("page", cri.getPage());
+		dataMap.put("perPageNum", cri.getPerPageNum());
+		dataMap.put("searchType", cri.getSearchType());
+		dataMap.put("keyword", cri.getKeyword());
+		dataMap.put("message_sender", message_sender);
+		
+		int count = (Integer)sqlSession.selectOne("Message-Mapper.sendMailBoxCount",dataMap);
+		return count;
+	}
+
+	@Override
+	public int receiveMailBoxCount(String message_receiver, SearchCriteria cri) throws SQLException {
+		Map<String, Object>dataMap = new HashMap<>();
+		
+		dataMap.put("page", cri.getPage());
+		dataMap.put("perPageNum", cri.getPerPageNum());
+		dataMap.put("searchType", cri.getSearchType());
+		dataMap.put("keyword", cri.getKeyword());
+		dataMap.put("message_receiver", message_receiver);
+		
+		
+		int count = (Integer)sqlSession.selectOne("Message-Mapper.receiveMailBoxCount",dataMap);
+		return count;
+	}
+	
+	
+	
+	
+	@Override
+	public List<MemberVO> selectMemberCriteria(SearchCriteria cri) throws SQLException {
+		int offset=cri.getPageStartRowNum();
+		int limit=cri.getPerPageNum();
+		RowBounds rowBounds=new RowBounds(offset,limit);		
+		
+		
+		Map<String, Object>dataMap = new HashMap<>();
+		dataMap.put("page", cri.getPage());
+		dataMap.put("perPageNum", cri.getPerPageNum());
+		
+		List<MemberVO> memberList = null;
+
+		memberList = sqlSession.selectList("Member-Mapper.selectSearchMemberList",cri,rowBounds);			
+		System.out.println("memberList + " + memberList);
+		System.out.println("map : "+dataMap);
+		return memberList;
+		
+	}
+	
+	
+	@Override
+	public int selectMemberCriteriaTotalCount(SearchCriteria cri) throws SQLException {
+		int count=sqlSession.selectOne("Member-Mapper.selectSearchMemberListCount",cri);
+		return count;
+	}
+
+
+	
+	
+	
+	
+
+}

@@ -1,0 +1,73 @@
+package kr.or.ddit.dto;
+
+public class ProfessorVO {
+	private String professor_phone;  //번호
+	private String professor_address;  //주소
+	private String professor_role;  //권한
+	private String professor_mail;  //메일
+	private String professor_name;  //이름
+	private String professor_status;  //상태
+	private String professor_id;  //강사id
+	private String subject_no; // 과목no
+	
+	
+	public String getSubject_no() {
+		return subject_no;
+	}
+	public void setSubject_no(String subject_no) {
+		this.subject_no = subject_no;
+	}
+	public String getProfessor_phone() {
+		return professor_phone;
+	}
+	public void setProfessor_phone(String professor_phone) {
+		this.professor_phone = professor_phone;
+	}
+	public String getProfessor_address() {
+		return professor_address;
+	}
+	public void setProfessor_address(String professor_address) {
+		this.professor_address = professor_address;
+	}
+	public String getProfessor_role() {
+		return professor_role;
+	}
+	public void setProfessor_role(String professor_role) {
+		this.professor_role = professor_role;
+	}
+	public String getProfessor_mail() {
+		return professor_mail;
+	}
+	public void setProfessor_mail(String professor_mail) {
+		this.professor_mail = professor_mail;
+	}
+	public String getProfessor_name() {
+		return professor_name;
+	}
+	public void setProfessor_name(String professor_name) {
+		this.professor_name = professor_name;
+	}
+	public String getProfessor_status() {
+		return professor_status;
+	}
+	public void setProfessor_status(String professor_status) {
+		this.professor_status = professor_status;
+	}
+	public String getProfessor_id() {
+		return professor_id;
+	}
+	public void setProfessor_id(String professor_id) {
+		this.professor_id = professor_id;
+	}
+	@Override
+	public String toString() {
+		return "ProfessorVO [professor_phone=" + professor_phone + ", professor_address=" + professor_address
+				+ ", professor_role=" + professor_role + ", professor_mail=" + professor_mail + ", professor_name="
+				+ professor_name + ", professor_status=" + professor_status + ", professor_id=" + professor_id
+				+ ", subject_no=" + subject_no + "]";
+	}
+	
+	
+	
+	
+}	

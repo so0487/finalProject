@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:25:33 +0900] "GET /ddit HTTP/1.1" 302 -
+127.0.0.1 - - [06/Dec/2020:12:25:33 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:25:34 +0900] "GET /ddit/ HTTP/1.1" 200 6428
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:25:36 +0900] "GET /ddit/resources/img/uni.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:25:52 +0900] "POST /ddit/common/login.do HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:03 +0900] "GET /ddit/resources/js/moment.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:04 +0900] "GET /ddit/resources/img/member/4f0d055ccfdf46a8b35e7d8f464535b4.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:05 +0900] "GET /ddit/index.do HTTP/1.1" 200 145713
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:05 +0900] "GET /ddit/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/js/plugins/summernote/summernote-bs4.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:06 +0900] "GET /ddit/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/js/plugins/sweetalert/sweetalert.min.js HTTP/1.1" 200 40808
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:06 +0900] "POST /ddit/message/newMessageCheck HTTP/1.1" 200 11
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:29 +0900] "GET /ddit/common/loginUser HTTP/1.1" 200 6
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:29 +0900] "GET /ddit/common/subMenu.do?menu_no=M030000 HTTP/1.1" 200 12
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:33 +0900] "GET /ddit/class/all/list.do HTTP/1.1" 200 32824
+0:0:0:0:0:0:0:1 - - [06/Dec/2020:12:26:34 +0900] "POST /ddit/message/newMessageCheck HTTP/1.1" 200 11

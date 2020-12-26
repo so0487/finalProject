@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Subject-Mapper">
+
+
+	
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+	
+	<select id="selectSearchSubjectList" resultType="subject">
+		select
+		*
+		from subject
+		where subject_no is not null
+		and   subject_status = 0
+		<include refid="search" />
+	</select>
+	
+	<select id="selectSubjectList" resultType="subject">
+		select *
+		from   subject
+		where  subject_no = #{subject_no, jdbcType=VARCHAR}
+		and    subject_status = 0
+	</select>
+
+	<select id="selectSearchSubjectListCount" resultType="int">
+		select
+		count(*)
+		from subject
+		where subject_no is not null
+		<include refid="search" />
+	</select>
+	<select id="selectSubjectByNo" parameterType="str" resultType="subject">
+		select * 
+		from   subject
+		where  subject_no=#{subject_no, jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectSubjectNo" parameterType="int" resultType="str">
+		select 'SUBJECT'||LPAD(seq_subject.nextval,4,'0')
+		from dual
+	</select>
+	
+	<select id="getMaxSubject_no" resultType="str">
+		select max(subject_no) from subject
+	</select>
+	
+	<update id="insertSubject" parameterType="subject">
+		insert into
+		subject(subject_no, subject_name, subject_status, subject_introduce)
+		values(#{subject_no}, #{subject_name, jdbcType=VARCHAR}, '0', #{subject_introduce, jdbcType=VARCHAR})
+	</update>
+
+	<update id="updateSubject" parameterType="subject">
+		update subject
+		set
+		subject_name=#{subject_name}, subject_introduce=#{subject_introduce}
+		where subject_no=#{subject_no, jdbcType=VARCHAR}
+	</update>
+	
+	<update id="deleteSubject" parameterType="str">
+		update subject 
+		set
+		subject_status = '1'
+		where  subject_no=#{subject_no, jdbcType=VARCHAR}
+	</update>
+
+</mapper>
+

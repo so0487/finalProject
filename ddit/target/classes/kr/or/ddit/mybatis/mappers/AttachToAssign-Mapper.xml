@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AttachToAssign-Mapper">
+	<select id="selectAttachByAssignHistoryNo" resultType="attachassign">
+		select *
+		from attachtoassign
+		where assignment_history_no = #{assignment_history_no}
+	</select>
+
+	<select id="selectAttachByAttachNo" resultType="attachassign">
+		select *
+		from
+		attachtoassign
+		where attach_no = #{attach_no}
+	</select>
+
+	<update id="insertAttach">
+		insert into
+		attachtoassign 
+		(assignment_history_no, attach_original_name, attach_name, attach_type, attach_no, attach_upload_path)
+		values
+		(#{assignment_history_no}, #{attach_original_name}, #{attach_name}, #{attach_type}, ('ASSIGN_HISTORY_ATTACH' || LPAD(SEQ_ASSIGNHISTORY.nextval, 4, '0')), #{attach_upload_path})
+	</update>
+	
+	<!-- 첨부파일 삭제 -->
+	<update id="deleteAttach">
+		delete from attachtoassign where attach_no = #{attach_no}
+	</update>
+
+	<!-- 전체 첨부파일 삭제 -->
+	<update id="deleteAllAttach">
+		delete
+		from attachtoassign
+		where assignment_history_no = #{assignment_history_no}
+	</update>
+	
+	<select id="getMessageSequenceNextValue" parameterType="int" resultType="str">
+		select 'ASSIGNMENT_HISTORY_ATTACH'||LPAD(seq_attach.nextval,4,'0') from dual
+	</select>
+
+</mapper>

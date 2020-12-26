@@ -1,0 +1,78 @@
+package kr.or.ddit.schedule.service;
+
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.schedule.dao.ScheduleDAO;
+
+public class ScheduleServiceImpl implements ScheduleService {
+	private ScheduleDAO scheduleDAO;
+
+	public void setScheduleDAO(ScheduleDAO scheduleDAO) {
+		this.scheduleDAO = scheduleDAO;
+	}
+
+	@Override
+	public List<ScheduleVO> getScheduleList(String member_id) throws SQLException {
+		List<ScheduleVO> scheduleList = scheduleDAO.selectScheduleList(member_id);
+		return scheduleList;
+	}
+
+	@Override
+	public ScheduleVO getScheduleByNo(String schedule_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registSchedule(ScheduleVO schedule) throws SQLException {
+		scheduleDAO.insertSchedule(schedule);
+		
+	}
+
+	@Override
+	public void modifySchedule(ScheduleVO schedule) throws SQLException {
+		scheduleDAO.updateSchedule(schedule);
+		
+	}
+
+	@Override
+	public void removeSchedule(String schedule_no) throws SQLException {
+		scheduleDAO.deleteSchedule(schedule_no);
+		
+	}
+
+	@Override
+	public String getScheduleNo() throws SQLException {
+		String schedule_no = scheduleDAO.selectScheduleNo();
+		return schedule_no;
+	}
+
+	@Override
+	public List<Date> getDateList(Map<String, String> param) {
+		List<Date> dateList = scheduleDAO.selectDateList(param);
+		return dateList;
+	}
+
+	@Override
+	public List<ScheduleVO> getExistSchedule(Map<String, String> param) throws SQLException {
+		return scheduleDAO.selectExistSchedule(param);
+	}
+
+	@Override
+	public void registScheduleList(List<ScheduleVO> scheduleList) throws SQLException {
+		scheduleDAO.insertScheduleList(scheduleList);
+		
+	}
+
+	@Override
+	public List<ScheduleVO> getScheduleMyList(String member_id) throws SQLException {
+		List<ScheduleVO> scheduleList = scheduleDAO.selectScheduleMyList(member_id);
+		return scheduleList;
+	}
+	
+}

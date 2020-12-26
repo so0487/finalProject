@@ -1,0 +1,280 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+	<div class="content-body">
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">QnA게시판</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+
+		</div>
+		<!-- Page Headings End -->
+
+		<div class="row">
+		
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>제목</h5>
+			</div>	
+				
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" value="${post.post_title }" id="post_title" name="post_title" readonly="readonly">
+			</div>
+		</div>
+			
+			
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>글번호</h5>
+			</div>	
+			<div class="col-lg-5 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" readonly="readonly" value="${post.post_no }" id="post_no" name="post_no">
+			</div>
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>게시판 번호</h5>
+			</div>	
+			<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" readonly="readonly" value="${post.board_no }" id="post_no" name="post_no">
+			</div>
+			
+		</div>
+		
+		
+		<div class="row">
+		
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>작성자</h5>
+			</div>	
+				
+			<div class="col-lg-5 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" readonly="readonly" value="${post.post_writer }" id="post_writer"> 
+			</div>
+			
+			
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>게시일</h5>
+			</div>	
+			<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" readonly="readonly" value='<fmt:formatDate value="${post.post_reg_date}" pattern="yyyy-MM-dd"/>' id="post_reg_date" name="post_reg_date">
+			</div>
+			
+		</div>
+		
+		
+		<div class="row">
+		
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>조회수</h5>
+			</div>	
+				
+			<div class="col-lg-5 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" readonly="readonly" value="${post.post_veiwcnt}" id="post_viewcnt" name="post_viewcnt">
+			</div>
+			
+			
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>수정일</h5>
+			</div>	
+			<div class="col-lg-3 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" readonly="readonly" value='<fmt:formatDate value="${post.post_update_date }" pattern="yyyy-MM-dd"/>' id="post_update_date" name="update_date">
+			</div>
+			
+		</div>
+		
+		
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>첨부파일</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="file" class="form-control">
+			</div>
+		</div>
+
+
+
+
+		<!-- summernote -->
+		<div class="row">
+			<div class="col-12 mb-30">
+				<div class="box">
+					<div class="box-head">
+						<h3 class="title">내용</h3>
+					</div>
+					<div class="box-body">
+						<div id="post_content" name="post_content">${post.post_content}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+		
+		<!-- button -->
+		<div class="row">
+			<div class="col-lg-9 mb-20"></div>
+	
+			<div class="col-lg-3 mb-20">
+				<button class="button button-success" id="modifyBtn">
+					<span>수정</span>
+				</button>
+				<button class="button button-danger" id="removeBtn">
+					<span>삭제</span>
+				</button>
+				<button class="button button-info" id="listBtn">
+					<span>목록</span>
+				</button>
+			</div>
+		</div>
+
+		
+
+
+
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">QnA댓글</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+
+		</div>
+		<!-- Page Headings End -->
+		
+	   <div class="row">
+	       <!-- Chat App Start -->
+	       <div class="col-12">
+	       <div class="replyLi"></div>
+	       
+	
+	               <!-- Chat Start -->
+	               <div class="chat-wrap custom-scroll mr-0" id="repliesDiv">
+	                   <ul class="chat-list">
+	                       <li>
+	                           <div class="chat">
+	                               <div class="head">
+	                                   <h5>test</h5>
+	                                   <span>test</span>
+	                                   <a href="#"><i class="zmdi zmdi-replay"></i></a>
+	                               </div>
+	                               <div class="body">
+<!-- 	                                   <div class="image"><img src="assets/images/comment/comment-1.jpg" alt=""></div> -->
+	                                   <div class="content">
+	                                       <p>content</p>
+	                                   </div>
+	                               </div>
+	                           </div>
+	                       </li>
+	                       <li>
+	                           <div class="chat">
+	                               <div class="head">
+	                                   <h5>Roger Welch</h5>
+	                                   <span>Today 06.31 am</span>
+	                                   <a href="#"><i class="zmdi zmdi-replay"></i></a>
+	                               </div>
+	                               <div class="body">
+	                                   <div class="image"><img src="assets/images/comment/comment-3.jpg" alt=""></div>
+	                                   <div class="content">
+	                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+	                                   </div>
+	                               </div>
+	                           </div>
+	                       </li>
+	                   </ul>
+	               </div>
+	
+	               <div class="chat-submission">
+	                   <form action="#">
+	                       <input type="text" placeholder="Type something">
+	                       <div class="buttons">
+	                           <label class="file-upload button button-box button-round button-primary" for="chat-file-upload">
+	                               <input type="file" id="chat-file-upload" multiple>
+	                               <i class="zmdi zmdi-attachment-alt"></i>
+	                           </label>
+	                           <button class="submit button button-box button-round button-primary"><i class="zmdi zmdi-mail-send"></i></button>
+	                       </div>
+	                   </form>
+	               </div><!-- Chat End -->
+	
+	       </div><!-- Chat End Start -->
+	    </div>
+		
+		
+		
+		
+		
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<form role="form">
+			<input type="hidden" name="post_no" value="${post.post_no}" />
+	</form>
+	
+	<script>
+	var formObj = $("form[role='form']");
+
+	$('button#modifyBtn').on('click',function(evnet){
+		//alert('modify btn click');
+		formObj.attr({
+			'action':'modifyForm.do',
+			'method':'post'
+		});
+		formObj.submit();
+	});
+	
+	$("#removeBtn").on("click",function(){
+		//alert("삭제버튼클릭");
+		formObj.attr({
+			'action':'remove.do',
+			'method':'post'
+		});
+		formObj.submit();
+	});
+	
+	$("#listBtn").on("click",function(){
+		//alert("취소버튼 클릭");
+		location.href="list";
+	});
+	</script>
+
+
+
+
+
+<%@include file="/WEB-INF/views/board/qna/qnaReply_js.jsp" %> 
+</body>
+

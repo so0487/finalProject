@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page trimDirectiveWhitespaces="true" %>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> ${member_id }</h1>
+	
+	<a href="javascript:history.go(-1)">뒤로가기</a>
+</body>
+</html>

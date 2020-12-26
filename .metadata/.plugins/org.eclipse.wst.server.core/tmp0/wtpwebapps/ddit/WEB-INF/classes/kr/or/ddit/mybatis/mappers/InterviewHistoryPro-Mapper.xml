@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="InterviewHistoryPro-Mapper">
+
+	<update id="insertInterviewHistoryPro" parameterType="interviewhistorypro">
+		insert into
+		interview_history_pro(interview_history_pro_no,interview_no,professor_id)
+		values(#{interview_history_pro_no},#{interview_no},#{professor_id})
+	</update>
+	
+	<select id="selectInterviewHistoryProNo" resultType="str">
+		select
+		'INTERVIEWPRO'||LPAD(SEQ_INTERVIEWPRO.nextval,4,'0')
+		from dual
+	</select>
+
+</mapper>
+

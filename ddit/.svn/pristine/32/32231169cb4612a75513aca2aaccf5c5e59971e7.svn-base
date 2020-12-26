@@ -1,0 +1,23 @@
+package kr.or.ddit.lecture.service;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import kr.or.ddit.dto.SubjectVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface SubjectService {
+	Map<String, Object> getSearchSubjectList(SearchCriteria cri) throws SQLException;
+	
+	Map<String, Object> getSubjectList(String subject_no) throws SQLException;
+	
+	SubjectVO getSubjectByNo(String subject_no) throws SQLException;;
+	
+	void registSubject(SubjectVO subjectList) throws SQLException;
+	
+	void modifySubject(SubjectVO subjectList) throws SQLException;
+	
+	void removeSubject(SubjectVO subjectList) throws SQLException;
+	
+	String getMaxSubjectNo() throws SQLException;
+}

@@ -1,0 +1,202 @@
+package kr.or.ddit.interviewHistoryStu.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.classes.service.ClassStudentListService;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.dto.InterviewHistoryStuVO;
+import kr.or.ddit.dto.InterviewVO;
+import kr.or.ddit.interview.service.InterviewService;
+import kr.or.ddit.interviewHistoryStu.service.InterviewHistoryStuService;
+import kr.or.ddit.request.SearchCriteria;
+
+@Controller
+@RequestMapping("/interview/ivhs")
+public class InterviewHistoryStuController {
+	@Autowired
+	private InterviewHistoryStuService ivhsService;
+	
+	@Autowired
+	private ClassService classService;
+	
+	@Autowired
+	private InterviewService interviewService;
+	
+	@Autowired
+	private ClassStudentListService classStudentListService;
+	
+
+	@RequestMapping("/main")
+	public String main() throws Exception {
+		return "ivhs/main.open";
+	}
+
+	@RequestMapping("/registForm")
+	public String registForm(String error, HttpServletResponse response) {
+		return null;
+	}
+
+	@RequestMapping("/regist")
+	public void regist(InterviewHistoryStuVO ivhsVO, HttpServletResponse response) throws IOException {
+		
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		try {
+			ivhsService.registInterviewHistoryStu(ivhsVO);
+
+			out.println("<script>");
+			out.println("alert('면접신청성공')");
+			out.println("location.href = document.referrer;");
+			out.println("</script>");
+		} catch (SQLException e) {
+			out.println("<script>");
+			out.println("alert('동일한 교육과정 회자 면접에 이미 신청하셨습니다.')");
+			out.println("location.href = document.referrer;");
+			out.println("</script>");
+			e.printStackTrace();
+		}
+
+	}
+
+	@RequestMapping("/list")
+	public ModelAndView list(SearchCriteria cri, ModelAndView mnv, String interview_no) {
+		String url = "ivhs/list.page";
+		List<InterviewHistoryStuVO> ivhsList = null;
+		ClassVO classes = null;
+		int sum = 0;
+		try {
+			ivhsList = ivhsService.getInterviewHistoryStuList(interview_no);
+			
+			classes = classService.getClassByNo(interviewService.getInterviewByNo(ivhsList.get(0).getInterview_no()).getClass_no());
+			
+			
+			for (int i = 0; i < ivhsList.size(); i++) {
+				if(ivhsList.get(i).getInterview_history_stu_result().equals("1")) {
+					sum++;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		mnv.addObject("classes",classes);
+		mnv.addObject("ivhsList", ivhsList);
+		mnv.addObject("sum", sum+"명");
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+	
+	@RequestMapping("/myhistory")
+	public ModelAndView myhistory(SearchCriteria cri, ModelAndView mnv, String student_id) {
+		String url = "ivhs/myhistory.page";
+		List<InterviewHistoryStuVO> ivhsList = null;
+		try {
+			ivhsList = ivhsService.getInterviewHistoryStuByStu(student_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		mnv.addObject("ivhsList", ivhsList);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("/detail")
+	public ModelAndView detail(String interview_history_stu_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String interview_history_stu_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/modify")
+	public void modify(String interview_history_stu_no, @ModelAttribute("cri") SearchCriteria cri,
+			HttpServletResponse response) {
+		
+	}
+
+	@RequestMapping("/remove")
+	public void remove(String interview_history_stu_no, @ModelAttribute("cri") SearchCriteria cri,
+			HttpServletResponse response) throws IOException {
+		
+	
+		try {
+			
+			ivhsService.removeInterviewHistoryStu(interview_history_stu_no);
+			
+			response.setContentType("text/html;charset=utf-8");
+
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('신청취소 완료');");
+			out.println("location.href = document.referrer;");
+			out.println("</script>");
+			out.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	@RequestMapping(value="/changedecision", method = RequestMethod.POST)
+	public void modify(@RequestParam(value = "valueArrTest[]") List<String> valueArr ,ModelAndView mnv) throws SQLException {
+		
+//		String url="ivhs/changedecision.page";
+		
+		for (int i = 0; i < valueArr.size(); i++) {
+			Map<String, String> param = new HashMap<String,String>();
+			param.put("id", valueArr.get(i));
+			param.put("keword", "interview_history_stu_result");
+			param.put("value", "1");
+			try {
+				
+				InterviewHistoryStuVO ivhs = ivhsService.getInterviewHistoryStuByNo(valueArr.get(i));
+				
+				if(ivhs.getInterview_history_stu_result().equals("0")) {
+					CslVO csl = new CslVO();
+					String classStudentList_no = classStudentListService.getClsNo();
+					String student_id = ivhs.getStudent_id();
+					InterviewVO interview = interviewService.getInterviewByNo(ivhs.getInterview_no());
+					String class_no = interview.getClass_no();
+					
+					csl.setClassStudentList_no(classStudentList_no);
+					csl.setClass_no(class_no);
+					csl.setStudent_id(student_id);
+					csl.setClassStudentList_status("0");
+					classStudentListService.registClassStudentList(csl);
+				}
+				
+				ivhsService.modifyInterviewHistoryStu(param);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+//		mnv.addObject("valueArr",valueArr);
+//		mnv.setViewName(url);
+		
+//		return mnv;
+	}
+
+}

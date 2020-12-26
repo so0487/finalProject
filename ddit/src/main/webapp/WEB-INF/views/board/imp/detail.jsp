@@ -1,0 +1,172 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<div class="content-body">
+	<div class="add-edit-product-wrap col-12" style="background-color: white; margin-top:-50px ">
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+	
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">개선 및 제안</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+		</div>
+		<!-- Page Headings End -->
+	
+		<!-- improvement and suggestions 제목 -->
+		<div class="row">
+			<div class="col-12">
+				<div class="box" style="border:1px solid #F0F0F0">
+					<div class="box-head" style="display: inline-block; margin: 0 auto; ">
+						<h3 class="title">${post.post_title}</h3>
+						<a>작성자 : </a> <a>${post.post_writer}</a> &nbsp;&nbsp; <a>|</a> <a>
+							작성일자 : </a> <a>${post.post_reg_date}</a> &nbsp;&nbsp; <a>|</a> <a>
+							수정일자 : </a> <a>${post.post_update_date}</a> &nbsp;&nbsp; <a>|</a> <a>
+							조회수 : </a> <a>${post.post_viewcnt }</a>
+					</div>
+					<div style="z-index: 1; position: absolute; bottom: 20px; right: 40px; margin-top: 20px;">
+						<c:if test="${post.post_writer eq loginUser.member_id || loginUser.member_role eq 'ADMIN'}">
+							<button class="btn btn-outline" id="modifyBtn" style="margin-left:4px; border:1px solid #dddddd;">
+								<span>수정</span>
+							</button>
+							<button class="btn btn-outline" style="border:1px solid #dddddd;" id="removeBtn">
+								<span>삭제</span>
+							</button>
+						</c:if>
+						<button class="btn btn-outline" style="border:1px solid #dddddd;" id="listBtn">
+							<span>목록</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- improvement and suggestions 제목 END -->
+		<div class="attachment" style="border:1px solid #F0F0F0; background:#FAFAFA;">
+			<div style="margin-left:20px;">
+				<h5 class="title">첨부파일</h5>
+				<c:if test="${!empty post.attachList }">
+					<c:forEach items="${post.attachList}" var="attach" varStatus="c">
+						<div class="row" style="cursor: pointer; margin-left:3px; margin-bottom:5px;" 
+							onclick="location.href='<%=request.getContextPath()%>/board/attach/getFile.do?post_no=${post.post_no}&attach_no=${attach.attach_no}';">
+							<span class="fa fa-download">${attach.attach_original_name}</span>
+						</div>
+					</c:forEach>
+				</c:if>
+			</div>
+		</div>
+	
+		<!-- improvement and suggestions 내용 -->
+		<div class="row">
+			<div class="col-12">
+				<div class="box">
+					<div class="box-body" style="background-color: white;">
+						<h5>내용</h5>
+						<div class="content">${post.post_content}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- improvement and suggestions 내용 END -->
+		<!-- 댓글 -->
+		<div class="row">
+			<div class="col-12">
+				<div class="box">
+					<div class="timeline">
+						<div class="" id="repliesDiv">
+							<div class="replyLi" data-reply_no={{reply_no}}></div>
+						</div>
+						<input type="hidden" id="newreply_writer" name="newreply_writer">
+						<input type="hidden" id="newreply_no" name="newreply_no">
+						<div class="text-center">
+							<ul id="pagination" class="pagination justify-content-center m-0"></ul>
+						</div> 
+					</div>
+				</div>
+				<c:if test="${post.post_writer eq loginUser.member_id || loginUser.member_role eq 'ADMIN'}">
+					<div>
+						<input type="text" placeholder="댓글을 작성해주세요." id="newreply_content" name="newreply_content" class="form-control" style="display: inline-block; margin:0 auto; width:90%;" maxlength="300" />
+						<button class="submit button button-box button-round button-primary" id="replyAddBtn" style="position:absolute; right:42px; bottom:-2px;">
+							<i class="zmdi zmdi-mail-send"></i>
+						</button>
+					</div>	
+				</c:if>
+			</div>
+		</div>
+		<!-- 댓글 END -->
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal5" >
+			<div class="modal-dialog modal-dialog-centered" style="position:absolute; top:-100px; left:250px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title"></h4>
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" data-reply_no>
+						<div class="form-group">
+							<input type="text" class="form-control" id="reply_content" style="text-align:left; margin: 0 auto;" maxlength="300">
+						</div>
+					</div>
+					<div class="modal-footer" >
+						<button class="button button-primary" data-dismiss="modal" id="replyModBtn">수정</button>
+						<button class="button button-danger" data-dismiss="modal" id="replyDelBtn">삭제</button>
+						<button class="button button-info" data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- modalEND -->
+	</div>	
+</div>
+<!-- content-body END -->
+
+
+
+
+<form role="form">
+	<input type="hidden" name="post_no" value="${post.post_no}" />
+</form>
+
+<script>
+	$('#newreply_content').keyup(function() {
+		if ($(this).val().length > $(this).attr('maxlength')) {
+			$(this).val($(this).val().substr(0, $(this).attr('maxlength')));
+			alert('글자수 제한을 초과하였습니다. 댓글은 300자 이내로 작성 가능합니다.');
+			return;
+		}
+	});
+
+	var formObj = $("form[role='form']");
+
+	$('#modifyBtn').on('click', function(event) {
+		formObj.attr({
+			'action' : 'modifyForm.do',
+			'method' : 'post'
+		});
+		
+		formObj.submit();
+	});
+
+	$("#removeBtn").on("click", function() {
+		var chk = confirm("정말 삭제하시겠습니까?");
+		if (chk) {
+			formObj.attr({
+				'action' : 'remove.do',
+				'method' : 'post'
+			});
+		}
+		formObj.submit();
+	});
+
+	$("#listBtn").on("click", function() {
+		location.href="<%=request.getContextPath()%>/board/imp/list.do?board=imp&board_no=BOARD007";
+	});
+</script>
+
+<%@include file="/WEB-INF/views/board/imp/reply_js.jsp"%>

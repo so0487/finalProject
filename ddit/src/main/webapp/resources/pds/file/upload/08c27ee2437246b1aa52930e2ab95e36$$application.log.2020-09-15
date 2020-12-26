@@ -1,0 +1,1545 @@
+[2020-09-15 19:03:18] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:03:18] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:03:18] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:03:18] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:03:18] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:03:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:03:27] DEBUG (pooled.PooledDataSource - popConnection:424) - Created connection 5128731.
+[2020-09-15 19:03:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@4e421b]
+[2020-09-15 19:03:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:03:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - popConnection:424) - Created connection 387515659.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:09] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:12] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:12] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:12] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:07:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:07:12] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:12] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:12] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:15] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:15] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:19] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:19] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id is not null order by regDate desc 
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 4
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:07:19] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select count(*) from member 
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:07:19] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:07:19] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:09:01] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 19:09:01] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387515659 from pool.
+[2020-09-15 19:09:01] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:09:01] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' 
+[2020-09-15 19:09:01] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 19:09:01] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 19:09:01] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:09:01] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@1719050b]
+[2020-09-15 19:09:01] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387515659 to pool.
+[2020-09-15 19:17:05] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:17:05] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:05] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:05] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:05] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:27] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:17:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:38] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:17:38] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:38] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:38] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:17:38] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:10] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:18:10] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:10] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:10] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:10] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:21] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:18:21] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:21] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:21] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:21] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:53] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:18:53] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:53] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:53] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:18:53] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:23:27] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 19:23:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:23:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:23:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 19:23:27] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:12:29] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 20:12:29] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:12:29] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:12:29] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:12:29] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:12:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - popConnection:424) - Created connection 387873854.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:12:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:12:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:13:23] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:13:23] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:19:20] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:20] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:22] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:22] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:22] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:22] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:22] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:22] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:22] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:22] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:22] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:25] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:25] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:25] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:25] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:25] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:25] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:25] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:25] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:25] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:28] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:28] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:28] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:28] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:28] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:28] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:30] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:30] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:30] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:30] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:30] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:30] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:30] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:30] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:30] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:19:33] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:19:33] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:19:33] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:19:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:19:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:19:33] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:33] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:19:33] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:20:11] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:20:11] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:20:11] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:11] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:20:11] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:20:11] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:20:11] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:11] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:11] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:20:13] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:20:13] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:20:13] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:20:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:20:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:20:13] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:13] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:13] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:20:18] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:20:18] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:20:18] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:18] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:20:18] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:20:18] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:20:18] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:18] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:20:18] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:21:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:43] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:43] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:43] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:43] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:43] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:43] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:43] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:43] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:43] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:45] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:45] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:45] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:45] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:45] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:45] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:45] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:45] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:45] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:46] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:46] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:46] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:46] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:46] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:46] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:46] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:46] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:46] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:48] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:48] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:48] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:48] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:48] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:48] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:48] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:48] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:48] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:21:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:21:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 387873854 from pool.
+[2020-09-15 20:21:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:21:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:21:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:21:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@171e7c3e]
+[2020-09-15 20:21:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 387873854 to pool.
+[2020-09-15 20:26:07] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 20:26:07] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:26:07] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:26:07] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:26:07] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:26:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - popConnection:424) - Created connection 1130334038.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:26:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:52] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:26:53] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:26:53] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:26:53] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:26:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:26:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:26:53] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:53] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:26:53] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:27:03] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:27:03] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:27:03] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:03] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:27:03] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:27:03] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:27:03] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:03] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:03] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:27:05] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:27:05] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:27:05] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:05] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:27:05] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:27:05] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:27:05] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:05] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:05] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:27:08] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:27:08] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:27:08] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:08] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:27:08] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:27:08] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:27:08] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:08] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:08] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:27:11] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:27:11] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:27:11] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:11] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:27:11] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:27:11] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:27:11] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:11] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:27:11] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:30:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:30:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:31:54] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:31:54] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:31:54] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:31:54] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:31:54] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:04] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:04] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:32:44] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:32:44] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:27] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:27] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 0000(String)
+[2020-09-15 20:33:28] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 0
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:28] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:34] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:34] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:34] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:34] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:34] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:34] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:34] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:33:34] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:33:34] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:34] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:34] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:36] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:36] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:36] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:36] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:36] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:36] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:36] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:33:36] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:33:36] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:36] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:36] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:33:37] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:37] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:33:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:33:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:33:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:33:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:33:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:33:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:31] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:31] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:33] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:33] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:33] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:33] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:33] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:35] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:35] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id is not null order by regDate desc 
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 4
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:34:35] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select count(*) from member 
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:34:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:34:35] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:47] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:47] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:47] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:47] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:47] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:47] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:51] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:51] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:51] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:51] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:51] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:51] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:51] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:53] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:53] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:38:53] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:38:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:38:53] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:39:38] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:39:38] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:39:38] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:39:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:39:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:39:38] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:39:38] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:39:38] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:39:38] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:39:41] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:39:41] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 1130334038 from pool.
+[2020-09-15 20:39:41] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:39:41] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:39:41] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:39:41] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:39:41] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:39:41] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@435f8756]
+[2020-09-15 20:39:41] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 1130334038 to pool.
+[2020-09-15 20:43:31] DEBUG (logging.LogFactory - setImplementation:105) - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[2020-09-15 20:43:31] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:43:31] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:43:31] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:43:31] DEBUG (pooled.PooledDataSource - forceCloseAll:353) - PooledDataSource forcefully closed/removed all connections.
+[2020-09-15 20:46:12] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:46:12] DEBUG (pooled.PooledDataSource - popConnection:424) - Created connection 2046510338.
+[2020-09-15 20:46:12] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:46:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:46:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:46:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:46:13] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:46:13] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:46:13] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:47:52] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:47:52] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:47:52] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:47:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:47:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:47:52] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:47:52] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:47:52] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:47:52] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:47:55] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:47:55] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:47:55] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:47:55] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:47:55] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:47:55] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:47:55] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:47:55] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:47:55] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:52:09] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:52:09] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:52:09] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:52:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:52:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:52:09] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:52:09] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:52:09] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:52:09] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:53:05] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:53:05] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:53:05] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:05] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:53:05] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:53:05] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:53:05] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:05] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:05] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:53:17] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:53:17] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:53:17] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:17] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:53:17] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:53:17] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:53:17] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:17] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:17] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:53:32] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:53:32] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:53:32] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:32] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:53:32] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:53:32] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:53:32] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:32] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:53:32] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:54:41] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:54:41] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:54:41] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:54:41] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:54:41] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:54:41] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:54:41] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:54:41] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:54:41] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:07] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:07] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M010000(String)
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:10] DEBUG (pooled.PooledDataSource - popConnection:424) - Created connection 246574289.
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:55:12] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:12] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:12] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:12] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:12] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:12] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:12] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:13] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:13] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:13] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where upCode = ? and isNav = 1 
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M030000(String)
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:55:13] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:55:13] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:55:13] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:13] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:55:13] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from member where id=? 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: mimi(String)
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode = ? 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: M000000(String)
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 1
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:56:10] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:56:10] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:56:58] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:56:58] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:56:58] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:58] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:56:58] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:56:58] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:56:58] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:58] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:56:58] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:57:57] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:57:57] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:57:57] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:57:57] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:57:57] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:57:57] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:57:57] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:57:57] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:57:57] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:58:02] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:58:02] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:58:02] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:58:02] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:58:02] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:58:02] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:58:02] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:58:02] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:58:02] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:58:35] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:58:35] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:58:35] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:58:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:58:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:58:35] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:58:35] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:58:35] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:58:35] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.
+[2020-09-15 20:58:39] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:58:39] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 246574289 from pool.
+[2020-09-15 20:58:39] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:58:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:58:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:58:39] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:58:39] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:58:39] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@eb26cd1]
+[2020-09-15 20:58:39] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 246574289 to pool.
+[2020-09-15 20:58:53] DEBUG (jdbc.JdbcTransaction - openConnection:136) - Opening JDBC Connection
+[2020-09-15 20:58:53] DEBUG (pooled.PooledDataSource - popConnection:416) - Checked out connection 2046510338 from pool.
+[2020-09-15 20:58:53] DEBUG (jdbc.JdbcTransaction - setDesiredAutoCommit:100) - Setting autocommit to false on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:58:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==>  Preparing: select * from menu where mCode like '%'||'0000'||'%' order by mCode asc 
+[2020-09-15 20:58:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - ==> Parameters: 
+[2020-09-15 20:58:53] DEBUG (jdbc.BaseJdbcLogger - debug:143) - <==      Total: 5
+[2020-09-15 20:58:53] DEBUG (jdbc.JdbcTransaction - resetAutoCommit:122) - Resetting autocommit to true on JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:58:53] DEBUG (jdbc.JdbcTransaction - close:90) - Closing JDBC Connection [oracle.jdbc.driver.T4CConnection@79fb4502]
+[2020-09-15 20:58:53] DEBUG (pooled.PooledDataSource - pushConnection:381) - Returned connection 2046510338 to pool.

@@ -1,0 +1,135 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+
+<div class="content-body">
+
+	<!-- Page Headings Start -->
+	<div class="row justify-content-between align-items-center mb-10">
+
+		<!-- Page Heading Start -->
+		<div class="col-12 col-lg-auto mb-20">
+			<div class="page-heading">
+				<h3 class="title" style="text-align: left;">QnA게시판</h3>
+			</div>
+		</div>
+		<!-- Page Heading End -->
+
+	</div>
+	<!-- Page Headings End -->
+
+	<form role="form" action="regist.do" name="registForm" method="post">
+		<div class="row">
+			<div class="col-lg-1 mb-20"	style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>제목</h5>
+			</div>
+
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" id="post_title" name="post_title">
+			</div>
+		</div>
+
+		<div class="row">
+
+
+
+			<div class="col-lg-1 mb-20"	style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>작성자</h5>
+			</div>
+			<div class="col-lg-4 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" id="post_writer" name="post_writer" value="${loginUser.member_id}" readonly="readonly">
+			</div>
+			
+			
+			<div class="col-lg-1 mb-20"	style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>게시판번호</h5>
+			</div>
+
+			<div class="col-lg-4 mb-20" style="width: 100%; margin-left: 0px;">
+				<select class="form-control" id="board_no" name="board_no">
+					<option value="BOARD003">Q&A게시판</option>
+					<option>2</option>
+				</select>
+			</div>
+			
+
+		</div>
+
+<!-- 
+		<div class="row">
+			<div class="col-lg-1 mb-20"	style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>첨부파일</h5>
+			</div>
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="file" class="form-control">
+			</div>
+		</div>
+
+ -->
+
+
+		<!-- summernote -->
+		<div class="row">
+			<div class="col-12 mb-30">
+				<div class="box">
+					<div class="box-head">
+						<h3 class="title">내용</h3>
+					</div>
+					<div class="box-body">
+						<textarea id="post_content" name="post_content" class="summernote"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+
+
+
+
+	<!-- button -->
+	<div class="row">
+		<div class="col-lg-9 mb-20"></div>
+
+		<div class="col-lg-3 mb-20">
+			<button class="button button-success" id="registBtn">
+				<span>등록</span>
+			</button>
+			<button class="button button-danger" id="cancelBtn">
+				<span>취소</span>
+			</button>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+
+<script>
+	$('#registBtn').on('click', function(e) {
+		//alert("regist click");
+		var form = document.registForm;
+
+		if(form.post_title.value==""){
+			alert("제목은 필수입니다.");
+			return;
+		}
+		if(form.post_content.value==""){
+			alert("내용은 필수입니다.");
+			return;
+		}
+		
+		
+		
+		
+		form.submit();
+	});
+	
+	$('#cancelBtn').on('click', function(e) {
+		history.go(-1);
+	});
+</script>
+</body>
+</html>

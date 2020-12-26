@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AttachToMessage-Mapper">
+<!-- 등록 -->
+<update id="insertAttach">
+	insert into
+	attachtomessage (attach_no, upload_path, file_name, file_type, message_no)
+	values(#{attach_no}, #{upload_path}, #{file_name}, #{file_type}, #{message_no})
+</update>
+
+<!-- 첨부파일 삭제 -->
+<update id="deleteAttach">
+	delete from attachtomessage where attach_no = #{attach_no}
+</update>
+
+<!-- 전체 첨부파일 삭제 -->
+<update id="deleteAllAttach">
+	delete
+	from attachtomessage
+	where message_no = #{message_no}
+</update>
+
+
+<!-- message_no로 attach값 가져오기 -->
+<select id="selectAttachByMessageNo" resultType="attachtomessage">
+	select *
+	from attachtomessage
+	where message_no = #{message_no}
+</select>
+
+<!-- attach_no로 attach가져오기 -->
+<select id="selectAttachByAttachNo" resultType="attachtomessage">
+	select * 
+	from attachtomessage
+	where attach_no = #{attach_no}
+</select>
+
+
+<select id="getMessageSequenceNextValue" parameterType="int" resultType="str">
+	select 'MESSAGE_ATTACH'||LPAD(seq_attachtomessage.nextval,4,'0') from dual
+</select>
+</mapper>

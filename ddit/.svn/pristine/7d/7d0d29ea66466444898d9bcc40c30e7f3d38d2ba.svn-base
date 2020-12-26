@@ -1,0 +1,131 @@
+package kr.or.ddit.lecture.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.or.ddit.dto.SubjectVO;
+import kr.or.ddit.lecture.service.SubjectService;
+import kr.or.ddit.request.SearchCriteria;
+
+@Controller
+@RequestMapping("/subject")
+public class SubjectController {
+	
+	@Autowired
+	private SubjectService subjectService;
+	
+	public void setSubjectService(SubjectService subjectService) {
+		this.subjectService = subjectService;
+	}
+
+	@RequestMapping("/main")
+	public String main() throws Exception{
+		return "subject/list.open";
+	}
+	
+	@RequestMapping("/registForm")
+	public ModelAndView registForm(SearchCriteria cri, ModelAndView mnv, String error, HttpServletResponse response) throws Exception {
+		String url = "lecture/subject/registForm.page";
+		String subject_no = subjectService.getMaxSubjectNo();
+		
+		cri = new SearchCriteria();
+		Map<String, Object> dataMap = subjectService.getSearchSubjectList(cri);
+		
+		mnv.addAllObjects(dataMap);
+		mnv.addObject("subject_no", subject_no);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/regist")
+	public String regist(SubjectVO subjectVO, HttpServletResponse response) throws Exception {
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			subjectService.registSubject(subjectVO);
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('등록되었습니다.');");
+			out.println("</script>");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("실패...");
+			return "history.go(-1)";
+		}
+		return "redirect:/subject/list.page";
+	}
+	
+	@RequestMapping("/list")
+	public ModelAndView list(String subject_no, SearchCriteria cri, ModelAndView mnv) throws Exception {
+		String url = "lecture/subject/list.page";
+		
+		Map<String , Object> dataMap = subjectService.getSearchSubjectList(cri);
+		SubjectVO subject = subjectService.getSubjectByNo(subject_no);
+		
+		mnv.addAllObjects(dataMap);
+		mnv.addObject("subject", subject);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail(String subject_no, ModelAndView mnv) throws Exception {
+		String url = "lecture/subject/detail.page";
+		System.out.println(subject_no);
+		SubjectVO subject = subjectService.getSubjectByNo(subject_no);
+		
+		mnv.addObject("subject", subject);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String subject_no, ModelAndView mnv) throws Exception {
+		String url = "lecture/subject/modifyForm.page";
+		
+		SubjectVO subject = subjectService.getSubjectByNo(subject_no);
+		
+		mnv.addObject("subject", subject);
+		mnv.setViewName(url);
+		 
+		return mnv;
+	}
+
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public void modify(SubjectVO subject, HttpServletResponse response) throws Exception {
+		System.out.println("asbdhsdsjkadsajdkasdklasvglkyfvawlfjka");
+		subjectService.modifySubject(subject);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
+		out.println("alert('수정되었습니다.');");
+		out.println("location.href='detail.page?subject_no=" + subject.getSubject_no() + "';");
+		out.println("</script>");
+		
+	}
+	
+	@RequestMapping("/remove")
+	public void remove(String subject_no, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html; charset=utf-8");
+		subjectService.removeSubject(subject_no);
+		PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('삭제되었습니다.')");
+			out.println("location.href='list.page';");
+			out.println("</script>");
+		
+	}
+	
+}

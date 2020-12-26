@@ -1,0 +1,25 @@
+package kr.or.ddit.lecture.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.SubjectVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface SubjectDAO {
+	List<SubjectVO> selectSearchSubjectList(SearchCriteria cri) throws SQLException;
+	
+	List<SubjectVO> selectSubjectList(String subject_no) throws SQLException;
+	
+	int selectSearchSubjectListCount(SearchCriteria cri) throws SQLException;
+	
+	SubjectVO selectSubjectByNo(String subject_no) throws SQLException;;
+	
+	void insertSubject(SubjectVO subjectList) throws SQLException;
+	
+	void updateSubject(SubjectVO subjectList) throws SQLException;
+	
+	void deleteSubject(SubjectVO subjectList) throws SQLException;
+
+	String selectMaxSubjectNo() throws SQLException;
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Assignment-Mapper">
+	
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="searchType == 'n'.toString()">
+			and assignment_name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and assignment_content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'nc'.toString()">
+			and (
+			assignment_name like '%'||#{keyword}||'%'
+			or
+			assignment_content like '%'||#{keyword}||'%'
+			)
+
+		</if>
+	</sql>
+		
+	<!-- 검색결과 list가져오기 -->
+	<select id="selectSearchAssignList" resultType="assignment">
+		select * from assignment
+		where ASSIGNMENT_NO is not null
+		and lecture_no = #{lecture_no}		
+		<include refid="search" />
+		order by ASSIGNMENT_NO desc
+	</select>
+		
+	<select id="selectAssignmentByNo" parameterType="str" resultType="assignment">
+		select * 
+		from assignment
+		where assignment_no=#{assignment_no}
+	</select>
+
+
+	<!-- 검색결과 list 카운트 -->
+
+
+	<select id="selectSearchAssignListCount" resultType="int">
+		select
+		count(*)
+		from assignment
+		where ASSIGNMENT_NO is not null
+		and lecture_no = #{lecture_no}		
+		<include refid="search" />
+		order by ASSIGNMENT_NO desc
+	</select>
+	
+	<update id="insetAssignment" parameterType="assignment">
+		insert 
+		into assignment(assignment_no,lecture_no,assignment_score,assignment_name,assignment_content,assignment_ratio,assignment_end_date)
+		values(#{assignment_no},#{lecture_no},#{assignment_score},#{assignment_name},#{assignment_content},#{assignment_ratio},#{assignment_end_date})
+	</update>
+	
+	<update id="updateAssignment" parameterType="assignment">
+		update assignment
+		set assignment_score=#{assignment_score},assignment_name=#{assignment_name},assignment_content=#{assignment_content},assignment_ratio=#{assignment_ratio},assignment_end_date=#{assignment_end_date}
+		where assignment_no=#{assignment_no}		
+	</update>
+	
+	<update id="deleteAssignment" parameterType="str">
+		delete assignment
+		where assignment_no=#{assignment_no}
+	</update>
+
+	<select id="selectAssignmentNo" resultType="str">
+		select 'ASSIGNMENT'||LPAD(SEQ_ASSIGNMENT.nextval,4,'0')
+		from dual
+	</select>
+	
+	<select  id="selectAssignmentScore" resultType="int">
+		select nvl(sum(a.ASSIGNMENT_HISTORY_SCORE*b.ASSIGNMENT_RATIO/(select sum(d.ASSIGNMENT_RATIO)
+                                                                                from assignment d
+                                                                                where d.lecture_no=#{lecture_no}                                                                                
+                                                                                )),0) as assignScore
+        from assignment_history a, assignment b
+        where a.lecture_no=#{lecture_no}
+        and student_id=#{student_id}
+        and a.ASSIGNMENT_NO=b.ASSIGNMENT_NO
+        <![CDATA[and a.assignment_history_score>0]]>
+	</select>
+	
+</mapper>

@@ -1,0 +1,211 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+	<div class="content-body">
+	
+	<div class="row justify-content-between align-items-center mb-10">
+
+		<!-- Page Heading Start -->
+		<div class="col-12 col-lg-auto mb-20">
+			<div class="page-heading">
+				<h3 class="title" style="text-align: left;">교육과정</h3>
+			</div>
+		</div>
+	</div>
+		<!-- Page Heading End -->
+
+		<!-- Page Headings Start -->
+		
+	<div class="row">
+		<div class="col-12">
+			<div class="box">
+				<div class="box-head" style="display: inline-block; margin: 0 auto;">
+					<h3 class="title" style="text-align: left;">교육과정 </h3>
+				</div>
+				<div style="z-index:1; position:absolute; bottom:20px; right:40px; margin-top: 20px;">
+					<c:if test="${loginUser.member_role eq 'ADMIN'}">
+					<button class="button button-success" id="modBtn">
+						<span>수정</span>
+					</button>
+					<button class="button button-success" id="remBtn">
+						<span>삭제</span>
+					</button>
+				</c:if>
+					<button class="button button-danger" id="cancelBtn">
+						<span>취소</span>
+					</button>
+				<c:if test="${loginUser.member_role eq 'STUDENT'}">
+					<button class="button button-danger" id="goBtn">
+						<span>신청하러가기</span>
+					</button>
+				</c:if>
+				</div>	
+			</div>
+		</div>	
+	</div>
+	
+			<!-- Page Heading End -->
+
+		<!-- Page Headings End -->
+
+		<form role="form" method="post" action="regist.do" name="registForm">
+			<div class="row">
+				<div class="col-lg-2 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+					<h5>교육과정아이디</h5>
+				</div>	
+				<div class="col-lg-8 mb-20" style="width: 100%; margin-left: 0px;">
+					<input type="text" class="form-control" value="${curriculum.curriculum_no }" name="curriculum_no" id="curriculum_no" readonly />
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-lg-2 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>교육과정명</h5>
+			</div>	
+			<div class="col-lg-8 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="curriculum_name" id="curriculum_name" value="${curriculum.curriculum_name}" readonly />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>훈련시간</h5>
+			</div>	
+			<div class="col-lg-8 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="curriculum_time" id="curriculum_time" value="${curriculum.curriculum_time}" readonly />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>관련자격증</h5>
+			</div>	
+			<div class="col-lg-8 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="curriculum_certificate" id="curriculum_certificate" value="${curriculum.curriculum_certificate}" readonly />
+				<input type="text" class="form-control" name="curriculum_status" id="curriculum_status" style="display: none;" value="${curriculum.curriculum_status}" >
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="row">
+				<div class="col-12 mb-30">
+						<div class="box-head">
+							<h3 class="title">교육과정 소개</h3>
+						</div>
+						<div class="box-body">
+							<div >${curriculum.curriculum_introduce}</div>
+						</div>
+				</div>
+			</div>
+		</form>
+		
+		<div class="box-head">
+				<h4 class="title">수강평</h4>		<div class="row">
+			<div class="col-lg-12 mb-20">
+	             <div class="box-body">
+	                 <div class="tab-content">
+	                     <div class="tab-pane fade show active" id="course">
+	                     
+	                         <table class="table footable" data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
+	                               <thead>
+	                                   <tr>
+	                                       <th data-name="class_no">리뷰번호</th>
+	                                       <th data-name="class_number">회차</th>
+	                                       <th data-breakpoints="xs" data-name="class_recruitment_start">작성자</th>
+	                                       <th data-breakpoints="xs" data-name="class_recruitment_end">평점</th>
+	                                       <th data-breakpoints="xs" data-name="class_max">수강평</th>
+	                                   </tr>
+	                               </thead>
+	                               <tbody>
+										<c:forEach items="${reviewList }" var="review">
+		                                   <tr>
+		                                       <td>${review.review_no}</td>
+		                                       <c:forEach items="${classList }" var="classVO">
+		                                       <c:if test="${review.class_no eq classVO.class_no}">
+		                                       ${classVO.curriculum_name}&nbsp;${classVO.class_number }차
+		                                       </c:if>
+		                                       </c:forEach>
+		                                       <td>
+		                                       <div class="rating rating-font rating-font-star h3" style="cursor: pointer;">
+		                                       <c:forEach var="i" begin="1" end="${review.review_star }">
+		                                       			
+			                                       		
+			                                       		<c:if test ="${review.review_star-i >=0 && review.review_star ne 0.5 }">
+			                                       			<i data-alt="${i}" class="zmdi zmdi-star"></i>
+			                                       		</c:if>
+			                                       		<c:if test ="${review.review_star-i eq 0.5 || review.review_star eq 0.5 }">
+		    	                                   		 <i data-alt="${i}" class="zmdi zmdi-star-half"></i>
+			                                       		</c:if>
+		                                        
+		                                       </c:forEach>
+		                                       <c:forEach var="i" begin="${review.review_star+1.5}" end="5" >
+		                                        <i data-alt="${i}" class="zmdi zmdi-star-outline"></i>
+		                                       </c:forEach>
+		                                       
+		                                       </div>
+		                                       </td>
+		                                       <td>${review.student_id}</td>
+		                                       <td>${review.review_content}</td>
+		                                   </tr>
+	                               		</c:forEach>
+	                                 
+	                                 
+	                               </tbody>
+	                           </table>
+	                	     </div>
+	            	     </div>
+	        	     </div>
+				</div>
+			</div>
+		</div>
+	</div>
+			
+	
+	
+<form role="form">
+<input type="hidden" name="curriculum_no" id="curriculum_no" value="${curriculum.curriculum_no }" />
+</form>
+	
+<script>
+var formObj = $("form[role='form']");
+
+
+$('#goBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'../class/list.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+
+$('#modBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'modifyForm.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+$('#remBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'remove.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+$('#cancelBtn').on('click',function(e){
+	//alert("regist btn click");
+	location.href="list.do";
+// 	history.go(-1);
+});
+
+</script>
+

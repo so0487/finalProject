@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member-Mapper">
+	<select id="selectMemberById" parameterType="str" resultType="member">
+		select
+		*
+		from member
+		where member_id=#{member_id}
+	</select>
+	
+	<select id="selectMemberByEmail" parameterType="str" resultType="member">
+		select
+		*
+		from member
+		where member_email=#{member_email}
+	</select>
+	
+	<sql id="search">
+		<if test="searchType == 'i'.toString()">
+			and id like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'p'.toString()">
+			and phone like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'e'.toString()">
+			and email like '%'||#{keyword}||'%'
+		</if>		
+	</sql>
+	
+	<select id="selectSearchMemberList" resultType="member">
+		select
+		*
+		from member
+		where member_id is not null
+		<include refid="search"/> 
+	
+	</select>
+	
+	<select id="selectSearchMemberListCount" resultType="int">
+		select
+		count(*)
+		from member
+		where member_id is not null
+		<include refid="search"/>
+		order by regDate desc
+	</select>
+	
+	<select id ="selectMemberListCount" resultType="int">
+		select count(*)
+		from member		
+	</select>
+	
+	<update id="insertMember" parameterType="member">
+      insert into 
+      member(member_id, member_pwd, member_email, member_phone,member_picture,member_name,member_address)
+      values(#{member_id},#{member_pwd},#{member_email},#{member_phone},#{member_picture},#{member_name},#{member_address})
+    </update>
+   
+    <update id="insertAdminMember" parameterType="member">
+      insert into 
+	  member(member_id, member_pwd, member_email, member_phone,member_picture,member_name,member_address,member_status,member_role)
+      values(#{member_id},#{member_pwd},#{member_email},#{member_phone},#{member_picture},#{member_name},#{member_address},#{member_status},#{member_role})
+    </update>
+  	
+	<update id="updateMember" parameterType="member">
+		update member
+		set
+		member_email=#{member_email},member_phone=#{member_phone},member_name=#{member_name},member_picture=#{member_picture},member_address=#{member_address},member_pwd=#{member_pwd}
+
+		where member_id=#{member_id}
+	</update>
+	
+	<update id="updateAdminMember" parameterType="member">
+		update member
+		set
+		member_email=#{member_email},member_phone=#{member_phone},member_name=#{member_name},member_picture=#{member_picture},member_address=#{member_address},member_pwd=#{member_pwd},
+		member_status=#{member_status},member_role=#{member_role}
+
+<!-- 		<if test="member_role!= null"> -->
+<!-- 			member_role=#{member_role} -->
+<!-- 		</if> -->
+		where member_id=#{member_id}
+	</update>
+	
+	
+	
+	<update id="deleteMember" parameterType="str">
+		delete
+		from member
+		where member_id=#{member_id}		
+	</update>
+	
+	<update id="disabledMember">
+		update member
+		set member_status='1'
+		where member_id=#{member_id}
+	</update>
+	
+	<update id="enabledMember">
+		update member
+		set member_status='0'
+		where member_id=#{member_id}
+	</update>
+
+	
+	<update id="createAuthKey">
+		update Member set member_status = '3' where member_email = #{member_email}
+	</update>
+	
+	<update id="successAuthKey">
+		update Member set member_status = '0' where member_email = #{member_email}
+	</update>
+	
+	<select id="selectMemberFindId" parameterType="member" resultType="member">
+		select
+		*
+		from member
+		where member_email=#{member_email}
+		and   member_name=#{member_name}				
+	</select>
+	
+	<select id="selectMemberFindPwd" parameterType="member" resultType="member">
+		select
+		*
+		from member
+		where member_email=#{member_email}
+		and   member_id=#{member_id}				
+	</select>
+	
+	<update id="updateMemberResetPwd" parameterType="member">
+		update Member set member_pwd = #{member_pwd} where member_id = #{member_id}
+	</update>
+
+	<select id="selectMemberAdmin" resultType="map">
+	    select 
+	       member_id,
+	        member_name 
+	    from
+	       member
+	    where 
+	       member_role = 'ADMIN'
+	 </select>  
+	
+</mapper>
+

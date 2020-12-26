@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Attach-Mapper">
+	<select id="selectAttachByPostNo" resultType="attach">
+		select *
+		from attach
+		where post_no = #{post_no}
+	</select>
+
+	<select id="selectAttachByAttachNo" resultType="attach">
+		select *
+		from
+		attach
+		where attach_no = #{attach_no}
+	</select>
+
+	<update id="insertAttach">
+		insert into
+		attach 
+		(post_no, attach_original_name, attach_name, attach_type, attach_no, attach_upload_path)
+		values
+		(#{post_no}, #{attach_original_name}, #{attach_name}, #{attach_type}, ('POST_ATTACH' || LPAD(seq_attach.nextval, 4, '0')), #{attach_upload_path})
+	</update>
+	
+	<!-- 첨부파일 삭제 -->
+	<update id="deleteAttach">
+		delete from attach where attach_no = #{attach_no}
+	</update>
+
+	<!-- 전체 첨부파일 삭제 -->
+	<update id="deleteAllAttach">
+		delete
+		from attach
+		where post_no = #{post_no}
+	</update>
+
+	<select id="getMessageSequenceNextValue" parameterType="int" resultType="str">
+		select 'POST_ATTACH'||LPAD(seq_attach.nextval,4,'0') from dual
+	</select>
+</mapper>

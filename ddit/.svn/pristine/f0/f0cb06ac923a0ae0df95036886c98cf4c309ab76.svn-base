@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="meeting">
+	<!-- insert -->
+	<insert id="insertMeeting">
+		INSERT INTO MEETING(MEETING_NO,UUID,TOPIC,JOIN_URL,START_TIME,DURATION,JOIN_ID,JOIN_PW,HOST_ID,START_URL,USER_ID,TYPE,MEETING_CATEGORY_NO,MEETING_CATEGORY)
+		VALUES(#{meeting_no},#{uuid},#{topic},#{join_url},#{start_time},#{duration},#{join_id},#{join_pw},#{host_id},#{start_url},#{user_id},#{type},#{meeting_category_no},#{meeting_category})
+	</insert>
+	
+	<insert id="insertInvitation">
+		INSERT INTO USER_INVITATION(ID,MEETINGUUID)
+		VALUES(#{userid},#{uuid})
+	</insert>
+	
+	
+	<!-- select -->
+	<select id="selectMeetingBy" parameterType="java.util.Map" resultType="meeting">
+		select
+			topic as topic,
+			start_time as start_time,
+			join_url as join_url,
+			join_id as meeting_no,
+			duration as duration,
+			uuid as uuid
+			
+			from meetings
+			where meeting_category_no=#{meeting_category_no}
+			and meeting_category=#{meeting_category}
+	</select>
+	
+	<select id="selectMeetingByMemId" parameterType="java.util.Map" resultType="java.util.Map">
+		select a.*, b.*
+		from meeting a, ${interview_history} b
+		where meeting_category_no in (select interview_no from ${interview_history} where ${member_id} =#{loginUser_id})
+	</select>
+	
+	<select id="selectMeeting" parameterType="String" resultType="map">
+		select
+			topic as topic,
+			starttime as start_time,
+			joinurl as join_url,
+			joinid as meetingid,
+			duration as duration,
+			meetinguuid as uuid
+		from
+			meetings
+		where 
+			userid = #{userid}
+	</select>	
+	<select id="selectUserInvit" parameterType="String" resultType="map">
+		select 
+			m.meetinguuid,
+	        m.duration,
+	        m.joinid,
+	        m.joinpw,
+	        m.joinurl,
+	        m.starttime,
+	        m.topic
+		from 
+			meetings m ,user_invitation u
+		where 
+			 m.meetinguuid = u.meetinguuid and u.id = #{userid}
+	</select>	
+
+	
+	<!-- delete -->
+	<delete id="deleteMeeting">
+		DELETE FROM 
+			MEETINGS
+		WHERE
+			MEETINGUUID = #{uuid}
+	</delete>
+</mapper>

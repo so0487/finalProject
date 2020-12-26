@@ -1,0 +1,21 @@
+package kr.or.ddit.schedule.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface ScheduleDAO {
+	List<ScheduleVO> selectScheduleList(String member_id) throws SQLException;
+	
+	ScheduleVO selectScheduleByNo(String schedule_no) throws SQLException;;
+	
+	void insertSchedule(ScheduleVO schedule) throws SQLException;
+	
+	void updateSchedule(ScheduleVO schedule) throws SQLException;
+	
+	void deleteSchedule(ScheduleVO schedule) throws SQLException;
+	
+	String selectScheduleNo() throws SQLException;
+}

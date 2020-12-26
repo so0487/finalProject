@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Attendance-Mapper">
+
+
+	<update id="insertAttendance">
+		insert into
+		attendance(attendance_no,student_id,lecture_no,attendance_date,attendance_is)
+		values(#{attendance_no},#{student_id},#{lecture_no},TO_DATE(#{attendance_date2},'YYYY-MM-DD HH24:MI:SS'),#{attendance_is})
+		
+		
+	</update>
+
+	<select id="selectAttendanceNo" resultType="str">
+		select 'ATTENDANCE'||LPAD(seq_attendance.nextval,4,'0')
+		from dual
+
+	</select>
+
+
+	<select id="selectAttendanceNobyStu" parameterType="java.util.Map" resultType="attendance">
+		select * from attendance
+		where student_id =#{student_id}
+		and attendance_date between #{start_date} and #{end_date}
+		and lecture_no=#{lecture_no}
+		order by attendance_date asc
+	</select>
+	
+	
+	<select id="selectAttendanceNobyStuCnt" parameterType="java.util.Map" resultType="int">
+		select count(*)
+		from attendance a, class b  
+		where student_id =#{student_id}
+		and attendance_date between class_start_date and class_end_date                                                                     
+		and class_no=#{class_no}
+		and lecture_no=#{lecture_no}
+ 
+	</select>
+	
+	<select id="selectAttendanceNobyLecture" resultType="int">
+		select 100*resul/(a.curriculum_time/8) from curriculum a, class b, lecture c , (select count(*) as resul
+																					from attendance
+																				 where student_id =#{student_id}
+		and lecture_no=#{lecture_no} )
+		where b.class_no = c.class_no
+		and a.curriculum_no = b.curriculum_no
+		and lecture_no = #{lecture_no}
+	</select>
+	
+	<update id="deleteAttendanceByLecture" parameterType="str">
+		delete from attendance
+		where attendance_no=#{attendance_no}
+	</update>
+</mapper>
+

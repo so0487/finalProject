@@ -1,0 +1,176 @@
+package kr.or.ddit.member.service;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.transaction.annotation.Transactional;
+
+import kr.or.ddit.common.controller.CommonController;
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.member.dao.MemberDAO;
+import kr.or.ddit.request.PageMaker;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.util.MailHandler;
+import kr.or.ddit.util.TempKey;
+
+public class MemberServiceImpl implements MemberService {
+	private MemberDAO memberDAO;
+
+	public void setMemberDAO(MemberDAO memberDAO) {
+		this.memberDAO = memberDAO;
+	}
+
+	private JavaMailSender mailSender;
+	public void setMailSender(JavaMailSender mailSender) {
+		this.mailSender = mailSender;
+	}
+	
+	@Override
+	public MemberVO getMember(String member_id) throws SQLException {
+		MemberVO member = memberDAO.selectMemberById(member_id);
+		return member;		
+	}
+	
+	@Override
+	public Map<String, Object> getSearchMemberList(SearchCriteria cri) throws SQLException {
+		List<MemberVO> memberList = memberDAO.selectMemberList(cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(memberDAO.selectMemberListCount(cri));
+		
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		dataMap.put("memberList", memberList);
+		dataMap.put("pageMaker", pageMaker);
+		
+		return dataMap;
+	}
+	
+	@Override
+	public List<MemberVO> getMemberList(SearchCriteria cri) throws SQLException {
+		List<MemberVO> memberList = memberDAO.selectMemberList(cri);
+		return memberList;		
+	}
+	
+
+	@Override
+	public void modify(MemberVO member) throws SQLException {
+		memberDAO.updateMember(member);
+	}
+	
+	@Override
+	public void remove(String member_id) throws SQLException {
+		memberDAO.deleteMember(member_id);		
+	}
+	
+	@Override
+	public void disabled(String member_id) throws SQLException {			
+		memberDAO.disableMember(member_id);		
+	}
+	
+	@Override
+	public void enabled(String member_id) throws SQLException {
+		memberDAO.enabledMember(member_id);		
+	}
+	
+	@Override
+	public void userAuth(String userEmail) throws Exception {
+		memberDAO.userAuth(userEmail);
+	}
+	
+	@Override
+	public MemberVO getMemberByEmail(String member_email) throws SQLException {
+		MemberVO member = memberDAO.selectMemberByEmail(member_email);
+		return member;	
+	}
+	
+
+	@Transactional
+	@Override
+	public void regist(MemberVO member) throws Exception {
+	memberDAO.insertUser(member); // 회원가입 DAO
+
+	String key = new TempKey().getKey(30, false); // 인증키 생성
+
+	memberDAO.createAuthKey(member.getMember_email(), key); // 인증키 DB저장
+
+//	System.out.println(mailSender);
+	
+	MailHandler sendMail = new MailHandler(mailSender);
+	sendMail.setSubject("DDIT 회원가입  이메일 인증");
+	sendMail.setText(
+			new StringBuffer().append("<h1>DDIT 이메일 인증 메일입니다.</h1>").append("<br>DDIT LMS를 회원가입을 완료하고, 사용하시려면 아래  [이메일 인증] 버튼을 눌러주세요.<br><br>").append("<a href='http://localhost/ddit/member/emailConfirm?member_email=").append(member.getMember_email()).append("&key=").append(key).append("' target='_blenk'>이메일 인증</a><br/><br/>")
+			.append("<a href='http://192.168.31.14/ddit/'").append("target='_blenk'>DDIT 홈페이지 열기</a>").toString());
+				
+	sendMail.setFrom("tjdwn00831", "관리자");
+	sendMail.setTo(member.getMember_email());
+	sendMail.send();
+	}
+
+	@Override
+	public MemberVO getMemberFindId(MemberVO member) throws Exception {		
+		return memberDAO.selectMemberFindId(member);
+	}
+
+	@Override
+	public MemberVO getMemberFindPwd(MemberVO member) throws Exception {
+		MemberVO memberVO= memberDAO.selectMemberFindPwd(member);
+		
+		if(memberVO==null) {
+			return null;
+		}else {
+			
+
+			
+			MailHandler sendMail = new MailHandler(mailSender);
+			sendMail.setSubject("DDIT 비빌번호 변경 이메일");
+//			sendMail.setText(
+//					new StringBuffer().append("<h1>DDIT 비밀번호 변경 확인 메일입니다.</h1>").append("<br>DDIT"+member.getMember_name()+"님의 "+member.getMember_id()+"의 비밀번호를 변경하기 원하시면 아래의 버튼을 눌러주세요<br><br>")
+//							.append("<a href='http://localhost/ddit/common/changePwdForm?member_email=").append(member.getMember_email()).append("&member_id=").append(member.getMember_id()).append("' target='_blenk'>비밀번호 변경</a><br/><br/>")
+//					.append("<a href='http://192.168.31.14/ddit/'").append("target='_blenk'>DDIT 홈페이지 열기</a>").toString());
+			
+			sendMail.setText(
+					new StringBuffer().append("<h1>DDIT 비밀번호 변경 확인 메일입니다.</h1>").append("<br>DDIT"+member.getMember_name()+"님의 "+member.getMember_id()+"의 비밀번호를 변경하기 원하시면 아래의 버튼을 눌러주세요<br><br>")
+					.append("<a href='http://localhost/ddit/common/").append(CommonController.pwdUrl).append("&member_id=").append(member.getMember_id()).append("' target='_blenk'>비밀번호 변경</a><br/><br/>")
+					.append("<a href='http://192.168.31.15/ddit/'").append("target='_blenk'>DDIT 홈페이지 열기</a>").toString());
+						
+			sendMail.setFrom("tjdwn00831", "DDIT관리자");
+			sendMail.setTo(member.getMember_email());
+			sendMail.send();
+			
+
+			return memberDAO.selectMemberFindPwd(member);
+		}
+	}
+
+	@Override
+	public void modifyMemberResetPwd(MemberVO member) throws Exception {
+		memberDAO.updateMemberResetPwd(member);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> getMemberAdmin(String member_id) throws Exception {		
+		return memberDAO.selectMemberAdmin(member_id);
+	}
+
+	@Override
+	public void adminModify(MemberVO member) throws SQLException {
+		memberDAO.updateAdminMember(member);		
+	}
+
+	@Override
+	public void adminRegist(MemberVO member) throws Exception {
+		memberDAO.insertAdminMember(member);		
+	}
+	
+
+
+	
+}

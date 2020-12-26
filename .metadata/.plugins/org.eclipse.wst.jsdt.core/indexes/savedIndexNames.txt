@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\soo\A_TeachingMaterial\7.LastProject\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1529890205.index
+3458238839.index
+2712373884.index
+588034996.index
+3021538673.index
+219516311.index

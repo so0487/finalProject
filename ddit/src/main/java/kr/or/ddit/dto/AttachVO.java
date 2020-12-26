@@ -1,0 +1,67 @@
+package kr.or.ddit.dto;
+
+public class AttachVO {
+	private String post_no; // 게시글 번호
+	private String attach_name; // 파일 이름
+	private String attach_original_name; // 원본파일 이름
+	private String attach_type; // 파일 유형
+	private String attach_no; // 첨부파일 번호
+	private String attach_upload_path; // 첨부파일 경로
+	
+	public String getPost_no() {
+		return post_no;
+	}
+
+	public void setPost_no(String post_no) {
+		this.post_no = post_no;
+	}
+
+	public String getAttach_name() {
+		return attach_name;
+	}
+
+	public void setAttach_name(String attach_name) {
+		this.attach_name = attach_name;
+	}
+
+	public String getAttach_original_name() {
+		return attach_original_name;
+	}
+
+	public void setAttach_original_name(String attach_original_name) {
+		this.attach_original_name = attach_original_name;
+	}
+
+	public String getAttach_type() {
+		return attach_type;
+	}
+
+	public void setAttach_type(String attach_type) {
+		this.attach_type = attach_type;
+	}
+
+	public String getAttach_no() {
+		return attach_no;
+	}
+
+	public void setAttach_no(String attach_no) {
+		this.attach_no = attach_no;
+	}
+
+	public String getAttach_upload_path() {
+		return attach_upload_path;
+	}
+
+	public void setAttach_upload_path(String attach_upload_path) {
+		this.attach_upload_path = attach_upload_path;
+	}
+
+	@Override
+	public String toString() {
+		return "AttachVO [post_no=" + post_no + ", attach_name=" + attach_name + ", attach_original_name="
+				+ attach_original_name + ", attach_type=" + attach_type + ", attach_no=" + attach_no
+				+ ", attach_upload_path=" + attach_upload_path + "]";
+	}
+
+
+}

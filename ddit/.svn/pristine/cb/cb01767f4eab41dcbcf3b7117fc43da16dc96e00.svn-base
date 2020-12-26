@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Schedule-Mapper">
+
+
+<select id="selectScheduleNo" parameterType="int" resultType="str">
+	select 'SCHEDULE'||LPAD(seq_schedule.nextval,4,'0')
+	from dual
+</select>
+
+<select id="selectScheduleList" parameterType="str" resultType="schedule">
+		select
+		*
+		from schedule
+		where member_id = #{member_id}
+</select>
+
+<update id="insertSchedule" parameterType="schedule" >
+		insert into
+		schedule(schedule_no,schedule_category_no,member_id,schedule_subject_no,
+			  	schedule_title,schedule_content,schedule_color,schedule_start_date,schedule_end_date)
+		values(#{schedule_no},#{schedule_category_no},#{member_id},#{schedule_subject_no},#{schedule_title},#{schedule_content},#{schedule_color},#{schedule_start_date},
+				#{schedule_end_date}
+		)
+</update>
+
+	
+
+</mapper>
+

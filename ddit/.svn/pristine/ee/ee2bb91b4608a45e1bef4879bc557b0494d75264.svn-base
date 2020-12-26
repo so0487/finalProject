@@ -1,0 +1,47 @@
+package kr.or.ddit.lecture.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.AttendanceVO;
+import kr.or.ddit.lecture.dao.AttendanceDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AttendanceServiceImpl implements AttendanceService {
+	private AttendanceDAO attendanceDAO;
+
+	public void setAttendanceDAO(AttendanceDAO attendanceDAO) {
+		this.attendanceDAO = attendanceDAO;
+	}
+
+	@Override
+	public List<AttendanceVO> getAttendanceList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AttendanceVO getAttendanceByNo(String attendance_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registAttendance(AttendanceVO attendance) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyAttendance(AttendanceVO attendance) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeAttendance(AttendanceVO attendance) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

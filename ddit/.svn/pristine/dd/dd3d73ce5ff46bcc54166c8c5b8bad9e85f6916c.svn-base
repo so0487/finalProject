@@ -1,0 +1,50 @@
+package kr.or.ddit.assign.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.AssignmentVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AssignmentDAOImpl implements AssignmentDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<AssignmentVO> selectAssignmentList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AssignmentVO selectAssignmentByNo(String assignment_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertAssignment(AssignmentVO Assignment) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateAssignment(AssignmentVO Assignment) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAssignment(AssignmentVO Assignment) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+

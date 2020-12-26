@@ -1,0 +1,47 @@
+package kr.or.ddit.board.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.board.dao.AttachDAO;
+import kr.or.ddit.dto.AttachVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AttachServiceImpl implements AttachService {
+	private AttachDAO attachDAO;
+
+	public void setAttachDAO(AttachDAO attachDAO) {
+		this.attachDAO = attachDAO;
+	}
+
+	@Override
+	public List<AttachVO> getAttachList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AttachVO getAttachByNo(String attach_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registAttach(AttachVO attach) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyAttach(AttachVO attach) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeAttach(AttachVO attach) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

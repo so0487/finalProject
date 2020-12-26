@@ -1,0 +1,47 @@
+package kr.or.ddit.counsel.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.counsel.dao.CounselDAO;
+import kr.or.ddit.dto.CounselVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class CounselServiceImpl implements CounselService {
+	private CounselDAO counselDAO;
+
+	public void setCounselDAO(CounselDAO counselDAO) {
+		this.counselDAO = counselDAO;
+	}
+
+	@Override
+	public List<CounselVO> getCounselList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CounselVO getCounselByNo(String counsel_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registCounsel(CounselVO counsel) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyCounsel(CounselVO counsel) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeCounsel(CounselVO counsel) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

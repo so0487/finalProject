@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<body>
+	
+
+	<div class="content-body">
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">상세보기</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+		</div>
+		<div style="z-index:1; position: absolute; top: 85px; right: 30px;">
+	
+				<c:if test="${loginUser.member_role ne 'STUDENT' }">
+					<button class="btn btn-outline" style="border :1px solid #dddddd;" id="modBtn">
+						<span>수정</span>
+					</button>
+					
+					<button class="btn btn-outline" style="border :1px solid #dddddd;" id="remBtn">
+						<span>삭제</span>
+					</button>
+				</c:if>
+					<button class="btn btn-outline" style="border :1px solid #dddddd;" id="cancelBtn">
+						<span>취소</span>
+					</button>
+		</div>
+		<br>
+		
+		<!-- Page Headings End -->
+
+		<form role="form" method="post" action="modify.do" name="detail">
+		<div class="row">
+   <div class="col-lg-12 col-12 mb-30">
+   
+                    <div class="">
+                        <div class="box-head">
+                            <h4 class="title"> ▶${classVO.curriculum_name} ${classVO.class_number }차</h4>
+                        </div>
+                        <div class="box-body">
+                            <table class="table ">
+                               
+                                <tbody>
+							<tr>
+								<th scope="row" >회차번호</th>
+								<td style="width:85%;" colspan="8" >${classVO.class_no}</td>
+							</tr>
+							<tr>
+								<th scope="row" >교육과정 회차</th>
+								<td colspan="8" >${classVO.curriculum_name} ${classVO.class_number }차</td>
+							</tr>
+							<tr>
+								<th scope="row">모집시작날짜</th>
+								<td colspan="5">${classVO.class_recruitment_start} </td>
+							</tr>
+							<tr>
+								<th scope="row">모집종료날짜</th>
+								<td colspan="5">${classVO.class_recruitment_end} </td>
+							</tr>
+							<tr>
+								<th scope="row">훈련시작날짜</th>
+								<td colspan="8">${classVO.class_start_date }</td>
+							</tr>
+							<tr>
+								<th scope="row">훈련종료날짜</th>
+								<td colspan="8">${classVO.class_end_date } </td>
+							</tr>
+							<tr>
+								<th scope="row">수강취소기간</th>
+								<td colspan="5">${classVO.class_forgive_date} </td>
+							</tr>
+							<tr>
+								<th scope="row">정원수</th>
+								<td colspan="5">${classVO.class_max} </td>
+							</tr>
+							<tr>
+								<th scope="row">강의목록</th>
+								<th scope="row">담당교수</th>
+								<th scope="row">강의시간</th>
+							</tr>
+							<tr>
+								<td colspan="1">${classVO.lectureList[0].lecture_name} </td>
+								<td colspan="1">
+								<c:forEach items="${professorList}" var="pro">
+								<c:if test="${classVO.lectureList[0].professor_id eq pro.professor_id }">
+								${pro.professor_name }
+								</c:if>
+								 </c:forEach>
+								</td>
+								<td colspan="1">${classVO.lectureList[0].lecture_start_date} ~ ${classVO.lectureList[0].lecture_end_date} </td>
+							</tr>
+							<tr>
+								<td colspan="1">${classVO.lectureList[1].lecture_name} </td>
+								<td colspan="1" style="width:100px;">
+								<c:forEach items="${professorList}" var="pro">
+								<c:if test="${classVO.lectureList[1].professor_id eq pro.professor_id }">
+								${pro.professor_name }
+								</c:if>
+								 </c:forEach>
+								</td>
+								<td colspan="1">${classVO.lectureList[1].lecture_start_date} ~ ${classVO.lectureList[0].lecture_end_date}</td>
+							</tr>
+							
+						</tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+              </div>
+		
+		
+		
+				<input type="text" hidden="true" class="form-control" value="${classVO.class_no }" name="class_no" id="class_no" readonly />
+				<input type="text" class="form-control" value="${classVO.curriculum_name }"  name="curriculum_name" id="curriculum_name"  style="display: none;" />
+				<input type="text" class="form-control" name="class_start_date" id="class_start_date" hidden="true" value="${classVO.class_start_date }" readonly >
+				<input type="text" hidden="true" class="form-control" name="class_end_date" id="class_end_date" value="${classVO.class_end_date }" readonly >
+				<input type="text" hidden="true" class="form-control" name="class_recruitment_start" id="class_recruitment_start" value="${classVO.class_recruitment_start }" readonly >
+				<input type="text" hidden="true" class="form-control" name="class_recruitment_end" id="class_recruitment_end"  value="${classVO.class_recruitment_end }" readonly >
+				<input type="text" hidden="true" class="form-control" name="class_forgive_date" id="class_forgive_date" value="${classVO.class_forgive_date }" readonly>
+				<input type="text" class="form-control" hidden="true" name="class_max" id="class_max" value="${classVO.class_max }" readonly>
+				<input type="text" class="form-control" name="class_number" id="class_number"  value="${classVO.class_number }"  style="display: none;">
+				<input type="text" class="form-control" name="class_real" id="class_real" style="display: none;" value="${classVO.class_real }" >
+				<input type="text" class="form-control" name="class_status" id="class_status" style="display: none;" value="${classVO.class_status }" >
+				<input type="text" class="form-control" name="class_delete" id="class_delete" style="display: none;" value="${classVO.class_delete }" >
+		
+		</form>
+
+
+		<!-- button -->
+
+
+	</div>
+<form role="form">
+<input type="hidden" name="class_no" id="class_no" value="${classVO.class_no }" />
+</form>
+	
+<script>
+var formObj = $("form[role='form']");
+
+
+
+$('#modBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'modifyForm.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+$('#remBtn').on('click',function(e){
+	//alert("regist btn click");
+	
+	formObj.attr({
+		'action':'remove.do',
+		'method':'post'
+	});
+	formObj.submit();
+});
+$('#cancelBtn').on('click',function(e){
+	history.go(-1);
+});
+
+</script>
+
+</body>
+</html>

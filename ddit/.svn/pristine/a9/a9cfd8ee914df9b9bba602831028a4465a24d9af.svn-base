@@ -1,0 +1,24 @@
+package kr.or.ddit.classes.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.CurriculumVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface CurriculumDAO {
+	List<CurriculumVO> selectSearchCurriculumList(SearchCriteria cri) throws SQLException;
+	
+	int selectSearchCurriculumListCount(SearchCriteria cri) throws SQLException;
+	
+	CurriculumVO selectCurriculumByNo(String curriculum_no) throws SQLException;
+	
+	String selectMaxCurriculum_no() throws SQLException;
+	
+	void insertCurriculum(CurriculumVO curriculum) throws SQLException;
+	
+	void updateCurriculum(CurriculumVO curriculum) throws SQLException;
+	
+	void deleteCurriculum(CurriculumVO curriculum) throws SQLException;
+
+}

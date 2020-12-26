@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/java/kr/or/ddit/security/CustomAuthenticationProvider.java=UTF-8
+encoding//src/main/java/kr/or/ddit/security/SessionDestoryListener.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/board/pds/pdsModifyForm.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/class/classStudentList/studentlist_js.jsp=utf-8
+encoding/<project>=UTF-8

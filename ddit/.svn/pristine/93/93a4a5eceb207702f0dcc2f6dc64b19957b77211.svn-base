@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Curriculum-Mapper">
+
+<select id="selectCurriculumByNo" parameterType="str" resultType="curriculum">
+		select
+		*
+		from curriculum
+		where curriculum_no=#{curriculum_no}
+</select>
+
+
+
+<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+	
+<select id="selectSearchCurriculumList" resultType="curriculum">
+		select
+		*
+		from curriculum
+		where curriculum_no is not null
+		<include refid="search" />
+</select>
+
+<select id="selectSearchCurriculumListCount" resultType="int">
+		select
+		count(*)
+		from curriculum
+		where curriculum_no is not null
+		<include refid="search" />
+
+</select>
+
+
+	
+<update id="insertCurriculum" parameterType="curriculum">
+		insert into
+		curriculum(curriculum_no,curriculum_name, curriculum_time, curriculum_certificate,curriculum_status,curriculum_introduce)
+		values(#{curriculum_no},#{curriculum_name},#{curriculum_time},#{curriculum_certificate},'0',#{curriculum_introduce})
+</update>
+
+<update id="updateCurriculum" parameterType="curriculum">
+	update curriculum
+	set
+	curriculum_name=#{curriculum_name},curriculum_time=#{curriculum_time},
+	curriculum_certificate=#{curriculum_certificate},
+	curriculum_introduce=#{curriculum_introduce}
+	where curriculum_no=#{curriculum_no}
+</update>
+
+<update id="deleteCurriculum" parameterType="curriculum">
+	update curriculum
+	set
+	curriculum_status='1'
+	where curriculum_no=#{curriculum_no}
+</update>
+
+
+<select id="getMaxCurriculum_no" resultType="String">
+	select max(curriculum_no) from curriculum
+</select>
+
+</mapper>

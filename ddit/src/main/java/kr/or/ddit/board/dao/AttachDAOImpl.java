@@ -1,0 +1,57 @@
+package kr.or.ddit.board.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.AttachVO;
+
+public class AttachDAOImpl implements AttachDAO {
+	private SqlSession sqlSession;
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+	@Override
+	public List<AttachVO> selectAttachByPostNo(String post_no) throws SQLException {
+		List<AttachVO> attachList = sqlSession.selectList("Attach-Mapper.selectAttachByPostNo", post_no);
+		return attachList;
+	}
+
+	@Override
+	public AttachVO selectAttachByAttachNo(String attach_no) throws SQLException {
+		AttachVO attach = sqlSession.selectOne("Attach-Mapper.selectAttachByAttachNo", attach_no);
+		return attach;
+	}
+
+	@Override
+	public void insertAttach(AttachVO attach) throws SQLException {
+		sqlSession.update("Attach-Mapper.insertAttach", attach);
+	}
+
+	@Override
+	public void deleteAttach(String attach_no) throws SQLException {
+		sqlSession.update("Attach-Mapper.deleteAttach", attach_no);
+	}
+
+	@Override
+	public void deleteAllAttach(String post_no) throws SQLException {
+		sqlSession.update("Attach-Mapper.deleteAllAttach", post_no);
+	}
+	
+	@Override
+	public String selectBoardNo() throws SQLException {
+		String board_no = sqlSession.selectOne("Board-Mapper.selectBoardNo");
+		return board_no;
+	}
+
+	@Override
+	public String selectPostNo() throws SQLException {
+		String post_no = sqlSession.selectOne("Post-Mapper.selectPostByPostNo");
+		return post_no;
+	}
+	
+
+}

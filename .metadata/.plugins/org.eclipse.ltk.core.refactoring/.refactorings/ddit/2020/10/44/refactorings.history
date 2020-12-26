@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 3 elements from project &apos;ddit&apos;&#x0D;&#x0A;- Original project: &apos;ddit&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     qnaRegistForm.jsp.mine&#x0D;&#x0A;     qnaRegistForm.jsp.r138721&#x0D;&#x0A;     qnaRegistForm.jsp.r139079" description="Delete elements" element1="src/main/webapp/WEB-INF/views/board/qna/qnaRegistForm.jsp.r139079" element2="src/main/webapp/WEB-INF/views/board/qna/qnaRegistForm.jsp.r138721" element3="src/main/webapp/WEB-INF/views/board/qna/qnaRegistForm.jsp.mine" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="3" stamp="1604071591627" subPackages="false" version="1.0"/>
+</session>

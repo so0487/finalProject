@@ -1,0 +1,106 @@
+package kr.or.ddit.classes.service;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.classes.dao.ClassDAO;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CurriculumVO;
+import kr.or.ddit.request.PageMaker;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ClassServiceImpl implements ClassService {
+	private ClassDAO classDAO;
+
+	public void setClassDAO(ClassDAO classDAO) {
+		this.classDAO = classDAO;
+	}
+
+	@Override
+	public Map<String, Object> getSearchClassList(SearchCriteria cri) throws SQLException {
+		
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		
+		List<ClassVO> classList = classDAO.selectSearchClassList(cri);
+		
+		int totalCount=classDAO.selectSearchClassListCount(cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(totalCount);
+
+		dataMap.put("classList", classList);
+		dataMap.put("pageMaker", pageMaker);
+		
+		return dataMap;
+	}
+
+	@Override
+	public ClassVO getClassByNo(String class_no) throws SQLException {
+		ClassVO classVO = classDAO.selectClassByNo(class_no);
+		return classVO;
+	}
+
+	@Override
+	public void registClass(ClassVO classVO) throws SQLException {
+		classDAO.insertClass(classVO);
+		
+	}
+
+	@Override
+	public void modifyClass(ClassVO classVO) throws SQLException {
+		classDAO.updateClass(classVO);
+		
+	}
+
+	@Override
+	public void removeClass(String class_no) throws SQLException {
+		classDAO.deleteClass(class_no);
+		
+	}
+
+	@Override
+	public String getClassNo() throws SQLException {
+		String class_no = classDAO.selectClassNo();
+		return class_no;
+	}
+
+	@Override
+	public Map<String, Object> getClassList(String curriculum_no) throws SQLException {
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		List<ClassVO> classList = classDAO.selectClassList(curriculum_no);
+		dataMap.put("classList", classList);
+		return dataMap;
+	}
+
+	@Override
+	public int getMaxClass_number(String curriculum_no) throws SQLException {
+		
+		return classDAO.selectMaxClass_number(curriculum_no)+1;
+	}
+
+	@Override
+	public Date getClass_end_date(Map<String, Object> dataMap) throws SQLException {
+		return classDAO.selectClass_end_date(dataMap);
+	}
+
+	@Override
+	public void recruitmentClass(String class_no) throws SQLException {
+		classDAO.recruitmentClass(class_no);
+		
+	}
+
+	@Override
+	public int getClassDayCount(Map<String, String> param) throws SQLException {
+		return classDAO.selectClassDayCount(param);
+	}
+
+	@Override
+	public List<ClassVO> getClassListEndInterview() throws SQLException {
+		return classDAO.selectClassListEndInterview();
+	}
+	
+}

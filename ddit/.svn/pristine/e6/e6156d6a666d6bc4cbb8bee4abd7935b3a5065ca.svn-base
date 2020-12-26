@@ -1,0 +1,47 @@
+package kr.or.ddit.member.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.ProfessorVO;
+import kr.or.ddit.member.dao.ProfessorDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ProfessorServiceImpl implements ProfessorService {
+	private ProfessorDAO professorDAO;
+
+	public void setProfessorDAO(ProfessorDAO professorDAO) {
+		this.professorDAO = professorDAO;
+	}
+
+	@Override
+	public List<ProfessorVO> getProfessorList(SearchCriteria cri) throws SQLException {
+		List<ProfessorVO> proList = professorDAO.selectProfessorList(new SearchCriteria());
+		return proList;
+	}
+
+	@Override
+	public ProfessorVO getProfessorById(String professor_id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registProfessor(MemberVO member) throws SQLException {
+		professorDAO.insertProfessor(member);		
+	}
+
+	@Override
+	public void modifyProfessor(ProfessorVO professor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeProfessor(ProfessorVO professor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

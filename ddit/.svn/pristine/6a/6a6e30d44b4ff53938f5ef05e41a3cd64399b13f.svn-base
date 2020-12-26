@@ -1,0 +1,19 @@
+package kr.or.ddit.message.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.MessageVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface MessageService {
+	List<MessageVO> getMessageList(SearchCriteria cri) throws SQLException;
+	
+	MessageVO getMessageByNo(String message_no) throws SQLException;;
+	
+	void registMessage(MessageVO message) throws SQLException;
+	
+	void modifyMessage(MessageVO message) throws SQLException;
+	
+	void removeMessage(MessageVO message) throws SQLException;
+}

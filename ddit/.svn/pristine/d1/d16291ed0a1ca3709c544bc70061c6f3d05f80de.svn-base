@@ -1,0 +1,261 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+	<link rel=" shortcut icon" href="<%=request.getContextPath()%>/resources/fullcalendar/image/favicon.ico">
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/fullcalendar/vendor/css/fullcalendar.min.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/fullcalendar/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/resources/fullcalendar/vendor/css/select2.min.css' />
+    <link rel="stylesheet" href='<%=request.getContextPath()%>/resources/fullcalendar/vendor/css/bootstrap-datetimepicker.min.css' />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/fullcalendar/css/main.css">
+    
+    <style>
+    	.fc-button{
+    		background-color: #0069d9;
+    		border-color: #0062cc;
+    		color:#fff;
+    	}
+    </style>
+<body>
+	<div class="content-body">
+    <div class="container" id="container">
+    
+    <div id="contextMenu"  class="dropdown clearfix">
+            <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
+                style="display:block;position:static;margin-bottom:5px;">
+                <c:forEach items="${scheduleCategoryList }" var="scheduleCategory" varStatus="status">
+                	<c:if test="${scheduleCategory.schedule_category_no eq 'SCHEDULE_CATEGORY0005' ||scheduleCategory.schedule_category_no eq 'SCHEDULE_CATEGORY0006' }">
+                		<li><a tabindex="-1" href="#"  data-role="${scheduleCategory.schedule_category_no }" >${scheduleCategory.schedule_category_name }</a></li>
+                	</c:if>
+                </c:forEach>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
+            </ul>
+        </div>
+
+
+        <div id="wrapper">
+            <div id="loading"></div>
+            <div id="calendar"></div>
+        </div>
+
+<!-- 		<div class="box-body"> -->
+        <!-- 일정 추가 MODAL -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="eventModal">
+            <div class="modal-dialog" role="document" style="margin-top: 250px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+
+                                <input class="inputModal" type="text" name="edit-id" id="edit-id"
+                                    required="required" hidden="true" />
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-title">일정명</label>
+                                <input class="inputModal" type="text" name="edit-title" id="edit-title" maxlength="30"
+                                    required="required" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-start">시작</label>
+                                <input class="inputModal" type="text" name="edit-start"  id="edit-start" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-end">끝</label>
+                                <input class="inputModal" type="text" name="edit-end" id="edit-end" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-type">구분</label>
+                                <select class="inputModal" name="edit-type" id="edit-type"  >
+                                    <option value="">선택하세요</option>
+                                    <c:forEach items="${scheduleCategoryList }" var="scheduleCategory">
+                                    <option value="${ scheduleCategory.schedule_category_no}">${scheduleCategory.schedule_category_name }</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-color">색상</label>
+                                <select class="inputModal" name="color" id="edit-color">
+                                    <option value="#D25565" style="color:#D25565;">빨간색</option>
+                                    <option value="#9775fa" style="color:#9775fa;">보라색</option>
+                                    <option value="#ffa94d" style="color:#ffa94d;">주황색</option>
+                                    <option value="#74c0fc" style="color:#74c0fc;">파란색</option>
+                                    <option value="#f06595" style="color:#f06595;">핑크색</option>
+                                    <option value="#63e6be" style="color:#63e6be;">연두색</option>
+                                    <option value="#a9e34b" style="color:#a9e34b;">초록색</option>
+                                    <option value="#4d638c" style="color:#4d638c;">남색</option>
+                                    <option value="#495057" style="color:#495057;">검정색</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="col-xs-4" for="edit-desc">설명</label>
+                                <textarea rows="4" cols="50" class="inputModal" name="edit-desc" maxlength="100"
+                                    id="edit-desc"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer modalBtnContainer-addEvent">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                        <button type="button" class="btn btn-primary" id="save-event">저장</button>
+                    </div>
+                    <div class="modal-footer modalBtnContainer-modifyEvent">
+                    
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-danger" name = "deleteEvent" id="deleteEvent">삭제</button>
+                        <button type="button" class="btn btn-primary" name = "updateEvent" id="updateEvent">수정</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        <!-- /.filter panel -->
+   	 </div>
+    </div>
+    
+    
+<!-- </div> -->
+
+<script>
+$(document).ready(function(){
+	
+	$(':button').toggleClass("fc-state-default");
+
+});
+
+var addBtnContainer = $('.modalBtnContainer-addEvent');
+$('#save-event').on('click',function(e){
+	
+// 	alert($('input[name="edit-end"]').val());
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/schedule/schedule/regist.do",
+		data : {
+				schedule_category_no : $('#edit-type').val(),
+			  	schedule_title: $('#edit-title').val(),
+				schedule_content  : $('#edit-desc').val(),
+				schedule_color :$('#edit-color').val(),
+				schedule_start_date : $('input[name="edit-start"]').val(),
+				schedule_end_date : $('input[name="edit-end"]').val()
+				
+		},
+	
+	success:function(result){
+		alert(result);
+		if(result == "SUCCESS"){
+		alert("등록되었습니다.");
+		}else if(result == "FAIL"){
+			alert("이미 등록된 일정과 겹칩니다.")
+			return;
+		}else{
+		location.href="../../counsel/create/meetings.do?counsel_no="+result;
+		}
+	},
+	error:function(error){
+		alert('등록 실패했습니다.');		
+	},
+	complete:function(){
+			addBtnContainer.hide();
+// 			location.href="../../counsel/create/meetings.do";
+			
+			location.reload(true);
+	}
+});
+	
+	
+});
+
+$('#deleteEvent').on('click',function(e){
+	var schedule_no = $('input[name="edit-id"]').val();
+	alert(schedule_no);
+	
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/schedule/schedule/remove.do",
+		data : {
+				schedule_no : schedule_no
+		},
+	
+	success:function(result){
+		alert("삭제되었습니다.");		
+	},
+	error:function(error){
+		alert('삭제 실패했습니다.');		
+	},
+	complete:function(){
+			addBtnContainer.hide();
+			location.href="../calendar/calendar.do";
+// 			location.reload(true);
+	}
+});
+	
+	
+});
+
+$('#updateEvent').on('click',function(e){
+	var schedule_no = $('input[name="edit-id"]').val();
+	$.ajax({
+		type:"POST",
+		url :"<%= request.getContextPath() %>/schedule/schedule/modify.do",
+		data : {
+				schedule_no : schedule_no,
+				schedule_category_no : $('#schedule_category_no').val(),
+			  	schedule_title: $('#edit-title').val(),
+				schedule_content  : $('#edit-desc').val(),
+				schedule_color :$('#edit-color').val(),
+				schedule_start_date : $('input[name="edit-start"]').val(),
+				schedule_end_date : $('input[name="edit-end"]').val()
+				
+		},
+	
+	success:function(result){
+		alert("등록되었습니다.");		
+	},
+	error:function(error){
+		alert('등록 실패했습니다.');		
+	},
+	complete:function(){
+			addBtnContainer.hide();
+// 			location.href="../calendar/calendar.do";
+			location.reload(true);
+	}
+});
+	
+	
+});
+
+</script>
+	<script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/moment.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/fullcalendar.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/ko.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/select2.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/vendor/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/js/moment.js"></script>
+<%@include file ="calendar_js.jsp" %>
+<%--     <script src="<%=request.getContextPath()%>/resources/fullcalendar/js/main.js"></script> --%>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/js/addEvent.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/js/editEvent.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/fullcalendar/js/etcSetting.js"></script>
+ 
+</body>

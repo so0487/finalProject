@@ -1,0 +1,89 @@
+package kr.or.ddit.request;
+
+
+
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import kr.or.ddit.dto.PostVO;
+
+public class RegistPostRequest {
+	
+	private String post_title; // 제목
+	private String post_writer; // 작성자
+	private String board_no; // 게시판번호
+	private String post_content; // 내용
+	
+	private List<MultipartFile> uploadFile;
+	
+	public String getPost_title() {
+		return post_title;
+	}
+
+	public void setPost_title(String post_title) {
+		this.post_title = post_title;
+	}
+
+	public String getPost_writer() {
+		return post_writer;
+	}
+
+	public void setPost_writer(String post_writer) {
+		this.post_writer = post_writer;
+	}
+
+	public String getBoard_no() {
+		return board_no;
+	}
+
+	public void setBoard_no(String board_no) {
+		this.board_no = board_no;
+	}
+
+	public String getPost_content() {
+		return post_content;
+	}
+
+	public void setPost_content(String post_content) {
+		this.post_content = post_content;
+	}
+
+	@Override
+	public String toString() {
+		return "RegistPostRequest [post_title=" + post_title + ", post_writer=" + post_writer + ", board_no=" + board_no
+				+ ", post_content=" + post_content + "]";
+	}
+
+	public RegistPostRequest(String post_title, String post_writer, String board_no, String post_content) {
+		super();
+		this.post_title = post_title;
+		this.post_writer = post_writer;
+		this.board_no = board_no;
+		this.post_content = post_content;
+	}
+
+	public RegistPostRequest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public PostVO toPostVO() {
+		PostVO post = new PostVO();
+		post.setPost_writer(this.post_writer);
+		post.setBoard_no(this.board_no);
+		post.setPost_title(this.post_title);
+		post.setPost_content(this.post_content);
+		post.setPost_viewcnt(0);
+		return post;
+	}
+
+	public List<MultipartFile> getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(List<MultipartFile> uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
+}

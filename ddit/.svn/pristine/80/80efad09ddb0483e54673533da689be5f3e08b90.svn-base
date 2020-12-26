@@ -1,0 +1,232 @@
+package kr.or.ddit.message.service;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.AttachToMessageVO;
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.MessageVO;
+import kr.or.ddit.member.dao.MemberDAO;
+import kr.or.ddit.message.dao.AttachToMessageDAO;
+import kr.or.ddit.message.dao.MessageDAO;
+import kr.or.ddit.request.PageMaker;
+import kr.or.ddit.request.SearchCriteria;
+
+public class MessageServiceImpl implements MessageService {
+	private MessageDAO messageDAO;
+
+	public void setMessageDAO(MessageDAO messageDAO) {
+		this.messageDAO = messageDAO;
+	}
+
+	private AttachToMessageDAO attachToMessageDAO;
+
+	public void setAttachToMessageDAO(AttachToMessageDAO attachToMessageDAO) {
+		this.attachToMessageDAO = attachToMessageDAO;
+	}
+
+	private MemberDAO memberDAO;
+
+	public void setMemberDAO(MemberDAO memberDAO) {
+		this.memberDAO = memberDAO;
+	}
+
+	@Override
+	public Map<String, Object> allMessageList(SearchCriteria cri) throws SQLException {
+
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+
+		List<MessageVO> messageList = messageDAO.allMessageList(cri);
+
+		int totalCount = messageDAO.messageListCount(cri);
+
+		// pageMaker생성
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(totalCount);
+
+		dataMap.put("messageList", messageList);
+		dataMap.put("pageMaker", pageMaker);
+
+		return dataMap;
+
+	}
+
+	@Override
+	public MessageVO messageByMessageNo(String message_no) throws SQLException {
+
+		MessageVO message = messageDAO.messageByMessageNo(message_no);
+		List<AttachToMessageVO> attachList = attachToMessageDAO.selectAttachByMessageNo(message_no);
+		message.setAttachList(attachList);
+		messageDAO.readMessage(message_no);
+
+		return message;
+	}
+
+	@Override
+	public Map<String, Object> sendMailBox(SearchCriteria cri, String message_sender) throws SQLException {
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		List<MessageVO> messageList = messageDAO.sendMailBox(cri, message_sender);
+
+		int sendMailBoxCount = messageDAO.sendMailBoxCount(message_sender, cri);
+
+		// pageMaker생성
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(sendMailBoxCount);
+
+		dataMap.put("messageList", messageList);
+		dataMap.put("pageMaker", pageMaker);
+		dataMap.put("message_sender", message_sender);
+
+		return dataMap;
+	}
+
+	@Override
+	public Map<String, Object> receiveMailBox(SearchCriteria cri, String message_receiver) throws SQLException {
+
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+
+		List<MessageVO> messageList = messageDAO.receiveMailBox(cri, message_receiver);
+
+		int receiveMailBoxCount = messageDAO.receiveMailBoxCount(message_receiver, cri);
+
+		// pageMaker생성
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(receiveMailBoxCount);
+
+		dataMap.put("messageList", messageList);
+		dataMap.put("pageMaker", pageMaker);
+		dataMap.put("message_receiver", message_receiver);
+
+		return dataMap;
+	}
+
+	@Override
+	public void writeMessage(MessageVO message) throws SQLException {
+		String message_no = messageDAO.getMessageSequenceNextValue();
+		message.setMessage_no(message_no);
+		messageDAO.writeMessage(message);
+		for (AttachToMessageVO attach : message.getAttachList()) {
+			attach.setMessage_no(message_no);
+			attachToMessageDAO.insertAttach(attach);
+		}
+	}
+	
+	
+	@Override
+	public Map<String, Object> notReadMessage(SearchCriteria cri, String message_receiver) throws SQLException {
+		Map<String, Object>dataMap = new HashMap<>();
+		List<MessageVO>messageList = messageDAO.notReadMessage(cri, message_receiver);
+		
+		int notReadMessageCount = messageDAO.notReadMessageCount(message_receiver, cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(notReadMessageCount);
+		
+		dataMap.put("messageList", messageList);
+		dataMap.put("pageMaker", pageMaker);
+		dataMap.put("message_receiver", message_receiver);
+		return dataMap;
+	}
+	
+	
+
+	@Override
+	public void readMessage(String message_no) throws SQLException {
+		messageDAO.readMessage(message_no);
+	}
+
+	@Override
+	public void deleteSendMailBox(MessageVO message) throws SQLException {
+		messageDAO.deleteSendMailBox(message);
+	}
+
+	@Override
+	public void deleteReceiveMailBox(MessageVO message) throws SQLException {
+		messageDAO.deleteReceiveMailBox(message);
+	}
+
+	@Override
+	public Map<String, Object> getSearchMemberList(SearchCriteria cri) throws SQLException {
+
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+
+		// 현재 page 번호에 맞는 리스트를 perPageNum 개수 만큼 가져오기.
+		List<MemberVO> memberList = memberDAO.selectMemberCriteria(cri);
+
+		// 전체 member 개수
+		int totalCount = memberDAO.selectMemberCriteriaTotalCount(cri);
+
+		// PageMaker 생성.
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(totalCount);
+
+		dataMap.put("memberList", memberList);
+		dataMap.put("pageMaker", pageMaker);
+
+		return dataMap;
+	}
+
+	@Override
+	public Map<String, Object> getAdminList(SearchCriteria cri) throws SQLException {
+
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+
+		List<MemberVO> adminList = messageDAO.selectMemberAdmin(cri);
+
+		int adminCount = messageDAO.adminCount(cri);
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(adminCount);
+
+		dataMap.put("adminCount", adminList);
+		dataMap.put("pageMaker", pageMaker);
+
+		return dataMap;
+	}
+
+	@Override
+	public Map<String, Object> getProfessorList(SearchCriteria cri) throws SQLException {
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		
+		List<MemberVO>professorList = messageDAO.selectMemberProfessor(cri);
+		int professorCount = messageDAO.professorCount(cri);
+		
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(professorCount);
+
+		dataMap.put("professorList", professorList);
+		dataMap.put("pageMaker", pageMaker);
+
+		return dataMap;
+	}
+
+	@Override
+	public Map<String, Object> getStudentList(SearchCriteria cri) throws SQLException {
+
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		
+		List<MemberVO>studentList = messageDAO.selectMemberStudent(cri);
+		int studentCount = messageDAO.studentCount(cri);
+		
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(studentCount);
+
+		dataMap.put("studentList", studentList);
+		dataMap.put("pageMaker", pageMaker);
+
+		return dataMap;
+	}
+
+}

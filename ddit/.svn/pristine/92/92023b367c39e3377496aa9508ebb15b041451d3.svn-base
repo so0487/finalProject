@@ -1,0 +1,23 @@
+package kr.or.ddit.evaToLec.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.EvaToLecVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface EvaToLecDAO {
+	List<EvaToLecVO> selectEvaToLecList() throws SQLException;
+	
+	List<EvaToLecVO> selectEva_to_lecByLectureNo(String lecture_no) throws SQLException;
+	
+	EvaToLecVO selectEvaToLecByNo(String eva_to_lec_no) throws SQLException;;
+	
+	void insertEvaToLec(EvaToLecVO evatolec) throws SQLException;
+	
+	void updateEvaToLec(EvaToLecVO evatolec) throws SQLException;
+	
+	void deleteEvaToLec(EvaToLecVO evatolec) throws SQLException;
+	String selectEva_to_lecNo() throws SQLException;
+
+}

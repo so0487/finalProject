@@ -1,0 +1,22 @@
+package kr.or.ddit.evaToLec.service;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.EvaVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface EvaService {
+	Map<String, Object> getEvaList(SearchCriteria cri) throws SQLException;
+	
+	EvaVO getEvaByNo(String evalution_no) throws SQLException;;
+	
+	void registEva(EvaVO evalution) throws SQLException;
+	
+	void modifyEva(EvaVO evalution) throws SQLException;
+	
+	void removeEva(EvaVO evalution) throws SQLException;
+	
+	String getEvaNo() throws SQLException;
+}

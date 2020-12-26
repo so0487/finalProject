@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="InterviewHistoryStu-Mapper">
+
+	<update id="insertInterviewHistoryStu"
+		parameterType="interviewhistorystu">
+		insert into
+		interview_history_stu(interview_history_stu_no,interview_no,student_id,interview_history_stu_result,interview_history_stu_dicision,student_name,student_phone)
+		values(#{interview_history_stu_no},#{interview_no},#{student_id},'0','0',#{student_name},#{student_phone})
+	</update>
+
+
+
+
+
+	<update id="deleteInterviewHistoryStuByNo">
+		delete  
+		from interview_history_stu
+		where interview_history_stu_no=#{interview_history_stu_no}
+	</update>
+
+	<select id="selectInterviewHistoryStuNo" resultType="str">
+		select
+		'interviewstu'||LPAD(SEQ_INTERVIEWSTU.nextval,4,'0')
+		from dual
+	</select>
+
+	<select id="selectCntInterviewHistoryStuByNo" resultType="int">
+		select count(*)
+		from interview_history_stu
+		where interview_no in (select b.interview_no from class a, interview b
+        where a.class_no=b.class_no
+        and a.class_no=#{class_no})
+		and student_id=#{student_id}
+        order by interview_no
+	</select>
+	
+	<select id="selectInterviewHistoryStuByCno" resultType="interviewhistorystu">
+		select *
+			from interview_history_stu
+			where interview_no in (select b.interview_no from class a, interview b
+	        where a.class_no=b.class_no
+	        and a.class_no=#{class_no})
+	</select>
+	
+	<select id="selectInterviewHistoryStuByStu" resultType="interviewhistorystu">
+		select * from interview_history_stu
+		where student_id = #{student_id}
+	</select>
+	
+	<select id="selectInterviewHistoryStuByNo" resultType="interviewhistorystu">
+		select * from interview_history_stu
+		where interview_history_stu_no=#{interview_history_stu_no}
+	</select>
+	
+	<select id="selectInterviewHistoryStuList" resultType="interviewhistorystu">
+		select * from interview_history_stu
+		<if test="interview_no != null and interview_no!= ''"> 
+			where interview_no =UPPER(#{interview_no})
+		</if>
+	</select>
+	
+	<update id="updateInterviewHistoryStu" parameterType="java.util.Map">
+		update interview_history_stu 
+		set ${keword} = #{value}
+		where interview_history_stu_no=#{id}
+	</update>
+	
+	
+
+</mapper>
+

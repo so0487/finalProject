@@ -1,0 +1,95 @@
+package kr.or.ddit.dto;
+
+import java.util.Date;
+
+public class ReplyVO {
+	private String reply_no;
+	private String post_no;
+	private String reply_writer;
+	private Date reply_reg_date;
+	private Date reply_mod_date;
+	private String reply_content;
+	private String reply_status;
+
+	public String getReply_no() {
+		return reply_no;
+	}
+
+	public void setReply_no(String reply_no) {
+		this.reply_no = reply_no;
+	}
+
+	public String getPost_no() {
+		return post_no;
+	}
+
+	public void setPost_no(String post_no) {
+		this.post_no = post_no;
+	}
+
+	public String getReply_writer() {
+		return reply_writer;
+	}
+
+	public void setReply_writer(String reply_writer) {
+		this.reply_writer = reply_writer;
+	}
+
+	public Date getReply_reg_date() {
+		return reply_reg_date;
+	}
+
+	public void setReply_reg_date(Date reply_reg_date) {
+		this.reply_reg_date = reply_reg_date;
+	}
+
+	public Date getReply_mod_date() {
+		return reply_mod_date;
+	}
+
+	public void setReply_mod_date(Date reply_mod_date) {
+		this.reply_mod_date = reply_mod_date;
+	}
+
+	public String getReply_content() {
+		return reply_content;
+	}
+
+	public void setReply_content(String reply_content) {
+		this.reply_content = reply_content;
+	}
+
+	public String getReply_status() {
+		return reply_status;
+	}
+
+	public void setReply_status(String reply_status) {
+		this.reply_status = reply_status;
+	}
+
+	@Override
+	public String toString() {
+		return "ReplyVO [reply_no=" + reply_no + ", post_no=" + post_no + ", reply_writer=" + reply_writer
+				+ ", reply_reg_date=" + reply_reg_date + ", reply_mod_date=" + reply_mod_date + ", reply_content="
+				+ reply_content + ", reply_status=" + reply_status + "]";
+	}
+
+	public ReplyVO(String reply_no, String post_no, String reply_writer, Date reply_reg_date, Date reply_mod_date,
+			String reply_content, String reply_status) {
+		super();
+		this.reply_no = reply_no;
+		this.post_no = post_no;
+		this.reply_writer = reply_writer;
+		this.reply_reg_date = reply_reg_date;
+		this.reply_mod_date = reply_mod_date;
+		this.reply_content = reply_content;
+		this.reply_status = reply_status;
+	}
+
+	public ReplyVO() {
+		super();
+	}
+
+	
+	
+}

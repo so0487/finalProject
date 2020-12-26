@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+	
+	           </div>
+	           <!--Mail List End-->
+	
+	       </div>
+	       <!--Mail List Container End-->
+	
+	   </div>
+	   <!--Mail Wrapper Start-->
+	
+	   <!-- Modal -->
+	           <div class="compose-mail-modal modal fade" id="modal-compose-mail">
+	               <div class="modal-dialog modal-dialog-centered modal-xl">
+	                   <div class="modal-content">
+	
+	                       <div class="modal-header">
+	                           <h5 class="modal-title">새 메시지 작성</h5>
+	                           <button type="button" class="close" data-dismiss="modal"><i class="zmdi zmdi-close"></i></button>
+	                       </div>
+	
+	                       <div class="form">
+	                           <form role="form" action="regist.do" name="registForm" method="post">
+	                               <div class="row">
+	                                   <div class="col-12 mb-30">
+	                                       <input class="form-control" type="email"  id="message_receiver" name="message_sender" placeholder="발신자" value="${loginUser.member_id}">
+	                                   </div>
+	                                   <div class="col-12 mb-30">
+	                                       <input class="form-control" type="email"  id="message_receiver" name="message_receiver" placeholder="수신자">
+	                                   </div>
+	                                   <div class="col-12 mb-30">
+	                                       <input class="form-control" type="email"   id="message_title"  name="message_title"  placeholder="제목">
+	                                   </div>
+	                                   <div class="col-12 mb-30">
+	                                       <textarea class="summernote" id="message_content" name="message_content"></textarea>
+	                                   </div>
+	                                   <div class="buttons-group col-12">
+	                                       <button type="button" class="button button-outline button-round button-warning"><i class="zmdi zmdi-attachment-alt"></i> 파일첨부</button>
+	                                       <button type="button" class="button button-round button-primary" id="registBtn">전송</button>
+	                                   </div>
+	
+	                               </div>
+	                           </form>
+	                       </div>
+	
+	                   </div>
+	               </div>
+			</div>
+	</div>
+	
+	
+	
+	<script>
+	$('#registBtn').on('click', function(e) {
+		//alert("regist click");
+		var form = document.registForm;
+
+		if(form.message_title.value==""){
+			alert("제목은 필수입니다.");
+			return;
+		}
+		form.submit();
+	});
+	
+	</script>

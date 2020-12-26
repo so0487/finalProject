@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	<div class="content-body">
+	
+	<!-- Page Headings Start -->
+	<div class="row justify-content-between align-items-center mb-10">
+	
+		<!-- Page Heading Start -->
+	<div class="col-12 col-lg-auto mb-20">
+		<div class="page-heading">
+			<h3 class="title" style="text-align: left;">메시지</h3>
+		</div>
+	</div>
+	<!-- Page Heading End -->
+	
+	</div>
+	<!-- Page Headings End -->
+	
+	   <!--Mail Wrapper Start-->
+	   <div class="mail-wrapper">
+	
+	       <!--Mail Menu Start-->
+	       <div class="mail-menu">
+	           <button class="button-compose-mail button button-danger button-round" data-toggle="modal" data-target="#modal-compose-mail">메시지쓰기</button>
+	           <ul>
+	               <li><a href="<%=request.getContextPath()%>/message/list"><i class="zmdi zmdi-email-open"></i>받은 메시지함</a></li>
+	               <li><a href="<%=request.getContextPath()%>/message/sendMessageBox"><i class="zmdi zmdi-mail-send"></i>보낸 메시지</a></li>
+	               <li><a href="<%=request.getContextPath()%>/message/notReadMessage"><i class="zmdi ti-email"></i>안읽은 메시지</a></li>
+	               <li><a href="<%=request.getContextPath()%>/message/deleteMessageBox"><i class="zmdi zmdi-delete"></i>삭제메시지</a></li>
+	           </ul>
+	       </div>
+	       <!--Mail Menu End-->
+	
+	       <!--Mail List Container Start-->
+	       <div class="mail-container">
+	
+			
+	
+	           <!--Mail Options Start-->
+	           
+	           <div class="mail-options">
+	               <div class="mail-options-group">
+	                   <input type="checkbox" class="adomx-checkbox selectAll" id="selectAll" name="selectAll" style="margin-top: 20px;">
+		                    <div class="header-search-form">
+		                        <form action="#">
+		                            <input type="text" placeholder="Search Here">
+		                            <button><i class="zmdi zmdi-search"></i></button>
+		                        </form>
+		                        <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
+		                    </div>
+	                   <button class="mail-button-delete" onclick="deleteMessage()"><i class="zmdi zmdi-delete"></i></button>
+	               </div>
+	           </div>
+	           <!--Mail Options End-->
+	           
+<script>
+	$('#selectAll').on('click',function(){
+		if($('#selectAll').is(":checked")){
+			$('.checkbox').attr('checked',true);
+		}else{
+			$('.checkbox').attr('checked',false);
+		}
+	});
+</script>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EmpRatio-Mapper">
+
+
+	<!-- 회차별 취업률 -->
+ 	<select id="studentEmpRatio" resultType="java.util.Map">
+		select 
+			class_number,
+			nvl(class_emp_ratio,0) as studentRatio
+		from class
+		where curriculum_no=#{curriculum_no}
+		order by class_number asc
+	</select>
+	
+	
+	<!-- 커리큘럼별 취업률 -->
+	<select id="curriculumEmpRatio"  resultType="java.util.Map">
+		select a.curriculum_no, 
+		b.curriculum_name,nvl(sum(a.class_emp_ratio),0) as cnt,
+		round(nvl(sum(a.class_emp_ratio),0)/count(*)) as ratio
+		from class a, curriculum b
+		where a.curriculum_no=b.curriculum_no 
+		group by a.curriculum_no,b.curriculum_name
+	</select>
+	
+	
+
+
+
+	<!-- 회차별 취업률 -->
+	<select id="classEmpRatio" resultType="java.util.Map">
+		select count(*) as emp, count(*)/b.class_real*100 as emp_reatio,
+		b.class_real-count(*) as not_emp
+		from classStudentList a, class b
+		where a.classstudent_emp_status = 1
+		and a.class_no=#{class_no}
+		and b.class_no=#{class_no}
+		group by b.class_real
+	</select>
+	
+	
+	
+</mapper>

@@ -1,0 +1,86 @@
+package kr.or.ddit.lecture.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.session.SqlSession;
+
+import com.sun.javafx.collections.MappingChange.Map;
+
+import kr.or.ddit.dto.SubjectVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class SubjectDAOImpl implements SubjectDAO {
+	private SqlSession sqlSession;
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+	@Override
+	public List<SubjectVO> selectSearchSubjectList(SearchCriteria cri) throws SQLException {
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		
+		List<SubjectVO> subjectList = sqlSession.selectList("Subject-Mapper.selectSearchSubjectList", cri, rowBounds);
+		
+		return subjectList;
+	}
+	
+	@Override
+	public List<SubjectVO> selectSubjectList(String subject_no) throws SQLException {
+		List<SubjectVO> subjectList = sqlSession.selectList("Subject-Mapper.selectSubjectList", subject_no);
+		return subjectList;
+	}
+
+	@Override
+	public int selectSearchSubjectListCount(SearchCriteria cri) throws SQLException {
+		int count = sqlSession.selectOne("Subject-Mapper.selectSearchSubjectListCount", cri);
+		return count;
+	}
+
+	@Override
+	public SubjectVO selectSubjectByNo(String subject_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String selectMaxSubjectNo() throws SQLException {
+		String subject_no = null;
+		subject_no = sqlSession.selectOne("Subject-Mapper.getMaxSubject_no");
+		if (subject_no == null) {
+			
+			return "subject0001";
+		}
+		int temp = Integer.parseInt(subject_no.substring(8)) + 1;
+		subject_no = String.valueOf(temp);
+		while (subject_no.length() < 4) {
+			subject_no = "0" + subject_no;
+		}
+		subject_no = "subject_no" + subject_no;
+		
+		return subject_no;
+	}
+
+	@Override
+	public void insertSubject(SubjectVO subject) throws SQLException {
+		sqlSession.update("Subject-Mapper.insertSubject", subject);
+	}
+
+	@Override
+	public void updateSubject(SubjectVO subject) throws SQLException {
+		sqlSession.update("Subject-Mapper.upadteSubject", subject);
+
+	}
+
+	@Override
+	public void deleteSubject(SubjectVO subject) throws SQLException {
+		sqlSession.update("Subject-Mapper.deleteSubject", subject);
+
+	}
+
+
+}

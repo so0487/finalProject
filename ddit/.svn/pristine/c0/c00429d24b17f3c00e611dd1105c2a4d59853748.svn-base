@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Attendance-Mapper">
+
+
+	<update id="insertAttendance">
+		insert into
+		attendance(attendance_no,student_id,lecture_no,attendance_date)
+		values(#{attendance_no},#{student_id},#{lecture_no},#{attendance_date})
+	</update>
+
+	<select id="selectAttendanceNo" resultType="str">
+		select 'ATTENDANCE'||LPAD(seq_attendance.nextval,4,'0')
+		from dual
+
+	</select>
+
+
+	<select id="selectAttendanceNobyStu" parameterType="java.util.Map" resultType="attendance">
+		select * from attendance
+		where student_id in (select student_id
+							 from classstudentlist
+							 where class_no=(select class_no
+											 from lecture
+											 where lecture_no=#{lecture_no}))
+		and attendance_date between #{start_date} and #{end_date}
+	</select>
+</mapper>
+

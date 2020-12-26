@@ -1,0 +1,127 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+
+<body>
+	
+
+
+
+	<!-- Side Header Start -->
+	<div class="side-header show">
+		<button class="side-header-close">
+			<i class="zmdi zmdi-close"></i>
+		</button>
+		<!-- Side Header Inner Start -->
+		<div class="side-header-inner custom-scroll">
+
+			<nav class="side-header-menu" id="side-header-menu">
+				<ul>
+
+	<c:set var="role" value="${loginUser.member_role }"/>
+
+				<c:if test="${role eq 'STUDENT'}">
+					<c:forEach items="${menuList }" var="menu">
+						<c:if test="${(menu.menu_parent_no eq 'M000000') and (menu.menu_role eq 'COMMON')}">						
+						
+							<c:set var="menu2" value="${menu.menu_no }" />
+							
+							<c:if test="${menu.menu_url ne null}">
+								<li class="">
+							</c:if>
+							<c:if test="${menu.menu_url eq null}">
+								<li class="has-sub-menu">		
+							</c:if>
+
+							<a href="javascript:subMenu('${menu.menu_no }');goPage('${menu.menu_url}','${menu.menu_no }');">
+									<i class="${menu.menu_icon }"></i><span>${menu.menu_name }</span>
+							</a>
+
+								<ul class="side-header-sub-menu">
+									<c:forEach items="${menuList}" var="subMenu">
+
+										<c:if test="${((subMenu.menu_parent_no eq menu2) and (subMenu.menu_role eq 'STUDENT')) or ((subMenu.menu_parent_no eq menu2) and (subMenu.menu_role eq 'COMMON'))}">
+											<li>
+												<%-- 												<span>${subMenu.menu_name}</span> --%> <a
+												href="javascript:subMenu('${subMenu.menu_no }');goPage('${subMenu.menu_url}','${subMenu.menu_no }');">${subMenu.menu_name }</a>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul></li>
+						</c:if>
+					</c:forEach>
+				</c:if>
+
+				<c:if test="${role eq 'ADMIN'}">
+					<c:forEach items="${menuList }" var="menu">
+						<c:if test="${((menu.menu_parent_no eq 'M000000') and (menu.menu_role eq 'COMMON')) or ((menu.menu_parent_no eq 'M000000') and(menu.menu_role eq 'ADMIN'))}">						
+						
+							<c:set var="menu2" value="${menu.menu_no }" />
+							
+							<c:if test="${menu.menu_url ne null}">
+								<li class="">
+							</c:if>
+							<c:if test="${menu.menu_url eq null}">
+								<li class="has-sub-menu">		
+							</c:if>
+
+							<a href="javascript:subMenu('${menu.menu_no }');goPage('${menu.menu_url}','${menu.menu_no }');">
+									<i class="${menu.menu_icon }"></i><span>${menu.menu_name }</span>
+							</a>
+
+								<ul class="side-header-sub-menu">
+									<c:forEach items="${menuList}" var="subMenu">
+
+										<c:if test="${((subMenu.menu_parent_no eq menu2) and (subMenu.menu_role eq 'ADMIN')) or ((subMenu.menu_parent_no eq menu2) and (subMenu.menu_role eq 'COMMON'))}">
+											<li>
+												<%-- 												<span>${subMenu.menu_name}</span> --%> <a
+												href="javascript:subMenu('${subMenu.menu_no }');goPage('${subMenu.menu_url}','${subMenu.menu_no }');">${subMenu.menu_name }</a>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul></li>
+						</c:if>
+					</c:forEach>
+				</c:if>
+
+				<c:if test="${role eq 'PROFESSOR'}">
+					<c:forEach items="${menuList }" var="menu">
+						<c:if test="${(menu.menu_parent_no eq 'M000000') and (menu.menu_role eq 'COMMON')}">						
+						
+							<c:set var="menu2" value="${menu.menu_no }" />
+							
+							<c:if test="${menu.menu_url ne null}">
+								<li class="">
+							</c:if>
+							<c:if test="${menu.menu_url eq null}">
+								<li class="has-sub-menu">		
+							</c:if>
+
+							<a href="javascript:subMenu('${menu.menu_no }');goPage('${menu.menu_url}','${menu.menu_no }');">
+									<i class="${menu.menu_icon }"></i><span>${menu.menu_name }</span>
+							</a>
+
+								<ul class="side-header-sub-menu">
+									<c:forEach items="${menuList}" var="subMenu">
+
+										<c:if test="${((subMenu.menu_parent_no eq menu2) and (subMenu.menu_role eq 'PROFESSOR')) or ((subMenu.menu_parent_no eq menu2) and (subMenu.menu_role eq 'COMMON'))}">
+											<li>
+												<%-- 												<span>${subMenu.menu_name}</span> --%> <a
+												href="javascript:subMenu('${subMenu.menu_no }');goPage('${subMenu.menu_url}','${subMenu.menu_no }');">${subMenu.menu_name }</a>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul></li>
+						</c:if>
+					</c:forEach>
+				</c:if>
+				
+				
+				</ul>
+			</nav>
+		</div>
+		<!-- Side Header Inner End -->
+	</div>
+	<!-- Side Header End -->

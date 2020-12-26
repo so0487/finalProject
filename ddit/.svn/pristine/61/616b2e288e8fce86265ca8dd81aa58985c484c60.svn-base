@@ -1,0 +1,380 @@
+package kr.or.ddit.lecture.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.github.scribejava.core.model.OAuth2AccessToken;
+
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.classes.service.ClassStudentListService;
+import kr.or.ddit.dto.AttendanceVO;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.dto.EvaToLecVO;
+import kr.or.ddit.dto.LectureVO;
+import kr.or.ddit.dto.MeetingVO;
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.evaToLec.service.EvaToLecService;
+import kr.or.ddit.lecture.service.AttendanceService;
+import kr.or.ddit.lecture.service.LectureService;
+import kr.or.ddit.lecture.service.SubjectService;
+import kr.or.ddit.member.service.MemberService;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.request.ZoomApiIntegration;
+import kr.or.ddit.request.ZoomDetails;
+import kr.or.ddit.zoom.service.MeetingService;
+
+@Controller
+@RequestMapping("/lecture")
+public class LectureController {
+
+	@Autowired
+	private LectureService lectureService;
+
+	@Autowired
+	private SubjectService subjectService;
+
+	@Autowired
+	private MeetingService meetingService;
+	
+	@Autowired
+	private ClassStudentListService classStudentListService;
+	
+	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
+	private EvaToLecService evaToLecService;
+	
+	@Autowired
+	private ClassService classService;
+	
+	@Autowired
+	private AttendanceService attendanceService;
+
+	@RequestMapping("/main")
+	public String main() throws Exception {
+		return "lecture/main.open";
+	}
+
+	@RequestMapping("/registForm")
+	public String registForm(String error, HttpServletResponse response) {
+		return null;
+	}
+
+	@RequestMapping("/regist")
+	public void regist(LectureVO lecture, HttpServletResponse response) {
+
+	}
+
+	@RequestMapping("/list")
+	public List<LectureVO> list(SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/detail")
+	public ModelAndView detail(String lecture_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String lecture_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/modify")
+	public void modify(LectureVO lecture, HttpServletResponse response) {
+
+	}
+
+	@RequestMapping("/remove")
+	public void remove(String lecture_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+
+	}
+	
+	@RequestMapping("lectureList/pro")
+	public ModelAndView lectureListPro(ModelAndView mnv,HttpSession session) {
+		String url = "lecture/lecture/lectureListPro.page";
+		
+		List<LectureVO> lectureList = null;
+		List<EvaToLecVO> evaToLecList = null;
+		try {
+			lectureList = lectureService.getLectureByPro(((MemberVO)(session.getAttribute("loginUser"))).getMember_id());
+			evaToLecList = evaToLecService.getEvaToLecList();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		mnv.addObject("lectureList",lectureList);
+		mnv.addObject("evaToLecList",evaToLecList);
+		mnv.setViewName(url);
+		
+		return mnv;
+		
+	}
+	
+
+	@RequestMapping("mylecture")
+	public ModelAndView myLecture(ModelAndView mnv, String lecture_no) {
+		String url = "lecture/lecture/myList.page";
+
+		Map<String, String> paramMap = new HashMap<String, String>();
+		List<MeetingVO> meetingList = null;
+		paramMap.put("meeting_category_no", lecture_no);
+		paramMap.put("meeting_category", "L");
+		try {
+			meetingList = meetingService.gettMeetingBy(paramMap);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		mnv.setViewName(url);
+		mnv.addObject("lecture_no",lecture_no);
+		mnv.addObject("meetingList",meetingList);
+
+		return mnv;
+	}
+	
+	@RequestMapping("studentlist")
+	public ModelAndView studentList(ModelAndView mnv, String lecture_no) {
+		String url = "class/classStudentList/studentlist.page";
+		
+		
+		ClassVO classes = null;
+		List<CslVO> cslList =null;
+		try {
+			cslList = classStudentListService.getClsListBylecture_no(lecture_no);
+			
+			for(int i=0; i<cslList.size(); i++) {
+				cslList.get(i).setMember(memberService.getMember(cslList.get(i).getStudent_id()));
+				classes = classService.getClassByNo(cslList.get(i).getClass_no());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		mnv.addObject("lecture_no",lecture_no);
+		mnv.addObject("classes",classes);
+		mnv.addObject("cslList", cslList);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	
+	
+	@RequestMapping("attendance")
+	public void attendance(String join_url, String lecture_no,HttpSession session,HttpServletResponse response) throws IOException {
+		String url=join_url;
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		AttendanceVO attendance = new AttendanceVO();
+		
+		attendance.setAttendance_date(format.format(new Date()));
+		attendance.setLecture_no(lecture_no);
+		attendance.setStudent_id(((MemberVO)(session.getAttribute("loginUser"))).getMember_id());
+		
+		try {
+			attendanceService.registAttendance(attendance);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("location.href = '"+join_url+"'");
+		out.println("</script>");
+		
+	}
+	
+	@RequestMapping("attendance/list")
+	public ResponseEntity<List<AttendanceVO>> attendaceList(@RequestParam(value = "studentList[]") List<String> studentList,@RequestParam("start_date") String start_date,@RequestParam("end_date") String end_date, @RequestParam("lecture_no")String lecture_no) {
+		
+		ResponseEntity<List<AttendanceVO>> entity = null;
+		
+		
+		Map<String, String> param = new HashMap<>();
+		
+		for(int i=0; i<studentList.size(); i++) {
+			param.put("start_date", start_date);
+			param.put("end_date", end_date);
+			param.put("lecture_no", lecture_no);
+			param.put("student_id",studentList.get(i));
+			
+			try {
+//				Map<String, Object> dataMap = new HashMap<>();
+//				dataMap.put("attendanceList", attendanceService.getAttendanceNobyStu(param));
+				entity = new ResponseEntity<List<AttendanceVO>>(attendanceService.getAttendanceNobyStu(param), HttpStatus.OK);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				entity=new ResponseEntity<List<AttendanceVO>>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
+		}
+		
+		return entity;
+	}
+
+	// 면접 줌 미팅
+	@Autowired
+	private ZoomApiIntegration ZoomApiIntegration;
+
+	public void setZoomApiIntegration(ZoomApiIntegration ZoomApiIntegration) {
+		this.ZoomApiIntegration = ZoomApiIntegration;
+	}
+
+	private String apiResult = null;
+	private MeetingVO meetingvo;
+
+	@RequestMapping("/create/meetings")
+	public void createRedirct(ModelAndView mnv, String lecture_no, HttpSession session, HttpServletRequest request,
+			HttpServletResponse response) throws IOException, ParseException {
+
+		System.out.println(lecture_no+"lecture_no");
+		System.out.println("----------------create meetings api 요청------------------");
+		System.out.println("---------Zoom 회의 개설 -----------");
+
+		
+		LectureVO lecture =null;
+		try {
+			lecture = lectureService.getLectureByNo(lecture_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String topic = lecture.getLecture_name();
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+	    Date start_time = format.parse(lecture.getLecture_start_date());
+	    Date end_time = format.parse(lecture.getLecture_end_date());
+	    long result= end_time.getTime()-start_time.getTime();
+	    result = result/60/1000;
+	      
+																											// string
+	    String start_time1 = new SimpleDateFormat("yyyy-MM-dd").format(start_time); // 데이트 ->
+//		String duration = Long.toString(
+//				(lecture.getLecture_end_date(). - interview.getInterview_start_date().getTime()) / 60);
+//		String password = "123";
+		meetingvo = new MeetingVO(null, topic, start_time1, Long.toString(result), "123", null, null, null, null, "2",lecture.getLecture_no(),"L");
+		System.out.println("---------dto-----------" + meetingvo.getMeeting_no());
+		// 회의 추가 상태로 변환
+		ZoomDetails.setZOOM_STATE("zoom_create_lecture");
+		System.out.println(session+"세션");
+		String zoomAuthUrl = ZoomApiIntegration.getAuthorizationUrl(session);
+		System.out.println("-------ZoomAuthUrl: " + zoomAuthUrl);
+		
+		
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("location.href = '"+zoomAuthUrl+"'");
+		out.println("</script>");
+		
+		
+//		return mnv;
+	}
+
+	@RequestMapping(value = "/create/meetings/redirect", method = { RequestMethod.GET, RequestMethod.POST })
+	public String CreateMeeting(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
+			HttpServletRequest request) throws IOException {
+		String url=null;
+		try {
+			System.out.println("---------회의 개설성공 -----------");
+			OAuth2AccessToken oauthToken;
+			System.out.println(session + "세션임");
+			System.out.println("코드" + code);
+			oauthToken = ZoomApiIntegration.getAccessToken(session, code, state);
+			apiResult = ZoomApiIntegration.setMeeting(oauthToken, meetingvo);
+			System.out.println("apiResult-----" + apiResult);
+
+			JSONParser jsonParse = new JSONParser();
+			JSONObject obj = (JSONObject) jsonParse.parse(apiResult);
+			System.out.println("JsonObject 결과 값 :: " + obj);
+			// Json Array값만 빼기
+			// Json 배열 Json Object로 변환
+
+			/* 데이터 베이스에 저장 */
+
+			String meeting_no = obj.get("id").toString();
+			String topic = obj.get("topic").toString();
+			String start_time = obj.get("start_time").toString();
+			String join_url = obj.get("join_url").toString();
+			String uuid = obj.get("uuid").toString();
+			String joinId = obj.get("id").toString();
+			String joinPw = obj.get("password").toString();
+			String duration = obj.get("duration").toString();
+			String host_Id = obj.get("host_id").toString();
+			String start_url = obj.get("start_url").toString();
+			String type = obj.get("type").toString();
+			String meeting_category_no = meetingvo.getMeeting_category_no();
+			String meeting_category = meetingvo.getMeeting_category();
+
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			System.out.println("1." + authentication);
+			System.out.println("2." + authentication.getPrincipal());
+
+			String userid = ((MemberVO) (session.getAttribute("loginUser"))).getMember_id();
+
+			System.out.println("회의 개설 유저 아이디: " + userid);
+
+			Map<String, String> paramMap = new HashMap<String, String>();
+			paramMap.put("meeting_no", meeting_no);
+			paramMap.put("topic", topic);
+			paramMap.put("start_time", start_time);
+			paramMap.put("join_url", join_url);
+			paramMap.put("meeting_no", meeting_no);
+			paramMap.put("uuid", uuid);
+			paramMap.put("join_id", joinId);
+			paramMap.put("join_pw", joinPw);
+			paramMap.put("duration", duration);
+			paramMap.put("host_id", host_Id);
+			paramMap.put("start_url", start_url);
+			paramMap.put("user_id", userid);
+			paramMap.put("type", type);
+			paramMap.put("meeting_category_no", meeting_category_no);
+			paramMap.put("meeting_category", meeting_category);
+
+			meetingService.registMeeting(paramMap);
+
+			System.out.println("param==================" + paramMap);
+			
+			url="redirect:/lecture/mylecture.page?lecture_no="+meeting_category_no;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return url;
+	}
+
+}

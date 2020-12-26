@@ -1,0 +1,47 @@
+package kr.or.ddit.exam.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ExamVO;
+import kr.or.ddit.exam.dao.ExamDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ExamServiceImpl implements ExamService {
+	private ExamDAO examDAO;
+
+	public void setExamDAO(ExamDAO examDAO) {
+		this.examDAO = examDAO;
+	}
+
+	@Override
+	public List<ExamVO> getExamList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ExamVO getExamByNo(String exam_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registExam(ExamVO exam) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyExam(ExamVO exam) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeExam(ExamVO exam) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

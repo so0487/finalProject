@@ -1,0 +1,94 @@
+package kr.or.ddit.classes.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.dto.ReviewVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ReviewDAOImpl implements ReviewDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<ReviewVO> selectReviewList(SearchCriteria cri) throws SQLException {
+		
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+
+		List<ReviewVO> reviewList = sqlSession.selectList("Review-Mapper.selectReviewList", cri, rowBounds);
+
+		return reviewList;
+	}
+
+	@Override
+	public ReviewVO selectReviewByNo(String review_no) throws SQLException {
+		ReviewVO review = sqlSession.selectOne("Review-Mapper.selectReviewByNo", review_no);
+		return review;
+	}
+
+	@Override
+	public void insertReview(ReviewVO review) throws SQLException {
+		sqlSession.update("Review-Mapper.insertReview", review);
+		
+	}
+
+	@Override
+	public void updateReview(ReviewVO review) throws SQLException {
+		sqlSession.update("Review-Mapper.updateReview", review);
+		
+	}
+
+	@Override
+	public void deleteReview(String review_no) throws SQLException {
+		sqlSession.update("Review-Mapper.deleteReview", review_no);
+		
+	}
+
+	@Override
+	public String selectReviewNo() throws SQLException {
+		String review_no =sqlSession.selectOne("Review-Mapper.selectReviewNo");
+	    return review_no;
+	}
+
+	@Override
+	public List<ReviewVO> selectReviewListByCurriculum_no(SearchCriteria cri) throws SQLException {
+		
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum();
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		List<ReviewVO> reviewList = sqlSession.selectList("Review-Mapper.selectReviewListByCurriculum_no",cri,rowBounds);
+		return reviewList;
+	}
+
+	@Override
+	public int selectReviewExist(Map<String, String> dataMap) throws SQLException {
+		int cnt = 0;
+		cnt = sqlSession.selectOne("Review-Mapper.selectReviewExist",dataMap);
+		return cnt;
+	}
+
+	@Override
+	public int selectSearchReviewListCount(SearchCriteria cri) throws SQLException {
+		int count = sqlSession.selectOne("Review-Mapper.selectSearchReviewListCount", cri);
+		return count;
+	}
+
+	@Override
+	public int selectSearchReviewListCount2(SearchCriteria cri) throws SQLException {
+		int count = sqlSession.selectOne("Review-Mapper.selectSearchReviewListCount2", cri);
+		return count;
+	}
+
+	
+
+}

@@ -1,0 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<body>
+<%@include file="/WEB-INF/views/message/common_message_top.jsp" %>
+<!--Mail Start-->
+<div class="single-mail">
+    <!--Top-->
+    <div class="top">
+        <!--Left-->
+        <div class="left">
+            <ul>
+                <li><strong>제목</strong><h5>${message.message_title}</h5></li>
+                <li><strong>From</strong> <span>${message.message_sender }</span></li>
+            </ul>
+        </div>
+        <hr>
+        <!--Right-->
+        <div class="right">
+            <button><i class="zmdi zmdi-print"></i></button>
+            <button><i class="zmdi zmdi-tag-more"></i></button>
+        </div>
+    </div>
+    <!--Bottom-->
+    <div class="bottom">
+        <!--Body Start-->
+        <div class="body">
+            <div class="content">
+                <p>${message.message_content}</p>
+            </div>
+            <hr>
+            <div class="attachment">
+                <h5 class="title">첨부파일:</h5>
+                <ul class="attach-files">
+                    <li>
+                        <a href="#">
+                            <img src="<%=request.getContextPath()%>/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/images/icons/doc.png" alt="">
+                            <span class="type">DOC</span>
+                            <i class="zmdi zmdi-cloud-download"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="<%=request.getContextPath()%>/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/images/icons/pdf.png" alt="">
+                            <span class="type">PDF</span>
+                            <i class="zmdi zmdi-cloud-download"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="<%=request.getContextPath()%>/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/images/icons/zip.png" alt="">
+                            <span class="type">ZIP</span>
+                            <i class="zmdi zmdi-cloud-download"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="<%=request.getContextPath()%>/resources/bootstrap/adomx-html-tf-v1.1/html/light/assets/images/mail/attach-1.png" alt="">
+                            <span class="type">PNG</span>
+                            <i class="zmdi zmdi-cloud-download"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <a href="#" class="button button-primary button-round button-outline">Download zip</a>
+
+            </div>
+
+            <div class="buttons">
+                <a href="#" class="button button-info button-round button-outline"><i class="zmdi zmdi-forward"></i>전달</a>
+                <a href="#" class="button button-primary button-round button-outline"><i class="zmdi zmdi-mail-reply"></i>답장</a>
+            </div>
+
+        </div>
+        <!--Body End-->
+
+    </div>
+
+</div>
+<!--Mail End-->
+
+<%@include file="/WEB-INF/views/message/common_message_bottom.jsp" %>
+		
+</body>
+
+</html>

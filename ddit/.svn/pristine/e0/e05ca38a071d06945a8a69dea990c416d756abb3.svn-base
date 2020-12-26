@@ -1,0 +1,247 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fm" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    
+<div class="content-body">
+
+	
+
+   <!-- Page Headings Start -->
+   <div class="row justify-content-between align-items-center mb-10">
+       <!-- Page Heading Start -->
+       <div class="col-12 col-lg-auto mb-20">
+           <div class="page-heading">
+           	<h3 class="title" style="text-align: left;">시험문제관리</h3>
+           </div>
+       </div><!-- Page Heading End -->
+
+   </div><!-- Page Headings End -->
+      
+	<div class="row">
+		<div class="col-12 col-lg-auto mb-20">
+			시험선택
+			<select id="test_name" onChange="changeTest(this)">
+				<c:forEach items="${testList }" var="test">
+				<option value="" selected>선택하세요</option>
+				<option value="${test.test_no }">${test.test_name}</option>					
+				</c:forEach>
+			</select>
+			
+			 <script type="text/javascript">
+				var examList= new Array();
+				<c:forEach items="${examList2}" var="exam">
+// 				alert("${exam.exam_category_no}");
+				examList.push({
+				      exam_no:"${exam.exam_no}",
+					  test_no:"${exam.test_no}",					  
+					  exam_category_no:"${exam.exam_category_no}",
+					  exam_title:"${exam.exam_title}",
+					  exam_point:"${exam.exam_point}",
+					  exam_answer:"${exam.exam_answer}",
+					  exam_status:"${exam.exam_status}",
+					  exam_number:"${exam.exam_number}"
+					});
+				</c:forEach>
+				
+				var exampleList= new Array();
+				<c:forEach items="${exampleList}" var="example">
+				exampleList.push({
+					  example_no:"${example.example_no}",
+					  exam_no:"${example.exam_no}",
+					  example_content:"${example.example_content}",
+					  example_number:"${example.example_number}"						  
+					});
+				</c:forEach>
+			</script>
+			
+<%-- 			<c:if test="${examList.test_no  }"/> --%>
+			<form action="modify.do" method="post" name="modifyForm">
+			<div id="start">			
+
+			</div>
+			</form>
+			
+		</div>
+	</div>
+    <div id="followquick">
+	<button type="button" id="submitBtn">답압제출</button><br><br>
+	
+	<button type="button" id="backBtn">뒤로가기</button>
+</div> 
+            
+</div>
+
+
+<script>		
+	function changeTest(ele){ //시험지 변경
+		$('#start').empty();		
+		
+		var testNo = $(ele).val();
+		
+		
+		
+		for (var i = 0; i < examList.length; i++) {
+			if((examList[i].test_no)==testNo){
+// 				alert(examList[i].exam_category_no);
+				$('#start').append("<div id='exam' name='exam' class='answer'>"+
+						'<div id="examDiv" name="examDiv2"><input type="text" name="exam_no" id="exam_no" class="answer_num" style="width:50px; margin:0px;font-weight:bold;font-size:25px;" readonly>&#160;&#160;'+
+						'<input  readonly type="text" name="exam_title" class="answerTitle" > (<input type="text" name="exam_category_no"  readonly style="width:50px; margin:0px;"><input type="text" name="exam_point" readonly class="answer_point" style="width:15px;margin:0px;">점)'+
+						'<input type="hidden" name="test_no" value="'+testNo+'"><input type="hidden" name="exam_id">'+
+						"<div id='example'></div>"+"</div><hr>");
+				$("input[name=exam_title]").eq(i).val(examList[i].exam_title);
+				$("input[name=exam_no]").eq(i).val(examList[i].exam_number);
+				$("input[name=exam_point]").eq(i).val(examList[i].exam_point);
+				$("input[name=exam_category_no]").eq(i).val(examList[i].exam_category_no);				
+				$("input[name=exam_answer]").eq(i).val(examList[i].exam_answer);
+				$("input[name=exam_id]").eq(i).val(examList[i].exam_no);
+				
+				var cate = $("input[name=exam_category_no]").eq(i).val();
+				
+				if(cate!="EXAMCATE001"){					
+					$("div[name=examDiv2]").eq(i).append(						
+						"답 : <input type='text' name='scoring_input' class='form-control' width:900px;'>"				
+					);
+				}
+				
+				
+
+				var z=0;
+				for (var y = 0; y < exampleList.length; y++) {					
+					if(examList[i].exam_no==exampleList[y].exam_no){
+// 						alert(i);
+// 						alert(y);
+// 						alert(z);
+// 						alert(exampleList[y].example_content);
+						var thisExamNumber = $("input[name=exam_no]").eq(i).val();
+						
+						if(z==0){
+							$("div[name=examDiv2]").eq(i).append(					
+									'<div id="exampleDiv"><ol><li><div><input type="radio" name="selectNo'+i+'" readonly><input type="text" name="example_content" class="example_cont" readonly>'
+									+'<input type="hidden" name="example_no"><input type="hidden" name="exam_no2"  value="'+thisExamNumber+'"><input type="hidden" name="exam_id2"><div></li></ol></div>');
+							z++;
+						}else{
+							$("div[name=examDiv2]").eq(i).children().children('ol').append(
+								'<li><div><input type="radio" name="selectNo'+i+'" readonly><input type="text" name="example_content" class="example_cont" readonly>'
+								+'<input type="hidden" name="example_no"><input type="hidden" name="exam_id2"><input type="hidden" name="exam_no2" value="'+thisExamNumber+'"><div></li>');
+								z++;
+						}
+					}
+				}
+			}			
+		}
+		for (var x = 0; x < exampleList.length; x++) {
+// 			alert(exampleList[x].example_content);
+			$("input[name=example_content]").eq(x).val(exampleList[x].example_content);
+			$("input[name=example_no]").eq(x).val(exampleList[x].example_no);
+// 			$("input[name=exam_no2]").eq(x).val(examList[i].exam_number);
+//				$("input[name=exam_id2]").eq(y).val(examList[i].exam_no);
+		}
+		
+		var cateName = $("input[name=exam_category_no]");
+		for (var i = 0; i < cateName.length; i++) {
+			if(cateName.eq(i).val()=="EXAMCATE001"){
+				cateName.eq(i).val("객관식");
+			} else if(cateName.eq(i).val()=="EXAMCATE002"){
+				cateName.eq(i).val("주관식");
+			} else{
+				cateName.eq(i).val("서술식");
+			}
+		}
+		var examNo = $('input[name=exam_no]');	
+		
+		for (var i = 0; i < examNo.length; i++) {			
+			examNo.eq(i).val(examNo.eq(i).val().concat("."));
+		}
+	}
+	
+	
+
+	
+	$('#submitBtn').on('click',function(){
+		var answer = new Array();
+		var name_exam_no = $("input[name=exam_id]");
+		var exam_no=[];
+		for (var i = 0; i < name_exam_no.length; i++) {
+			exam_no.push(name_exam_no.eq(i).val());			
+		}
+		
+		var cate = $("input[name=exam_category_no]");
+		for (var i = 0; i < cate.length; i++) {
+			if(cate.eq(i).val()=="객관식"){
+// 				alert(cate.eq(i).parent().children("#exampleDiv").children().children().children().children('input[type=radio]:checked').parent().parent().index());
+				answer.push(cate.eq(i).parent().children("#exampleDiv").children().children().children().children('input[type=radio]:checked').parent().parent().index());									
+			}else if(cate.eq(i).val()=="주관식"){
+				answer.push(cate.eq(i).parent().children('input[name=scoring_input]').val());
+// 				alert(cate.eq(i).parent().children('input[name=scoring_input]').val());
+			}else{
+				answer.push(cate.eq(i).parent().children('input[name=scoring_input]').val());
+			}
+		}
+		
+		
+		$.ajax({
+			url:'testSubmit.do',
+			type:'post',
+			data:{
+				"exam_no" : exam_no,
+				"scoring_input" : answer
+				
+			},
+			success:function(result){
+				alert(result);
+				return;
+			},
+			error:function(error){
+				alert(error);
+				return;
+			}
+			
+		});
+		
+	});
+	
+	
+	
+	
+</script>
+
+<style>
+	input{
+		border:0px solid white;		
+	}
+	.answer{
+		margin-bottom: 10px;
+/* 		border:1px solid black; */
+	}
+	.answer_num, .answer_point{
+		width:70px;
+		margin-right:10px;
+		margin-bottom:5px;
+	}
+	.answer_answer{
+		margin-right:10px;
+		width:150px;
+	}
+	.exampleType{
+		height:30px;
+		margin-right:213px;
+	}
+	
+	.answerTitle{
+		width: 800px;
+		height: 40px;		
+		margin-bottom: 10px;
+	}
+	.example_cont{
+		width:500px;
+		margin-bottom: 5px;
+	}
+	
+	.delete_btn{		
+		background-color: rgba(0,0,0,0);
+	}
+</style>
+
+<%@ include file="registForm_js.jsp"%>

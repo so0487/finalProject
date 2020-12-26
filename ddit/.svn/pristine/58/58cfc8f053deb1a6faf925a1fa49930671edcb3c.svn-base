@@ -1,0 +1,834 @@
+package kr.or.ddit.lecture.controller;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.github.scribejava.core.model.OAuth2AccessToken;
+
+import kr.or.ddit.assign.service.AssignmentService;
+import kr.or.ddit.classes.service.ClassService;
+import kr.or.ddit.classes.service.ClassStudentListService;
+import kr.or.ddit.classes.service.CurriculumService;
+import kr.or.ddit.dto.AttachVO;
+import kr.or.ddit.dto.AttendanceVO;
+import kr.or.ddit.dto.ClassVO;
+import kr.or.ddit.dto.CslVO;
+import kr.or.ddit.dto.EvaToLecVO;
+import kr.or.ddit.dto.EvaVO;
+import kr.or.ddit.dto.LectureVO;
+import kr.or.ddit.dto.MeetingVO;
+import kr.or.ddit.dto.MemberVO;
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.dto.VideoVO;
+import kr.or.ddit.emprate.service.EmpRateService;
+import kr.or.ddit.evaToLec.service.EvaService;
+import kr.or.ddit.evaToLec.service.EvaToLecService;
+import kr.or.ddit.lecture.dao.VideoDAO;
+import kr.or.ddit.lecture.service.AttendanceService;
+import kr.or.ddit.lecture.service.LectureService;
+import kr.or.ddit.lecture.service.SubjectService;
+import kr.or.ddit.lecture.service.VideoService;
+import kr.or.ddit.member.service.MemberService;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.request.ZoomApiIntegration;
+import kr.or.ddit.request.ZoomDetails;
+import kr.or.ddit.schedule.service.ScheduleService;
+import kr.or.ddit.test.service.TestHistoryService;
+import kr.or.ddit.zoom.service.MeetingService;
+
+@Controller
+@RequestMapping("/lecture")
+public class LectureController {
+
+	@Autowired
+	private LectureService lectureService;
+
+	@Autowired
+	private SubjectService subjectService;
+
+	@Autowired
+	private MeetingService meetingService;
+
+	@Autowired
+	private ClassStudentListService classStudentListService;
+
+	@Autowired
+	private MemberService memberService;
+
+	@Autowired
+	private EvaToLecService evaToLecService;
+
+	@Autowired
+	private EvaService evaService;
+
+	@Autowired
+	private ClassService classService;
+
+	@Autowired
+	private AttendanceService attendanceService;
+
+	@Autowired
+	private ScheduleService scheduleService;
+
+	@Autowired
+	private CurriculumService curriculumService;
+
+	@Autowired
+	private TestHistoryService testHistoryService;
+	
+	@Autowired
+	private EmpRateService empRateService;
+	
+	@Autowired
+	private AssignmentService assignmentService;
+
+	@RequestMapping("/main")
+	public String main() throws Exception {
+		return "lecture/main.open";
+	}
+
+	@RequestMapping("/registForm")
+	public String registForm(String error, HttpServletResponse response) {
+		return null;
+	}
+
+	@RequestMapping("/regist")
+	public void regist(LectureVO lecture, HttpServletResponse response) {
+
+	}
+
+	@RequestMapping("/list")
+	public ModelAndView list(SearchCriteria cri, ModelAndView mnv, String lecture_no) throws SQLException {
+		String url = "lecture/lecture/list.page";
+
+		List<EvaVO> evaList = evaService.getEvaList();
+		List<EvaToLecVO> evaToLecList = evaToLecService.getEva_to_lecByLectureNo(lecture_no);
+		List<CslVO> cslList = classStudentListService.getClsListBylecture_no(lecture_no);
+
+		Map<String, String> param = new HashMap<>();
+		
+		List<List<Map<String,String>>> map = new ArrayList<>();
+		for (int i = 0; i < cslList.size(); i++) {
+			param.put("student_id", cslList.get(i).getStudent_id());
+			param.put("lecture_no", lecture_no);
+			double ratio = attendanceService.selectAttendanceNobyLecture(param);
+			cslList.get(i).setRatio(String.format("%.1f", ratio));
+			cslList.get(i).setAssign(Integer.toString(assignmentService.getAssignmentScore(param)));
+			cslList.get(i).setTest(testHistoryService.getTestFinalScoreByLectureNo(param));
+			cslList.get(i).setMember(memberService.getMember(cslList.get(i).getStudent_id()));
+			
+		}
+
+		mnv.addObject("cslList", cslList);
+		mnv.addObject("evaList", evaList);
+		mnv.addObject("evaToLecList", evaToLecList);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("cls/list")
+	public ModelAndView clsList(ModelAndView mnv, String class_no) throws Exception {
+
+		String url = "class/classStudentList/AllList.page";
+		
+		ClassVO classes = classService.getClassByNo(class_no);
+		List<CslVO> cslList = null;
+		List<LectureVO> lectureList = null;
+		List<EvaToLecVO> evaToLecList = null;
+		List<List<EvaToLecVO>> testList = new ArrayList<List<EvaToLecVO>>();
+		lectureList = lectureService.getLectureListByClass_no(class_no);
+		cslList = classStudentListService.getClassStudentListListByClass_no(class_no);
+		Map<String, String> param = new HashMap<>();
+		
+		List<List<Map<String,Object>>> scoreList = new ArrayList<>();
+		
+		int size = cslList.size();
+		int size2 = lectureList.size();
+		for (int i = 0; i < size; i++) {
+			String student_id=cslList.get(i).getStudent_id();
+			param.put("student_id", student_id);
+			cslList.get(i).setMember(memberService.getMember(student_id));
+			List<Map<String,Object>> scoreLectureList = new ArrayList<>();
+			for (int j = 0; j <size2;  j++) {
+				Map<String, Object> scoreMap = new HashMap<>();
+				String lecture_no = lectureList.get(j).getLecture_no();
+				param.put("lecture_no",lecture_no );
+				
+				int sumTest = 0;
+				int sumAssign= 0;
+				sumTest += testHistoryService.getTestFinalScoreByLectureNo(param);
+				sumAssign += assignmentService.getAssignmentScore(param);
+				cslList.get(i).setTest(sumTest);
+				double ratio = attendanceService.selectAttendanceNobyLecture(param);
+				scoreMap.put("attendance", ratio);
+				scoreMap.put("test", sumTest);
+				scoreMap.put("assign", sumAssign);
+				scoreLectureList.add(scoreMap);
+			}
+			scoreList.add(scoreLectureList);
+		}
+
+		for (int j = 0; j < size2; j++) {
+			param.put("lecture_no", lectureList.get(j).getLecture_no());
+			evaToLecList = evaToLecService.getEva_to_lecByLectureNo(lectureList.get(j).getLecture_no());
+			testList.add(evaToLecList);
+		}
+		
+		;
+		
+		mnv.addObject("empRate",empRateService.classEmpRatio(class_no));
+		mnv.addObject("classes",classes);
+		mnv.addObject("lectureList",lectureList);
+		mnv.addObject("scoreList",scoreList);
+		mnv.addObject("testList", testList);
+		mnv.addObject("cslList", cslList);
+		mnv.setViewName(url);
+		return mnv;
+	}
+
+	@RequestMapping("/detail")
+	public ModelAndView detail(String lecture_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/modifyForm")
+	public ModelAndView modifyForm(String lecture_no, SearchCriteria cri, ModelAndView mnv) {
+		return null;
+	}
+
+	@RequestMapping("/modify")
+	public void modify(LectureVO lecture, HttpServletResponse response) {
+
+	}
+
+	@RequestMapping("/remove")
+	public void remove(String lecture_no, @ModelAttribute("cri") SearchCriteria cri, HttpServletResponse response) {
+
+	}
+
+	@RequestMapping("lectureList/pro")
+	public ModelAndView lectureListPro(ModelAndView mnv, HttpSession session) {
+		String url = "lecture/lecture/lectureListPro.page";
+
+		List<LectureVO> lectureList = null;
+		List<EvaToLecVO> evaToLecList = null;
+		try {
+			lectureList = lectureService
+					.getLectureByPro(((MemberVO) (session.getAttribute("loginUser"))).getMember_id());
+			for(int i=0; i<lectureList.size(); i++) {
+				lectureList.get(i).setClasses(classService.getClassByNo(lectureList.get(i).getClass_no()));
+			}
+			evaToLecList = evaToLecService.getEvaToLecList();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		mnv.addObject("lectureList", lectureList);
+		mnv.addObject("evaToLecList", evaToLecList);
+		mnv.setViewName(url);
+
+		return mnv;
+
+	}
+
+	@RequestMapping("mylecture")
+	public ModelAndView myLecture(ModelAndView mnv, String lecture_no) {
+		String url = "lecture/lecture/myList.page";
+
+		Map<String, String> paramMap = new HashMap<String, String>();
+		List<MeetingVO> meetingList = null;
+		List<MeetingVO> meetingListPre = null;
+		List<VideoVO> videoList = null;
+		paramMap.put("meeting_category_no", lecture_no);
+		paramMap.put("meeting_category", "L");
+		try {
+			meetingList = meetingService.gettMeetingBy(paramMap);
+			meetingListPre = meetingService.getMeetingPre(paramMap);
+			videoList = videoService.getVideoByLectureNo(lecture_no);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		mnv.setViewName(url);
+		mnv.addObject("lecture_no", lecture_no);
+		mnv.addObject("meetingList", meetingList);
+		mnv.addObject("meetingListPre", meetingListPre);
+		mnv.addObject("videoList", videoList);
+
+		return mnv;
+	}
+
+	@RequestMapping("video/list")
+	public ResponseEntity<byte[]> getFile(String lecture_no) throws Exception {
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+
+		VideoVO video = videoDAO.selectVideoByNo(lecture_no);
+
+		String fileUploadPath = this.videoloadPath;
+		String fileName = video.getVideo_name();
+
+		try {
+			in = new FileInputStream(fileUploadPath + File.separator + fileName);
+
+			fileName = fileName.substring(fileName.indexOf("$$") + 2);
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+			headers.add("Content-Disposition",
+					"attachment;filename=\"" + new String(fileName.getBytes("utf-8"), "ISO-8859-1") + "\"");
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
+		} finally {
+			in.close();
+		}
+		return entity;
+	}
+
+	@RequestMapping("studentlist")
+	public ModelAndView studentList(ModelAndView mnv, String lecture_no) throws SQLException, ParseException {
+		String url = "class/classStudentList/studentlist.page";
+		SearchCriteria cri = new SearchCriteria();
+		List<AttendanceVO> attendanceList = attendanceService.getAttendanceList(cri);
+
+		ClassVO classes = null;
+		List<CslVO> cslList = null;
+		try {
+			cslList = classStudentListService.getClsListBylecture_no(lecture_no);
+
+			for (int i = 0; i < cslList.size(); i++) {
+				cslList.get(i).setMember(memberService.getMember(cslList.get(i).getStudent_id()));
+				classes = classService.getClassByNo(cslList.get(i).getClass_no());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+		mnv.addObject("start_date", format.format(new Date()));
+		mnv.addObject("end_date", format.format(new Date().getTime() + (1000 * 60 * 60 * 24 * 7)));
+		mnv.addObject("attendanceList", attendanceList);
+		mnv.addObject("lecture_no", lecture_no);
+		mnv.addObject("classes", classes);
+		mnv.addObject("cslList", cslList);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	@RequestMapping("attendance")
+	public void attendance(String join_url, String lecture_no, String start_time, HttpSession session,
+			HttpServletResponse response) throws IOException, ParseException {
+		String url = join_url;
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		AttendanceVO attendance = new AttendanceVO();
+
+		long result = (new Date().getTime()) - format.parse(start_time).getTime();
+
+		MemberVO member = ((MemberVO) (session.getAttribute("loginUser")));
+		attendance.setAttendance_date(format.format(new Date()));
+		attendance.setAttendance_date2(format.format(new Date()));
+		attendance.setLecture_no(lecture_no);
+		attendance.setStudent_id(member.getMember_id());
+		if (result > 1000 * 60 * 30) {
+			attendance.setAttendance_is("1");
+		} else {
+			attendance.setAttendance_is("0");
+		}
+
+		if (member.getMember_role().equals("STUDENT")) {
+			try {
+				attendanceService.registAttendance(attendance);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		out.println("<script>");
+		out.println("location.href = '" + join_url + "'");
+		out.println("</script>");
+
+	}
+
+	@RequestMapping("attendance/list")
+	public ResponseEntity<List<CslVO>> attendaceList(@RequestParam("start_date") String start_date,
+			@RequestParam("end_date") String end_date, @RequestParam("lecture_no") String lecture_no) {
+
+		ResponseEntity<List<CslVO>> entity = null;
+
+		Map<String, String> param = new HashMap<>();
+
+		List<CslVO> cslList = null;
+
+		try {
+			cslList = classStudentListService.getClsListBylecture_no(lecture_no);
+			for (int i = 0; i < cslList.size(); i++) {
+				param.put("student_id", cslList.get(i).getStudent_id());
+				param.put("start_date", start_date);
+				param.put("end_date", end_date);
+				param.put("class_no", cslList.get(i).getClass_no());
+				param.put("lecture_no", lecture_no);
+				cslList.get(i).setAttendanceList(attendanceService.getAttendanceNobyStu(param));
+				cslList.get(i).setMember(memberService.getMember(cslList.get(i).getStudent_id()));
+				double ratio = (attendanceService.getAttendanceNobyStuCnt(param) / (curriculumService
+						.getCurriculumByNo(classService.getClassByNo(cslList.get(i).getClass_no()).getCurriculum_no())
+						.getCurriculum_time() / 8.0D) * 100);
+				cslList.get(i).setRatio(String.format("%.1f", ratio));
+			}
+
+			entity = new ResponseEntity<List<CslVO>>(cslList, HttpStatus.OK);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+			entity = new ResponseEntity<List<CslVO>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		return entity;
+	}
+
+	@RequestMapping("attendance/list/today")
+	public ModelAndView attendaceListTody(ModelAndView mnv, String lecture_no,
+			@RequestParam("start_date") String start_date) throws ParseException {
+
+		String url = "class/classStudentList/studentlistToday.page";
+
+		Map<String, String> param = new HashMap<>();
+
+		List<CslVO> cslList = null;
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		Date date1 = format1.parse(start_date);
+
+		String date = format1.format(date1.getTime() + (1000 * 60 * 60 * 24));
+
+		try {
+			cslList = classStudentListService.getClsListBylecture_no(lecture_no);
+			for (int i = 0; i < cslList.size(); i++) {
+				param.put("student_id", cslList.get(i).getStudent_id());
+				param.put("start_date", start_date);
+				param.put("end_date", date);
+				param.put("class_no", cslList.get(i).getClass_no());
+				param.put("lecture_no", lecture_no);
+				cslList.get(i).setAttendanceList(attendanceService.getAttendanceNobyStu(param));
+				cslList.get(i).setMember(memberService.getMember(cslList.get(i).getStudent_id()));
+				double ratio = (attendanceService.getAttendanceNobyStuCnt(param) / (curriculumService
+						.getCurriculumByNo(classService.getClassByNo(cslList.get(i).getClass_no()).getCurriculum_no())
+						.getCurriculum_time() / 8.0D) * 100);
+				cslList.get(i).setRatio(String.format("%.2f", ratio));
+			}
+
+			mnv.addObject("cslList", cslList);
+			mnv.addObject("lecture_no", lecture_no);
+			mnv.setViewName(url);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
+		return mnv;
+	}
+
+	@RequestMapping("attendance/remove")
+	public ResponseEntity<String> removeAttendace(String attendance_no) throws ParseException {
+
+		ResponseEntity<String> entity = null;
+		String msg = null;
+
+		try {
+			attendanceService.removeAttendance(attendance_no);
+			msg = "출결이 변경되었습니다.";
+			entity = new ResponseEntity<String>(msg, HttpStatus.OK);
+		} catch (SQLException e1) {
+			entity = new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+			e1.printStackTrace();
+		}
+
+		return entity;
+
+	}
+
+	@RequestMapping("myattendance")
+	public ModelAndView myAttendance(ModelAndView mnv, HttpSession session, String start_date, String end_date,
+			String class_no, String lecture_no) {
+
+		String url = "class/classStudentList/myattendance.page";
+		int date = 0;
+		int realDate = 0;
+		int attendanceCnt = 0;
+		List<AttendanceVO> attendanceList = null;
+		ClassVO classes = null;
+		Map<String, String> params = new HashMap<>();
+		params.put("student_id", ((MemberVO) (session.getAttribute("loginUser"))).getMember_id());
+		params.put("start_date", start_date);
+		params.put("end_date", end_date);
+		params.put("class_no", class_no);
+		params.put("lecture_no", lecture_no);
+
+		try {
+			attendanceList = attendanceService.getAttendanceNobyStu(params);
+			for (int i = 0; i < attendanceList.size(); i++) {
+				attendanceList.get(i).setLecture(lectureService.getLectureByNo(attendanceList.get(i).getLecture_no()));
+			}
+			attendanceCnt = attendanceService.getAttendanceNobyStuCnt(params);
+			realDate = classService.getClassDayCount(params);
+			classes = classService.getClassByNo(class_no);
+			date = (curriculumService.getCurriculumByNo((classService.getClassByNo(class_no)).getCurriculum_no()))
+					.getCurriculum_time() / 8;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		mnv.addObject("realDate", realDate);
+		mnv.addObject("classes", classes);
+		mnv.addObject("attendanceList", attendanceList);
+		mnv.addObject("attendanceCnt", attendanceCnt);
+		mnv.addObject("date", date);
+		mnv.setViewName(url);
+
+		return mnv;
+	}
+
+	// 면접 줌 미팅
+	@Autowired
+	private ZoomApiIntegration ZoomApiIntegration;
+
+	public void setZoomApiIntegration(ZoomApiIntegration ZoomApiIntegration) {
+		this.ZoomApiIntegration = ZoomApiIntegration;
+	}
+
+	private String apiResult = null;
+	private MeetingVO meetingvo;
+
+	@RequestMapping("/create/meetings")
+	public void createRedirct(ModelAndView mnv, String lecture_no, HttpSession session, HttpServletRequest request,
+			HttpServletResponse response) throws IOException, ParseException {
+
+		System.out.println(lecture_no + "lecture_no");
+		System.out.println("----------------create meetings api 요청------------------");
+		System.out.println("---------Zoom 회의 개설 -----------");
+
+		LectureVO lecture = null;
+		try {
+			lecture = lectureService.getLectureByNo(lecture_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String topic = lecture.getLecture_name();
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		Date start_time = format.parse(lecture.getLecture_start_date());
+		System.out.println(start_time + "===============");
+		Date end_time = format.parse(lecture.getLecture_end_date());
+		System.out.println(end_time + "===============");
+		long result = end_time.getTime() - start_time.getTime();
+		result = result / 60 / 1000;
+
+		// string
+		String start_time1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()); // 데이트 ->
+		String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date()); // 데이트 ->
+
+		System.out.println(start_time1 + "===============");
+		// String duration = Long.toString(
+		// (lecture.getLecture_end_date(). -
+		// interview.getInterview_start_date().getTime()) / 60);
+		// String password = "123";
+		meetingvo = new MeetingVO(null, topic, start_time1, Long.toString(result), "123", null, null, null, null, "2",
+				lecture.getLecture_no(), "L");
+		System.out.println("---------dto-----------" + meetingvo.getMeeting_no());
+		// 회의 추가 상태로 변환
+		ZoomDetails.setZOOM_STATE("zoom_create_lecture");
+		System.out.println(session + "세션");
+		String zoomAuthUrl = ZoomApiIntegration.getAuthorizationUrl(session);
+		System.out.println("-------ZoomAuthUrl: " + zoomAuthUrl);
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+
+		out.println("<script>");
+		out.println("location.href = '" + zoomAuthUrl + "'");
+		out.println("</script>");
+
+		// return mnv;
+	}
+
+	@RequestMapping(value = "/create/meetings/redirect", method = { RequestMethod.GET, RequestMethod.POST })
+	public String CreateMeeting(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
+			HttpServletRequest request) throws IOException {
+		String url = null;
+		try {
+			System.out.println("---------회의 개설성공 -----------");
+			OAuth2AccessToken oauthToken;
+			System.out.println(session + "세션임");
+			System.out.println("코드" + code);
+			oauthToken = ZoomApiIntegration.getAccessToken(session, code, state);
+			apiResult = ZoomApiIntegration.setMeeting(oauthToken, meetingvo);
+			System.out.println(meetingvo + "/////////");
+			System.out.println("apiResult-----" + apiResult);
+
+			JSONParser jsonParse = new JSONParser();
+			JSONObject obj = (JSONObject) jsonParse.parse(apiResult);
+			System.out.println("JsonObject 결과 값 :: " + obj);
+			// Json Array값만 빼기
+			// Json 배열 Json Object로 변환
+
+			/* 데이터 베이스에 저장 */
+
+			String meeting_no = obj.get("id").toString();
+			String topic = obj.get("topic").toString();
+			String start_time = meetingvo.getStart_time();
+			String join_url = obj.get("join_url").toString();
+			String uuid = obj.get("uuid").toString();
+			String joinId = obj.get("id").toString();
+			String joinPw = obj.get("password").toString();
+			String duration = obj.get("duration").toString();
+			String host_Id = obj.get("host_id").toString();
+			String start_url = obj.get("start_url").toString();
+			String type = obj.get("type").toString();
+			String meeting_category_no = meetingvo.getMeeting_category_no();
+			String meeting_category = meetingvo.getMeeting_category();
+
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			System.out.println("1." + authentication);
+			System.out.println("2." + authentication.getPrincipal());
+
+			String userid = ((MemberVO) (session.getAttribute("loginUser"))).getMember_id();
+
+			System.out.println("회의 개설 유저 아이디: " + userid);
+
+			Map<String, String> paramMap = new HashMap<String, String>();
+			paramMap.put("meeting_no", meeting_no);
+			paramMap.put("topic", topic);
+			paramMap.put("start_time", start_time);
+			paramMap.put("join_url", join_url);
+			paramMap.put("meeting_no", meeting_no);
+			paramMap.put("uuid", uuid);
+			paramMap.put("join_id", joinId);
+			paramMap.put("join_pw", joinPw);
+			paramMap.put("duration", duration);
+			paramMap.put("host_id", host_Id);
+			paramMap.put("start_url", start_url);
+			paramMap.put("user_id", userid);
+			paramMap.put("type", type);
+			paramMap.put("meeting_category_no", meeting_category_no);
+			paramMap.put("meeting_category", meeting_category);
+
+			meetingService.registMeeting(paramMap);
+
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+			String start_date = start_time.substring(0, start_time.length() - 1);
+
+			Date start = sdf1.parse(start_date);
+			//
+			// String start_date = sdf.format(start);
+			Date end = new Date((start.getTime() + Integer.parseInt(duration) * 60000));
+			String end_date = sdf1.format(end);
+
+			ScheduleVO schedule = new ScheduleVO();
+			schedule.setSchedule_no(scheduleService.getScheduleNo());
+			schedule.setSchedule_category_no("SCHEDULE_CATEGORY0002");
+			schedule.setMember_id(userid);
+			schedule.setSchedule_subject_no(meeting_category_no);
+			schedule.setSchedule_title(topic);
+			schedule.setSchedule_content(topic);
+			schedule.setSchedule_color("#f06595");
+			schedule.setSchedule_start_date(start_date);
+			schedule.setSchedule_end_date(end_date);
+
+			scheduleService.registSchedule(schedule);
+
+			System.out.println("param==================" + paramMap);
+
+			url = "redirect:/lecture/mylecture.page?lecture_no=" + meeting_category_no;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return url;
+	}
+
+	@Resource(name = "videoloadPath")
+	private String videoloadPath;
+
+	@Autowired
+	private VideoDAO videoDAO;
+
+	@Autowired
+	VideoService videoService;
+
+	@RequestMapping("video/upload")
+	public void videoUpload(@RequestParam("file") MultipartFile multipartFile, String lecture_no,
+			HttpServletResponse response) throws Exception {
+
+		LectureVO lecture = lectureService.getLectureByNo(lecture_no);
+
+		String fileUploadPath = this.videoloadPath;
+		String fileName = UUID.randomUUID().toString().replace("-", "") + "$$" + multipartFile.getOriginalFilename();
+		File target = new File(fileUploadPath, fileName);
+
+		if (!target.exists()) {
+			target.mkdirs();
+		}
+
+		multipartFile.transferTo(target);
+
+		VideoVO video = new VideoVO();
+		video.setVideo_path(fileUploadPath);
+		video.setVideo_name(fileName);
+		video.setLecture_no(lecture_no);
+		video.setVideo_title(lecture.getLecture_name());
+
+		try {
+			videoService.registVideo(video);
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('동영상 업로드 성공.');</script>");
+			out.println("<script>history.go(-1);</script>");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@RequestMapping("video/upload2")
+	public void upload(String start_time, String topic, String meeting_no, HttpServletResponse response,
+			String lecture_no) throws Exception {
+		String file_name = start_time + " " + topic + " " + meeting_no;
+		String fileUploadPath = this.videoloadPath;
+		String isDir = "C:/Users/PC-15/Documents/Zoom";
+		
+		LectureVO lecture = lectureService.getLectureByNo(lecture_no);
+		// 하위 디렉토리
+		for (File info : new File(isDir).listFiles()) {
+			if (info.isDirectory()) {
+				// 하위의 모든 파일
+				String str = info.getName();
+				if (str.substring(str.length()-11, str.length()).equals(meeting_no)) {
+					System.out.println(info.getName());
+					for (File info2 : FileUtils.listFiles(info, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
+						if (((info2.getName()).substring((info2.getName().lastIndexOf(".") + 1))).equals("mp4")) {
+							File file = new File(fileUploadPath, info.getName() + ".mp4");
+							FileUtils.copyFile(info2, file);
+							VideoVO video = new VideoVO();
+							video.setVideo_path(fileUploadPath);
+							video.setVideo_name(info.getName());
+							video.setLecture_no(lecture_no);
+							video.setVideo_title(lecture.getLecture_name());
+							video.setVideo_start_date(start_time);
+							video.setVideo_meeting_no(meeting_no);
+							try {
+								videoService.registVideo(video);
+								response.setContentType("text/html;charset=utf-8");
+								PrintWriter out = response.getWriter();
+								out.println("<script>alert('동영상 업로드 성공.');</script>");
+								out.println("<script>history.go(-1);</script>");
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				}else {
+					response.setContentType("text/html;charset=utf-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>alert('해당날짜에 녹화된 동영상이 없습니다.');</script>");
+					out.println("<script>history.go(-1);</script>");
+					return;
+				}
+			}
+		}
+
+	}
+
+	@RequestMapping("video/detail")
+	public ModelAndView videoDetail(ModelAndView mnv, String video_no) {
+		String url = "lecture/lecture/detail.page";
+
+		VideoVO video = new VideoVO();
+
+		try {
+			video = videoService.getVideoByNo(video_no);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(video.getVideo_name());
+		System.out.println(video.getVideo_path());
+
+		mnv.addObject("video", video);
+		mnv.setViewName(url);
+
+		return mnv;
+
+	}
+
+	@RequestMapping("video/remove")
+	public void videoRemove(String video_no, HttpServletResponse response) throws IOException {
+		String url = "lecture/lecture/myList.page";
+
+		try {
+			VideoVO video = videoService.getVideoByNo(video_no);
+			File target = new File(video.getVideo_path(), video.getVideo_name());
+			if (target.exists()) {
+				target.delete();
+			}
+			videoService.removeVideo(video_no);
+
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('동영상이 삭제 되었습니다.');</script>");
+			out.println("<script>history.go(-1);</script>");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

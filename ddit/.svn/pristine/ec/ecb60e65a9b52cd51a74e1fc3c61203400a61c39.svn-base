@@ -1,0 +1,20 @@
+package kr.or.ddit.assign.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.AssignmentVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface AssignmentService {
+	
+	List<AssignmentVO> getAssignmentList(SearchCriteria cri) throws SQLException;
+	
+	AssignmentVO getAssignmentByNo(String assignment_no) throws SQLException;;
+	
+	void registAssignment(AssignmentVO Assignment) throws SQLException;
+	
+	void modifyAssignment(AssignmentVO Assignment) throws SQLException;
+	
+	void removeAssignment(AssignmentVO Assignment) throws SQLException;		
+}

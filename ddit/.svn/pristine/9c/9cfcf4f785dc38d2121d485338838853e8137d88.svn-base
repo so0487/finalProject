@@ -1,0 +1,23 @@
+package kr.or.ddit.lecture.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.VideoVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface VideoService {
+	List<VideoVO> getVideoList(SearchCriteria cri) throws SQLException;
+	
+	VideoVO getVideoByNo(String video_no) throws SQLException;;
+	
+	void registVideo(VideoVO video) throws SQLException;
+	
+	void modifyVideo(VideoVO video) throws SQLException;
+	
+	void removeVideo(String video_no) throws SQLException;
+	
+	List<VideoVO> getVideoByLectureNo(String lecture_no) throws SQLException;
+
+	String getVideoNo() throws SQLException;
+}

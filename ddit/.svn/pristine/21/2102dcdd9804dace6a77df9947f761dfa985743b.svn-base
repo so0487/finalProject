@@ -1,0 +1,47 @@
+package kr.or.ddit.counsel.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.CounselVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class CounselDAOImpl implements CounselDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<CounselVO> selectCounselList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CounselVO selectCounselByNo(String counsel_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertCounsel(CounselVO counsel) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCounsel(CounselVO counsel) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCounsel(CounselVO counsel) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

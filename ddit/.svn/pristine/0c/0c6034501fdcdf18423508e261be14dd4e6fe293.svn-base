@@ -1,0 +1,45 @@
+package kr.or.ddit.interview.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.InterviewVO;
+import kr.or.ddit.interview.dao.InterviewDAO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class InterviewServiceImpl implements InterviewService {
+	private InterviewDAO interviewDAO;
+
+	public void setInterviewDAO(InterviewDAO interviewDAO) {
+		this.interviewDAO = interviewDAO;
+	}
+
+	@Override
+	public List<InterviewVO> getInterviewList(String class_no) throws SQLException {
+		return interviewDAO.selectInterviewList(class_no);
+	}
+
+	@Override
+	public InterviewVO getInterviewByNo(String interview_no) throws SQLException {
+		return interviewDAO.selectInterviewByNo(interview_no);
+	}
+
+	@Override
+	public void registInterview(InterviewVO interview) throws SQLException {
+		interview.setInterview_no(interviewDAO.selectInterviewNo());
+		interviewDAO.insertInterview(interview);
+	}
+
+	@Override
+	public void modifyInterview(InterviewVO interview) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeInterview(InterviewVO interview) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

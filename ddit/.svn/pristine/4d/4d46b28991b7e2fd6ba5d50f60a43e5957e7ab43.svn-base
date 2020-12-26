@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Counsel-Mapper">
+
+
+<select id="selectCounselNo" parameterType="int" resultType="str">
+	select 'COUNSEL'||LPAD(seq_counsel.nextval,4,'0')
+	from dual
+</select>
+
+<sql id="search1">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+	
+<sql id="search2">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+	
+<sql id="search3">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+
+
+	<select id="selectCouncelAllList" resultType="counsel">
+		select
+		*
+		from
+		counsel
+		where counsel_no is not null
+		<include refid="search1" />
+		
+	</select>
+	
+	<select id="selectCouncelListByMember" resultType="counsel">
+		select
+		*
+		from
+		counsel
+		<if test="counsel_member_type != null and counsel_member_type.equals('STUDENT')">
+		where counsel_student = #{counsel_member_id}
+		</if>
+		<if test="counsel_member_type != null and counsel_member_type.equals('PROFESSOR')">
+		where counsel_professor = #{counsel_member_id}
+		</if>
+		<include refid="search2" />
+		
+	</select>
+	
+	
+	
+<!-- 	<select id="selectCouncelListByStudent" resultType="counsel"> -->
+<!-- 		select -->
+<!-- 		* -->
+<!-- 		from -->
+<!-- 		counsel -->
+<!-- 		where  = #{keyword} -->
+<!-- 		<include refid="search2" /> -->
+		
+<!-- 	</select> -->
+	
+	
+	
+	<select id="selectCouncelListByProfessor" resultType="counsel">
+		select
+		*
+		from
+		counsel
+		where counsel_professor = #{keyword}
+		<include refid="search3" />
+	</select>
+	
+	<select id="selectSearchCounselListCount1" resultType="int">
+		select
+		count(*)
+		from counsel
+		where counsel_no is not null
+		<include refid="search1" />
+	</select>
+	
+	<select id="selectSearchCounselListCount2" resultType="int">
+		select
+		count(*)
+		from counsel
+		where counsel_no is not null
+		<include refid="search2" />
+	</select>
+	<select id="selectSearchCounselListCount3" resultType="int">
+		select
+		count(*)
+		from counsel
+		where counsel_no is not null
+		<include refid="search3" />
+	</select>
+	
+	<update id="insertCounsel" parameterType="counsel" >
+		insert into
+		counsel(counsel_no,counsel_professor,counsel_start,counsel_end,counsel_content,counsel_title,counsel_status,counsel_color)
+		values(#{counsel_no},#{counsel_professor},#{counsel_start},#{counsel_end},#{counsel_content},#{counsel_title},'0','#9775fa')
+	</update>
+
+<select id="selectCounselByNo" parameterType="str" resultType="counsel">
+		select
+		*
+		from counsel
+		where counsel_no=#{counsel_no}
+</select>
+
+<update id="updateCounselStudent" parameterType="counsel" >
+	update counsel
+	set
+	counsel_student=#{counsel_student}
+	where counsel_no=#{counsel_no}
+</update>
+
+
+</mapper>

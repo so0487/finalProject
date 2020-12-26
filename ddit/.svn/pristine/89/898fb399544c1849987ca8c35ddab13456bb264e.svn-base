@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Review-Mapper">
+
+<select id="selectReviewNo" parameterType="int" resultType="str">
+	select 'REVIEW'||LPAD(seq_review.nextval,4,'0')
+	from dual
+</select>
+
+<select id="selectReviewByNo" parameterType="str" resultType="review">
+		select
+		*
+		from review
+		where review_no=#{review_no}
+</select>
+
+
+<update id="insertReview" parameterType="review" >
+		insert into
+		review(review_no,class_no,student_id,review_star,review_content, review_status)
+		values(#{review_no},#{class_no},#{student_id},#{review_star},#{review_content},'0')
+</update>
+
+<sql id="search">
+		<if test="searchType == 'n'.toString()">
+			and curriculum_name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 's'.toString()">
+			and class_status = '모집 중'
+		</if>
+		<if test="searchType == 'ns'.toString()">
+			and (
+			curriculum_name like '%'||#{keyword}||'%'
+			or
+			class_status = '모집 중'
+			)
+		</if>
+	</sql>
+<sql id="searching">
+		<if test="searchType == 'curriculum_no'.toString()"> AND curriculum_no = #{keyword}</if>
+		<if test="searchType == 'n'.toString()">
+			and curriculum_name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 's'.toString()">
+			and class_status = '모집 중'
+		</if>
+		<if test="searchType == 'ns'.toString()">
+			and (
+			curriculum_name like '%'||#{keyword}||'%'
+			or
+			class_status = '모집 중'
+			)
+		</if>
+	</sql>
+	
+<select id="selectReviewList" resultType="review">
+		select
+		*
+		from review
+		where review_no is not null
+		<include refid="search" />
+</select>
+
+<select id="selectReviewListByCurriculum_no" resultType="review">
+select a.review_no,
+       a.class_no,
+       a.student_id,
+       a.review_star,
+       a.review_content,
+       a.review_status
+from review a, class b , curriculum c
+where a.class_no = b.class_no
+and b.curriculum_no = c.curriculum_no
+and c.curriculum_no = #{keyword}
+</select>
+
+<select id="selectSearchReviewListCount2" resultType="int">
+		select
+		count(*)
+		from review
+		where review_no is not null
+		<include refid="search" />
+</select>
+
+<select id="selectSearchReviewListCount" resultType="int">
+		select count(*)
+		from review
+		where review_no is not null
+		and class_no in (select class_no 
+               				 from class
+               				 where curriculum_no is not null
+							<include refid="searching" />)
+		
+</select>
+
+<update id="updateReview" parameterType="review">
+	update review
+	set
+	review_star = #{review_star},
+	review_content = #{review_content}
+	where review_no=#{review_no}
+</update>
+
+<update id="deleteReview" parameterType="str">
+	update review
+	set
+	review_status='1',
+	review_start =0
+	where review_no=#{review_no}
+</update>
+
+
+<select id="selectReviewExist" parameterType="map" resultType="int" >
+select count(*) from review
+where student_id =#{member_id}
+and class_no = #{class_no}
+and review_status = '0'
+</select>
+</mapper>

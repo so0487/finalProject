@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClassStudentList-Mapper">
+
+	<select id="selectClassStudentListNo" parameterType="int"
+		resultType="str">
+		select 'CLASSSTUDENTLIST'||LPAD(SEQ_CLASSSTUDENT.nextval,4,'0')
+		from dual
+	</select>
+
+	<update id="insertCsl" parameterType="csl">
+		insert into
+		classstudentlist(classStudentList_no,class_no,student_id,classStudentList_status)
+		values(#{classStudentList_no},#{class_no},#{student_id},#{classStudentList_status})
+	</update>
+
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like
+			'%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like
+			'%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+
+	<select id="selectSearchClsList" resultType="csl">
+		select
+		*
+		from classstudentlist
+		where classStudentList_no is not null
+		<include refid="search" />
+	</select>
+
+	<select id="selectClsListByClass_no" resultType="csl">
+		select
+		*
+		from
+		classstudentlist
+		where class_no = #{class_no}
+	</select>
+
+	<select id="selectCslListByStudent_id" resultType="csl">
+		select
+		*
+		from
+		classstudentlist
+		where student_id = #{member_id}
+		
+		
+	</select>
+
+	<select id="selectClsListBylecture_no" resultType="csl">
+		select
+		*
+		from classstudentlist
+		where class_no = (select class_no
+		from lecture
+		where lecture_no=#{lecture_no})
+	</select>
+	
+	<update id="modiClsEmpStatus" parameterType="str">
+		update classstudentlist
+		set classstudent_emp_status =  
+        case 
+        when classstudent_emp_status='0' and classstudentlist_no=#{classStudentList_no} then '1'    
+        when classstudent_emp_status='1' and classstudentlist_no=#{classStudentList_no} then '0'
+        else classstudent_emp_status
+        end                                      
+		
+	</update>
+	
+
+
+
+</mapper>

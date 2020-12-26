@@ -1,0 +1,53 @@
+package kr.or.ddit.schedule.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ScheduleVO;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.schedule.dao.ScheduleDAO;
+
+public class ScheduleServiceImpl implements ScheduleService {
+	private ScheduleDAO scheduleDAO;
+
+	public void setScheduleDAO(ScheduleDAO scheduleDAO) {
+		this.scheduleDAO = scheduleDAO;
+	}
+
+	@Override
+	public List<ScheduleVO> getScheduleList(String member_id) throws SQLException {
+		List<ScheduleVO> scheduleList = scheduleDAO.selectScheduleList(member_id);
+		return scheduleList;
+	}
+
+	@Override
+	public ScheduleVO getScheduleByNo(String schedule_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registSchedule(ScheduleVO schedule) throws SQLException {
+		scheduleDAO.insertSchedule(schedule);
+		
+	}
+
+	@Override
+	public void modifySchedule(ScheduleVO schedule) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeSchedule(ScheduleVO schedule) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getScheduleNo() throws SQLException {
+		String schedule_no = scheduleDAO.selectScheduleNo();
+		return schedule_no;
+	}
+	
+}

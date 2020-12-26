@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Test-Mapper">
+
+	
+	
+   <select id="selectTestNo" parameterType="int" resultType="String">
+      select 'test'||LPAD(seq_test.nextval,4,'0')
+      from dual
+   </select>
+   
+   	<select id="selectTestByNo" resultType="test">
+		select *
+		from test
+		where test_no=#{test_no}
+		order by test_no
+	</select>
+   
+	<select id="selectTestList" resultType="test">
+		select *
+		from test
+		order by test_no		
+	</select>
+	
+	<select id="selectTestListByLectureNo" resultType="test" parameterType="str">
+		select *
+		from test
+		where lecture_no=#{lecture_no}
+		order by test_start_date desc
+	</select>
+	
+	<select id="selectStuTestListByLectureNo" resultType="test" parameterType="str">
+		select *
+		from test
+		where lecture_no=#{lecture_no}
+		and test_status=0
+		order by test_start_date desc
+	</select>
+    
+    <update id="insertTestVO">
+    	insert into test
+    	values(#{test_no},#{lecture_no},#{test_name},#{test_start_date},#{test_end_date},#{test_score},#{test_ratio},'0')
+    </update>
+    
+    <update id="updateTestVO">
+    	update test
+    	set test_name=#{test_name},test_start_date=#{test_start_date},test_end_date=#{test_end_date},test_score=#{test_score},test_ratio=#{test_ratio},test_status=#{test_status}
+    	where test_no=#{test_no}
+    </update>
+    
+    <update id="deleteTestVO">
+    	update test
+    	set test_status=1
+    	where test_no=#{test_no}
+    </update>
+    
+
+	<select id="selectTestSubmitList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+    	select *
+		from test a, test_history b
+		where lecture_no=#{lecture_no}
+        and a.TEST_NO = b.TEST_NO(+)
+        and b.STUDENT_ID(+)=#{student_id}
+        and test_status='0'
+		order by test_start_date desc
+	</select>    
+
+</mapper>
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Post-Mapper">
+
+
+<!-- post 번호로 검색 -->
+<select id="selectPostByPostNo" resultType="post">
+	select
+	* 
+	from post
+	where post_no = #{post_no}
+</select>
+
+
+
+<!-- 검색 -->
+<sql id="search">
+	<if test="searchType == 't'.toString()">
+		and title like '%'||#{keyword}||'%'			
+	</if>
+	<if test="searchType == 'w'.toString()">
+		and writer like '%'||#{keyword}||'%'			
+	</if>
+	<if test="searchType == 'c'.toString()">
+		and content like '%'||#{keyword}||'%'			
+	</if>
+	<if test="searchType == 'tc'.toString()">
+		and (
+		title like '%'||#{keyword}||'%'
+		or
+		content like '%'||#{keyword}||'%'						
+		)			
+	</if>
+	<if test="searchType == 'cw'.toString()">
+		and (
+		writer like '%'||#{keyword}||'%'
+		or
+		content like '%'||#{keyword}||'%'						
+		)			
+	</if>
+	<if test="searchType == 'tcw'.toString()">
+		and (
+		title like '%'||#{keyword}||'%'
+		or
+		writer like '%'||#{keyword}||'%'
+		or
+		content like '%'||#{keyword}||'%'						
+		)			
+	</if>
+</sql>
+
+<!-- 검색결과 list가져오기 -->
+<select id="selectSearchPostList" resultType="post">
+	select * from post
+	where post_no is not null
+	and board_no = #{board_no}
+	<include refid="search" />
+	order by post_no desc
+</select>
+
+
+<!-- 검색결과 list 카운트 -->
+<select id="selectSearchPostListCount" resultType="int">
+	select
+	count(*)
+	from post
+	where post_no is not null
+	<include refid="search" />
+	order by post_no desc
+</select>
+
+
+
+<!-- insert -->
+<update id="insertPost" parameterType="post">
+insert
+into
+post(post_no, post_title, post_writer, post_content, board_no)
+values(#{post_no},#{post_title},#{post_writer},#{post_content}, #{board_no})
+</update>
+
+<!-- update -->
+<update id="updatePost" parameterType="post">
+	update post
+	set
+	post_title=#{post_title}, post_content=#{post_content}, post_update_date=sysdate
+	where post_no = #{post_no}
+</update>
+
+<!-- delete -->
+<update id="deletePost" parameterType="post">
+	delete 
+	from post
+	where post_no = #{post_no} 
+</update>
+
+
+<!-- 조회수 증가 -->
+<update id="increasePostViewCnt" parameterType="str">
+	update
+	post
+	set
+	post_veiwcnt = post_veiwcnt+1
+	where post_no = #{post_no}
+</update>
+
+
+
+<!-- 최대 post번호 가져오기 -->
+<select id="getMaxPost_no" resultType="str">
+	select max(post_no) from post
+</select>
+
+
+
+
+<!-- nextValue값 가져오기 -->
+<select id="selectPostSequenceNextValue" parameterType="int" resultType="str">
+   select 'POST'||LPAD(seq_post.nextval,4,'0')
+   from dual
+</select>
+
+
+
+
+</mapper>

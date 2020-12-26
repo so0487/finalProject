@@ -1,0 +1,46 @@
+package kr.or.ddit.test.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.TestVO;
+import kr.or.ddit.request.SearchCriteria;
+import kr.or.ddit.test.dao.TestDAO;
+
+public class TestServiceImpl implements TestService {
+	private TestDAO testDAO;
+
+	public void setTestDAO(TestDAO testDAO) {
+		this.testDAO = testDAO;
+	}
+
+	@Override
+	public List<TestVO> getTestList(SearchCriteria cri) throws SQLException {		
+		return testDAO.selectTestList(cri);
+	}
+
+	@Override
+	public TestVO getTestByNo(String test_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registTest(TestVO test) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyTest(TestVO test) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeTest(TestVO test) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

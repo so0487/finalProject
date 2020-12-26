@@ -1,0 +1,56 @@
+package kr.or.ddit.assign.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.assign.dao.AssignmentDAO;
+import kr.or.ddit.assign.dao.AssignmentHistoryDAO;
+import kr.or.ddit.dto.AssignmentHistoryVO;
+import kr.or.ddit.dto.AssignmentVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AssignmentHistoryServiceImpl implements AssignmentHistoryService {
+	private AssignmentHistoryDAO assignmentHistoryDAO;
+
+	public void setAssignmentHistoryDAO(AssignmentHistoryDAO assignmentHistoryDAO) {
+		this.assignmentHistoryDAO = assignmentHistoryDAO;
+	}
+
+	@Override
+	public List<AssignmentHistoryVO> getAssignmentHistoryList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AssignmentHistoryVO getAssignmentHistoryByNo(String assignment_history_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeAssignmentHistory(AssignmentHistoryVO assignmentHistory) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	
+
+}

@@ -1,0 +1,19 @@
+package kr.or.ddit.member.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ProfessorVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface ProfessorService {
+	List<ProfessorVO> getProfessorList(SearchCriteria cri) throws SQLException;
+	
+	ProfessorVO getProfessorById(String professor_id) throws SQLException;;
+	
+	void registProfessor(ProfessorVO professor) throws SQLException;
+	
+	void modifyProfessor(ProfessorVO professor) throws SQLException;
+	
+	void removeProfessor(ProfessorVO professor) throws SQLException;
+}

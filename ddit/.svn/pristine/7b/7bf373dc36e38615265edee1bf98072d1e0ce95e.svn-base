@@ -1,0 +1,137 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<body>
+	
+
+	<div class="content-body">
+
+		<!-- Page Headings Start -->
+		<div class="row justify-content-between align-items-center mb-10">
+
+			<!-- Page Heading Start -->
+			<div class="col-12 col-lg-auto mb-20">
+				<div class="page-heading">
+					<h3 class="title" style="text-align: left;">회차 등록</h3>
+				</div>
+			</div>
+			<!-- Page Heading End -->
+
+		</div>
+		<!-- Page Headings End -->
+
+		<form role="form" method="post" action="regist.do" name="registForm">
+			<div class="row">
+				<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+					<h5>회차아이디</h5>
+				</div>	
+				<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+					<input type="text" class="form-control" value="${class_no }" name="class_no" id="class_no" readonly />
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>교육과정</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<select class="form-control" name="curriculum_no" id="curriculum_no">
+					<option value="">교육과정선택</option>
+					<c:forEach items="${curriculumList }" var="curriculum">
+						<c:if test="${curriculum.curriculum_status eq '0' }">
+							<option value="${curriculum.curriculum_no }">${curriculum.curriculum_name }</option>
+						</c:if>
+					</c:forEach>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>훈련시작날짜</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_start_date" id="class_start_date" >
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>모집시작날짜</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_recruitment_start" id="class_recruitment_start" >
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>모집종료날짜</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="date" class="form-control" name="class_recruitment_end" id="class_recruitment_end" >
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-1 mb-20" style="width: 100%; text-align: center; margin-right: 0px; margin-top: 15px;">
+				<h5>정원수</h5>
+			</div>	
+			<div class="col-lg-9 mb-20" style="width: 100%; margin-left: 0px;">
+				<input type="text" class="form-control" name="class_max" id="class_max" >
+				<input type="text" class="form-control" name="class_real" id="class_real" style="display: none;" value="0" >
+				<input type="text" class="form-control" name="class_status" id="class_status" style="display: none;" value="모집 중" >
+				<input type="text" class="form-control" name="class_delete" id="class_delete" style="display: none;" value="0" >
+			</div>
+		</div>
+		
+		
+
+		</form>
+
+
+
+		
+		<!-- button -->
+		<div class="row">
+			<div class="col-lg-9 mb-20"></div>
+	
+			<div class="col-lg-3 mb-20">
+				<button class="button button-success" id="registBtn">
+					<span>등록</span>
+				</button>
+				<button class="button button-danger" id="cancelBtn">
+					<span>취소</span>
+				</button>
+			</div>
+		</div>
+
+	</div>
+	<script>
+$('#registBtn').on('click',function(e){
+	
+	var form=document.registForm;
+	
+	
+	alert($('#curriculum_no').val());
+	var class_start_date = $('#class_start_date').val();
+	var class_recruitment_start =$('#class_recruitment_start').val();
+	var class_recruitment_end =$('#class_recruitment_end').val();
+	
+	if(class_recruitment_start>class_recruitment_end||class_recruitment_end>class_start_date){
+		alert("날짜를 올바르게 입력하십시오.");
+		return;
+	}
+	
+	if(form.class_start_date.value==""||form.class_recruitment_start.value==""||form.class_recruitment_end.value==""||form.class_max.value==""){
+		alert("입력하지 않은 항목이 있습니다.");
+		return;
+	}
+	alert("허허");
+	form.submit();
+});
+
+</script>
+
+</body>
+</html>

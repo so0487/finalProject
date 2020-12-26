@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>  
+
+<!-- 추가하기 스크롤바   -->
+<style>
+	#followquick { position:absolute; top:220px; right:50%; margin-right:-870px; }
+</style>
+<script>
+	//follow quick menu
+	$(window).scroll(function() {
+		var scrollTop = $(document).scrollTop();
+		if (scrollTop < 180) {
+			scrollTop = 180;
+		}
+		$("#followquick").stop();
+		$("#followquick").animate({
+			"top" : scrollTop
+		});
+	});
+</script>

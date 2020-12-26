@@ -1,0 +1,63 @@
+package kr.or.ddit.zoom.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.dto.MeetingVO;
+import kr.or.ddit.member.dao.AdminDAO;
+import kr.or.ddit.zoom.dao.MeetingDAO;
+
+public class MeetingServiceImpl implements MeetingService {
+	private MeetingDAO meetingDAO;
+	
+	
+	public void MeetingDAO(MeetingDAO meetingDAO) {
+		this.meetingDAO = meetingDAO;
+	}
+	
+	public MeetingDAO getMeetingDAO() {
+		return meetingDAO;
+	}
+
+	public void setMeetingDAO(MeetingDAO meetingDAO) {
+		this.meetingDAO = meetingDAO;
+	}
+
+
+
+	@Override
+	public void registMeeting(Map<String, String> paramMap) {
+		meetingDAO.insertMeeting(paramMap);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> getMeeting(String userid) {
+		
+		return meetingDAO.selectMeeting(userid);
+	}
+
+	@Override
+	public int removeMeeting(String meetingid) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int registInvitation(Map<String, String> paramMap) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<HashMap<String, Object>> getUserInvit(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MeetingVO> getMeetingByMemId(Map<String, String> paramMap) {
+		return meetingDAO.selectMeetingByMemId(paramMap);
+	}
+
+}

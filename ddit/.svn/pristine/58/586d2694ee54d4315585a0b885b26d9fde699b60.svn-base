@@ -1,0 +1,55 @@
+package kr.or.ddit.board.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.AttachVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AttachDAOImpl implements AttachDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<AttachVO> selectAttachList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AttachVO selectAttachByNo(String attach_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertAttach(AttachVO attach) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateAttach(AttachVO attach) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAttach(AttachVO attach) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+   @Override
+   public String selectAttachNo() throws SQLException {
+      String board_no=sqlSession.selectOne("Board-Mapper.selectBoardNo");
+      return board_no;
+   }
+
+}

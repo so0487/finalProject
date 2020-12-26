@@ -1,0 +1,52 @@
+package kr.or.ddit.assign.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.assign.dao.AssignmentDAO;
+import kr.or.ddit.dto.AdminVO;
+import kr.or.ddit.dto.AssignmentVO;
+import kr.or.ddit.member.service.AdminService;
+import kr.or.ddit.request.SearchCriteria;
+
+public class AssignmentServiceImpl implements AssignmentService {
+	private AssignmentDAO assignmentDAO;
+
+
+	public void setAssignmentDAO(AssignmentDAO assignmentDAO) {
+		this.assignmentDAO = assignmentDAO;
+	}
+	
+	@Override
+	public List<AssignmentVO> getAssignmentList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AssignmentVO getAssignmentByNo(String assignment_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registAssignment(AssignmentVO Assignment) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyAssignment(AssignmentVO Assignment) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeAssignment(AssignmentVO Assignment) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

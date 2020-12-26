@@ -1,0 +1,19 @@
+package kr.or.ddit.schedule.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ScheduleCategoryVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface ScheduleCategoryService {
+	List<ScheduleCategoryVO> getScheduleCategoryList(SearchCriteria cri) throws SQLException;
+	
+	ScheduleCategoryVO getScheduleCategoryByNo(String schedule_category_no) throws SQLException;;
+	
+	void registScheduleCategory(ScheduleCategoryVO schedulecategory) throws SQLException;
+	
+	void modifyScheduleCategory(ScheduleCategoryVO schedulecategory) throws SQLException;
+	
+	void removeScheduleCategory(ScheduleCategoryVO schedulecategory) throws SQLException;
+}

@@ -1,0 +1,24 @@
+package kr.or.ddit.exam.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.ExamVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface ExamDAO {
+	List<ExamVO> selectExamList(SearchCriteria cri) throws SQLException;
+	
+	ExamVO selectExamByNo(String exam_no) throws SQLException;;
+	
+	void insertExam(ExamVO exam) throws SQLException;
+	
+	void updateExam(ExamVO exam) throws SQLException;
+	
+	void deleteExam(String exam_no) throws SQLException;
+	
+	void disableExam(String exam_no) throws SQLException;
+	
+	String selectExamNo() throws SQLException;
+
+}

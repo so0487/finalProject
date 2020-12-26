@@ -1,0 +1,19 @@
+package kr.or.ddit.message.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.MessageVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface MessageDAO {
+	List<MessageVO> selectMessageList(SearchCriteria cri) throws SQLException;
+	
+	MessageVO selectMessageByNo(String message_no) throws SQLException;;
+	
+	void insertMessage(MessageVO message) throws SQLException;
+	
+	void updateMessage(MessageVO message) throws SQLException;
+	
+	void deleteMessage(MessageVO message) throws SQLException;
+}

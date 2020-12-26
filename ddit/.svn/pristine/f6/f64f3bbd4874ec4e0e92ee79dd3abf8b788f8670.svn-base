@@ -1,0 +1,61 @@
+package kr.or.ddit.emprate.service;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.emprate.dao.EmpRateDAO;
+
+public class EmpRateServiceImpl implements EmpRateService {
+
+	EmpRateDAO empRateDAO;
+	public void setEmpRateDAO(EmpRateDAO empRateDAO) {
+		this.empRateDAO = empRateDAO;
+	}
+	
+
+
+
+	@Override
+	public Map<String, Object> studentEmpRatio(String curriculum_no) throws SQLException {
+		Map<String, Object>dataMap = new HashMap<String, Object>();
+		
+		
+		List<Map<String, Object>>studentEmpRatioList = empRateDAO.studentEmpRatio(curriculum_no);
+		dataMap.put("studentEmpRatioList", studentEmpRatioList);
+		
+		
+		return dataMap;
+	}
+
+
+
+
+
+
+	@Override
+	public Map<String, Object> curriculumEmpRatio() throws SQLException {
+		Map<String, Object>dataMap = new HashMap<String,Object>();
+		
+		List<Map<String, Object>>curriculumEmpRatioList = empRateDAO.curriculumEmpRatio();
+		
+		dataMap.put("curriculumEmpRatioList", curriculumEmpRatioList);
+		
+		return dataMap;
+	}
+	
+	
+	
+	
+
+
+
+
+	@Override
+	public Map<String, String> classEmpRatio(String class_no) throws Exception {
+		return empRateDAO.classEmpRatio(class_no);
+	}
+
+
+}

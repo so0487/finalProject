@@ -1,0 +1,26 @@
+package kr.or.ddit.dto;
+
+public class EvaVO {
+	private String evalution_no;  //평가기준id
+	private String evalution_name;  //평가기준이름	
+	
+	public String getEvalution_no() {
+		return evalution_no;
+	}
+	public void setEvalution_no(String evalution_no) {
+		this.evalution_no = evalution_no;
+	}
+	public String getEvalution_name() {
+		return evalution_name;
+	}
+	public void setEvalution_name(String evalution_name) {
+		this.evalution_name = evalution_name;
+	}
+	@Override
+	public String toString() {
+		return "EvaVO [evalution_no=" + evalution_no + ", evalution_name=" + evalution_name + "]";
+	}
+	
+	
+	
+}	

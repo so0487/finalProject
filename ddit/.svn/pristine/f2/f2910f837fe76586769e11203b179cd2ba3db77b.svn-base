@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
+<!DOCTYPE html>
+<html>
+	
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+	.form-control{
+		width:200px;
+		display: inline-block;
+	}
+	.col-form-label{
+		display: inline-block;
+	}
+</style>
+</head>
+<body>
+	<div style="margin-left:15px;margin-top:15px">
+		<h1>아이디 찾기 </h1>
+		<form action="findId.do" method="post">
+		<label class="col-form-label">이 &#160; &#160;름</label> : <input type="text" name="member_name" class="form-control" ><br>
+		<label class="col-form-label">이메일</label> : <input type="text" name="member_email" class="form-control">
+		<button class="button button-primary">아이디 찾기</button>	
+		</form>
+	</div>
+	
+	<br><br><br><br>
+	
+	<div style="margin-left:15px;">
+		<h1>비밀번호 찾기</h1>
+		<form action="findPwd.do" method="post">
+		<label class="col-form-label">아이디</label> : <input type="text" name="member_id" class="form-control" ><br>
+		<label class="col-form-label">이메일</label> : <input type="text" name="member_email" class="form-control" >
+		<button class="button button-primary">비밀번호 찾기</button>
+		</form>
+	</div>
+	
+</body>
+
+</html>
+

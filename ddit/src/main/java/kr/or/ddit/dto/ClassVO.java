@@ -1,0 +1,140 @@
+package kr.or.ddit.dto;
+
+import java.sql.Date;
+import java.util.List;
+
+public class ClassVO {
+	private String class_no;  //회차id
+	private int class_real;  //현인원
+	private String class_status;  //모집여부
+	private String class_delete;  //삭제여부
+	private Date class_start_date;  //훈련 시작날짜
+	private Date class_end_date;  //훈련 종료날짜
+	private int class_star_avg;  //별점평균
+	private Date class_forgive_date;  //수강취소기간
+	private Date class_recruitment_end;  //모집 종료날짜
+	private Date class_recruitment_start;  //모집 시작날짜
+	private String curriculum_no;  //교육과정id
+	private String curriculum_name;  //교육과정id
+	
+	private int class_max;  //정원수
+	private int class_number;  //회차
+
+	private List<LectureVO> lectureList;
+	
+	
+	public List<LectureVO> getLectureList() {
+		return lectureList;
+	}
+	public void setLectureList(List<LectureVO> lectureList) {
+		this.lectureList = lectureList;
+	}
+	
+	public String getClass_no() {
+		return class_no;
+	}
+	public void setClass_no(String class_no) {
+		this.class_no = class_no;
+	}
+	public int getClass_real() {
+		return class_real;
+	}
+	public void setClass_real(int class_real) {
+		this.class_real = class_real;
+	}
+	public String getClass_status() {
+		return class_status;
+	}
+	public void setClass_status(String class_status) {
+		this.class_status = class_status;
+	}
+	public String getClass_delete() {
+		return class_delete;
+	}
+	public void setClass_delete(String class_delete) {
+		this.class_delete = class_delete;
+	}
+	public Date getClass_start_date() {
+		return class_start_date;
+	}
+	public void setClass_start_date(Date class_start_date) {
+		this.class_start_date = class_start_date;
+	}
+	public Date getClass_end_date() {
+		return class_end_date;
+	}
+	public void setClass_end_date(Date class_end_date) {
+		this.class_end_date = class_end_date;
+	}
+	public int getClass_star_avg() {
+		return class_star_avg;
+	}
+	public void setClass_star_avg(int class_star_avg) {
+		this.class_star_avg = class_star_avg;
+	}
+	public Date getClass_forgive_date() {
+		return class_forgive_date;
+	}
+	public void setClass_forgive_date(Date class_forgive_date) {
+		this.class_forgive_date = class_forgive_date;
+	}
+	public Date getClass_recruitment_end() {
+		return class_recruitment_end;
+	}
+	public void setClass_recruitment_end(Date class_recruitment_end) {
+		this.class_recruitment_end = class_recruitment_end;
+	}
+	public Date getClass_recruitment_start() {
+		return class_recruitment_start;
+	}
+	public void setClass_recruitment_start(Date class_recruitment_start) {
+		this.class_recruitment_start = class_recruitment_start;
+	}
+	public String getCurriculum_no() {
+		return curriculum_no;
+	}
+	public void setCurriculum_no(String curriculum_no) {
+		this.curriculum_no = curriculum_no;
+	}
+	public String getCurriculum_name() {
+		return curriculum_name;
+	}
+	public void setCurriculum_name(String curriculum_name) {
+		this.curriculum_name = curriculum_name;
+	}
+	public int getClass_max() {
+		return class_max;
+	}
+	public void setClass_max(int class_max) {
+		this.class_max = class_max;
+	}
+	public int getClass_number() {
+		return class_number;
+	}
+	public void setClass_number(int class_number) {
+		this.class_number = class_number;
+	}
+	@Override
+	public String toString() {
+		return "ClassVO [class_no=" + class_no + ", class_real=" + class_real + ", class_status=" + class_status
+				+ ", class_delete=" + class_delete + ", class_start_date=" + class_start_date + ", class_end_date="
+				+ class_end_date + ", class_star_avg=" + class_star_avg + ", class_forgive_date=" + class_forgive_date
+				+ ", class_recruitment_end=" + class_recruitment_end + ", class_recruitment_start="
+				+ class_recruitment_start + ", curriculum_no=" + curriculum_no + ", curriculum_name=" + curriculum_name
+				+ ", class_max=" + class_max + ", class_number=" + class_number + "]";
+	}
+	
+	
+	
+		
+
+	
+	
+
+
+
+	
+
+	
+	
+}

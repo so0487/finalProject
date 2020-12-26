@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EvaToLec-Mapper">
+
+<select id="selectEva_to_lecNo" parameterType="int" resultType="str">
+	select 'EVA_TO_LEC'||LPAD(seq_eva.nextval,4,'0')
+	from dual
+</select>
+
+<select id="selectEva_to_lecByNo" parameterType="str" resultType="evatolec">
+		select
+		*
+		from eva_to_lec
+		where eva_to_lec_no=#{eva_to_lec_no}
+</select>
+
+<select id="selectEva_to_lecByLectureNo" parameterType="str" resultType="evatolec">
+		select
+		*
+		from eva_to_lec
+		where lecture_no=#{lecture_no}
+</select>
+
+<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			content like '%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			)
+		</if>
+	</sql>
+	
+<select id="selectSearchEva_to_lecList" resultType="evatolec">
+		select
+		*
+		from eva_to_lec
+		where eva_to_lec_no is not null
+</select>
+
+
+
+<select id="selectSearchEva_to_lecListCount" resultType="int">
+		select
+		count(*)
+		from eva_to_lec
+		where eva_to_lec_no is not null
+		<include refid="search" />
+
+</select>
+
+<update id="insertEva_to_lec" parameterType="evatolec" >
+		insert into	eva_to_lec(eva_to_lec_no,evalution_no,lecture_no,eva_to_lec_ratio,eva_to_lec_name)
+		values(#{eva_to_lec_no},#{evalution_no},#{lecture_no},#{eva_to_lec_ratio},#{eva_to_lec_name})
+</update>
+
+
+
+
+</mapper>

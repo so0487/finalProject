@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+<script type="text/x-handlebars-template" id="reply-list-template" >
+
+
+{{#each .}}
+<div class="studentEmpRateTest"
+	<h1>ssss</h1>
+</div>
+{{/#each}}
+</script>
+
+
+<script>
+	Handlebars.registerHelper("reply_writerChe", function(reply_writer, reply_no){
+		var memberId = '${loginUser.member_id}';
+		
+		if(reply_writer == memberId){
+			return '<i class="zmdi zmdi-edit" id="modifyReplyBtn" data-toggle="modal" data-reply_no='+reply_no+' data-reply_writer='+reply_writer+' data-target="#exampleModal5">수정</i>'
+		 }else{
+			return ""
+		} 
+	}); 
+
+
+</script>

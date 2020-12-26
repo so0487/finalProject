@@ -1,0 +1,53 @@
+package kr.or.ddit.exam.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kr.or.ddit.dto.ExampleVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public class ExampleDAOImpl implements ExampleDAO {
+	private SqlSession sqlSession;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}	
+	
+	@Override
+	public List<ExampleVO> selectExampleList(SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ExampleVO selectExampleByNo(String example_no) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertExample(ExampleVO example) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateExample(ExampleVO example) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteExample(ExampleVO example) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+    public String selectExampleNo() throws SQLException {
+	    String example_no=sqlSession.selectOne("Scoring-Mapper.selectExampleNo");
+	    return example_no;
+    }
+
+}

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Class-Mapper">
+
+<select id="selectClassNo" parameterType="int" resultType="str">
+	select 'CLASS'||LPAD(seq_class.nextval,4,'0')
+	from dual
+</select>
+
+
+<select id="selectClassByNo" parameterType="str" resultType="class">
+		select
+		*
+		from class
+		where class_no=#{class_no}
+</select>
+
+
+
+<sql id="search">
+		<if test="searchType == 'n'.toString()">
+			and curriculum_name like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 's'.toString()">
+			and class_status = '모집 중'
+		</if>
+		<if test="searchType == 'ns'.toString()">
+			and (
+			curriculum_name like '%'||#{keyword}||'%'
+			and
+			class_status = '모집 중'
+			)
+		</if>
+	</sql>
+	
+<select id="selectSearchClassList" resultType="class">
+		select
+		*
+		from class
+		where class_no is not null
+		<include refid="search" />
+		order by class_no desc
+</select>
+
+<select id="selectClassList" resultType="class">
+		select
+		*
+		from class
+		where curriculum_no = #{curriculum_no}
+</select>
+
+
+
+<select id="selectSearchClassListCount" resultType="int">
+		select
+		count(*)
+		from class
+		where class_no is not null
+		<include refid="search" />
+
+</select>
+
+
+	
+<update id="insertClass" parameterType="class" >
+		insert into
+		class(class_no,class_real,class_start_date,class_end_date,
+			  class_star_avg,class_forgive_date,class_status,class_delete,
+			  class_recruitment_start,class_recruitment_end,
+			  curriculum_no,class_max,class_number,curriculum_name)
+		values(#{class_no},#{class_real},#{class_start_date},#{class_end_date},0,#{class_start_date}+7,#{class_status},#{class_delete},#{class_recruitment_start},
+				#{class_recruitment_end},#{curriculum_no},#{class_max},#{class_number},#{curriculum_name}
+		)
+</update>
+
+<update id="updateClass" parameterType="class" >
+	update class
+	set
+	class_max=#{class_max},class_start_date=#{class_start_date},
+	class_end_date=#{class_end_date},
+	class_recruitment_start=#{class_recruitment_start},
+	class_recruitment_end=#{class_recruitment_end},
+	class_forgive_date=#{class_forgive_date}
+	where class_no=#{class_no}
+</update>
+
+<update id="recruitmentClass" parameterType="str">
+	update class
+	set
+	class_status='마감'
+	where class_no=#{class_no}
+</update>
+<update id="deleteClass" parameterType="str">
+	update class
+	set
+	class_delete='1'
+	where class_no=#{class_no}
+</update>
+
+<select id="selectMaxClass_number" resultType="int">
+	select nvl(max(class_number),0) from class
+	where curriculum_no = #{curriculum_no}
+</select>
+
+
+
+
+
+<select id="selectClass_end_date" parameterType="map" resultType="dates">
+select ls_day from(
+
+select #{class_start_date} + rn ls_day
+
+from (select rownum rn from all_objects ) a ,( select curriculum_time/8 as day from curriculum where curriculum_no = #{curriculum_no}) b
+where to_char(#{class_start_date}+rn,'d') in ('2','3','4','5','6')
+<![CDATA[and rownum <=  b.day]]>
+order by ls_day desc )
+where rownum =1
+</select>
+
+
+
+
+
+
+
+
+</mapper>

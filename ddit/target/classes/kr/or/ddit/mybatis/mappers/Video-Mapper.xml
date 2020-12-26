@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Video-Mapper">
+	
+	<update id="insertVideo" parameterType="video">
+		insert 
+		into video(VIDEO_NO,LECTURE_NO,VIDEO_PATH,VIDEO_NAME,VIDEO_TITLE,VIDEO_MEETING_NO,VIDEO_START_DATE)
+		values(#{video_no},#{lecture_no},#{video_path},#{video_name},#{video_title},#{video_meeting_no},#{video_start_date})	
+	</update>
+	
+	<select id="selectVideoByLectureNo" resultType="video">
+		select * 
+		from video
+		where lecture_no=#{lecture_no}
+	</select>
+	
+	<select id="selectVideoByNo" resultType="video">
+		select * 
+		from video
+		where video_no=#{video_no}
+	</select>
+	
+	<select id="selectVideoNo" resultType="str">
+		select 'VIDEO'||LPAD(seq_video.nextval,4,'0') from dual
+	</select>
+	
+	<update id="deleteVideo">
+		delete 
+		from video
+		where video_no=#{video_no}
+	</update>
+
+</mapper>
+

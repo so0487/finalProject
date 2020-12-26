@@ -1,0 +1,19 @@
+package kr.or.ddit.counsel.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import kr.or.ddit.dto.CounselVO;
+import kr.or.ddit.request.SearchCriteria;
+
+public interface CounselDAO {
+	List<CounselVO> selectCounselList(SearchCriteria cri) throws SQLException;
+	
+	CounselVO selectCounselByNo(String counsel_no) throws SQLException;;
+	
+	void insertCounsel(CounselVO counsel) throws SQLException;
+	
+	void updateCounsel(CounselVO counsel) throws SQLException;
+	
+	void deleteCounsel(CounselVO counsel) throws SQLException;
+}
